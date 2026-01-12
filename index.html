@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKDL | Mysthrala Kurogane Defense Labs</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #00ff41; /* Verde terminal clásico */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            border: 1px solid #333;
+            padding: 40px;
+            background-color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+        }
+        .status-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        h1 { font-size: 1.5rem; margin-bottom: 10px; }
+        p { color: #888; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>> MYSTHRALA KUROGANE DEFENSE LABS</h1>
+        <p>STATUS: <span style="color: #00ff41;">SECURE_NODE_ONLINE</span></p>
+        <p>SYSTEM: AKKOROKAMUI-01 [ELGOIBAR]</p>
+        <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
+        <p class="status-blink">_ DEPLOYMENT IN PROGRESS...</p>
+    </div>
+</body>
+</html>
