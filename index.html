@@ -10,9 +10,10 @@
             color: #00ff41; /* Verde terminal clásico */
             font-family: 'Courier New', Courier, monospace;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
         .container {
@@ -20,6 +21,16 @@
             padding: 40px;
             background-color: #000;
             box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid #222;
+            padding: 20px 0;
+            background-color: #0a0a0a;
         }
         .status-blink {
             animation: blink 1s infinite;
@@ -40,12 +51,11 @@
         <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
         <p class="status-blink">_ DEPLOYMENT IN PROGRESS...</p>
     </div>
-    <footer style="margin-top: 50px; border-top: 1px solid #222; padding-top: 10px;">
-    <p style="font-size: 0.7rem; color: #444; line-height: 1.4;">
-        https://mkdl.jp &copy; 2026 by Mysthrala Kurogane Defense Labs (MKDL) <br>
-        is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color: #00ff41; text-decoration: none;">CC BY-NC-ND 4.0</a>
-    </p>
-</footer>
+    <footer>
+        <p style="font-size: 0.7rem; color: #444; line-height: 1.4;">
+            https://mkdl.jp &copy; 2026 by Mysthrala Kurogane Defense Labs (MKDL) <br>
+            is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color: #00ff41; text-decoration: none;">CC BY-NC-ND 4.0</a>
+        </p>
+    </footer>
 </body>
-    
 </html>
