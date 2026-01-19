@@ -383,8 +383,8 @@
                 el.style.display = 'none';
             });
             document.querySelectorAll('.lang-es').forEach(el => {
-                // Set to inline-block to override CSS rule while preserving inline behavior
-                el.style.display = 'inline-block';
+                // Use inline for proper text flow within paragraphs
+                el.style.display = 'inline';
             });
 
             // Update button styles
@@ -406,8 +406,14 @@
     langEsBtn.addEventListener('click', () => setLanguage('es'));
 
     // Load saved language preference or default to Basque
-    const savedLang = localStorage.getItem('language') || 'eu';
-    setLanguage(savedLang);
+    const savedLang = localStorage.getItem('language');
+    // Validate the saved language value
+    if (savedLang === 'eu' || savedLang === 'es') {
+        setLanguage(savedLang);
+    } else {
+        // Default to Basque if no valid preference is saved
+        setLanguage('eu');
+    }
 
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
