@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.294.0"></script>
     <style>
         * {
             scroll-behavior: smooth;
@@ -21,8 +21,7 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'JetBrains Mono', monospace;
         }
-        .lang-eu { display: block; }
-        .lang-es { display: none; }
+        .hidden { display: none !important; }
         .glow-green {
             box-shadow: 0 0 20px rgba(0, 155, 72, 0.5);
         }
@@ -311,7 +310,7 @@
                     © 2026 Mysthrala Aholkularitza. Powered by MKDL.jp.
                 </p>
             </div>
-            </div>
+
     </footer>
 <script>
     // Initialize Lucide icons
@@ -324,8 +323,8 @@
     function setLanguage(lang) {
         if (lang === 'eu') {
             // Show Basque, hide Spanish
-            document.querySelectorAll('.lang-eu').forEach(el => el.style.display = 'block');
-            document.querySelectorAll('.lang-es').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.lang-eu').forEach(el => el.classList.remove('hidden'));
+            document.querySelectorAll('.lang-es').forEach(el => el.classList.add('hidden'));
 
             // Update button styles
             langEuBtn.classList.add('bg-green-600', 'text-white');
@@ -337,8 +336,8 @@
             document.documentElement.lang = 'eu';
         } else {
             // Show Spanish, hide Basque
-            document.querySelectorAll('.lang-eu').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.lang-es').forEach(el => el.style.display = 'block');
+            document.querySelectorAll('.lang-eu').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lang-es').forEach(el => el.classList.remove('hidden'));
 
             // Update button styles
             langEsBtn.classList.add('bg-green-600', 'text-white');
@@ -355,8 +354,11 @@
     langEuBtn.addEventListener('click', () => setLanguage('eu'));
     langEsBtn.addEventListener('click', () => setLanguage('es'));
 
-    // Set default language to Basque
-    setLanguage('eu');
+    // Set default language to Basque on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        // Hide Spanish content initially
+        document.querySelectorAll('.lang-es').forEach(el => el.classList.add('hidden'));
+    });
 </script>
 </body>
 </html>
