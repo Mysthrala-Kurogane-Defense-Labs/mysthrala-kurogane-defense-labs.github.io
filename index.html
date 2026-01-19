@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MYSTHRALA | Zibersegurtasun Industriala Elgoibarren</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com@3.4.1"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/lucide@0.294.0"></script>
+    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         * {
             scroll-behavior: smooth;
@@ -38,26 +38,59 @@
             </div>
 
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#services" class="hover:text-green-600 transition lang-eu">Zerbitzuak</a>
-                <a href="#services" class="hover:text-green-600 transition lang-es">Servicios</a>
+                <a href="#services" class="hover:text-green-600 transition">
+                    <span class="lang-eu">Zerbitzuak</span>
+                    <span class="lang-es">Servicios</span>
+                </a>
 
-                <a href="#system" class="hover:text-green-600 transition lang-eu">Sistema MKDL</a>
-                <a href="#system" class="hover:text-green-600 transition lang-es">Tecnología</a>
+                <a href="#system" class="hover:text-green-600 transition">
+                    <span class="lang-eu">Sistema MKDL</span>
+                    <span class="lang-es">Tecnología</span>
+                </a>
 
-                <a href="#contact" class="hover:text-green-600 transition lang-eu">Kontaktua</a>
-                <a href="#contact" class="hover:text-green-600 transition lang-es">Contacto</a>
+                <a href="#contact" class="hover:text-green-600 transition">
+                    <span class="lang-eu">Kontaktua</span>
+                    <span class="lang-es">Contacto</span>
+                </a>
             </div>
 
             <div class="flex items-center space-x-4">
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
+                </button>
+
                 <div class="flex items-center bg-slate-800 rounded-lg p-1">
-                    <button id="lang-eu"
+                    <button id="lang-eu" aria-label="Aldatu euskarara / Cambiar a euskera"
                         class="px-3 py-1 rounded bg-green-600 text-white font-semibold transition">EU</button>
-                    <button id="lang-es"
+                    <button id="lang-es" aria-label="Cambiar a español / Aldatu espainolera"
                         class="px-3 py-1 rounded text-slate-400 hover:text-white transition">ES</button>
                 </div>
 
                 <button
-                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition">
+                    class="hidden md:block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition">
+                    <span class="lang-eu">Auditoria Eskatu</span>
+                    <span class="lang-es">Solicitar Auditoría</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#services" class="hover:text-green-600 transition py-2">
+                    <span class="lang-eu">Zerbitzuak</span>
+                    <span class="lang-es">Servicios</span>
+                </a>
+                <a href="#system" class="hover:text-green-600 transition py-2">
+                    <span class="lang-eu">Sistema MKDL</span>
+                    <span class="lang-es">Tecnología</span>
+                </a>
+                <a href="#contact" class="hover:text-green-600 transition py-2">
+                    <span class="lang-eu">Kontaktua</span>
+                    <span class="lang-es">Contacto</span>
+                </a>
+                <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition text-center">
                     <span class="lang-eu">Auditoria Eskatu</span>
                     <span class="lang-es">Solicitar Auditoría</span>
                 </button>
@@ -91,10 +124,10 @@
             </button>
 
             <p class="text-slate-400 lang-eu">
-                <i data-lucide="map-pin" class="inline w-4 h-4"></i> Ingeniaritza eta euskarria Debabarrenatik.
+                <i data-lucide="map-pin" class="inline w-4 h-4" aria-hidden="true"></i> Ingeniaritza eta euskarria Debabarrenatik.
             </p>
             <p class="text-slate-400 lang-es">
-                <i data-lucide="map-pin" class="inline w-4 h-4"></i> Ingeniería y soporte desde el Bajo Deba.
+                <i data-lucide="map-pin" class="inline w-4 h-4" aria-hidden="true"></i> Ingeniería y soporte desde el Bajo Deba.
             </p>
         </div>
     </section>
@@ -130,7 +163,7 @@
                             class="w-80 h-96 bg-slate-800 rounded-3xl border-4 border-slate-700 flex items-center justify-center">
                             <div
                                 class="w-48 h-48 rounded-full bg-green-600 glow-green flex items-center justify-center">
-                                <i data-lucide="shield-check" class="w-24 h-24 text-white"></i>
+                                <i data-lucide="shield-check" class="w-24 h-24 text-white" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -147,7 +180,7 @@
                     <div class="space-y-6">
                         <div class="flex items-start space-x-4">
                             <div class="bg-green-600 p-2 rounded-lg">
-                                <i data-lucide="tablet" class="w-6 h-6"></i>
+                                <i data-lucide="tablet" class="w-6 h-6" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2 lang-eu">Aginte Terminal Segurua (Jabetzan)</h3>
@@ -158,7 +191,7 @@
 
                         <div class="flex items-start space-x-4">
                             <div class="bg-green-600 p-2 rounded-lg">
-                                <i data-lucide="signal" class="w-6 h-6"></i>
+                                <i data-lucide="signal" class="w-6 h-6" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2 lang-eu">4G Konexio propioa (WiFi-tik kanpo)</h3>
@@ -169,7 +202,7 @@
 
                         <div class="flex items-start space-x-4">
                             <div class="bg-green-600 p-2 rounded-lg">
-                                <i data-lucide="palmtree" class="w-6 h-6"></i>
+                                <i data-lucide="smile" class="w-6 h-6" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2 lang-eu">"Maldivas" Modua: Semaforo Berdea eta
@@ -181,7 +214,7 @@
 
                         <div class="flex items-start space-x-4">
                             <div class="bg-green-600 p-2 rounded-lg">
-                                <i data-lucide="lock" class="w-6 h-6"></i>
+                                <i data-lucide="lock" class="w-6 h-6" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold mb-2 lang-eu">Zero Trust: Kiosko moduan blokeatuta</h3>
@@ -216,7 +249,7 @@
 
                     <ul class="space-y-3">
                         <li class="flex items-center">
-                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2"></i>
+                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2" aria-hidden="true"></i>
                             <span class="lang-eu">Mantentzea OT</span>
                             <span class="lang-es">Mantenimiento OT</span>
                         </li>
@@ -242,15 +275,15 @@
 
                     <ul class="space-y-3">
                         <li class="flex items-center">
-                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2"></i>
+                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2" aria-hidden="true"></i>
                             <span>Tablet MKDL</span>
                         </li>
                         <li class="flex items-center">
-                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2"></i>
+                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2" aria-hidden="true"></i>
                             <span>App MKDL</span>
                         </li>
                         <li class="flex items-center">
-                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2"></i>
+                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2" aria-hidden="true"></i>
                             <span class="lang-eu">Monitorización 24/7</span>
                             <span class="lang-es">Monitorización 24/7</span>
                         </li>
@@ -302,7 +335,7 @@
                 </a>
             </div>
             <p class="text-slate-500 mb-4">
-                <i data-lucide="map-pin" class="inline w-4 h-4"></i>
+                <i data-lucide="map-pin" class="inline w-4 h-4" aria-hidden="true"></i>
                 Elgoibar, Gipuzkoa (Euskadi)
             </p>
             <div class="border-t border-slate-800 pt-6 mt-6">
@@ -353,6 +386,21 @@
     // Event listeners for language toggle
     langEuBtn.addEventListener('click', () => setLanguage('eu'));
     langEsBtn.addEventListener('click', () => setLanguage('es'));
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking on a link
+    mobileMenu.querySelectorAll('a, button').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
 
         // Set default language to Basque on page load
         document.addEventListener('DOMContentLoaded', () => {
