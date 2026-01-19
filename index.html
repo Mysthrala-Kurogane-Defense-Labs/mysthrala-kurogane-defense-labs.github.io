@@ -22,6 +22,8 @@
             font-family: 'JetBrains Mono', monospace;
         }
         .hidden { display: none !important; }
+        /* Hide Spanish content by default (Basque is the default language) */
+        .lang-es { display: none; }
         .glow-green {
             box-shadow: 0 0 20px rgba(0, 155, 72, 0.5);
         }
@@ -356,8 +358,14 @@
     function setLanguage(lang) {
         if (lang === 'eu') {
             // Show Basque, hide Spanish
-            document.querySelectorAll('.lang-eu').forEach(el => el.classList.remove('hidden'));
-            document.querySelectorAll('.lang-es').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lang-eu').forEach(el => {
+                el.style.display = '';
+                el.classList.remove('hidden');
+            });
+            document.querySelectorAll('.lang-es').forEach(el => {
+                el.style.display = 'none';
+                el.classList.add('hidden');
+            });
 
             // Update button styles
             langEuBtn.classList.add('bg-green-600', 'text-white');
@@ -369,8 +377,14 @@
             document.documentElement.lang = 'eu';
         } else {
             // Show Spanish, hide Basque
-            document.querySelectorAll('.lang-eu').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.lang-es').forEach(el => el.classList.remove('hidden'));
+            document.querySelectorAll('.lang-eu').forEach(el => {
+                el.style.display = 'none';
+                el.classList.add('hidden');
+            });
+            document.querySelectorAll('.lang-es').forEach(el => {
+                el.style.display = '';
+                el.classList.remove('hidden');
+            });
 
             // Update button styles
             langEsBtn.classList.add('bg-green-600', 'text-white');
@@ -401,12 +415,6 @@
             mobileMenu.classList.add('hidden');
         });
     });
-
-        // Set default language to Basque on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            // Hide Spanish content initially
-            document.querySelectorAll('.lang-es').forEach(el => el.classList.add('hidden'));
-        });
 </script>
 </body>
 </html>
