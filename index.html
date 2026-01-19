@@ -28,17 +28,6 @@
             box-shadow: 0 0 20px rgba(0, 155, 72, 0.5);
         }
     </style>
-    <script>
-        // Apply saved language preference immediately to avoid flash
-        (function() {
-            const savedLang = localStorage.getItem('language');
-            if (savedLang === 'es') {
-                // If Spanish was saved, show Spanish and hide Basque
-                document.documentElement.style.setProperty('--lang-eu-display', 'none');
-                document.documentElement.style.setProperty('--lang-es-display', '');
-            }
-        })();
-    </script>
 </head>
 <body class="bg-slate-900 text-white">
 
