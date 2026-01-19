@@ -22,12 +22,23 @@
             font-family: 'JetBrains Mono', monospace;
         }
         .hidden { display: none !important; }
-        /* Hide Spanish content by default (Basque is the default language) */
+        /* Hide Spanish content by default until JavaScript loads */
         .lang-es { display: none; }
         .glow-green {
             box-shadow: 0 0 20px rgba(0, 155, 72, 0.5);
         }
     </style>
+    <script>
+        // Apply saved language preference immediately to avoid flash
+        (function() {
+            const savedLang = localStorage.getItem('language');
+            if (savedLang === 'es') {
+                // If Spanish was saved, show Spanish and hide Basque
+                document.documentElement.style.setProperty('--lang-eu-display', 'none');
+                document.documentElement.style.setProperty('--lang-es-display', '');
+            }
+        })();
+    </script>
 </head>
 <body class="bg-slate-900 text-white">
 
@@ -348,8 +359,12 @@
 
     </footer>
 <script>
-    // Initialize Lucide icons
-    lucide.createIcons();
+    // Initialize Lucide icons (with error handling)
+    try {
+        lucide.createIcons();
+    } catch (e) {
+        console.log('Lucide icons failed to load:', e);
+    }
 
     // Language Toggle Functionality
     const langEuBtn = document.getElementById('lang-eu');
@@ -359,7 +374,7 @@
         if (lang === 'eu') {
             // Show Basque, hide Spanish
             document.querySelectorAll('.lang-eu').forEach(el => {
-                el.style.display = '';
+                el.style.removeProperty('display');
             });
             document.querySelectorAll('.lang-es').forEach(el => {
                 el.style.display = 'none';
@@ -379,7 +394,8 @@
                 el.style.display = 'none';
             });
             document.querySelectorAll('.lang-es').forEach(el => {
-                el.style.display = '';
+                // Set to inline-block to override CSS rule while preserving inline behavior
+                el.style.display = 'inline-block';
             });
 
             // Update button styles
@@ -391,11 +407,18 @@
             // Update HTML lang attribute
             document.documentElement.lang = 'es';
         }
+        
+        // Save language preference to localStorage
+        localStorage.setItem('language', lang);
     }
 
     // Event listeners for language toggle
     langEuBtn.addEventListener('click', () => setLanguage('eu'));
     langEsBtn.addEventListener('click', () => setLanguage('es'));
+
+    // Load saved language preference or default to Basque
+    const savedLang = localStorage.getItem('language') || 'eu';
+    setLanguage(savedLang);
 
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
