@@ -1,61 +1,362 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="eu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MKDL | Mysthrala Kurogane Defense Labs</title>
+    <title>MYSTHRALA | Zibersegurtasun Industriala Elgoibarren</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        * {
+            scroll-behavior: smooth;
+        }
         body {
-            background-color: #0a0a0a;
-            color: #00ff41; /* Verde terminal clásico */
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
+            font-family: 'Inter', sans-serif;
         }
-        .container {
-            border: 1px solid #333;
-            padding: 40px;
-            background-color: #000;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'JetBrains Mono', monospace;
         }
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            border-top: 1px solid #222;
-            padding: 20px 0;
-            background-color: #0a0a0a;
+        .lang-eu { display: block; }
+        .lang-es { display: none; }
+        .glow-green {
+            box-shadow: 0 0 20px rgba(0, 155, 72, 0.5);
         }
-        .status-blink {
-            animation: blink 1s infinite;
-        }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        h1 { font-size: 1.5rem; margin-bottom: 10px; }
-        p { color: #888; font-size: 0.9rem; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>> MYSTHRALA KUROGANE DEFENSE LABS</h1>
-        <p>STATUS: <span style="color: #00ff41;">SECURE_NODE_ONLINE</span></p>
-        <p>SYSTEM: AKKOROKAMUI-01 [ELGOIBAR]</p>
-        <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
-        <p class="status-blink">_ DEPLOYMENT IN PROGRESS...</p>
-    </div>
-    <footer>
-        <p style="font-size: 0.7rem; color: #444; line-height: 1.4;">
-            mkdl.jp &copy; 2026 by Mysthrala Kurogane Defense Labs (MKDL) <br>
-            is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color: #00ff41; text-decoration: none;">CC BY-NC-ND 4.0</a>
-        </p>
+<body class="bg-slate-900 text-white">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-slate-900 border-b border-slate-700">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-white">MYSTHRALA</span>
+                <span class="text-xl text-green-600">Aholkularitza</span>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="hover:text-green-600 transition lang-eu">Zerbitzuak</a>
+                <a href="#services" class="hover:text-green-600 transition lang-es">Servicios</a>
+
+                <a href="#system" class="hover:text-green-600 transition lang-eu">Sistema MKDL</a>
+                <a href="#system" class="hover:text-green-600 transition lang-es">Tecnología</a>
+
+                <a href="#contact" class="hover:text-green-600 transition lang-eu">Kontaktua</a>
+                <a href="#contact" class="hover:text-green-600 transition lang-es">Contacto</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center bg-slate-800 rounded-lg p-1">
+                    <button id="lang-eu"
+                        class="px-3 py-1 rounded bg-green-600 text-white font-semibold transition">EU</button>
+                    <button id="lang-es"
+                        class="px-3 py-1 rounded text-slate-400 hover:text-white transition">ES</button>
+                </div>
+
+                <button
+                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition">
+                    <span class="lang-eu">Auditoria Eskatu</span>
+                    <span class="lang-es">Solicitar Auditoría</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-gradient-to-b from-slate-900 to-slate-800 py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 lang-eu">
+                Zibersegurtasun Industriala Elgoibarren.
+            </h1>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 lang-es">
+                Ciberseguridad Industrial en Elgoibar.
+            </h1>
+
+            <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto lang-eu">
+                Ez utzi zibereraso batek zure produkzioa gelditzen. Zure makinak (OT) eta PLCak babesten ditugu defentsa
+                teknologia aurreratuarekin.
+            </p>
+            <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto lang-es">
+                No dejes que un ciberataque pare tu producción. Protegemos tus máquinas (OT) y PLCs con tecnología de
+                defensa avanzada.
+            </p>
+
+            <button
+                class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold transition mb-6">
+                <span class="lang-eu">Kontrol Sistema Ikusi</span>
+                <span class="lang-es">Ver Sistema de Control</span>
+            </button>
+
+            <p class="text-slate-400 lang-eu">
+                <i data-lucide="map-pin" class="inline w-4 h-4"></i> Ingeniaritza eta euskarria Debabarrenatik.
+            </p>
+            <p class="text-slate-400 lang-es">
+                <i data-lucide="map-pin" class="inline w-4 h-4"></i> Ingeniería y soporte desde el Bajo Deba.
+            </p>
+        </div>
+    </section>
+
+    <!-- THE PROBLEM SECTION -->
+    <section class="bg-slate-950 py-20 border-t-2 border-red-600">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 lang-eu">
+                Bulegoko informatikak ez du balio fabrikan.
+            </h2>
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 lang-es">
+                La informática de oficina no sirve en la fábrica.
+            </h2>
+
+            <p class="text-xl text-slate-300 max-w-3xl mx-auto lang-eu">
+                Antibirus arrunt batek ez du automata bat babesten. Kudeaketa sarea erortzen bada, formateatu egiten da.
+                Produkzioa erortzen bada, milaka euro galtzen dituzu orduro.
+            </p>
+            <p class="text-xl text-slate-300 max-w-3xl mx-auto lang-es">
+                Un antivirus normal no protege un autómata. Si tu red de gestión cae, formateas. Si tu red de producción
+                cae, pierdes miles de euros por hora.
+            </p>
+        </div>
+    </section>
+
+    <!-- PRODUCT SHOWCASE SECTION -->
+    <section id="system" class="bg-slate-900 py-24">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <div
+                            class="w-80 h-96 bg-slate-800 rounded-3xl border-4 border-slate-700 flex items-center justify-center">
+                            <div
+                                class="w-48 h-48 rounded-full bg-green-600 glow-green flex items-center justify-center">
+                                <i data-lucide="shield-check" class="w-24 h-24 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 lang-eu">
+                        MKDL System: Zure Fabrika Poltsikoan.
+                    </h2>
+                    <h2 class="text-4xl font-bold mb-6 lang-es">
+                        MKDL System: Tu Fábrica en el Bolsillo.
+                    </h2>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-600 p-2 rounded-lg">
+                                <i data-lucide="tablet" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 lang-eu">Aginte Terminal Segurua (Jabetzan)</h3>
+                                <h3 class="text-xl font-bold mb-2 lang-es">Terminal de Mando Securizado (En propiedad)
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-600 p-2 rounded-lg">
+                                <i data-lucide="signal" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 lang-eu">4G Konexio propioa (WiFi-tik kanpo)</h3>
+                                <h3 class="text-xl font-bold mb-2 lang-es">Conexión 4G Propia (Independiente del WiFi)
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-600 p-2 rounded-lg">
+                                <i data-lucide="palmtree" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 lang-eu">"Maldivas" Modua: Semaforo Berdea eta
+                                    lasaitasuna</h3>
+                                <h3 class="text-xl font-bold mb-2 lang-es">Modo "Maldivas": Semáforo Verde y
+                                    tranquilidad</h3>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-600 p-2 rounded-lg">
+                                <i data-lucide="lock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 lang-eu">Zero Trust: Kiosko moduan blokeatuta</h3>
+                                <h3 class="text-xl font-bold mb-2 lang-es">Zero Trust: Bloqueado en modo kiosco</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="bg-slate-800 py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 lang-eu">Zerbitzuak</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 lang-es">Servicios</h2>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Basic Plan -->
+                <div class="bg-slate-900 border-2 border-slate-700 rounded-xl p-8 hover:border-slate-600 transition">
+                    <h3 class="text-2xl font-bold mb-2 lang-eu">Oinarrizko Mantentzea</h3>
+                    <h3 class="text-2xl font-bold mb-2 lang-es">Mantenimiento Básico</h3>
+
+                    <p class="text-slate-400 mb-4 lang-eu">Tailerrak</p>
+                    <p class="text-slate-400 mb-4 lang-es">Talleres</p>
+
+                    <div class="text-4xl font-bold text-green-600 mb-6">
+                        950€<span class="text-lg text-slate-400 lang-eu">/hilean</span>
+                        <span class="text-lg text-slate-400 lang-es">/mes</span>
+                    </div>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2"></i>
+                            <span class="lang-eu">Mantentzea OT</span>
+                            <span class="lang-es">Mantenimiento OT</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="bg-slate-900 border-2 border-green-600 rounded-xl p-8 glow-green relative">
+                    <div
+                        class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-600 px-4 py-1 rounded-full text-sm font-bold">
+                        PREMIUM
+                    </div>
+
+                    <h3 class="text-2xl font-bold mb-2 lang-eu">Fabrika Blindatua</h3>
+                    <h3 class="text-2xl font-bold mb-2 lang-es">Planta Blindada</h3>
+
+                    <p class="text-slate-400 mb-4">24/7 Produkzioa / Producción</p>
+
+                    <div class="text-4xl font-bold text-green-600 mb-6">
+                        <span class="lang-eu">Kontsultatu</span>
+                        <span class="lang-es">Consultar</span>
+                    </div>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2"></i>
+                            <span>Tablet MKDL</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2"></i>
+                            <span>App MKDL</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-green-600 mr-2"></i>
+                            <span class="lang-eu">Monitorización 24/7</span>
+                            <span class="lang-es">Monitorización 24/7</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section class="bg-slate-900 py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8 lang-eu">
+                Teknologia Japoniarra, Bihotz Euskalduna.
+            </h2>
+            <h2 class="text-4xl font-bold mb-8 lang-es">
+                Tecnología Japonesa, Corazón Vasco.
+            </h2>
+
+            <p class="text-xl text-slate-300 max-w-4xl mx-auto lang-eu">
+                Auzokideak gara. Elgoibartik lan egiten dugu eskualde osorako. Bertako aholkularitza eta <strong
+                    class="text-green-600">MKDL</strong> defentsa teknologia uztartzen ditugu. Badakigu zer den
+                fresadora bat eta zer den Ransomware bat.
+            </p>
+            <p class="text-xl text-slate-300 max-w-4xl mx-auto lang-es">
+                Somos vecinos. Operamos desde Elgoibar para toda la comarca. Combinamos la cercanía local con la
+                tecnología de defensa <strong class="text-green-600">MKDL</strong>. Sabemos lo que es una fresadora y
+                sabemos lo que es un Ransomware.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer id="contact" class="bg-slate-950 border-t border-slate-800 py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4 lang-eu">Hitz egingo dugu?</h2>
+            <h2 class="text-3xl font-bold mb-4 lang-es">¿Hablamos?</h2>
+
+            <p class="text-slate-400 mb-6 lang-eu">
+                Formulariorik gabe. Spam gabe. Ingeniaritik ingeniarira.
+            </p>
+            <p class="text-slate-400 mb-6 lang-es">
+                Sin formularios. Sin spam. De ingeniero a ingeniero.
+            </p>
+
+            <div class="mb-8">
+                <a href="mailto:info@mysthrala.com" class="text-2xl text-green-600 hover:text-green-500 font-bold">
+                    info@mysthrala.com
+                </a>
+            </div>
+            <p class="text-slate-500 mb-4">
+                <i data-lucide="map-pin" class="inline w-4 h-4"></i>
+                Elgoibar, Gipuzkoa (Euskadi)
+            </p>
+            <div class="border-t border-slate-800 pt-6 mt-6">
+                <p class="text-sm text-slate-500">
+                    © 2026 Mysthrala Aholkularitza. Powered by MKDL.jp.
+                </p>
+            </div>
+            </div>
     </footer>
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Language Toggle Functionality
+    const langEuBtn = document.getElementById('lang-eu');
+    const langEsBtn = document.getElementById('lang-es');
+
+    function setLanguage(lang) {
+        if (lang === 'eu') {
+            // Show Basque, hide Spanish
+            document.querySelectorAll('.lang-eu').forEach(el => el.style.display = 'block');
+            document.querySelectorAll('.lang-es').forEach(el => el.style.display = 'none');
+
+            // Update button styles
+            langEuBtn.classList.add('bg-green-600', 'text-white');
+            langEuBtn.classList.remove('text-slate-400');
+            langEsBtn.classList.remove('bg-green-600', 'text-white');
+            langEsBtn.classList.add('text-slate-400');
+
+            // Update HTML lang attribute
+            document.documentElement.lang = 'eu';
+        } else {
+            // Show Spanish, hide Basque
+            document.querySelectorAll('.lang-eu').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.lang-es').forEach(el => el.style.display = 'block');
+
+            // Update button styles
+            langEsBtn.classList.add('bg-green-600', 'text-white');
+            langEsBtn.classList.remove('text-slate-400');
+            langEuBtn.classList.remove('bg-green-600', 'text-white');
+            langEuBtn.classList.add('text-slate-400');
+
+            // Update HTML lang attribute
+            document.documentElement.lang = 'es';
+        }
+    }
+
+    // Event listeners for language toggle
+    langEuBtn.addEventListener('click', () => setLanguage('eu'));
+    langEsBtn.addEventListener('click', () => setLanguage('es'));
+
+    // Set default language to Basque
+    setLanguage('eu');
+</script>
 </body>
 </html>
