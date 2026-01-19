@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mysthrala Aholkularitza | Zibersegurtasun Industriala</title>
-    <meta name="description" content="Ingeniería de Ciberseguridad Industrial en Elgoibar. Protección OT y monitorización en tiempo real.">
+    <meta name="description" content="Industriako zibersegurtasun ingeniaritza Elgoibarren. OT sistemen babesa eta denbora errealeko monitorizazioa.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?v=3.4.1"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -65,8 +65,8 @@
 
                 <div class="hidden md:flex items-center gap-8">
                     <div class="flex items-center bg-mkdl-surface rounded-sm border border-gray-700 p-1 font-mono text-xs">
-                        <button onclick="setLang('eu')" id="btn-eu" class="px-3 py-1 rounded-sm bg-mkdl-green text-black font-bold transition-all">EU</button>
-                        <button onclick="setLang('es')" id="btn-es" class="px-3 py-1 rounded-sm text-gray-400 hover:text-white transition-all">ES</button>
+                        <button onclick="setLang('eu')" id="btn-eu" class="px-3 py-1 rounded-sm bg-mkdl-green text-black font-bold transition-all" aria-label="Switch to Basque language">EU</button>
+                        <button onclick="setLang('es')" id="btn-es" class="px-3 py-1 rounded-sm text-gray-400 hover:text-white transition-all" aria-label="Switch to Spanish language">ES</button>
                     </div>
 
                     <div class="flex space-x-6 font-mono text-sm">
@@ -81,6 +81,35 @@
                     <a href="#kontaktua" class="bg-transparent border border-mkdl-green text-mkdl-green hover:bg-mkdl-green hover:text-black px-5 py-2 rounded-sm font-mono text-sm font-bold transition duration-300">
                         <span class="lang-eu">AUDITORIA ESKATU</span><span class="lang-es hidden">SOLICITAR AUDITORÍA</span>
                     </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white p-2" aria-label="Toggle mobile menu">
+                        <i data-lucide="menu" class="w-6 h-6" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800 mt-4 pt-4">
+                <div class="flex flex-col space-y-4">
+                    <div class="flex items-center justify-center bg-mkdl-surface rounded-sm border border-gray-700 p-1 font-mono text-xs w-fit mx-auto">
+                        <button onclick="setLang('eu')" id="btn-eu-mobile" class="px-3 py-1 rounded-sm bg-mkdl-green text-black font-bold transition-all" aria-label="Switch to Basque language">EU</button>
+                        <button onclick="setLang('es')" id="btn-es-mobile" class="px-3 py-1 rounded-sm text-gray-400 hover:text-white transition-all" aria-label="Switch to Spanish language">ES</button>
+                    </div>
+                    
+                    <div class="flex flex-col space-y-3 font-mono text-sm text-center">
+                        <a href="#zerbitzuak" class="hover:text-mkdl-green transition py-2">
+                            <span class="lang-eu">ZERBITZUAK</span><span class="lang-es hidden">SERVICIOS</span>
+                        </a>
+                        <a href="#mkdl-system" class="hover:text-mkdl-green transition py-2">
+                            <span class="lang-eu">SISTEMA MKDL</span><span class="lang-es hidden">TECNOLOGÍA</span>
+                        </a>
+                        <a href="#kontaktua" class="bg-transparent border border-mkdl-green text-mkdl-green hover:bg-mkdl-green hover:text-black px-5 py-2 rounded-sm font-mono text-sm font-bold transition duration-300 inline-block">
+                            <span class="lang-eu">AUDITORIA ESKATU</span><span class="lang-es hidden">SOLICITAR AUDITORÍA</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,7 +136,7 @@
                 
                 <div class="mt-10 flex flex-col sm:flex-row gap-4">
                     <a href="#mkdl-system" class="px-8 py-4 bg-mkdl-green text-black font-bold font-mono rounded-sm hover:bg-emerald-400 transition flex items-center justify-center gap-2">
-                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                        <i data-lucide="shield-check" class="w-5 h-5" aria-hidden="true"></i>
                         <span class="lang-eu">KONTROL SISTEMA IKUSI</span><span class="lang-es hidden">VER SISTEMA DE CONTROL</span>
                     </a>
                     <a href="#kontaktua" class="px-8 py-4 border border-gray-700 text-white font-mono rounded-sm hover:border-mkdl-red hover:text-mkdl-red transition flex items-center justify-center">
@@ -138,7 +167,7 @@
                 </div>
                 <div class="md:w-1/2 flex justify-center">
                     <div class="p-10 border border-mkdl-red/20 bg-mkdl-red/5 rounded-sm">
-                        <i data-lucide="alert-triangle" class="w-32 h-32 text-mkdl-red animate-pulse"></i>
+                        <i data-lucide="alert-triangle" class="w-32 h-32 text-mkdl-red animate-pulse" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -159,7 +188,7 @@
                     <div class="tablet-frame bg-gray-900 rounded-xl p-4 border-4 border-gray-800 relative z-10 h-[300px] sm:h-[400px] flex flex-col">
                         <div class="bg-black flex-1 rounded-lg border border-gray-700 relative overflow-hidden flex flex-col items-center justify-center">
                             <div class="w-32 h-32 rounded-full bg-mkdl-green glow-green flex items-center justify-center mb-4">
-                                <i data-lucide="check" class="w-16 h-16 text-black"></i>
+                                <i data-lucide="check" class="w-16 h-16 text-black" aria-hidden="true"></i>
                             </div>
                             <div class="text-mkdl-green font-mono text-xl tracking-widest animate-pulse">SYSTEM SECURE</div>
                             <div class="text-gray-500 font-mono text-xs mt-2">CONNECTED VIA MKDL SECURE 4G</div>
@@ -169,16 +198,16 @@
                 <div class="space-y-8">
                     <div class="flex gap-4">
                         <div class="bg-mkdl-surface p-3 rounded-sm border border-gray-700 h-fit">
-                            <i data-lucide="tablet" class="w-6 h-6 text-mkdl-green"></i>
+                            <i data-lucide="tablet" class="w-6 h-6 text-mkdl-green" aria-hidden="true"></i>
                         </div>
                         <div>
                             <h3 class="text-white font-bold font-mono text-lg"><span class="lang-eu">Aginte Terminal Segurua</span><span class="lang-es hidden">Terminal de Mando Securizado</span></h3>
-                            <p class="text-mkdl-dim text-sm mt-1"><span class="lang-eu">Tablet industrial rugerizatua jabetzan.</span><span class="lang-es hidden">Te entregamos una tablet industrial rugerizada en propiedad.</span></p>
+                            <p class="text-mkdl-dim text-sm mt-1"><span class="lang-eu">Tablet industrial erresistentea jabetzan.</span><span class="lang-es hidden">Te entregamos una tablet industrial rugurizada en propiedad.</span></p>
                         </div>
                     </div>
                     <div class="flex gap-4">
                         <div class="bg-mkdl-surface p-3 rounded-sm border border-gray-700 h-fit">
-                            <i data-lucide="wifi" class="w-6 h-6 text-mkdl-green"></i>
+                            <i data-lucide="wifi" class="w-6 h-6 text-mkdl-green" aria-hidden="true"></i>
                         </div>
                         <div>
                             <h3 class="text-white font-bold font-mono text-lg"><span class="lang-eu">4G Konexio Propioa</span><span class="lang-es hidden">Conexión 4G Propia</span></h3>
@@ -187,7 +216,7 @@
                     </div>
                     <div class="flex gap-4">
                         <div class="bg-mkdl-surface p-3 rounded-sm border border-gray-700 h-fit">
-                            <i data-lucide="palmtree" class="w-6 h-6 text-mkdl-green"></i>
+                            <i data-lucide="sun" class="w-6 h-6 text-mkdl-green" aria-hidden="true"></i>
                         </div>
                         <div>
                             <h3 class="text-white font-bold font-mono text-lg"><span class="lang-eu">"Maldivas" Modua</span><span class="lang-es hidden">Modo "Maldivas"</span></h3>
@@ -208,9 +237,9 @@
                     <p class="text-mkdl-dim text-sm mb-6"><span class="lang-eu">Tailer txiki eta mekanizatuarentzat.</span><span class="lang-es hidden">Para talleres y mecanizado ligero.</span></p>
                     <div class="text-3xl font-bold text-white mb-6">950€<span class="text-sm text-gray-500 font-normal"> / <span class="lang-eu">hilean</span><span class="lang-es hidden">mes</span></span></div>
                     <ul class="space-y-3 mb-8 text-sm text-gray-300">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mkdl-green"></i> Backups Industrial</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mkdl-green"></i> Security Patching</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mkdl-green"></i> Soporte Elgoibar</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mkdl-green" aria-hidden="true"></i> Backups Industrial</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mkdl-green" aria-hidden="true"></i> Security Patching</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-mkdl-green" aria-hidden="true"></i> Soporte Elgoibar</li>
                     </ul>
                 </div>
                 <div class="bg-mkdl-surface border-2 border-mkdl-green p-8 rounded-sm relative shadow-[0_0_30px_rgba(0,155,72,0.1)]">
@@ -219,9 +248,9 @@
                     <p class="text-mkdl-dim text-sm mb-6"><span class="lang-eu">Gelditu ezin duten enpresentzat (24/7).</span><span class="lang-es hidden">Empresas de producción continua 24/7.</span></p>
                     <div class="text-3xl font-bold text-white mb-6"><span class="lang-eu">KONTSULTATU</span><span class="lang-es hidden">CONSULTAR</span></div>
                     <ul class="space-y-3 mb-8 text-sm text-white">
-                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-mkdl-green"></i> <strong>Tablet MKDL + App</strong></li>
-                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-mkdl-green"></i> Monitorización 24/7</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-mkdl-green"></i> CISO Virtual & Auditoría</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-mkdl-green" aria-hidden="true"></i> <strong>Tablet MKDL + App</strong></li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-mkdl-green" aria-hidden="true"></i> Monitorización 24/7</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-mkdl-green" aria-hidden="true"></i> CISO Virtual & Auditoría</li>
                     </ul>
                 </div>
             </div>
@@ -247,42 +276,99 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.474.0"></script>
     <script>
+        // Hacer la función setLang disponible globalmente tan pronto como se cargue el script
+        window.setLang = function(lang) {
+            const euElements = document.querySelectorAll('.lang-eu');
+            const esElements = document.querySelectorAll('.lang-es');
+            const btnEu = document.getElementById('btn-eu');
+            const btnEs = document.getElementById('btn-es');
+            const btnEuMobile = document.getElementById('btn-eu-mobile');
+            const btnEsMobile = document.getElementById('btn-es-mobile');
+
+            if (lang === 'eu') {
+                euElements.forEach(function(el) { el.classList.remove('hidden'); el.classList.add('fade-in'); });
+                esElements.forEach(function(el) { el.classList.add('hidden'); });
+                
+                // Desktop buttons
+                if (btnEu) {
+                    btnEu.classList.add('bg-mkdl-green', 'text-black', 'font-bold');
+                    btnEu.classList.remove('text-gray-400');
+                }
+                if (btnEs) {
+                    btnEs.classList.remove('bg-mkdl-green', 'text-black', 'font-bold');
+                    btnEs.classList.add('text-gray-400');
+                }
+                
+                // Mobile buttons
+                if (btnEuMobile) {
+                    btnEuMobile.classList.add('bg-mkdl-green', 'text-black', 'font-bold');
+                    btnEuMobile.classList.remove('text-gray-400');
+                }
+                if (btnEsMobile) {
+                    btnEsMobile.classList.remove('bg-mkdl-green', 'text-black', 'font-bold');
+                    btnEsMobile.classList.add('text-gray-400');
+                }
+            } else {
+                esElements.forEach(function(el) { el.classList.remove('hidden'); el.classList.add('fade-in'); });
+                euElements.forEach(function(el) { el.classList.add('hidden'); });
+
+                // Desktop buttons
+                if (btnEs) {
+                    btnEs.classList.add('bg-mkdl-green', 'text-black', 'font-bold');
+                    btnEs.classList.remove('text-gray-400');
+                }
+                if (btnEu) {
+                    btnEu.classList.remove('bg-mkdl-green', 'text-black', 'font-bold');
+                    btnEu.classList.add('text-gray-400');
+                }
+                
+                // Mobile buttons
+                if (btnEsMobile) {
+                    btnEsMobile.classList.add('bg-mkdl-green', 'text-black', 'font-bold');
+                    btnEsMobile.classList.remove('text-gray-400');
+                }
+                if (btnEuMobile) {
+                    btnEuMobile.classList.remove('bg-mkdl-green', 'text-black', 'font-bold');
+                    btnEuMobile.classList.add('text-gray-400');
+                }
+            }
+
+            // Actualizar el atributo lang del documento
+            document.documentElement.setAttribute('lang', lang);
+
+            // Guardar la preferencia en localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Inicializar Iconos de forma segura para VS Code
+            // Inicializar iconos Lucide de forma segura si la librería está cargada
             if (window.lucide) {
                 window.lucide.createIcons();
             }
 
-            // Hacer la función setLang disponible globalmente
-            window.setLang = function(lang) {
-                const euElements = document.querySelectorAll('.lang-eu');
-                const esElements = document.querySelectorAll('.lang-es');
-                const btnEu = document.getElementById('btn-eu');
-                const btnEs = document.getElementById('btn-es');
+            // Verificar si hay una preferencia de idioma guardada
+            const savedLang = localStorage.getItem('preferredLanguage') || 'eu';
+            window.setLang(savedLang);
 
-                if (lang === 'eu') {
-                    euElements.forEach(function(el) { el.classList.remove('hidden'); el.classList.add('fade-in'); });
-                    esElements.forEach(function(el) { el.classList.add('hidden'); });
-                    
-                    btnEu.classList.add('bg-mkdl-green', 'text-black', 'font-bold');
-                    btnEu.classList.remove('text-gray-400');
-                    btnEs.classList.remove('bg-mkdl-green', 'text-black', 'font-bold');
-                    btnEs.classList.add('text-gray-400');
-                } else {
-                    esElements.forEach(function(el) { el.classList.remove('hidden'); el.classList.add('fade-in'); });
-                    euElements.forEach(function(el) { el.classList.add('hidden'); });
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
 
-                    btnEs.classList.add('bg-mkdl-green', 'text-black', 'font-bold');
-                    btnEs.classList.remove('text-gray-400');
-                    btnEu.classList.remove('bg-mkdl-green', 'text-black', 'font-bold');
-                    btnEu.classList.add('text-gray-400');
-                }
-            };
-
-            // Ejecutar al inicio (Default EU)
-            window.setLang('eu');
+                // Cerrar el menú móvil cuando se hace clic en un enlace
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
         });
     </script>
 </body>
