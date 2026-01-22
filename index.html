@@ -1,61 +1,641 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MKDL | Mysthrala Kurogane Defense Labs</title>
-    <style>
-        body {
-            background-color: #0a0a0a;
-            color: #00ff41; /* Verde terminal clásico */
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .container {
-            border: 1px solid #333;
-            padding: 40px;
-            background-color: #000;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
-        }
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            border-top: 1px solid #222;
-            padding: 20px 0;
-            background-color: #0a0a0a;
-        }
-        .status-blink {
-            animation: blink 1s infinite;
-        }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        h1 { font-size: 1.5rem; margin-bottom: 10px; }
-        p { color: #888; font-size: 0.9rem; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>> MYSTHRALA KUROGANE DEFENSE LABS</h1>
-        <p>STATUS: <span style="color: #00ff41;">SECURE_NODE_ONLINE</span></p>
-        <p>SYSTEM: AKKOROKAMUI-01 [ELGOIBAR]</p>
-        <hr style="border: 0; border-top: 1px solid #333; margin: 20px 0;">
-        <p class="status-blink">_ DEPLOYMENT IN PROGRESS...</p>
-    </div>
-    <footer>
-        <p style="font-size: 0.7rem; color: #444; line-height: 1.4;">
-            mkdl.jp &copy; 2026 by Mysthrala Kurogane Defense Labs (MKDL) <br>
-            is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" style="color: #00ff41; text-decoration: none;">CC BY-NC-ND 4.0</a>
-        </p>
-    </footer>
-</body>
+<html lang="eu">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mysthrala Aholkularitza | MKDL</title>
+        <meta
+            name="description"
+            content="Mysthrala Aholkularitza (MKDL): zibersegurtasun industriala Elgoibarren. OT sareak, makinak eta PLCak babesten ditugu Zero Trust defentsa teknologiarekin."
+        />
+        <meta property="og:title" content="Mysthrala Aholkularitza | MKDL" />
+        <meta
+            property="og:description"
+            content="Mysthrala Aholkularitza (MKDL): zibersegurtasun industriala Elgoibarren. OT sareak, makinak eta PLCak babesten ditugu Zero Trust defentsa teknologiarekin."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mkdl.jp/" />
+        <meta property="og:locale" content="eu" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Mysthrala Aholkularitza | MKDL" />
+        <meta
+            name="twitter:description"
+            content="Mysthrala Aholkularitza (MKDL): zibersegurtasun industriala Elgoibarren. OT sareak, makinak eta PLCak babesten ditugu Zero Trust defentsa teknologiarekin."
+        />
+        <link rel="stylesheet" href="css/tailwind.css" />
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+        </style>
+    </head>
+    <body class="bg-slateDarker text-white font-sans">
+        <header class="sticky top-0 z-50 border-b border-white/10 bg-slateDarker/95 backdrop-blur">
+            <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+                <div class="flex items-center gap-2 font-mono text-lg">
+                    <span class="text-white">MYSTHRALA</span>
+                    <span class="text-basqueGreen">Aholkularitza</span>
+                </div>
+                <div class="hidden items-center gap-6 text-sm font-medium md:flex">
+                    <a href="#technology" class="transition hover:text-basqueGreen" data-lang="eu">Sistema MKDL</a>
+                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="es">Sistema MKDL</a>
+                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="en">MKDL System</a>
+                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="ja">MKDLシステム</a>
+
+                    <a href="#services" class="transition hover:text-basqueGreen" data-lang="eu">Zerbitzuak</a>
+                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="es">Servicios</a>
+                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="en">Services</a>
+                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="ja">サービス</a>
+
+                    <a href="#contact" class="transition hover:text-basqueGreen" data-lang="eu">Kontaktua</a>
+                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="es">Contacto</a>
+                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="en">Contact</a>
+                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="ja">お問い合わせ</a>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+                    <div class="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 p-1 text-xs font-semibold">
+                        <button
+                            id="lang-eu"
+                            class="rounded-full px-3 py-1 text-white transition"
+                            aria-pressed="true"
+                        >
+                            EU
+                        </button>
+                        <button
+                            id="lang-es"
+                            class="rounded-full px-3 py-1 text-white/60 transition"
+                            aria-pressed="false"
+                        >
+                            ES
+                        </button>
+                        <button id="lang-en" class="rounded-full px-3 py-1 text-white/60 transition" aria-pressed="false">
+                            EN
+                        </button>
+                        <button id="lang-ja" class="rounded-full px-3 py-1 text-white/60 transition" aria-pressed="false">
+                            JP
+                        </button>
+                    </div>
+                    <a
+                        href="#contact"
+                        class="rounded-md bg-basqueGreen px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:brightness-110 md:inline-flex"
+                    >
+                        <span data-lang="eu">Auditoria Eskatu</span>
+                        <span class="hidden" data-lang="es">Solicitar Auditoría</span>
+                        <span class="hidden" data-lang="en">Request an Audit</span>
+                        <span class="hidden" data-lang="ja">監査を依頼</span>
+                    </a>
+                    <button id="mobile-menu-toggle"
+                        class="inline-flex items-center justify-center rounded-md border border-white/20 bg-white/5 p-2 text-white/80 transition hover:text-white md:hidden"
+                        aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+                        <i data-lucide="menu" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </nav>
+            <div id="mobile-menu" class="hidden border-t border-white/10 bg-slateDarker/95 px-6 py-4 md:hidden">
+                <div class="flex flex-col gap-3 text-sm font-medium">
+                    <a href="#technology" class="transition hover:text-basqueGreen" data-lang="eu">Sistema MKDL</a>
+                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="es">Sistema MKDL</a>
+                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="en">MKDL System</a>
+                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="ja">MKDLシステム</a>
+                    <a href="#services" class="transition hover:text-basqueGreen" data-lang="eu">Zerbitzuak</a>
+                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="es">Servicios</a>
+                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="en">Services</a>
+                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="ja">サービス</a>
+                    <a href="#contact" class="transition hover:text-basqueGreen" data-lang="eu">Kontaktua</a>
+                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="es">Contacto</a>
+                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="en">Contact</a>
+                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="ja">お問い合わせ</a>
+                    <a href="#contact"
+                        class="mt-2 inline-flex items-center justify-center rounded-md bg-basqueGreen px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:brightness-110">
+                        <span data-lang="eu">Auditoria Eskatu</span>
+                        <span class="hidden" data-lang="es">Solicitar Auditoría</span>
+                        <span class="hidden" data-lang="en">Request an Audit</span>
+                        <span class="hidden" data-lang="ja">監査を依頼</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="relative overflow-hidden bg-gradient-to-b from-slateDarker via-slateDeep to-slateDarker">
+                <div class="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.1fr_0.9fr] md:py-28">
+                    <div class="space-y-6">
+                        <span class="inline-flex items-center gap-2 rounded-full border border-basqueRed/40 bg-basqueRed/10 px-4 py-1 text-xs font-semibold text-basqueRed">
+                            <i data-lucide="shield" aria-hidden="true"></i>
+                            Zero Trust
+                        </span>
+                        <h1 class="font-mono text-3xl font-bold leading-tight md:text-5xl" data-lang="eu">
+                            Zibersegurtasun Industriala Elgoibarren.
+                        </h1>
+                        <h1 class="hidden font-mono text-3xl font-bold leading-tight md:text-5xl" data-lang="es">
+                            Ciberseguridad Industrial en Elgoibar.
+                        </h1>
+                        <h1 class="hidden font-mono text-3xl font-bold leading-tight md:text-5xl" data-lang="en">
+                            Industrial Cybersecurity in Elgoibar.
+                        </h1>
+                        <h1 class="hidden font-mono text-3xl font-bold leading-tight md:text-5xl" data-lang="ja">
+                            エルゴイバルの産業サイバーセキュリティ。
+                        </h1>
+                        <p class="text-base text-white/80 md:text-lg" data-lang="eu">
+                            Ez utzi zibereraso batek zure produkzioa gelditzen. Zure makinak (OT) eta PLCak babesten ditugu defentsa teknologia aurreratuarekin.
+                        </p>
+                        <p class="hidden text-base text-white/80 md:text-lg" data-lang="es">
+                            No dejes que un ciberataque pare tu producción. Protegemos tus máquinas (OT) y PLCs con tecnología de defensa avanzada.
+                        </p>
+                        <p class="hidden text-base text-white/80 md:text-lg" data-lang="en">
+                            Don’t let a cyberattack stop production. We protect your machines (OT) and PLCs with advanced defense technology.
+                        </p>
+                        <p class="hidden text-base text-white/80 md:text-lg" data-lang="ja">
+                            サイバー攻撃で生産を止めない。OT機器とPLCを先進的な防御技術で保護します。
+                        </p>
+                        <div class="flex flex-wrap items-center gap-4">
+                            <a
+                                href="#technology"
+                                class="rounded-md border border-basqueGreen bg-basqueGreen px-6 py-3 text-sm font-semibold shadow-glow transition hover:brightness-110"
+                                data-lang="eu"
+                            >
+                                Kontrol Sistema Ikusi
+                            </a>
+                            <a
+                                href="#technology"
+                                class="hidden rounded-md border border-basqueGreen bg-basqueGreen px-6 py-3 text-sm font-semibold shadow-glow transition hover:brightness-110"
+                                data-lang="es"
+                            >
+                                Ver Sistema de Control
+                            </a>
+                            <a href="#technology"
+                                class="hidden rounded-md border border-basqueGreen bg-basqueGreen px-6 py-3 text-sm font-semibold shadow-glow transition hover:brightness-110"
+                                data-lang="en">
+                                View Control System
+                            </a>
+                            <a href="#technology"
+                                class="hidden rounded-md border border-basqueGreen bg-basqueGreen px-6 py-3 text-sm font-semibold shadow-glow transition hover:brightness-110"
+                                data-lang="ja">
+                                制御システムを見る
+                            </a>
+                            <span class="text-sm text-white/60" data-lang="eu">Ingeniaritza eta euskarria Debabarrenatik.</span>
+                            <span class="hidden text-sm text-white/60" data-lang="es">Ingeniería y soporte desde el Bajo Deba.</span>
+                            <span class="hidden text-sm text-white/60" data-lang="en">Engineering and support from Debabarrena.</span>
+                            <span class="hidden text-sm text-white/60" data-lang="ja">デババレナから技術支援。</span>
+                        </div>
+                    </div>
+                    <div class="relative flex items-center justify-center">
+                        <div
+                            class="absolute h-64 w-64 rounded-full border border-basqueGreen/40 bg-basqueGreen/10 sm:h-72 sm:w-72 md:h-80 md:w-80">
+                        </div>
+                        <div
+                            class="relative w-full max-w-sm rounded-2xl border border-white/10 bg-black/40 p-5 shadow-2xl sm:max-w-md md:w-96 md:p-6">
+                            <div class="flex items-center justify-between text-xs text-white/60">
+                                <span>MKDL</span>
+                                <span>
+                                    <span data-lang="eu">OT Seguru</span>
+                                    <span class="hidden" data-lang="es">OT Seguro</span>
+                                    <span class="hidden" data-lang="en">OT Secure</span>
+                                    <span class="hidden" data-lang="ja">OTセキュア</span>
+                                </span>
+                            </div>
+                            <div
+                                class="mt-6 h-64 w-full rounded-xl border border-white/10 bg-gradient-to-br from-slateDeep to-black/70 p-3 sm:h-56 sm:p-4 md:h-64">
+                                <div class="flex items-center justify-between text-[10px] uppercase tracking-wide text-white/50">
+                                    <span>MES OT</span>
+                                    <span>
+                                        <span data-lang="eu">Txanda A</span>
+                                        <span class="hidden" data-lang="es">Turno A</span>
+                                        <span class="hidden" data-lang="en">Shift A</span>
+                                        <span class="hidden" data-lang="ja">Aシフト</span>
+                                    </span>
+                                </div>
+                                <div class="mt-3 grid grid-cols-2 gap-2 text-[11px]">
+                                    <div class="rounded-lg border border-white/10 bg-white/5 p-2">
+                                        <p class="text-white/60">OEE</p>
+                                        <p class="mt-1 text-base font-semibold text-basqueGreen">92%</p>
+                                    </div>
+                                    <div class="rounded-lg border border-white/10 bg-white/5 p-2">
+                                        <p class="text-white/60">
+                                            <span data-lang="eu">Hondarra</span>
+                                            <span class="hidden" data-lang="es">Merma</span>
+                                            <span class="hidden" data-lang="en">Scrap</span>
+                                            <span class="hidden" data-lang="ja">不良率</span>
+                                        </p>
+                                        <p class="mt-1 text-base font-semibold text-basqueRed">1.8%</p>
+                                    </div>
+                                    <div class="rounded-lg border border-white/10 bg-white/5 p-2">
+                                        <p class="text-white/60">
+                                            <span data-lang="eu">Lineak</span>
+                                            <span class="hidden" data-lang="es">Líneas</span>
+                                            <span class="hidden" data-lang="en">Lines</span>
+                                            <span class="hidden" data-lang="ja">ライン</span>
+                                        </p>
+                                        <p class="mt-1 text-base font-semibold text-white">04</p>
+                                    </div>
+                                    <div class="rounded-lg border border-white/10 bg-white/5 p-2">
+                                        <p class="text-white/60">
+                                            <span data-lang="eu">Alertak</span>
+                                            <span class="hidden" data-lang="es">Alertas</span>
+                                            <span class="hidden" data-lang="en">Alerts</span>
+                                            <span class="hidden" data-lang="ja">アラート</span>
+                                        </p>
+                                        <p class="mt-1 text-base font-semibold text-basqueRed">02</p>
+                                    </div>
+                                </div>
+                                <div class="mt-3 space-y-1 text-[10px] text-white/60">
+                                    <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-2 py-1">
+                                        <span>
+                                            <span data-lang="eu">Linea 01</span>
+                                            <span class="hidden" data-lang="es">Línea 01</span>
+                                            <span class="hidden" data-lang="en">Line 01</span>
+                                            <span class="hidden" data-lang="ja">ライン 01</span>
+                                        </span>
+                                        <span class="text-basqueGreen">OK</span>
+                                    </div>
+                                    <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-2 py-1">
+                                        <span>
+                                            <span data-lang="eu">Linea 02</span>
+                                            <span class="hidden" data-lang="es">Línea 02</span>
+                                            <span class="hidden" data-lang="en">Line 02</span>
+                                            <span class="hidden" data-lang="ja">ライン 02</span>
+                                        </span>
+                                        <span class="text-basqueRed">
+                                            <span data-lang="eu">Geldialdia</span>
+                                            <span class="hidden" data-lang="es">Parada</span>
+                                            <span class="hidden" data-lang="en">Stopped</span>
+                                            <span class="hidden" data-lang="ja">停止</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 flex items-center gap-3 text-sm">
+                                <span class="h-2 w-2 rounded-full bg-basqueGreen"></span>
+                                <span>Oukitel RT3 Plus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-slateDeep py-20">
+                <div class="mx-auto max-w-5xl space-y-6 px-6">
+                    <h2 class="font-mono text-2xl font-semibold md:text-3xl" data-lang="eu">
+                        Bulegoko informatikak ez du balio fabrikan.
+                    </h2>
+                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="es">
+                        La informática de oficina no sirve en la fábrica.
+                    </h2>
+                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="en">
+                        Office IT doesn’t work on the factory floor.
+                    </h2>
+                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="ja">
+                        オフィスITは工場では通用しない。
+                    </h2>
+                    <p class="text-white/80 md:text-lg" data-lang="eu">
+                        Antibirus arrunt batek ez du automata bat babesten. Kudeaketa sarea erortzen bada, formateatu egiten da. Produkzioa erortzen bada, milaka euro galtzen dituzu orduro.
+                    </p>
+                    <p class="hidden text-white/80 md:text-lg" data-lang="es">
+                        Un antivirus normal no protege un autómata. Si tu red de gestión cae, formateas. Si tu red de producción cae, pierdes miles de euros por hora.
+                    </p>
+                    <p class="hidden text-white/80 md:text-lg" data-lang="en">
+                        A standard antivirus doesn’t protect a PLC. If office IT goes down, you reinstall. If production goes down, you lose
+                        thousands of euros per hour.
+                    </p>
+                    <p class="hidden text-white/80 md:text-lg" data-lang="ja">
+                        一般的なアンチウイルスではPLCは守れません。管理ネットワークなら復旧できますが、生産が止まれば毎時数千ユーロの損失です。
+                    </p>
+                </div>
+            </section>
+
+            <section id="technology" class="py-20">
+                <div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[0.9fr_1.1fr]">
+                    <div class="space-y-6">
+                        <h2 class="font-mono text-2xl font-semibold md:text-3xl" data-lang="eu">MKDL System: Zure Fabrika Poltsikoan.</h2>
+                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="es">MKDL System: Tu Fábrica en el Bolsillo.</h2>
+                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="en">MKDL System: Your Factory in Your Pocket.
+                        </h2>
+                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="ja">MKDLシステム：工場をポケットに。</h2>
+                        <ul class="space-y-4 text-sm text-white/80">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="terminal" aria-hidden="true"></i>
+                                <span data-lang="eu">Aginte Terminal Segurua (Jabetzan).</span>
+                                <span class="hidden" data-lang="es">Terminal de Mando Securizado (En propiedad).</span>
+                                <span class="hidden" data-lang="en">Hardened Command Terminal (owned by you).</span>
+                                <span class="hidden" data-lang="ja">堅牢化された指揮端末（貴社所有）。</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="signal" aria-hidden="true"></i>
+                                <span data-lang="eu">4G Konexio propioa (WiFi-tik kanpo).</span>
+                                <span class="hidden" data-lang="es">Conexión 4G Propia (Independiente del WiFi).</span>
+                                <span class="hidden" data-lang="en">Dedicated 4G connectivity (independent from Wi‑Fi).</span>
+                                <span class="hidden" data-lang="ja">専用4G接続（Wi‑Fiに依存しない）。</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="traffic-cone" aria-hidden="true"></i>
+                                <span data-lang="eu">"Maldivas" Modua: Semaforo Berdea eta lasaitasuna.</span>
+                                <span class="hidden" data-lang="es">Modo "Maldivas": Semáforo Verde y tranquilidad.</span>
+                                <span class="hidden" data-lang="en">“Maldives” Mode: green light and peace of mind.</span>
+                                <span class="hidden" data-lang="ja">「モルディブ」モード：青信号と安心。</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="lock" aria-hidden="true"></i>
+                                <span data-lang="eu">Zero Trust: Kiosko moduan blokeatuta.</span>
+                                <span class="hidden" data-lang="es">Zero Trust: Bloqueado en modo kiosco.</span>
+                                <span class="hidden" data-lang="en">Zero Trust: locked down in kiosk mode.</span>
+                                <span class="hidden" data-lang="ja">ゼロトラスト：キオスクモードでロックダウン。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative flex items-center justify-center">
+                        <div class="h-60 w-60 rounded-full border border-basqueGreen/40 bg-basqueGreen/10 sm:h-72 sm:w-72 md:h-80 md:w-80">
+                        </div>
+                        <div
+                            class="absolute right-4 top-6 h-44 w-52 rotate-3 rounded-2xl border border-white/20 bg-slateDeep/60 shadow-2xl sm:right-6 sm:top-8 sm:h-52 sm:w-60 sm:rotate-6 md:right-10 md:top-8 md:h-56 md:w-72">
+                            <div
+                                class="flex h-full w-full flex-col justify-between rounded-xl border border-white/10 bg-black/40 p-3 text-[10px] text-white/60">
+                                <div class="flex items-center justify-between uppercase tracking-wide">
+                                    <span>MES OT</span>
+                                    <span>
+                                        <span data-lang="eu">Txanda A</span>
+                                        <span class="hidden" data-lang="es">Turno A</span>
+                                        <span class="hidden" data-lang="en">Shift A</span>
+                                        <span class="hidden" data-lang="ja">Aシフト</span>
+                                    </span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 text-[10px]">
+                                    <div class="rounded-md border border-white/10 bg-white/5 p-2">
+                                        <p>OEE</p>
+                                        <p class="mt-1 text-sm font-semibold text-basqueGreen">92%</p>
+                                    </div>
+                                    <div class="rounded-md border border-white/10 bg-white/5 p-2">
+                                        <p>
+                                            <span data-lang="eu">Alertak</span>
+                                            <span class="hidden" data-lang="es">Alertas</span>
+                                            <span class="hidden" data-lang="en">Alerts</span>
+                                            <span class="hidden" data-lang="ja">アラート</span>
+                                        </p>
+                                        <p class="mt-1 text-sm font-semibold text-basqueRed">02</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-2 py-1">
+                                    <span>
+                                        <span data-lang="eu">Linea 01</span>
+                                        <span class="hidden" data-lang="es">Línea 01</span>
+                                        <span class="hidden" data-lang="en">Line 01</span>
+                                        <span class="hidden" data-lang="ja">ライン 01</span>
+                                    </span>
+                                    <span class="text-basqueGreen">OK</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute bottom-4 left-4 h-48 w-60 -rotate-2 rounded-2xl border border-white/10 bg-black/60 sm:bottom-6 sm:left-6 sm:h-56 sm:w-72 sm:-rotate-3">
+                            <div
+                                class="flex h-full w-full flex-col justify-between rounded-xl border border-white/10 bg-white/5 p-3 text-[10px] text-white/60">
+                                <div class="flex items-center justify-between uppercase tracking-wide">
+                                    <span>MES OT</span>
+                                    <span>Zero Trust</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 text-[10px]">
+                                    <div class="rounded-md border border-white/10 bg-black/40 p-2">
+                                        <p>
+                                            <span data-lang="eu">Hondarra</span>
+                                            <span class="hidden" data-lang="es">Merma</span>
+                                            <span class="hidden" data-lang="en">Scrap</span>
+                                            <span class="hidden" data-lang="ja">不良率</span>
+                                        </p>
+                                        <p class="mt-1 text-sm font-semibold text-basqueRed">1.8%</p>
+                                    </div>
+                                    <div class="rounded-md border border-white/10 bg-black/40 p-2">
+                                        <p>
+                                            <span data-lang="eu">Lineak</span>
+                                            <span class="hidden" data-lang="es">Líneas</span>
+                                            <span class="hidden" data-lang="en">Lines</span>
+                                            <span class="hidden" data-lang="ja">ライン</span>
+                                        </p>
+                                        <p class="mt-1 text-sm font-semibold text-white">04</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between rounded-md border border-white/10 bg-black/40 px-2 py-1">
+                                    <span>
+                                        <span data-lang="eu">Linea 02</span>
+                                        <span class="hidden" data-lang="es">Línea 02</span>
+                                        <span class="hidden" data-lang="en">Line 02</span>
+                                        <span class="hidden" data-lang="ja">ライン 02</span>
+                                    </span>
+                                    <span class="text-basqueRed">
+                                        <span data-lang="eu">Geldialdia</span>
+                                        <span class="hidden" data-lang="es">Parada</span>
+                                        <span class="hidden" data-lang="en">Stopped</span>
+                                        <span class="hidden" data-lang="ja">停止</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services" class="bg-slateDeep py-20">
+                <div class="mx-auto max-w-6xl space-y-10 px-6">
+                    <div class="flex items-center justify-between">
+                        <h2 class="font-mono text-2xl font-semibold md:text-3xl" data-lang="eu">Zerbitzuak</h2>
+                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="es">Servicios</h2>
+                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="en">Services</h2>
+                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="ja">サービス</h2>
+                        <span class="hidden rounded-full border border-basqueRed/40 bg-basqueRed/10 px-4 py-1 text-xs font-semibold text-basqueRed md:inline-flex">
+                            OT / Zero Trust
+                        </span>
+                    </div>
+                    <div class="grid gap-6 md:grid-cols-2">
+                        <article class="rounded-2xl border border-white/10 bg-black/40 p-6">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-mono text-lg font-semibold" data-lang="eu">Oinarrizko Mantentzea</h3>
+                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="es">Mantenimiento Básico</h3>
+                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="en">Basic Maintenance</h3>
+                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="ja">基本メンテナンス</h3>
+                                <span class="rounded-full border border-white/20 px-3 py-1 text-xs text-white/60">OT</span>
+                            </div>
+                            <p class="mt-4 text-sm text-white/70" data-lang="eu">Tailerrak</p>
+                            <p class="hidden mt-4 text-sm text-white/70" data-lang="es">Talleres</p>
+                            <p class="hidden mt-4 text-sm text-white/70" data-lang="en">Workshops</p>
+                            <p class="hidden mt-4 text-sm text-white/70" data-lang="ja">ワークショップ</p>
+                            <p class="mt-6 text-2xl font-semibold text-basqueGreen">
+                                950€
+                                <span class="text-sm text-white/60" data-lang="eu">/ hilean</span>
+                                <span class="hidden text-sm text-white/60" data-lang="es">/ mes</span>
+                                <span class="hidden text-sm text-white/60" data-lang="en">/ month</span>
+                                <span class="hidden text-sm text-white/60" data-lang="ja">/ 月</span>
+                            </p>
+                        </article>
+
+                        <article class="rounded-2xl border border-basqueGreen/60 bg-basqueGreen/10 p-6 shadow-glow">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-mono text-lg font-semibold" data-lang="eu">Fabrika Blindatua</h3>
+                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="es">Planta Blindada</h3>
+                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="en">Hardened Plant</h3>
+                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="ja">強化プラント</h3>
+                                <span class="rounded-full border border-basqueGreen/40 px-3 py-1 text-xs text-basqueGreen">Premium</span>
+                            </div>
+                            <p class="mt-4 text-sm text-white/70" data-lang="eu">24/7 Produkzioa</p>
+                            <p class="hidden mt-4 text-sm text-white/70" data-lang="es">Producción 24/7</p>
+                            <p class="hidden mt-4 text-sm text-white/70" data-lang="en">Production 24/7</p>
+                            <p class="hidden mt-4 text-sm text-white/70" data-lang="ja">24/7 生産</p>
+                            <ul class="mt-4 space-y-2 text-sm text-white/80">
+                                <li>
+                                    <span data-lang="eu">Tablet + MKDL App + 24/7 monitorizazioa</span>
+                                    <span class="hidden" data-lang="es">Tablet + App MKDL + Monitorización 24/7</span>
+                                    <span class="hidden" data-lang="en">Tablet + MKDL App + 24/7 monitoring</span>
+                                    <span class="hidden" data-lang="ja">タブレット + MKDLアプリ + 24/7 監視</span>
+                                </li>
+                            </ul>
+                            <p class="mt-6 text-2xl font-semibold text-basqueGreen" data-lang="eu">Kontsultatu</p>
+                            <p class="hidden mt-6 text-2xl font-semibold text-basqueGreen" data-lang="es">Consultar</p>
+                            <p class="hidden mt-6 text-2xl font-semibold text-basqueGreen" data-lang="en">Request pricing</p>
+                            <p class="hidden mt-6 text-2xl font-semibold text-basqueGreen" data-lang="ja">要相談</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20">
+                <div class="mx-auto max-w-5xl space-y-6 px-6">
+                    <h2 class="font-mono text-2xl font-semibold md:text-3xl" data-lang="eu">Teknologia Japoniarra, Bihotz Euskalduna.</h2>
+                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="es">Tecnología Japonesa, Corazón Vasco.</h2>
+                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="en">Japanese Technology, Basque Heart.</h2>
+                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="ja">日本の技術、バスクの心。</h2>
+                    <p class="text-white/80 md:text-lg" data-lang="eu">
+                        Auzokideak gara. Elgoibartik lan egiten dugu eskualde osorako. Bertako aholkularitza eta <strong class="text-white">MKDL</strong> defentsa teknologia uztartzen ditugu. Badakigu zer den fresadora bat eta zer den Ransomware bat.
+                    </p>
+                    <p class="hidden text-white/80 md:text-lg" data-lang="es">
+                        Somos vecinos. Operamos desde Elgoibar para toda la comarca. Combinamos la cercanía local con la tecnología de defensa <strong class="text-white">MKDL</strong>. Sabemos lo que es una fresadora y sabemos lo que es un Ransomware.
+                    </p>
+                    <p class="hidden text-white/80 md:text-lg" data-lang="en">
+                        We’re local. We operate from Elgoibar for the whole region. We combine nearby support with <strong
+                            class="text-white">MKDL</strong> defense technology. We know what a milling machine is—and what ransomware is.
+                    </p>
+                    <p class="hidden text-white/80 md:text-lg" data-lang="ja">
+                        私たちは地域密着です。エルゴイバルから周辺地域を支援します。現場の近さと<strong class="text-white">MKDL</strong>の防御技術を両立。フライス盤も、ランサムウェアも理解しています。
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contact" class="border-t border-white/10 bg-black/40 py-16">
+            <div class="mx-auto flex max-w-5xl flex-col gap-6 px-6 text-center">
+                <h2 class="font-mono text-2xl font-semibold" data-lang="eu">Hitz egingo dugu?</h2>
+                <h2 class="hidden font-mono text-2xl font-semibold" data-lang="es">¿Hablamos?</h2>
+                <h2 class="hidden font-mono text-2xl font-semibold" data-lang="en">Shall we talk?</h2>
+                <h2 class="hidden font-mono text-2xl font-semibold" data-lang="ja">相談しませんか？</h2>
+                <p class="text-white/70" data-lang="eu">Formulariorik gabe. Spam gabe. Ingeniaritik ingeniarira.</p>
+                <p class="hidden text-white/70" data-lang="es">Sin formularios. Sin spam. De ingeniero a ingeniero.</p>
+                <p class="hidden text-white/70" data-lang="en">No forms. No spam. Engineer to engineer.</p>
+                <p class="hidden text-white/70" data-lang="ja">フォーム不要。スパムなし。エンジニア同士で。</p>
+                <a href="mailto:mysthrala@mkdl.jp" class="text-basqueGreen">mysthrala@mkdl.jp</a>
+                <span class="text-sm text-white/50" data-lang="eu">Elgoibar, Gipuzkoa (Euskadi).</span>
+                <span class="hidden text-sm text-white/50" data-lang="es">Elgoibar, Gipuzkoa (Euskadi).</span>
+                <span class="hidden text-sm text-white/50" data-lang="en">Elgoibar, Gipuzkoa (Basque Country).</span>
+                <span class="hidden text-sm text-white/50" data-lang="ja">スペイン・バスク州ギプスコア県 エルゴイバル。</span>
+                <span class="text-xs text-white/40">© 2026 Mysthrala Aholkularitza. Powered by MKDL.jp.</span>
+            </div>
+        </footer>
+
+        <script 
+            src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"
+            integrity="sha384-hJnF5AwidE18GSWTAGHv3ByzzvfNZ1Tcx5y1UUV3WkauuMCEzBJBMSwSt/PUPXnM"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+                const supportedLanguages = ["eu", "es", "en", "ja"];
+
+                const languageButtons = new Map([
+                    ["eu", document.getElementById("lang-eu")],
+                    ["es", document.getElementById("lang-es")],
+                    ["en", document.getElementById("lang-en")],
+                    ["ja", document.getElementById("lang-ja")],
+                ]);
+
+                const allLocalizedElements = document.querySelectorAll("[data-lang]");
+
+            const setLanguage = (lang) => {
+                const finalLang = supportedLanguages.includes(lang) ? lang : "eu";
+
+                allLocalizedElements.forEach((el) => {
+                    const elementLang = el.getAttribute("data-lang");
+                    if (!elementLang) return;
+                    if (elementLang === finalLang) {
+                        el.classList.remove("hidden");
+                    } else {
+                        el.classList.add("hidden");
+                    }
+                });
+
+                supportedLanguages.forEach((code) => {
+                    const button = languageButtons.get(code);
+                    if (!button) return;
+                    const isActive = code === finalLang;
+                    button.classList.toggle("bg-basqueGreen", isActive);
+                    button.classList.toggle("text-white/60", !isActive);
+                    button.setAttribute("aria-pressed", isActive ? "true" : "false");
+                });
+
+                document.documentElement.lang = finalLang;
+
+                try {
+                    localStorage.setItem("preferredLanguage", finalLang);
+                } catch (e) {
+                    // Ignore storage errors (e.g., disabled cookies or privacy modes)
+                }
+            };
+
+                    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+                    const mobileMenu = document.getElementById("mobile-menu");
+
+                    const toggleMobileMenu = () => {
+                    if (!mobileMenuToggle || !mobileMenu) return;
+
+                    const isHidden = mobileMenu.classList.toggle("hidden");
+                    mobileMenuToggle.setAttribute("aria-expanded", String(!isHidden));
+            };
+
+                    if (mobileMenuToggle && mobileMenu) {
+                    mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+                    mobileMenu.querySelectorAll("a").forEach((link) => {
+                        link.addEventListener("click", () => {
+                            if (!mobileMenu.classList.contains("hidden")) {
+                                mobileMenu.classList.add("hidden");
+                                mobileMenuToggle.setAttribute("aria-expanded", "false");
+                            }
+                        });
+                    });
+                }
+
+                languageButtons.get("eu")?.addEventListener("click", () => setLanguage("eu"));
+                languageButtons.get("es")?.addEventListener("click", () => setLanguage("es"));
+                languageButtons.get("en")?.addEventListener("click", () => setLanguage("en"));
+                languageButtons.get("ja")?.addEventListener("click", () => setLanguage("ja"));
+
+                const getBrowserPreferredLanguage = () => {
+                    const browserLang = (navigator.language || "").toLowerCase();
+                    if (browserLang.startsWith("ja")) return "ja";
+                    if (browserLang.startsWith("en")) return "en";
+                    if (browserLang.startsWith("es")) return "es";
+                    if (browserLang.startsWith("eu")) return "eu";
+                    return "eu";
+                };
+
+                    let initialLang = "eu";
+                    try {
+                        initialLang = localStorage.getItem("preferredLanguage") || initialLang;
+                    } catch (e) {
+                        initialLang = initialLang;
+                    }
+
+                        if (!supportedLanguages.includes(initialLang)) {
+                            initialLang = document.documentElement.lang || getBrowserPreferredLanguage();
+                    }
+
+                    setLanguage(initialLang);
+
+    if (window.lucide?.createIcons) {
+        window.lucide.createIcons();
+    }
+        </script>
+    </body>
 </html>
