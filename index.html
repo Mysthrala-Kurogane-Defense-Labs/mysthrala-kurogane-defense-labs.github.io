@@ -35,11 +35,13 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
             rel="stylesheet"
+            integrity="sha384-7a109cf36599a09b3d6840f6d88df6f94a219d32961a8ffad2d4b1660dc8e905e919e7649a84b1469bc91120fdbf51aa"
+            crossorigin="anonymous"
         />
         <!-- Note: Tailwind CDN is used for rapid development. For production deployment, 
              consider using a build process with proper Tailwind compilation to improve 
              performance and reduce bundle size. -->
-        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.tailwindcss.com" integrity="sha384-8a09b905e881b77e9453882ac164bb8a66267a5a53b19950e391597fe5c19fd32e25b9f89d0afbcb1d72172768702fca" crossorigin="anonymous"></script>
         <script>
             tailwind.config = {
                 theme: {
@@ -449,6 +451,9 @@
 
             langEuButton.addEventListener("click", () => setLanguage("eu"));
             langEsButton.addEventListener("click", () => setLanguage("es"));
+
+            langEuButton.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setLanguage("eu"); } });
+            langEsButton.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setLanguage("es"); } });
 
                                     let initialLang = "eu";
                                     try {
