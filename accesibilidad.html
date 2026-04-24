@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesibilidad | MKDL</title>
+    <meta name="description" content="Declaración de accesibilidad de MKDL para mkdl.jp y el recorrido de contacto asociado.">
+    <link rel="canonical" href="https://mkdl.jp/accesibilidad.html">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f7f8fa;
+            --panel: #ffffff;
+            --line: #d9dee5;
+            --text: #111820;
+            --muted: #454f57;
+            --accent: #684783;
+            --focus: #684783;
+            --focus-gap: #ffffff;
+            --max: 920px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: dark;
+                --bg: #080b10;
+                --panel: #101820;
+                --line: #29333d;
+                --text: #f1f5f8;
+                --muted: #aab8c2;
+                --accent: #c3aadf;
+                --focus: #d8b36a;
+                --focus-gap: #080b10;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Segoe UI", "Noto Sans", system-ui, sans-serif;
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+            text-underline-offset: 3px;
+        }
+
+        a:focus-visible {
+            outline: none;
+            box-shadow:
+                0 0 0 3px var(--focus-gap),
+                0 0 0 6px var(--focus);
+        }
+
+        main:focus {
+            outline: none;
+        }
+
+        .wrap {
+            width: min(var(--max), calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        header,
+        footer {
+            border-bottom: 1px solid var(--line);
+            padding: 22px 0;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            border-bottom: 0;
+            color: var(--muted);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+            font-weight: 760;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 34px;
+            height: 34px;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 100;
+            transform: translateY(-140%);
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            background: var(--panel);
+            color: var(--text);
+            padding: 10px 14px;
+            font-weight: 760;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        section {
+            border-top: 1px solid var(--line);
+            padding: 44px 0;
+        }
+
+        h1,
+        h2,
+        p,
+        ul {
+            margin: 0;
+        }
+
+        h1 {
+            margin: 54px 0 18px;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+        }
+
+        h2 {
+            font-size: clamp(1.55rem, 3vw, 2.35rem);
+            line-height: 1.12;
+        }
+
+        p,
+        li {
+            color: var(--muted);
+            font-size: 1.04rem;
+        }
+
+        p + p,
+        ul {
+            margin-top: 16px;
+        }
+
+        ul {
+            display: grid;
+            gap: 10px;
+            padding-left: 1.2rem;
+        }
+
+        .lead {
+            max-width: 760px;
+            color: var(--text);
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+    <header>
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="Volver a MKDL">
+                <img src="assets/mkdl-icon.svg" alt="" width="34" height="34">
+                <span>Mysthrala Kurogane Defense Labs</span>
+            </a>
+        </div>
+    </header>
+
+    <main id="contenido" tabindex="-1" class="wrap">
+        <h1>Declaración de accesibilidad</h1>
+        <p class="lead">Esta web se ha diseñado con el objetivo de cumplir WCAG 2.2 nivel AA y tomando EN 301 549 como referencia cuando resulte aplicable.</p>
+
+        <section aria-labelledby="scope-title">
+            <h2 id="scope-title">Alcance</h2>
+            <p>La revisión cubre la landing pública de MKDL en mkdl.jp. El formulario de contacto se encuentra en Kurogane Hub y debe considerarse parte del recorrido de contacto, por lo que también necesita revisión periódica.</p>
+        </section>
+
+        <section aria-labelledby="status-title">
+            <h2 id="status-title">Estado de revisión</h2>
+            <p>Última revisión interna: 24 de abril de 2026. Se han realizado comprobaciones automáticas con pa11y y axe-core, además de revisión manual básica de teclado, foco visible, contraste, estructura semántica y comportamiento responsive.</p>
+            <p>Estas comprobaciones no equivalen a una certificación externa ni garantizan que no existan barreras para todas las personas o contextos de uso.</p>
+        </section>
+
+        <section aria-labelledby="known-title">
+            <h2 id="known-title">Barreras conocidas y seguimiento</h2>
+            <ul>
+                <li>El formulario externo de contacto en Kurogane Hub debe mantenerse alineado con los mismos criterios de etiquetas, errores, foco y navegación por teclado.</li>
+                <li>Cualquier cambio relevante de diseño, contenido o formulario debe volver a revisarse.</li>
+                <li>La conformidad se expresa como objetivo técnico de diseño y revisión, no como certificación formal.</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="contact-title">
+            <h2 id="contact-title">Comunicación de barreras</h2>
+            <p>Si encuentras una barrera de accesibilidad o necesitas la información en otro formato, utiliza el <a href="https://hub.mkdl.jp/contact">formulario público de contacto de Kurogane Hub</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <p><a href="index.html">Volver a mkdl.jp</a></p>
+        </div>
+    </footer>
+</body>
+</html>
