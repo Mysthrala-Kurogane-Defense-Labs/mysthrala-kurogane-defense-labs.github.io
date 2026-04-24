@@ -1,1 +1,5 @@
-Mysthrala Kurogane Defense Labs (MKDL). Specializing in OT/IT convergence, industrial cybersecurity, and critical infrastructure resilience. Based in Elgoibar | Aiming for Japan 2027.
+Mysthrala Kurogane Defense Labs (MKDL) corporate landing.
+
+Static GitHub Pages site for https://mkdl.jp/.
+
+MKDL provides practical industrial cybersecurity, operational order and evidence traceability for small industrial companies and micro-SMEs in the Bajo Deba / Euskadi area. Kurogane Hub appears as supporting operational technology inside the service, not as the whole company identity.

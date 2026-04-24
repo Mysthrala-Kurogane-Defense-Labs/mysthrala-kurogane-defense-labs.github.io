@@ -1,641 +1,1504 @@
 <!DOCTYPE html>
-<html lang="eu">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Mysthrala Kurogane Defense Lab | MKDL</title>
-        <meta
-            name="description"
-            content="Mysthrala Kurogane Defense Lab (MKDL): zibersegurtasun industriala Elgoibarren. OT sareak, makinak eta PLCak babesten ditugu Zero Trust defentsa teknologiarekin."
-        />
-        <meta property="og:title" content="Mysthrala Kurogane Defense Lab | MKDL" />
-        <meta
-            property="og:description"
-            content="Mysthrala Kurogane Defense Lab (MKDL): zibersegurtasun industriala Elgoibarren. OT sareak, makinak eta PLCak babesten ditugu Zero Trust defentsa teknologiarekin."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mkdl.jp/" />
-        <meta property="og:locale" content="eu" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Mysthrala Kurogane Defense Lab | MKDL" />
-        <meta
-            name="twitter:description"
-            content="Mysthrala Kurogane Defense Lab (MKDL): zibersegurtasun industriala Elgoibarren. OT sareak, makinak eta PLCak babesten ditugu Zero Trust defentsa teknologiarekin."
-        />
-        <link rel="stylesheet" href="css/tailwind.css" />
-        <style>
-            html {
-                scroll-behavior: smooth;
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKDL | Ciberseguridad industrial para pymes</title>
+    <meta name="description" content="MKDL ayuda a talleres industriales y micro-pymes del Bajo Deba a ordenar activos, accesos, incidencias y evidencias para responder mejor a exigencias de clientes y cadena de suministro.">
+    <link rel="canonical" href="https://mkdl.jp/">
+
+    <meta property="og:title" content="MKDL | Ciberseguridad industrial para pymes">
+    <meta property="og:description" content="Ciberseguridad industrial práctica, trazabilidad y acompañamiento para pymes industriales y micro-pymes.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mkdl.jp/">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Mysthrala Kurogane Defense Labs">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MKDL | Ciberseguridad industrial para pymes">
+    <meta name="twitter:description" content="Ciberseguridad industrial práctica, trazabilidad y acompañamiento para pymes industriales y micro-pymes.">
+
+    <script>
+        document.documentElement.classList.add("js");
+    </script>
+
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #080b10;
+            --body-bg: #080b10;
+            --grid-line: rgba(217, 225, 232, 0.018);
+            --grid-mask: linear-gradient(180deg, rgba(0,0,0,0.85), transparent 78%);
+            --header-bg: #080b10;
+            --frame-bg: #101820;
+            --panel: #101820;
+            --panel-2: #141d26;
+            --surface: #101820;
+            --surface-strong: #0c1118;
+            --surface-soft: #111820;
+            --section-soft: #080b10;
+            --hub-bg: #080b10;
+            --hub-panel-bg: #101820;
+            --hub-list-bg: #0c1118;
+            --closing-bg: #101820;
+            --control-bg: #111820;
+            --control-hover: #17212b;
+            --control-border: #6f8498;
+            --focus-ring: #d8b36a;
+            --focus-gap: #080b10;
+            --accent-soft: #231b2c;
+            --accent-border: #715491;
+            --warning-soft: #1d1a12;
+            --warning-border: #7a6538;
+            --shadow-panel: none;
+            --line: #29333d;
+            --text: #f1f5f8;
+            --muted: #aab8c2;
+            --soft: #aab8c2;
+            --accent: #ad94cb;
+            --accent-text: #c3aadf;
+            --accent-2: #8fb7a7;
+            --warning: #d8b36a;
+            --ink: #000104;
+            --max: 1180px;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root:not([data-theme="dark"]) {
+                color-scheme: light;
+                --bg: #f7f8fa;
+                --body-bg: #f7f8fa;
+                --grid-line: transparent;
+                --grid-mask: linear-gradient(180deg, rgba(0,0,0,0.28), transparent 78%);
+                --header-bg: #f7f8fa;
+                --frame-bg: #ffffff;
+                --panel: #f7f8fa;
+                --panel-2: #ffffff;
+                --surface: #ffffff;
+                --surface-strong: #ffffff;
+                --surface-soft: #ffffff;
+                --section-soft: #f7f8fa;
+                --hub-bg: #f7f8fa;
+                --hub-panel-bg: #ffffff;
+                --hub-list-bg: #ffffff;
+                --closing-bg: #ffffff;
+                --control-bg: #ffffff;
+                --control-hover: #eef1f4;
+                --control-border: #64748b;
+                --focus-ring: #684783;
+                --focus-gap: #ffffff;
+                --accent-soft: #f1eaf7;
+                --accent-border: #8f70ad;
+                --warning-soft: #fbf4e2;
+                --warning-border: #d1ad5d;
+                --shadow-panel: none;
+                --line: #d9dee5;
+                --text: #111820;
+                --muted: #454f57;
+                --soft: #454f57;
+                --accent: #a58ac6;
+                --accent-text: #5f3f7a;
+                --accent-border: #684783;
+                --accent-2: #39725f;
+                --ink: #000104;
             }
-        </style>
-    </head>
-    <body class="bg-slateDarker text-white font-sans">
-        <header class="sticky top-0 z-50 border-b border-white/10 bg-slateDarker/95 backdrop-blur">
-            <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-                <div class="flex items-center gap-2 font-mono text-lg">
-                    <span class="text-white">Mysthrala</span>
-                    <span class="text-basqueGreen">Kurogane Defense Lab</span>
-                </div>
-                <div class="hidden items-center gap-6 text-sm font-medium md:flex">
-                    <a href="#technology" class="transition hover:text-basqueGreen" data-lang="eu">Sistema MKDL</a>
-                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="es">Sistema MKDL</a>
-                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="en">MKDL System</a>
-                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="ja">MKDLシステム</a>
+        }
 
-                    <a href="#services" class="transition hover:text-basqueGreen" data-lang="eu">Zerbitzuak</a>
-                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="es">Servicios</a>
-                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="en">Services</a>
-                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="ja">サービス</a>
+        :root[data-theme="light"] {
+            color-scheme: light;
+            --bg: #f7f8fa;
+            --body-bg: #f7f8fa;
+            --grid-line: transparent;
+            --grid-mask: linear-gradient(180deg, rgba(0,0,0,0.28), transparent 78%);
+            --header-bg: #f7f8fa;
+            --frame-bg: #ffffff;
+            --panel: #f7f8fa;
+            --panel-2: #ffffff;
+            --surface: #ffffff;
+            --surface-strong: #ffffff;
+            --surface-soft: #ffffff;
+            --section-soft: #f7f8fa;
+            --hub-bg: #f7f8fa;
+            --hub-panel-bg: #ffffff;
+            --hub-list-bg: #ffffff;
+            --closing-bg: #ffffff;
+            --control-bg: #ffffff;
+            --control-hover: #eef1f4;
+            --control-border: #64748b;
+            --focus-ring: #684783;
+            --focus-gap: #ffffff;
+            --accent-soft: #f1eaf7;
+            --accent-border: #8f70ad;
+            --warning-soft: #fbf4e2;
+            --warning-border: #d1ad5d;
+            --shadow-panel: none;
+            --line: #d9dee5;
+            --text: #111820;
+            --muted: #454f57;
+            --soft: #454f57;
+            --accent: #a58ac6;
+            --accent-text: #5f3f7a;
+            --accent-border: #684783;
+            --accent-2: #39725f;
+            --ink: #000104;
+        }
 
-                    <a href="#contact" class="transition hover:text-basqueGreen" data-lang="eu">Kontaktua</a>
-                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="es">Contacto</a>
-                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="en">Contact</a>
-                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="ja">お問い合わせ</a>
-                </div>
-                <div class="flex flex-wrap items-center gap-3 sm:gap-4">
-                    <div class="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 p-1 text-xs font-semibold">
-                        <button
-                            id="lang-eu"
-                            class="rounded-full px-3 py-1 text-white transition"
-                            aria-pressed="true"
-                        >
-                            EU
-                        </button>
-                        <button
-                            id="lang-es"
-                            class="rounded-full px-3 py-1 text-white/60 transition"
-                            aria-pressed="false"
-                        >
-                            ES
-                        </button>
-                        <button id="lang-en" class="rounded-full px-3 py-1 text-white/60 transition" aria-pressed="false">
-                            EN
-                        </button>
-                        <button id="lang-ja" class="rounded-full px-3 py-1 text-white/60 transition" aria-pressed="false">
-                            JP
-                        </button>
-                    </div>
-                    <a
-                        href="#contact"
-                        class="rounded-md bg-basqueGreen px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:brightness-110 md:inline-flex"
-                    >
-                        <span data-lang="eu">Auditoria Eskatu</span>
-                        <span class="hidden" data-lang="es">Solicitar Auditoría</span>
-                        <span class="hidden" data-lang="en">Request an Audit</span>
-                        <span class="hidden" data-lang="ja">監査を依頼</span>
-                    </a>
-                    <button id="mobile-menu-toggle"
-                        class="inline-flex items-center justify-center rounded-md border border-white/20 bg-white/5 p-2 text-white/80 transition hover:text-white md:hidden"
-                        aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
-                        <i data-lucide="menu" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </nav>
-            <div id="mobile-menu" class="hidden border-t border-white/10 bg-slateDarker/95 px-6 py-4 md:hidden">
-                <div class="flex flex-col gap-3 text-sm font-medium">
-                    <a href="#technology" class="transition hover:text-basqueGreen" data-lang="eu">Sistema MKDL</a>
-                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="es">Sistema MKDL</a>
-                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="en">MKDL System</a>
-                    <a href="#technology" class="hidden transition hover:text-basqueGreen" data-lang="ja">MKDLシステム</a>
-                    <a href="#services" class="transition hover:text-basqueGreen" data-lang="eu">Zerbitzuak</a>
-                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="es">Servicios</a>
-                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="en">Services</a>
-                    <a href="#services" class="hidden transition hover:text-basqueGreen" data-lang="ja">サービス</a>
-                    <a href="#contact" class="transition hover:text-basqueGreen" data-lang="eu">Kontaktua</a>
-                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="es">Contacto</a>
-                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="en">Contact</a>
-                    <a href="#contact" class="hidden transition hover:text-basqueGreen" data-lang="ja">お問い合わせ</a>
-                    <a href="#contact"
-                        class="mt-2 inline-flex items-center justify-center rounded-md bg-basqueGreen px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:brightness-110">
-                        <span data-lang="eu">Auditoria Eskatu</span>
-                        <span class="hidden" data-lang="es">Solicitar Auditoría</span>
-                        <span class="hidden" data-lang="en">Request an Audit</span>
-                        <span class="hidden" data-lang="ja">監査を依頼</span>
-                    </a>
-                </div>
+        :root[data-theme="dark"] {
+            color-scheme: dark;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            margin: 0;
+            background: var(--body-bg);
+            color: var(--text);
+            font-family: "Segoe UI", "Noto Sans", system-ui, sans-serif;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: var(--grid-mask);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .brand,
+        .btn,
+        .nav-links a {
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: none;
+            box-shadow:
+                0 0 0 3px var(--focus-gap),
+                0 0 0 6px var(--focus-ring);
+        }
+
+        main:focus {
+            outline: none;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 100;
+            transform: translateY(-140%);
+            border: 1px solid var(--accent-border);
+            border-radius: 6px;
+            background: var(--panel);
+            color: var(--text);
+            padding: 10px 14px;
+            font-weight: 760;
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .wrap {
+            width: min(var(--max), calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid var(--line);
+            background: var(--header-bg);
+            backdrop-filter: blur(14px);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 76px;
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+            font-weight: 760;
+            letter-spacing: 0;
+        }
+
+        .brand img {
+            width: 34px;
+            height: 34px;
+        }
+
+        .brand span {
+            white-space: nowrap;
+        }
+
+        .brand-short {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .nav-links a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding-inline: 4px;
+        }
+
+        .nav-actions {
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-btn {
+            display: inline-grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--control-border);
+            border-radius: 6px;
+            background: var(--control-bg);
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .theme-toggle {
+            display: inline-grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--control-border);
+            border-radius: 999px;
+            background: var(--control-bg);
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .desktop-theme {
+            flex: 0 0 auto;
+        }
+
+        .theme-toggle .sun,
+        :root[data-theme="light"] .theme-toggle .moon {
+            display: none;
+        }
+
+        :root[data-theme="light"] .theme-toggle .sun {
+            display: block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            border: 1px solid var(--control-border);
+            border-radius: 6px;
+            padding: 0 16px;
+            background: var(--control-bg);
+            color: var(--text);
+            font-weight: 720;
+            white-space: nowrap;
+            transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            border-color: var(--accent-border);
+            background: var(--control-hover);
+        }
+
+        .btn-primary {
+            border-color: var(--accent-border);
+            background: var(--accent);
+            color: var(--ink);
+        }
+
+        .btn-primary:hover {
+            background: #b69bd5;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 92px 0 74px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+            align-items: center;
+            gap: 64px;
+        }
+
+        .eyebrow {
+            display: block;
+            margin-bottom: 22px;
+            color: var(--accent-2);
+            font-size: 0.95rem;
+            font-weight: 720;
+            letter-spacing: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p {
+            margin: 0;
+        }
+
+        h1 {
+            max-width: 880px;
+            font-size: clamp(2.55rem, 5.6vw, 4.65rem);
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.55rem);
+            line-height: 1.08;
+            letter-spacing: -0.018em;
+        }
+
+        h3 {
+            font-size: 1.14rem;
+            line-height: 1.35;
+        }
+
+        h4 {
+            font-size: 1rem;
+            line-height: 1.35;
+        }
+
+        .lead {
+            max-width: 760px;
+            margin-top: 26px;
+            color: var(--text);
+            font-size: clamp(1.08rem, 2vw, 1.35rem);
+        }
+
+        .support {
+            max-width: 720px;
+            margin-top: 16px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 34px;
+        }
+
+        .actions-center {
+            justify-content: center;
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 0;
+        }
+
+        .industrial-frame {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            min-height: 430px;
+            margin: 0 auto;
+            aspect-ratio: 1.05;
+            border: 1px solid var(--line);
+            background:
+                var(--frame-bg);
+            box-shadow: var(--shadow-panel);
+        }
+
+        .visual-content {
+            display: flex;
+            min-height: 430px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 34px 42px;
+            text-align: center;
+        }
+
+        .visual-symbol {
+            width: 110px;
+            height: 110px;
+            opacity: 0.94;
+        }
+
+        .visual-title {
+            margin-top: 28px;
+            font-size: clamp(1.25rem, 2.6vw, 1.8rem);
+            font-weight: 800;
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+        }
+
+        .visual-copy {
+            max-width: 360px;
+            margin-top: 14px;
+            color: var(--muted);
+        }
+
+        .service-flow {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 28px;
+            border: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .flow-step {
+            display: inline-flex;
+            align-items: center;
+            min-height: 36px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 0 12px;
+            color: var(--text);
+            white-space: nowrap;
+        }
+
+        .flow-step strong {
+            font-size: 0.9rem;
+        }
+
+        section {
+            padding: 84px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        [id] {
+            scroll-margin-top: 120px;
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
+            gap: 56px;
+            align-items: start;
+            margin-bottom: 46px;
+        }
+
+        .section-kicker {
+            color: var(--accent-2);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .section-copy {
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .problem {
+            background: var(--section-soft);
+        }
+
+        .problem-statement {
+            max-width: 950px;
+            margin-top: 18px;
+            font-size: clamp(1.5rem, 3vw, 2.45rem);
+            line-height: 1.18;
+            letter-spacing: -0.02em;
+        }
+
+        .split-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin-top: 42px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .split-list article {
+            min-height: 190px;
+            padding: 24px;
+            background: var(--surface-strong);
+        }
+
+        .continuity {
+            background: var(--section-soft);
+        }
+
+        .continuity-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+            gap: 48px;
+            align-items: start;
+        }
+
+        .incident-list,
+        .response-list {
+            display: grid;
+            gap: 1px;
+            margin: 0;
+            border: 1px solid var(--line);
+            background: var(--line);
+            padding: 0;
+        }
+
+        .incident-list li,
+        .response-list li {
+            list-style: none;
+            background: var(--surface);
+            padding: 22px;
+        }
+
+        .incident-list p,
+        .response-list p {
+            margin-top: 10px;
+            color: var(--muted);
+        }
+
+        .source-note {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .source-note a {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .response-title {
+            margin-top: 28px;
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .target-grid article,
+        .cards article,
+        .compare article {
+            background: var(--surface);
+            padding: 26px;
+        }
+
+        .target-grid p,
+        .cards p,
+        .compare p,
+        .steps p,
+        .contact-card p {
+            margin-top: 12px;
+            color: var(--muted);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .cards article {
+            min-height: 0;
+        }
+
+        .hub {
+            background: var(--hub-bg);
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+            gap: 54px;
+            align-items: start;
+        }
+
+        .hub-panel {
+            border: 1px solid var(--accent-border);
+            background: var(--hub-panel-bg);
+            padding: 34px;
+        }
+
+        .hub-panel p {
+            margin-top: 22px;
+            color: var(--text);
+            font-size: 1.08rem;
+        }
+
+        .hub-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 0;
+        }
+
+        .hub-list li {
+            list-style: none;
+            border: 1px solid var(--line);
+            background: var(--hub-list-bg);
+            padding: 16px;
+            color: var(--text);
+        }
+
+        .hub-list li::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-right: 10px;
+            border: 1px solid var(--accent-border);
+            border-radius: 999px;
+            vertical-align: 0.08em;
+        }
+
+        .steps {
+            counter-reset: step;
+            display: grid;
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+            margin: 0;
+            padding: 0;
+        }
+
+        .steps li {
+            counter-increment: step;
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 28px;
+            align-items: start;
+            background: var(--surface-strong);
+            padding: 28px;
+            list-style: none;
+        }
+
+        .steps li::before {
+            content: counter(step);
+            color: var(--accent-text);
+            font-size: 1.35rem;
+            font-weight: 860;
+            line-height: 1;
+        }
+
+        .result-line {
+            margin-top: 32px;
+            border-left: 2px solid var(--accent-2);
+            padding-left: 18px;
+            color: var(--text);
+            font-size: 1.12rem;
+        }
+
+        .compare {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .compare article:last-child {
+            background: var(--accent-soft);
+        }
+
+        .start {
+            background: var(--section-soft);
+        }
+
+        .start-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+            gap: 48px;
+            align-items: start;
+        }
+
+        .start-steps {
+            display: grid;
+            margin-top: 28px;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            padding: 18px;
+        }
+
+        .start-steps li {
+            display: grid;
+            grid-template-columns: 48px 1fr;
+            gap: 14px;
+            align-items: center;
+            list-style: none;
+            color: var(--text);
+            min-height: 48px;
+        }
+
+        .start-steps span {
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--line);
+            color: var(--accent-text);
+            font-weight: 820;
+        }
+
+        .deliverables {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            margin-top: 36px;
+            border: 1px solid var(--line);
+            background: var(--line);
+            padding: 0;
+        }
+
+        .deliverables li {
+            list-style: none;
+            background: var(--surface);
+            padding: 22px;
+            color: var(--text);
+            font-weight: 720;
+        }
+
+        .limits-box {
+            border: 1px solid var(--line);
+            background: var(--surface);
+            padding: 30px;
+        }
+
+        .limits-box p {
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .scope-note {
+            border: 1px solid var(--warning-border);
+            background: var(--warning-soft);
+            padding: 26px;
+            color: var(--text);
+        }
+
+        .closing {
+            text-align: center;
+            padding: 96px 0;
+            background: var(--closing-bg);
+        }
+
+        .closing h2 {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .closing p {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 1.15rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            background: var(--bg);
+            padding: 54px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 36px;
+            align-items: start;
+        }
+
+        .contact-card {
+            border: 1px solid var(--line);
+            background: var(--surface-soft);
+            padding: 24px;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 8px;
+            margin-top: 18px;
+            color: var(--muted);
+        }
+
+        .contact-list a {
+            color: var(--text);
+            text-decoration: underline;
+            text-decoration-color: var(--accent-border);
+            text-underline-offset: 3px;
+        }
+
+        .legal {
+            margin-top: 34px;
+            color: var(--soft);
+            font-size: 0.86rem;
+        }
+
+        @media (max-width: 980px) {
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 16px 0;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .hero-grid,
+            .section-head,
+            .hub-grid,
+            .continuity-grid,
+            .start-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards,
+            .compare,
+            .split-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 1120px) {
+            .nav {
+                align-items: center;
+                flex-direction: row;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                border-bottom: 1px solid var(--line);
+                background: var(--panel);
+                padding: 10px 20px 16px;
+            }
+
+            .js .nav-links {
+                display: none;
+            }
+
+            .nav-links.is-open {
+                display: flex;
+            }
+
+            :root:not(.js) .menu-toggle,
+            :root:not(.js) .theme-toggle {
+                display: none;
+            }
+
+            .nav-links a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .nav-links .btn {
+                margin-top: 12px;
+                border-bottom: 1px solid var(--accent-border);
+            }
+
+            .desktop-theme {
+                display: none;
+            }
+
+            .nav-actions {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .brand span {
+                max-width: 17rem;
+                white-space: normal;
+                line-height: 1.1;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .wrap {
+                width: min(100% - 28px, var(--max));
+            }
+
+            .brand span {
+                max-width: 10rem;
+            }
+
+            .hero {
+                padding: 58px 0 54px;
+            }
+
+            section {
+                padding: 62px 0;
+            }
+
+            .industrial-frame {
+                min-height: 0;
+                aspect-ratio: auto;
+            }
+
+            .visual-content {
+                min-height: 360px;
+                padding: 28px;
+            }
+
+            .split-list,
+            .target-grid,
+            .cards,
+            .deliverables,
+            .hub-list,
+            .compare {
+                grid-template-columns: 1fr;
+            }
+
+            .steps li {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .brand-full {
+                display: none;
+            }
+
+            .brand-short {
+                display: inline;
+            }
+
+            .btn {
+                white-space: normal;
+                text-align: center;
+                padding-block: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+    <header class="site-header">
+        <nav class="wrap nav" aria-label="Principal">
+            <a class="brand" href="#contenido" aria-label="Mysthrala Kurogane Defense Labs">
+                <img src="assets/mkdl-icon.svg" alt="" width="34" height="34">
+                <span class="brand-full">Mysthrala Kurogane Defense Labs</span>
+                <span class="brand-short">MKDL</span>
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Alternar tema claro y oscuro" aria-pressed="false">
+                    <span class="moon" aria-hidden="true">☾</span>
+                    <span class="sun" aria-hidden="true">☼</span>
+                </button>
+                <button class="icon-btn menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+                    <span aria-hidden="true">☰</span>
+                </button>
             </div>
-        </header>
+            <div id="site-menu" class="nav-links">
+                <a href="#problema">Problema</a>
+                <a href="#que-hacemos">Qué hacemos</a>
+                <a href="#kurogane-hub">Kurogane Hub</a>
+                <a href="#metodo">Método</a>
+                <a href="#contacto">Contacto</a>
+                <button class="theme-toggle desktop-theme" type="button" aria-label="Alternar tema claro y oscuro" aria-pressed="false">
+                    <span class="moon" aria-hidden="true">☾</span>
+                    <span class="sun" aria-hidden="true">☼</span>
+                </button>
+                <a class="btn btn-primary" href="https://hub.mkdl.jp/contact">Solicitar conversación inicial</a>
+            </div>
+        </nav>
+    </header>
 
-        <main>
-            <section class="relative overflow-hidden bg-gradient-to-b from-slateDarker via-slateDeep to-slateDarker">
-                <div class="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.1fr_0.9fr] md:py-28">
-                    <div class="space-y-6">
-                        <span class="inline-flex items-center gap-2 rounded-full border border-basqueRed/40 bg-basqueRed/10 px-4 py-1 text-xs font-semibold text-basqueRed">
-                            <i data-lucide="shield" aria-hidden="true"></i>
-                            Zero Trust
-                        </span>
-                        <h1 class="font-mono text-3xl font-bold leading-tight md:text-5xl" data-lang="eu">
-                            Zibersegurtasun Industriala Elgoibarren.
-                        </h1>
-                        <h1 class="hidden font-mono text-3xl font-bold leading-tight md:text-5xl" data-lang="es">
-                            Ciberseguridad Industrial en Elgoibar.
-                        </h1>
-                        <h1 class="hidden font-mono text-3xl font-bold leading-tight md:text-5xl" data-lang="en">
-                            Industrial Cybersecurity in Elgoibar.
-                        </h1>
-                        <h1 class="hidden font-mono text-3xl font-bold leading-tight md:text-5xl" data-lang="ja">
-                            エルゴイバルの産業サイバーセキュリティ。
-                        </h1>
-                        <p class="text-base text-white/80 md:text-lg" data-lang="eu">
-                            Ez utzi zibereraso batek zure produkzioa gelditzen. Zure makinak (OT) eta PLCak babesten ditugu defentsa teknologia aurreratuarekin.
-                        </p>
-                        <p class="hidden text-base text-white/80 md:text-lg" data-lang="es">
-                            No dejes que un ciberataque pare tu producción. Protegemos tus máquinas (OT) y PLCs con tecnología de defensa avanzada.
-                        </p>
-                        <p class="hidden text-base text-white/80 md:text-lg" data-lang="en">
-                            Don’t let a cyberattack stop production. We protect your machines (OT) and PLCs with advanced defense technology.
-                        </p>
-                        <p class="hidden text-base text-white/80 md:text-lg" data-lang="ja">
-                            サイバー攻撃で生産を止めない。OT機器とPLCを先進的な防御技術で保護します。
-                        </p>
-                        <div class="flex flex-wrap items-center gap-4">
-                            <a
-                                href="#technology"
-                                class="rounded-md border border-basqueGreen bg-basqueGreen px-6 py-3 text-sm font-semibold shadow-glow transition hover:brightness-110"
-                                data-lang="eu"
-                            >
-                                Kontrol Sistema Ikusi
-                            </a>
-                            <a
-                                href="#technology"
-                                class="hidden rounded-md border border-basqueGreen bg-basqueGreen px-6 py-3 text-sm font-semibold shadow-glow transition hover:brightness-110"
-                                data-lang="es"
-                            >
-                                Ver Sistema de Control
-                            </a>
-                            <a href="#technology"
-                                class="hidden rounded-md border border-basqueGreen bg-basqueGreen px-6 py-3 text-sm font-semibold shadow-glow transition hover:brightness-110"
-                                data-lang="en">
-                                View Control System
-                            </a>
-                            <a href="#technology"
-                                class="hidden rounded-md border border-basqueGreen bg-basqueGreen px-6 py-3 text-sm font-semibold shadow-glow transition hover:brightness-110"
-                                data-lang="ja">
-                                制御システムを見る
-                            </a>
-                            <span class="text-sm text-white/60" data-lang="eu">Ingeniaritza eta euskarria Debabarrenatik.</span>
-                            <span class="hidden text-sm text-white/60" data-lang="es">Ingeniería y soporte desde el Bajo Deba.</span>
-                            <span class="hidden text-sm text-white/60" data-lang="en">Engineering and support from Debabarrena.</span>
-                            <span class="hidden text-sm text-white/60" data-lang="ja">デババレナから技術支援。</span>
-                        </div>
-                    </div>
-                    <div class="relative flex items-center justify-center">
-                        <div
-                            class="absolute h-64 w-64 rounded-full border border-basqueGreen/40 bg-basqueGreen/10 sm:h-72 sm:w-72 md:h-80 md:w-80">
-                        </div>
-                        <div
-                            class="relative w-full max-w-sm rounded-2xl border border-white/10 bg-black/40 p-5 shadow-2xl sm:max-w-md md:w-96 md:p-6">
-                            <div class="flex items-center justify-between text-xs text-white/60">
-                                <span>MKDL</span>
-                                <span>
-                                    <span data-lang="eu">OT Seguru</span>
-                                    <span class="hidden" data-lang="es">OT Seguro</span>
-                                    <span class="hidden" data-lang="en">OT Secure</span>
-                                    <span class="hidden" data-lang="ja">OTセキュア</span>
-                                </span>
-                            </div>
-                            <div
-                                class="mt-6 h-64 w-full rounded-xl border border-white/10 bg-gradient-to-br from-slateDeep to-black/70 p-3 sm:h-56 sm:p-4 md:h-64">
-                                <div class="flex items-center justify-between text-[10px] uppercase tracking-wide text-white/50">
-                                    <span>MES OT</span>
-                                    <span>
-                                        <span data-lang="eu">Txanda A</span>
-                                        <span class="hidden" data-lang="es">Turno A</span>
-                                        <span class="hidden" data-lang="en">Shift A</span>
-                                        <span class="hidden" data-lang="ja">Aシフト</span>
-                                    </span>
-                                </div>
-                                <div class="mt-3 grid grid-cols-2 gap-2 text-[11px]">
-                                    <div class="rounded-lg border border-white/10 bg-white/5 p-2">
-                                        <p class="text-white/60">OEE</p>
-                                        <p class="mt-1 text-base font-semibold text-basqueGreen">92%</p>
-                                    </div>
-                                    <div class="rounded-lg border border-white/10 bg-white/5 p-2">
-                                        <p class="text-white/60">
-                                            <span data-lang="eu">Hondarra</span>
-                                            <span class="hidden" data-lang="es">Merma</span>
-                                            <span class="hidden" data-lang="en">Scrap</span>
-                                            <span class="hidden" data-lang="ja">不良率</span>
-                                        </p>
-                                        <p class="mt-1 text-base font-semibold text-basqueRed">1.8%</p>
-                                    </div>
-                                    <div class="rounded-lg border border-white/10 bg-white/5 p-2">
-                                        <p class="text-white/60">
-                                            <span data-lang="eu">Lineak</span>
-                                            <span class="hidden" data-lang="es">Líneas</span>
-                                            <span class="hidden" data-lang="en">Lines</span>
-                                            <span class="hidden" data-lang="ja">ライン</span>
-                                        </p>
-                                        <p class="mt-1 text-base font-semibold text-white">04</p>
-                                    </div>
-                                    <div class="rounded-lg border border-white/10 bg-white/5 p-2">
-                                        <p class="text-white/60">
-                                            <span data-lang="eu">Alertak</span>
-                                            <span class="hidden" data-lang="es">Alertas</span>
-                                            <span class="hidden" data-lang="en">Alerts</span>
-                                            <span class="hidden" data-lang="ja">アラート</span>
-                                        </p>
-                                        <p class="mt-1 text-base font-semibold text-basqueRed">02</p>
-                                    </div>
-                                </div>
-                                <div class="mt-3 space-y-1 text-[10px] text-white/60">
-                                    <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-2 py-1">
-                                        <span>
-                                            <span data-lang="eu">Linea 01</span>
-                                            <span class="hidden" data-lang="es">Línea 01</span>
-                                            <span class="hidden" data-lang="en">Line 01</span>
-                                            <span class="hidden" data-lang="ja">ライン 01</span>
-                                        </span>
-                                        <span class="text-basqueGreen">OK</span>
-                                    </div>
-                                    <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-2 py-1">
-                                        <span>
-                                            <span data-lang="eu">Linea 02</span>
-                                            <span class="hidden" data-lang="es">Línea 02</span>
-                                            <span class="hidden" data-lang="en">Line 02</span>
-                                            <span class="hidden" data-lang="ja">ライン 02</span>
-                                        </span>
-                                        <span class="text-basqueRed">
-                                            <span data-lang="eu">Geldialdia</span>
-                                            <span class="hidden" data-lang="es">Parada</span>
-                                            <span class="hidden" data-lang="en">Stopped</span>
-                                            <span class="hidden" data-lang="ja">停止</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-6 flex items-center gap-3 text-sm">
-                                <span class="h-2 w-2 rounded-full bg-basqueGreen"></span>
-                                <span>Oukitel RT3 Plus</span>
-                            </div>
-                        </div>
+    <main id="contenido" tabindex="-1">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="wrap hero-grid">
+                <div>
+                    <span class="eyebrow">Ciberseguridad industrial para pequeña industria</span>
+                    <h1 id="hero-title">Ciberseguridad industrial que una pyme sí puede entender y aplicar</h1>
+                    <p class="lead">MKDL ayuda a talleres industriales y micro-pymes a ordenar activos, accesos, incidencias y evidencias para reducir puntos ciegos y responder mejor a peticiones de clientes, con un alcance proporcional a su tamaño.</p>
+                    <p class="support">Entornos industriales, máquinas conectadas, trazabilidad documental y acompañamiento realista para talleres y empresas auxiliares del Bajo Deba.</p>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="https://hub.mkdl.jp/contact">Solicitar conversación inicial</a>
+                        <a class="btn" href="#metodo">Ver cómo trabajamos</a>
                     </div>
                 </div>
-            </section>
-
-            <section class="bg-slateDeep py-20">
-                <div class="mx-auto max-w-5xl space-y-6 px-6">
-                    <h2 class="font-mono text-2xl font-semibold md:text-3xl" data-lang="eu">
-                        Bulegoko informatikak ez du balio fabrikan.
-                    </h2>
-                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="es">
-                        La informática de oficina no sirve en la fábrica.
-                    </h2>
-                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="en">
-                        Office IT doesn’t work on the factory floor.
-                    </h2>
-                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="ja">
-                        オフィスITは工場では通用しない。
-                    </h2>
-                    <p class="text-white/80 md:text-lg" data-lang="eu">
-                        Antibirus arrunt batek ez du automata bat babesten. Kudeaketa sarea erortzen bada, formateatu egiten da. Produkzioa erortzen bada, milaka euro galtzen dituzu orduro.
-                    </p>
-                    <p class="hidden text-white/80 md:text-lg" data-lang="es">
-                        Un antivirus normal no protege un autómata. Si tu red de gestión cae, formateas. Si tu red de producción cae, pierdes miles de euros por hora.
-                    </p>
-                    <p class="hidden text-white/80 md:text-lg" data-lang="en">
-                        A standard antivirus doesn’t protect a PLC. If office IT goes down, you reinstall. If production goes down, you lose
-                        thousands of euros per hour.
-                    </p>
-                    <p class="hidden text-white/80 md:text-lg" data-lang="ja">
-                        汎用アンチウイルスではPLCを保護できません。生産ネットワークが停止すれば、毎時数千ユーロの損失を招きます。
-                    </p>
-                </div>
-            </section>
-
-            <section id="technology" class="py-20">
-                <div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[0.9fr_1.1fr]">
-                    <div class="space-y-6">
-                        <h2 class="font-mono text-2xl font-semibold md:text-3xl" data-lang="eu">MKDL System: Zure Fabrika Poltsikoan.</h2>
-                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="es">MKDL System: Tu Fábrica en el Bolsillo.</h2>
-                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="en">MKDL System: Your Factory in Your Pocket.
-                        </h2>
-                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="ja">MKDLシステム：工場をポケットに。</h2>
-                        <ul class="space-y-4 text-sm text-white/80">
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="terminal" aria-hidden="true"></i>
-                                <span data-lang="eu">Aginte Terminal Segurua (Jabetzan).</span>
-                                <span class="hidden" data-lang="es">Terminal de Mando Securizado (En propiedad).</span>
-                                <span class="hidden" data-lang="en">Hardened Command Terminal (owned by you).</span>
-                                <span class="hidden" data-lang="ja">自社所有型・堅牢化コマンド端末（機密情報の完全管理）。</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="signal" aria-hidden="true"></i>
-                                <span data-lang="eu">4G Konexio propioa (WiFi-tik kanpo).</span>
-                                <span class="hidden" data-lang="es">Conexión 4G Propia (Independiente del WiFi).</span>
-                                <span class="hidden" data-lang="en">Dedicated 4G connectivity (independent from Wi‑Fi).</span>
-                                <span class="hidden" data-lang="ja">専用4G接続（Wi‑Fiに依存しない）。</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="traffic-cone" aria-hidden="true"></i>
-                                <span data-lang="eu">"Maldivas" Modua: Semaforo Berdea eta lasaitasuna.</span>
-                                <span class="hidden" data-lang="es">Modo "Maldivas": Semáforo Verde y tranquilidad.</span>
-                                <span class="hidden" data-lang="en">“Maldives” Mode: green light and peace of mind.</span>
-                                <span class="hidden" data-lang="ja">「モルディブ」モード：青信号と安心。</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-lucide="lock" aria-hidden="true"></i>
-                                <span data-lang="eu">Zero Trust: Kiosko moduan blokeatuta.</span>
-                                <span class="hidden" data-lang="es">Zero Trust: Bloqueado en modo kiosco.</span>
-                                <span class="hidden" data-lang="en">Zero Trust: locked down in kiosk mode.</span>
-                                <span class="hidden" data-lang="ja">ゼロトラスト：キオスクモードでロックダウン。</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="relative flex items-center justify-center">
-                        <div class="h-60 w-60 rounded-full border border-basqueGreen/40 bg-basqueGreen/10 sm:h-72 sm:w-72 md:h-80 md:w-80">
-                        </div>
-                        <div
-                            class="absolute right-4 top-6 h-44 w-52 rotate-3 rounded-2xl border border-white/20 bg-slateDeep/60 shadow-2xl sm:right-6 sm:top-8 sm:h-52 sm:w-60 sm:rotate-6 md:right-10 md:top-8 md:h-56 md:w-72">
-                            <div
-                                class="flex h-full w-full flex-col justify-between rounded-xl border border-white/10 bg-black/40 p-3 text-[10px] text-white/60">
-                                <div class="flex items-center justify-between uppercase tracking-wide">
-                                    <span>MES OT</span>
-                                    <span>
-                                        <span data-lang="eu">Txanda A</span>
-                                        <span class="hidden" data-lang="es">Turno A</span>
-                                        <span class="hidden" data-lang="en">Shift A</span>
-                                        <span class="hidden" data-lang="ja">Aシフト</span>
-                                    </span>
-                                </div>
-                                <div class="grid grid-cols-2 gap-2 text-[10px]">
-                                    <div class="rounded-md border border-white/10 bg-white/5 p-2">
-                                        <p>OEE</p>
-                                        <p class="mt-1 text-sm font-semibold text-basqueGreen">92%</p>
-                                    </div>
-                                    <div class="rounded-md border border-white/10 bg-white/5 p-2">
-                                        <p>
-                                            <span data-lang="eu">Alertak</span>
-                                            <span class="hidden" data-lang="es">Alertas</span>
-                                            <span class="hidden" data-lang="en">Alerts</span>
-                                            <span class="hidden" data-lang="ja">アラート</span>
-                                        </p>
-                                        <p class="mt-1 text-sm font-semibold text-basqueRed">02</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-2 py-1">
-                                    <span>
-                                        <span data-lang="eu">Linea 01</span>
-                                        <span class="hidden" data-lang="es">Línea 01</span>
-                                        <span class="hidden" data-lang="en">Line 01</span>
-                                        <span class="hidden" data-lang="ja">ライン 01</span>
-                                    </span>
-                                    <span class="text-basqueGreen">OK</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="absolute bottom-4 left-4 h-48 w-60 -rotate-2 rounded-2xl border border-white/10 bg-black/60 sm:bottom-6 sm:left-6 sm:h-56 sm:w-72 sm:-rotate-3">
-                            <div
-                                class="flex h-full w-full flex-col justify-between rounded-xl border border-white/10 bg-white/5 p-3 text-[10px] text-white/60">
-                                <div class="flex items-center justify-between uppercase tracking-wide">
-                                    <span>MES OT</span>
-                                    <span>Zero Trust</span>
-                                </div>
-                                <div class="grid grid-cols-2 gap-2 text-[10px]">
-                                    <div class="rounded-md border border-white/10 bg-black/40 p-2">
-                                        <p>
-                                            <span data-lang="eu">Hondarra</span>
-                                            <span class="hidden" data-lang="es">Merma</span>
-                                            <span class="hidden" data-lang="en">Scrap</span>
-                                            <span class="hidden" data-lang="ja">不良率</span>
-                                        </p>
-                                        <p class="mt-1 text-sm font-semibold text-basqueRed">1.8%</p>
-                                    </div>
-                                    <div class="rounded-md border border-white/10 bg-black/40 p-2">
-                                        <p>
-                                            <span data-lang="eu">Lineak</span>
-                                            <span class="hidden" data-lang="es">Líneas</span>
-                                            <span class="hidden" data-lang="en">Lines</span>
-                                            <span class="hidden" data-lang="ja">ライン</span>
-                                        </p>
-                                        <p class="mt-1 text-sm font-semibold text-white">04</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-between rounded-md border border-white/10 bg-black/40 px-2 py-1">
-                                    <span>
-                                        <span data-lang="eu">Linea 02</span>
-                                        <span class="hidden" data-lang="es">Línea 02</span>
-                                        <span class="hidden" data-lang="en">Line 02</span>
-                                        <span class="hidden" data-lang="ja">ライン 02</span>
-                                    </span>
-                                    <span class="text-basqueRed">
-                                        <span data-lang="eu">Geldialdia</span>
-                                        <span class="hidden" data-lang="es">Parada</span>
-                                        <span class="hidden" data-lang="en">Stopped</span>
-                                        <span class="hidden" data-lang="ja">停止</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="services" class="bg-slateDeep py-20">
-                <div class="mx-auto max-w-6xl space-y-10 px-6">
-                    <div class="flex items-center justify-between">
-                        <h2 class="font-mono text-2xl font-semibold md:text-3xl" data-lang="eu">Zerbitzuak</h2>
-                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="es">Servicios</h2>
-                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="en">Services</h2>
-                        <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="ja">サービス</h2>
-                        <span class="hidden rounded-full border border-basqueRed/40 bg-basqueRed/10 px-4 py-1 text-xs font-semibold text-basqueRed md:inline-flex">
-                            OT / Zero Trust
-                        </span>
-                    </div>
-                    <div class="grid gap-6 md:grid-cols-2">
-                        <article class="rounded-2xl border border-white/10 bg-black/40 p-6">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-mono text-lg font-semibold" data-lang="eu">Oinarrizko Mantentzea</h3>
-                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="es">Mantenimiento Básico</h3>
-                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="en">Basic Maintenance</h3>
-                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="ja">基本メンテナンス</h3>
-                                <span class="rounded-full border border-white/20 px-3 py-1 text-xs text-white/60">OT</span>
-                            </div>
-                            <p class="mt-4 text-sm text-white/70" data-lang="eu">Tailerrak</p>
-                            <p class="hidden mt-4 text-sm text-white/70" data-lang="es">Talleres</p>
-                            <p class="hidden mt-4 text-sm text-white/70" data-lang="en">Workshops</p>
-                            <p class="hidden mt-4 text-sm text-white/70" data-lang="ja">ワークショップ</p>
-                            <p class="mt-6 text-2xl font-semibold text-basqueGreen">
-                                950€
-                                <span class="text-sm text-white/60" data-lang="eu">/ hilean</span>
-                                <span class="hidden text-sm text-white/60" data-lang="es">/ mes</span>
-                                <span class="hidden text-sm text-white/60" data-lang="en">/ month</span>
-                                <span class="hidden text-sm text-white/60" data-lang="ja">/ 月</span>
-                            </p>
-                        </article>
-
-                        <article class="rounded-2xl border border-basqueGreen/60 bg-basqueGreen/10 p-6 shadow-glow">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-mono text-lg font-semibold" data-lang="eu">Fabrika Blindatua</h3>
-                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="es">Planta Blindada</h3>
-                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="en">Hardened Plant</h3>
-                                <h3 class="hidden font-mono text-lg font-semibold" data-lang="ja">強化プラント</h3>
-                                <span class="rounded-full border border-basqueGreen/40 px-3 py-1 text-xs text-basqueGreen">Premium</span>
-                            </div>
-                            <p class="mt-4 text-sm text-white/70" data-lang="eu">24/7 Produkzioa</p>
-                            <p class="hidden mt-4 text-sm text-white/70" data-lang="es">Producción 24/7</p>
-                            <p class="hidden mt-4 text-sm text-white/70" data-lang="en">Production 24/7</p>
-                            <p class="hidden mt-4 text-sm text-white/70" data-lang="ja">24/7 生産</p>
-                            <ul class="mt-4 space-y-2 text-sm text-white/80">
-                                <li>
-                                    <span data-lang="eu">Tablet + MKDL App + 24/7 monitorizazioa</span>
-                                    <span class="hidden" data-lang="es">Tablet + App MKDL + Monitorización 24/7</span>
-                                    <span class="hidden" data-lang="en">Tablet + MKDL App + 24/7 monitoring</span>
-                                    <span class="hidden" data-lang="ja">タブレット + MKDLアプリ + 24/7 監視</span>
+                <div class="hero-visual" role="group" aria-labelledby="visual-title">
+                    <div class="industrial-frame">
+                        <div class="visual-content">
+                            <img class="visual-symbol" src="assets/mkdl-icon.svg" alt="">
+                            <p id="visual-title" class="visual-title">Orden técnico para decidir con criterio</p>
+                            <p class="visual-copy">MKDL convierte activos, accesos, incidencias y evidencias en una base de trabajo gobernable.</p>
+                            <ul class="service-flow" aria-label="Flujo básico del servicio MKDL">
+                                <li class="flow-step">
+                                    <strong>Situación</strong>
+                                </li>
+                                <li class="flow-step">
+                                    <strong>Evidencias</strong>
+                                </li>
+                                <li class="flow-step">
+                                    <strong>Seguimiento</strong>
                                 </li>
                             </ul>
-                            <p class="mt-6 text-2xl font-semibold text-basqueGreen" data-lang="eu">Kontsultatu</p>
-                            <p class="hidden mt-6 text-2xl font-semibold text-basqueGreen" data-lang="es">Consultar</p>
-                            <p class="hidden mt-6 text-2xl font-semibold text-basqueGreen" data-lang="en">Request pricing</p>
-                            <p class="hidden mt-6 text-2xl font-semibold text-basqueGreen" data-lang="ja">要相談</p>
-                        </article>
+                        </div>
                     </div>
                 </div>
-            </section>
-
-            <section class="py-20">
-                <div class="mx-auto max-w-5xl space-y-6 px-6">
-                    <h2 class="font-mono text-2xl font-semibold md:text-3xl" data-lang="eu">Teknologia Japoniarra, Bihotz Euskalduna.</h2>
-                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="es">Tecnología Japonesa, Corazón Vasco.</h2>
-                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="en">Japanese Technology, Basque Heart.</h2>
-                    <h2 class="hidden font-mono text-2xl font-semibold md:text-3xl" data-lang="ja">日本の技術、バスクの心。</h2>
-                    <p class="text-white/80 md:text-lg" data-lang="eu">
-                        Auzokideak gara. Elgoibartik lan egiten dugu eskualde osorako. Bertako aholkularitza eta <strong class="text-white">MKDL</strong> defentsa teknologia uztartzen ditugu. Badakigu zer den fresadora bat eta zer den Ransomware bat.
-                    </p>
-                    <p class="hidden text-white/80 md:text-lg" data-lang="es">
-                        Somos vecinos. Operamos desde Elgoibar para toda la comarca. Combinamos la cercanía local con la tecnología de defensa <strong class="text-white">MKDL</strong>. Sabemos lo que es una fresadora y sabemos lo que es un Ransomware.
-                    </p>
-                    <p class="hidden text-white/80 md:text-lg" data-lang="en">
-                        We’re local. We operate from Elgoibar for the whole region. We combine nearby support with <strong
-                            class="text-white">MKDL</strong> defense technology. We know what a milling machine is—and what ransomware is.
-                    </p>
-                    <p class="hidden text-white/80 md:text-lg" data-lang="ja">
-                        私たちは地域密着型のサイバー防衛ラボです。エルゴイバルの製造現場から周辺地域を支援し、現場の知見と<strong class="text-white">MKDL</strong>の高度な防御技術を融合させます。私たちは、フライス盤の「鼓動」と最新の「ランサムウェア」の脅威、その両方を深く理解しています。
-                    </p>
-                </div>
-            </section>
-        </main>
-
-        <footer id="contact" class="border-t border-white/10 bg-black/40 py-16">
-            <div class="mx-auto flex max-w-5xl flex-col gap-6 px-6 text-center">
-                <h2 class="font-mono text-2xl font-semibold" data-lang="eu">Hitz egingo dugu?</h2>
-                <h2 class="hidden font-mono text-2xl font-semibold" data-lang="es">¿Hablamos?</h2>
-                <h2 class="hidden font-mono text-2xl font-semibold" data-lang="en">Shall we talk?</h2>
-                <h2 class="hidden font-mono text-2xl font-semibold" data-lang="ja">相談しませんか？</h2>
-                <p class="text-white/70" data-lang="eu">Formulariorik gabe. Spam gabe. Ingeniaritik ingeniarira.</p>
-                <p class="hidden text-white/70" data-lang="es">Sin formularios. Sin spam. De ingeniero a ingeniero.</p>
-                <p class="hidden text-white/70" data-lang="en">No forms. No spam. Engineer to engineer.</p>
-                <p class="hidden text-white/70" data-lang="ja">フォーム不要。スパムなし。エンジニア同士で。</p>
-                <a href="mailto:mysthrala@mkdl.jp" class="text-basqueGreen">mysthrala@mkdl.jp</a>
-                <span class="text-sm text-white/50" data-lang="eu">Elgoibar, Gipuzkoa (Euskadi).</span>
-                <span class="hidden text-sm text-white/50" data-lang="es">Elgoibar, Gipuzkoa (Euskadi).</span>
-                <span class="hidden text-sm text-white/50" data-lang="en">Elgoibar, Gipuzkoa (Basque Country).</span>
-                <span class="hidden text-sm text-white/50" data-lang="ja">スペイン・バスク州ギプスコア県 エルゴイバル。</span>
-                <span class="text-xs text-white/40">© 2026 Mysthrala Kurogane Defense Lab. Powered by MKDL.jp.</span>
             </div>
-        </footer>
+        </section>
 
-        <script 
-            src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"
-            integrity="sha384-hJnF5AwidE18GSWTAGHv3ByzzvfNZ1Tcx5y1UUV3WkauuMCEzBJBMSwSt/PUPXnM"
-            crossorigin="anonymous"
-        ></script>
-        <script>
-                const supportedLanguages = ["eu", "es", "en", "ja"];
+        <section id="problema" class="problem" aria-labelledby="problem-title">
+            <div class="wrap">
+                <span class="section-kicker">Por qué ahora</span>
+                <h2 id="problem-title">La presión operativa ya está llegando a la pequeña industria</h2>
+                <p class="problem-statement">No llega solo por la ley. Llega por clientes que piden evidencias, accesos remotos que nadie revisa, incidencias que se resuelven de memoria y una operación diaria que no puede parar para ordenarse.</p>
+                <div class="split-list">
+                    <article>
+                        <h3>Continuidad de negocio</h3>
+                        <p>Una parada, una pérdida de datos o un acceso mal controlado pesa mucho más en una empresa pequeña.</p>
+                    </article>
+                    <article>
+                        <h3>Cadena de suministro</h3>
+                        <p>Los clientes grandes ya piden más trazabilidad, respuestas y evidencias a sus proveedores.</p>
+                    </article>
+                    <article>
+                        <h3>Falta de tiempo interno</h3>
+                        <p>Gerencia, mantenimiento e informática ya van al límite. Ordenar seguridad requiere método y acompañamiento.</p>
+                    </article>
+                    <article>
+                        <h3>Acceso remoto sin gobierno</h3>
+                        <p>Proveedores, máquinas y herramientas remotas pueden quedar fuera de revisión si no existe un circuito claro.</p>
+                    </article>
+                    <article>
+                        <h3>Evidencias para cadena de suministro</h3>
+                        <p>Si un cliente empieza a pedir inventario, accesos, incidencias o trazabilidad, conviene construir una base antes de la urgencia.</p>
+                    </article>
+                    <article>
+                        <h3>Documentación dispersa</h3>
+                        <p>Si las decisiones, incidencias y responsabilidades no quedan registradas, la empresa vuelve al punto de partida.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                const languageButtons = new Map([
-                    ["eu", document.getElementById("lang-eu")],
-                    ["es", document.getElementById("lang-es")],
-                    ["en", document.getElementById("lang-en")],
-                    ["ja", document.getElementById("lang-ja")],
-                ]);
+        <section class="continuity" aria-labelledby="continuity-title">
+            <div class="wrap continuity-grid">
+                <div>
+                    <span class="section-kicker">Continuidad operativa</span>
+                    <h2 id="continuity-title">La amenaza ya forma parte de la realidad industrial vasca</h2>
+                    <p class="section-copy">No hace falta mirar a multinacionales extranjeras para entender el problema. Informes y programas públicos en Euskadi ya hablan de ransomware, accesos, continuidad, cadena de suministro y necesidad de planes proporcionados para empresas industriales.</p>
+                    <p class="source-note">Referencias públicas: <a href="https://ciberseguridad.euskadi.eus/contenidos/enlace/cyb_infografia_130/es_def/adjuntos/Actividades-de-ransomware-2025.pdf">Centro Vasco de Ciberseguridad, actividad de ransomware en 2025</a>; <a href="https://www.spri.eus/es/ayudas/ciberseguridad-industrial/">SPRI, programa de ciberseguridad industrial para empresas vascas</a>; <a href="https://www.eitb.eus/es/noticias/tecnologia/detalle/9638455/mas-de-93000-equipos-informaticos-de-euskadi-estan-expuestos-a-sufrir-ciberataque/">Ziur/EITB, exposición de equipos en Euskadi</a>.</p>
+                </div>
+                <div>
+                    <ul class="incident-list" aria-label="Lecciones operativas para la industria vasca">
+                        <li>
+                            <h3>Ransomware y recuperación</h3>
+                            <p>El foco no es solo prevenir. También es saber qué recuperar primero, qué evidencias existen y quién decide si la operación se degrada.</p>
+                        </li>
+                        <li>
+                            <h3>Accesos y proveedores</h3>
+                            <p>En un taller real conviven mantenimiento externo, accesos remotos, maquinaria conectada y documentación dispersa.</p>
+                        </li>
+                        <li>
+                            <h3>Clientes y ayudas públicas</h3>
+                            <p>La presión llega por cadena de suministro, por solicitudes de evidencias y por programas que empujan a ordenar la ciberseguridad industrial.</p>
+                        </li>
+                    </ul>
+                    <h3 class="response-title">Qué prepara MKDL</h3>
+                    <ul class="response-list" aria-label="Preparación operativa que aporta MKDL">
+                        <li>
+                            <h4>Antes</h4>
+                            <p>Inventario de activos y accesos, revisión de accesos remotos, responsables claros, evidencias reutilizables y primeras medidas viables.</p>
+                        </li>
+                        <li>
+                            <h4>Durante o después</h4>
+                            <p>Registro de decisiones, alcance visible del incidente, prioridades de recuperación y material ordenado para explicar la situación a clientes o proveedores.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-                const allLocalizedElements = document.querySelectorAll("[data-lang]");
+        <section aria-labelledby="target-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="section-kicker">Cliente objetivo</span>
+                        <h2 id="target-title">Pensado para la pequeña industria real</h2>
+                    </div>
+                    <p class="section-copy">MKDL encaja cuando una empresa necesita algo más estructurado que soporte informático genérico, pero no puede justificar una gran consultora ni una solución corporativa sobredimensionada.</p>
+                </div>
+                <div class="target-grid">
+                    <article>
+                        <h3>Talleres industriales</h3>
+                        <p>Empresas con máquinas relevantes, mantenimiento externo, accesos remotos, incidencias y poco margen para detener la operación.</p>
+                    </article>
+                    <article>
+                        <h3>Empresas auxiliares</h3>
+                        <p>Proveedores pequeños que dependen de clientes más grandes y necesitan demostrar control de forma comprensible.</p>
+                    </article>
+                    <article>
+                        <h3>Micro-pymes con recursos limitados</h3>
+                        <p>Organizaciones donde seguridad, documentación y continuidad recaen en pocas personas y se mezclan con el día a día.</p>
+                    </article>
+                    <article>
+                        <h3>Compañías bajo presión de evidencias</h3>
+                        <p>Negocios que empiezan a recibir solicitudes de inventario, trazabilidad, accesos, incidencias o evidencias para cliente.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-            const setLanguage = (lang) => {
-                const finalLang = supportedLanguages.includes(lang) ? lang : "eu";
+        <section id="que-hacemos" aria-labelledby="work-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="section-kicker">Qué hacemos</span>
+                        <h2 id="work-title">Orden operativo, riesgo visible y base documental usable</h2>
+                    </div>
+                    <p class="section-copy">El servicio entra con alcance realista, prioriza lo que puede afectar a producción o clientes y deja una base que la empresa pueda entender y mantener.</p>
+                </div>
+                <div class="cards">
+                    <article>
+                        <h3>Diagnóstico inicial</h3>
+                        <p>Entendemos la situación real: activos, accesos, incidencias, documentación y riesgos visibles.</p>
+                    </article>
+                    <article>
+                        <h3>Base documental inicial</h3>
+                        <p>Ordenamos prioridades, evidencias, inventario, responsabilidades y primeras medidas viables.</p>
+                    </article>
+                    <article>
+                        <h3>Seguimiento dentro de alcance</h3>
+                        <p>Mantenemos seguimiento, informes periódicos, trazabilidad y revisión para que la empresa no vuelva al punto de partida.</p>
+                    </article>
+                    <article>
+                        <h3>Kurogane Hub</h3>
+                        <p>La base tecnológica propia que permite estructurar inventario, incidencias, alertas, informes periódicos y evidencias del servicio.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                allLocalizedElements.forEach((el) => {
-                    const elementLang = el.getAttribute("data-lang");
-                    if (!elementLang) return;
-                    if (elementLang === finalLang) {
-                        el.classList.remove("hidden");
-                    } else {
-                        el.classList.add("hidden");
-                    }
-                });
+        <section id="kurogane-hub" class="hub" aria-labelledby="hub-title">
+            <div class="wrap hub-grid">
+                <div class="hub-panel">
+                    <span class="section-kicker">Tecnología propia</span>
+                    <h2 id="hub-title">Kurogane Hub: la base operativa detrás del servicio</h2>
+                    <p>Kurogane Hub es la base tecnológica que MKDL utiliza dentro del servicio para convertir trabajo técnico en información visible: inventario, incidencias, alertas, informes periódicos, trazabilidad y evidencias.</p>
+                    <p>No sustituye el criterio técnico ni la realidad del taller. Ayuda a ordenar el seguimiento y a demostrar control sin vender una operación que la empresa no pueda sostener.</p>
+                    <div class="actions">
+                        <a class="btn" href="#metodo">Ver cómo se integra en el servicio</a>
+                    </div>
+                </div>
+                <ul class="hub-list" aria-label="Capacidades de apoyo de Kurogane Hub">
+                    <li>Inventario de activos</li>
+                    <li>Incidencias y seguimiento</li>
+                    <li>Alertas y eventos</li>
+                    <li>Informes periódicos</li>
+                    <li>Evidencias y trazabilidad</li>
+                    <li>Contexto documental</li>
+                    <li>Seguimiento del servicio</li>
+                    <li>Visibilidad para decidir</li>
+                </ul>
+            </div>
+        </section>
 
-                supportedLanguages.forEach((code) => {
-                    const button = languageButtons.get(code);
-                    if (!button) return;
-                    const isActive = code === finalLang;
-                    button.classList.toggle("bg-basqueGreen", isActive);
-                    button.classList.toggle("text-white/60", !isActive);
-                    button.setAttribute("aria-pressed", isActive ? "true" : "false");
-                });
+        <section id="metodo" aria-labelledby="method-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="section-kicker">Método</span>
+                        <h2 id="method-title">Cómo trabajamos</h2>
+                    </div>
+                    <p class="section-copy">Una secuencia corta y defendible: entender, priorizar, ordenar, mejorar y dejar capacidad interna. Sin vender una operación que la empresa no pueda sostener.</p>
+                </div>
+                <ol class="steps">
+                    <li>
+                        <div>
+                            <h3>Entender la situación real</h3>
+                            <p>Máquinas, activos, accesos, proveedores, incidentes, documentación, urgencias y límites reales de la empresa.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Detectar lo prioritario</h3>
+                            <p>No todo pesa igual. Se prioriza lo que afecta a producción, clientes, continuidad o evidencia reutilizable.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Ordenar y documentar</h3>
+                            <p>Inventario, responsabilidades, criterios básicos, incidencias y trazabilidad para que el conocimiento no quede solo en memoria.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Aplicar mejoras viables</h3>
+                            <p>Medidas proporcionadas al tamaño del cliente, al tiempo disponible y al riesgo real de su entorno industrial.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>Dejar autonomía</h3>
+                            <p>La empresa debe entender mejor lo que tiene, cómo responder y qué evidencias puede enseñar cuando se las pidan.</p>
+                        </div>
+                    </li>
+                </ol>
+                <p class="result-line">El resultado no es un informe bonito. Es una empresa con menos puntos ciegos conocidos, más orden documental y una base más clara para decidir.</p>
+            </div>
+        </section>
 
-                document.documentElement.lang = finalLang;
+        <section aria-labelledby="why-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="section-kicker">Por qué MKDL</span>
+                        <h2 id="why-title">Por qué MKDL encaja mejor que una solución sobredimensionada</h2>
+                    </div>
+                    <p class="section-copy">La ventaja no es prometer más. Es ajustar el alcance a una pyme industrial que necesita orden, criterio y seguimiento sin comprar complejidad innecesaria.</p>
+                </div>
+                <div class="compare">
+                    <article>
+                        <h3>Grandes consultoras</h3>
+                        <p>Mucha capacidad, pero a menudo demasiado coste, formalismo y complejidad para una micro-pyme.</p>
+                    </article>
+                    <article>
+                        <h3>Soluciones genéricas</h3>
+                        <p>Mucho producto y poca lectura del riesgo industrial, la operación diaria y la presión de cliente.</p>
+                    </article>
+                    <article>
+                        <h3>Hacerlo internamente</h3>
+                        <p>Falta de tiempo, carga operativa y riesgo de dejar huecos en accesos, evidencias o responsabilidades.</p>
+                    </article>
+                    <article>
+                        <h3>MKDL</h3>
+                        <p>Foco industrial, trato directo, lenguaje claro, alcance proporcionado, tecnología propia, proximidad territorial y realismo operativo.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
+        <section aria-labelledby="deliverables-title">
+            <div class="wrap">
+                <span class="section-kicker">Entregables</span>
+                <h2 id="deliverables-title">Qué se lleva la empresa</h2>
+                <ul class="deliverables">
+                    <li>Mapa básico de activos y accesos relevantes.</li>
+                    <li>Registro inicial de incidencias, evidencias y responsabilidades.</li>
+                    <li>Priorización de mejoras viables.</li>
+                    <li>Informe breve reutilizable ante clientes.</li>
+                    <li>Criterio de seguimiento acordado para no volver al desorden inicial.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section aria-labelledby="limits-title">
+            <div class="wrap">
+                <span class="section-kicker">Límites claros</span>
+                <div class="limits-box">
+                    <h2 id="limits-title">Qué hace MKDL y qué no promete</h2>
+                    <p>MKDL ayuda a ordenar activos, accesos, incidencias, evidencias y seguimiento técnico dentro de un alcance acordado. No emite certificaciones, no promete cumplimiento normativo completo, no sustituye al soporte informático generalista, al mantenedor industrial ni a una operación de vigilancia permanente de gran empresa. Si una necesidad queda fuera del alcance inicial, se documenta y se plantea como decisión separada.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="start" aria-labelledby="start-title">
+            <div class="wrap start-grid">
+                <div>
+                    <span class="section-kicker">Cómo empezar</span>
+                    <h2 id="start-title">Empezar no debe ser un salto inasumible</h2>
+                    <p class="lead">El primer paso no es contratar una estructura pesada. Es conversar, entender el alcance y decidir qué diagnóstico tiene sentido.</p>
+                    <ol class="start-steps">
+                        <li><span aria-hidden="true">1</span>Conversación inicial</li>
+                        <li><span aria-hidden="true">2</span>Diagnóstico de situación</li>
+                        <li><span aria-hidden="true">3</span>Plan de prioridades</li>
+                        <li><span aria-hidden="true">4</span>Implantación o acompañamiento según necesidad</li>
+                    </ol>
+                </div>
+                <div class="scope-note">
+                    <h3>Alcance proporcionado</h3>
+                    <p>El alcance y coste del servicio se ajustan a la complejidad y necesidad de cada sistema. MKDL no publica tarifas rígidas para evitar prometer un alcance que todavía no se ha entendido.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="closing" aria-labelledby="closing-title">
+            <div class="wrap">
+                <h2 id="closing-title">La pequeña industria también puede empezar con una defensa proporcionada.</h2>
+                <p>Un primer alcance claro. Evidencias útiles. Seguimiento realista.</p>
+                <div class="actions actions-center">
+                    <a class="btn btn-primary" href="https://hub.mkdl.jp/contact">Solicitar conversación inicial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-grid">
+            <div>
+                <a class="brand" href="#contenido">
+                    <img src="assets/mkdl-icon.svg" alt="" width="34" height="34">
+                    <span class="brand-full">Mysthrala Kurogane Defense Labs</span>
+                    <span class="brand-short">MKDL</span>
+                </a>
+                <p class="legal">Ciberseguridad industrial práctica, trazabilidad y acompañamiento para pymes industriales y micro-pymes del Bajo Deba / Euskadi.</p>
+                <p class="legal">Actualmente, MKDL no emite certificaciones ni promete cumplimiento normativo completo. El valor está en mejorar orden, visibilidad y capacidad de respuesta con un alcance claro y proporcionado.</p>
+            </div>
+            <div id="contacto" class="contact-card">
+                <h2>Contacto inicial</h2>
+                <p>Para una primera conversación o diagnóstico de situación, utiliza el formulario público de Kurogane Hub.</p>
+                <div class="contact-list">
+                    <span>Mysthrala Kurogane Defense Labs</span>
+                    <span>Bajo Deba / Euskadi</span>
+                    <a href="https://hub.mkdl.jp/contact">Abrir formulario de contacto</a>
+                    <a href="https://hub.mkdl.jp/">Ver Kurogane Hub</a>
+                    <a href="accesibilidad.html">Accesibilidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const root = document.documentElement;
+        const themeToggles = document.querySelectorAll(".theme-toggle");
+        const menuToggle = document.querySelector(".menu-toggle");
+        const siteMenu = document.getElementById("site-menu");
+
+        const storage = {
+            get(key) {
                 try {
-                    localStorage.setItem("preferredLanguage", finalLang);
-                } catch (e) {
-                    // Ignore storage errors (e.g., disabled cookies or privacy modes)
+                    return localStorage.getItem(key);
+                } catch {
+                    return null;
                 }
-            };
-
-                    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-                    const mobileMenu = document.getElementById("mobile-menu");
-
-                    const toggleMobileMenu = () => {
-                    if (!mobileMenuToggle || !mobileMenu) return;
-
-                    const isHidden = mobileMenu.classList.toggle("hidden");
-                    mobileMenuToggle.setAttribute("aria-expanded", String(!isHidden));
-            };
-
-                    if (mobileMenuToggle && mobileMenu) {
-                    mobileMenuToggle.addEventListener("click", toggleMobileMenu);
-                    mobileMenu.querySelectorAll("a").forEach((link) => {
-                        link.addEventListener("click", () => {
-                            if (!mobileMenu.classList.contains("hidden")) {
-                                mobileMenu.classList.add("hidden");
-                                mobileMenuToggle.setAttribute("aria-expanded", "false");
-                            }
-                        });
-                    });
+            },
+            set(key, value) {
+                try {
+                    localStorage.setItem(key, value);
+                } catch {
+                    // Theme persistence is optional; interaction still works.
                 }
+            }
+        };
 
-                languageButtons.get("eu")?.addEventListener("click", () => setLanguage("eu"));
-                languageButtons.get("es")?.addEventListener("click", () => setLanguage("es"));
-                languageButtons.get("en")?.addEventListener("click", () => setLanguage("en"));
-                languageButtons.get("ja")?.addEventListener("click", () => setLanguage("ja"));
+        const getSystemTheme = () => (
+            window.matchMedia?.("(prefers-color-scheme: light)").matches ? "light" : "dark"
+        );
 
-                const getBrowserPreferredLanguage = () => {
-                    const browserLang = (navigator.language || "").toLowerCase();
-                    if (browserLang.startsWith("ja")) return "ja";
-                    if (browserLang.startsWith("en")) return "en";
-                    if (browserLang.startsWith("es")) return "es";
-                    if (browserLang.startsWith("eu")) return "eu";
-                    return "eu";
-                };
+        const storedTheme = storage.get("mkdl-theme");
 
-                    let initialLang = "eu";
-                    try {
-                        initialLang = localStorage.getItem("preferredLanguage") || initialLang;
-                    } catch (e) {
-                        initialLang = initialLang;
-                    }
+        const setTheme = (theme, persist = true) => {
+            root.dataset.theme = theme;
+            themeToggles.forEach((toggle) => {
+                toggle.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
+                toggle.setAttribute("aria-label", "Alternar tema claro y oscuro");
+            });
+            if (persist) storage.set("mkdl-theme", theme);
+        };
 
-                        if (!supportedLanguages.includes(initialLang)) {
-                            initialLang = document.documentElement.lang || getBrowserPreferredLanguage();
-                    }
+        const closeMenu = () => {
+            siteMenu?.classList.remove("is-open");
+            menuToggle?.setAttribute("aria-expanded", "false");
+            menuToggle?.setAttribute("aria-label", "Abrir menú");
+        };
 
-                    setLanguage(initialLang);
+        setTheme(storedTheme || getSystemTheme(), Boolean(storedTheme));
 
-    if (window.lucide?.createIcons) {
-        window.lucide.createIcons();
-    }
-        </script>
-    </body>
+        themeToggles.forEach((toggle) => {
+            toggle.addEventListener("click", () => {
+                const next = root.dataset.theme === "light" ? "dark" : "light";
+                setTheme(next);
+            });
+        });
+
+        menuToggle?.addEventListener("click", () => {
+            const isOpen = siteMenu?.classList.toggle("is-open");
+            menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                const wasOpen = siteMenu?.classList.contains("is-open");
+                closeMenu();
+                if (wasOpen) menuToggle?.focus();
+            }
+        });
+
+        siteMenu?.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", closeMenu);
+        });
+    </script>
+</body>
 </html>
