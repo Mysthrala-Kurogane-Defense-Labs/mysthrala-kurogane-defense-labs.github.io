@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accesibilidad | MKDL</title>
-    <meta name="description" content="Declaración de accesibilidad de MKDL para mkdl.jp y el recorrido de contacto asociado.">
-    <link rel="canonical" href="https://mkdl.jp/accesibilidad.html">
-    <meta property="og:title" content="Accesibilidad | MKDL">
-    <meta property="og:description" content="Declaración de accesibilidad de MKDL para la web pública y el recorrido de contacto asociado.">
+    <title>Aviso legal | MKDL</title>
+    <meta name="description" content="Aviso legal de Mysthrala Kurogane Defense Labs para la web pública mkdl.jp.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="theme-color" content="#080b10">
+    <link rel="canonical" href="https://mkdl.jp/aviso-legal.html">
+    <link rel="icon" href="/assets/mkdl-icon.svg" type="image/svg+xml">
+    <meta property="og:title" content="Aviso legal | MKDL">
+    <meta property="og:description" content="Información legal básica de la web pública de Mysthrala Kurogane Defense Labs.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mkdl.jp/accesibilidad.html">
+    <meta property="og:url" content="https://mkdl.jp/aviso-legal.html">
     <meta property="og:locale" content="es_ES">
     <meta property="og:site_name" content="Mysthrala Kurogane Defense Labs">
     <meta property="og:image" content="https://mkdl.jp/assets/mkdl-social-preview.png">
@@ -19,9 +22,6 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://mkdl.jp/assets/mkdl-social-preview.png">
     <meta name="twitter:image:alt" content="MKDL, ciberseguridad industrial práctica para pymes">
-    <meta name="robots" content="index,follow,max-image-preview:large">
-    <meta name="theme-color" content="#080b10">
-    <link rel="icon" href="/assets/mkdl-icon.svg" type="image/svg+xml">
     <script>
         try {
             const storedTheme = localStorage.getItem("mkdl-theme");
@@ -135,10 +135,6 @@
                 0 0 0 0.375rem var(--focus);
         }
 
-        main:focus {
-            outline: none;
-        }
-
         .wrap {
             width: min(var(--max), calc(100% - 2rem));
             margin: 0 auto;
@@ -167,32 +163,18 @@
             text-decoration: none;
         }
 
-        .brand span {
-            min-width: 0;
-            overflow-wrap: anywhere;
-        }
-
         .brand img {
             width: 2.125rem;
             height: 2.125rem;
         }
 
-        .skip-link {
-            position: fixed;
-            top: 0.75rem;
-            left: 0.75rem;
-            z-index: 100;
-            transform: translateY(-140%);
-            border: 0.0625rem solid var(--accent);
-            border-radius: 0.375rem;
-            background: var(--panel);
-            color: var(--text);
-            padding: 0.625rem 0.875rem;
-            font-weight: 760;
+        .brand span {
+            min-width: 0;
+            overflow-wrap: anywhere;
         }
 
-        .skip-link:focus {
-            transform: translateY(0);
+        main {
+            padding: 4.5rem 0;
         }
 
         section {
@@ -220,7 +202,7 @@
         }
 
         h1 {
-            margin: 3.375rem 0 1.125rem;
+            margin: 1rem 0 1.125rem;
             font-size: clamp(2.2rem, 6vw, 4rem);
             line-height: 1.05;
             letter-spacing: 0;
@@ -260,12 +242,10 @@
             flex-wrap: wrap;
             gap: 0.75rem;
             margin-top: 1rem;
-            color: var(--muted);
         }
     </style>
 </head>
 <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
     <header>
         <div class="wrap">
             <a class="brand" href="index.html" aria-label="Volver a MKDL">
@@ -275,34 +255,33 @@
         </div>
     </header>
 
-    <main id="contenido" tabindex="-1" class="wrap">
+    <main class="wrap">
         <span class="section-kicker">Transparencia</span>
-        <h1>Declaración de accesibilidad</h1>
-        <p class="lead">Esta web se ha diseñado tomando WCAG 2.2 nivel AA y EN 301 549 como referencias técnicas cuando resulte aplicable.</p>
+        <h1>Aviso legal</h1>
+        <p class="lead">Esta página recoge información legal básica sobre la web pública de Mysthrala Kurogane Defense Labs como empresa de ciberseguridad industrial en fase de cimentación.</p>
 
-        <section aria-labelledby="scope-title">
-            <h2 id="scope-title">Alcance</h2>
-            <p>La revisión cubre la landing pública de MKDL en mkdl.jp. El formulario de contacto se encuentra en Kurogane Hub y debe considerarse parte del recorrido de contacto, por lo que también necesita revisión periódica.</p>
-        </section>
-
-        <section aria-labelledby="status-title">
-            <h2 id="status-title">Estado de revisión</h2>
-            <p>Última revisión interna: 24 de abril de 2026. Se han realizado comprobaciones automáticas con pa11y y axe-core, además de revisión manual básica de teclado, foco visible, contraste, estructura semántica y comportamiento responsive.</p>
-            <p>Estas comprobaciones no equivalen a una certificación externa ni garantizan que no existan barreras para todas las personas o contextos de uso.</p>
-        </section>
-
-        <section aria-labelledby="known-title">
-            <h2 id="known-title">Barreras conocidas y seguimiento</h2>
+        <section aria-labelledby="owner-title">
+            <h2 id="owner-title">Responsable</h2>
             <ul>
-                <li>El formulario externo de contacto en Kurogane Hub debe mantenerse alineado con los mismos criterios de etiquetas, errores, foco y navegación por teclado.</li>
-                <li>Cualquier cambio relevante de diseño, contenido o formulario debe volver a revisarse.</li>
-                <li>La conformidad se expresa como objetivo técnico de diseño y revisión, no como certificación formal.</li>
+                <li>Titular: Unai Kalista Urzainqui Perez.</li>
+                <li>Nombre comercial: Mysthrala Kurogane Defense Labs (MKDL).</li>
+                <li>Estado actual: empresa en fase de cimentación, sin actividad de contratación abierta desde esta web.</li>
+                <li>Contacto legal: <a href="mailto:legal@mkdl.jp">legal@mkdl.jp</a>.</li>
+                <li>Ámbito principal de actividad comunicado en esta web: Bajo Deba / Euskadi.</li>
             </ul>
+            <p>Cuando MKDL empiece a funcionar como actividad de contratación, se incorporarán o facilitarán los datos fiscales y de domicilio fiscal que correspondan, incluido NIF/NIE si procede, para contratación, facturación o verificación administrativa.</p>
         </section>
 
-        <section aria-labelledby="contact-title">
-            <h2 id="contact-title">Comunicación de barreras</h2>
-            <p>Si encuentras una barrera de accesibilidad o necesitas la información en otro formato, utiliza el <a href="https://hub.mkdl.jp/contact">formulario público de contacto de Kurogane Hub</a>.</p>
+        <section aria-labelledby="use-title">
+            <h2 id="use-title">Uso de la web</h2>
+            <p>MKDL presenta servicios de ciberseguridad industrial, orden operativo y trazabilidad documental para talleres industriales, microempresas auxiliares y entornos de pequeña industria. Kurogane Hub se comunica como herramienta de soporte para ordenar activos, accesos, incidencias y evidencias.</p>
+            <p>El contenido tiene carácter informativo y no constituye asesoramiento legal, certificación de cumplimiento, auditoría formal ni garantía de seguridad. Cualquier servicio requiere una conversación previa y un alcance acordado.</p>
+            <p>MKDL puede actualizar, corregir o retirar contenidos de esta web cuando sea necesario para mantener precisión, coherencia o seguridad.</p>
+        </section>
+
+        <section aria-labelledby="links-title">
+            <h2 id="links-title">Enlaces externos</h2>
+            <p>La web incluye enlaces a fuentes públicas y al formulario de contacto alojado en Kurogane Hub. MKDL no controla los cambios posteriores que terceros puedan realizar en sus páginas, disponibilidad o políticas.</p>
         </section>
     </main>
 

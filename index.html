@@ -5,21 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MKDL | Ciberseguridad industrial para pymes</title>
     <meta name="description" content="MKDL ayuda a talleres industriales y micro-pymes del Bajo Deba a ordenar activos, accesos, incidencias y evidencias para responder mejor a exigencias de clientes y cadena de suministro.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="theme-color" content="#080b10">
     <link rel="canonical" href="https://mkdl.jp/">
+    <link rel="icon" href="/assets/mkdl-icon.svg" type="image/svg+xml">
 
     <meta property="og:title" content="MKDL | Ciberseguridad industrial para pymes">
-    <meta property="og:description" content="Ciberseguridad industrial práctica, trazabilidad y acompañamiento para pymes industriales y micro-pymes.">
+    <meta property="og:description" content="MKDL ayuda a talleres industriales y micro-pymes a ordenar activos, accesos, incidencias y evidencias con un alcance claro y proporcionado.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mkdl.jp/">
     <meta property="og:locale" content="es_ES">
     <meta property="og:site_name" content="Mysthrala Kurogane Defense Labs">
+    <meta property="og:image" content="https://mkdl.jp/assets/mkdl-social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="MKDL, ciberseguridad industrial práctica para pymes">
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MKDL | Ciberseguridad industrial para pymes">
-    <meta name="twitter:description" content="Ciberseguridad industrial práctica, trazabilidad y acompañamiento para pymes industriales y micro-pymes.">
+    <meta name="twitter:description" content="MKDL ayuda a talleres industriales y micro-pymes a ordenar activos, accesos, incidencias y evidencias con un alcance claro y proporcionado.">
+    <meta name="twitter:image" content="https://mkdl.jp/assets/mkdl-social-preview.png">
+    <meta name="twitter:image:alt" content="MKDL, ciberseguridad industrial práctica para pymes">
 
     <script>
         document.documentElement.classList.add("js");
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Mysthrala Kurogane Defense Labs",
+            "alternateName": "MKDL",
+            "url": "https://mkdl.jp/",
+            "logo": "https://mkdl.jp/assets/mkdl-icon.svg",
+            "areaServed": ["Bajo Deba", "Euskadi"],
+            "serviceType": "Ciberseguridad industrial para pymes",
+            "description": "Ciberseguridad industrial práctica, trazabilidad y acompañamiento para pymes industriales y micro-pymes.",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "url": "https://hub.mkdl.jp/contact",
+                "email": "info@mkdl.jp",
+                "contactType": "contacto inicial",
+                "availableLanguage": ["es"]
+            }
+        }
     </script>
 
     <style>
@@ -60,7 +89,7 @@
             --accent-2: #8fb7a7;
             --warning: #d8b36a;
             --ink: #000104;
-            --max: 1180px;
+            --max: 73.75rem;
         }
 
         @media (prefers-color-scheme: light) {
@@ -176,6 +205,7 @@
             color: var(--text);
             font-family: "Segoe UI", "Noto Sans", system-ui, sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         body::before {
@@ -184,9 +214,9 @@
             inset: 0;
             pointer-events: none;
             background-image:
-                linear-gradient(var(--grid-line) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-            background-size: 72px 72px;
+                linear-gradient(var(--grid-line) 0.0625rem, transparent 0.0625rem),
+                linear-gradient(90deg, var(--grid-line) 0.0625rem, transparent 0.0625rem);
+            background-size: 4.5rem 4.5rem;
             mask-image: var(--grid-mask);
         }
 
@@ -209,8 +239,8 @@
         button:focus-visible {
             outline: none;
             box-shadow:
-                0 0 0 3px var(--focus-gap),
-                0 0 0 6px var(--focus-ring);
+                0 0 0 0.1875rem var(--focus-gap),
+                0 0 0 0.375rem var(--focus-ring);
         }
 
         main:focus {
@@ -219,15 +249,15 @@
 
         .skip-link {
             position: fixed;
-            top: 12px;
-            left: 12px;
+            top: 0.75rem;
+            left: 0.75rem;
             z-index: 100;
             transform: translateY(-140%);
-            border: 1px solid var(--accent-border);
-            border-radius: 6px;
+            border: 0.0625rem solid var(--accent-border);
+            border-radius: 0.375rem;
             background: var(--panel);
             color: var(--text);
-            padding: 10px 14px;
+            padding: 0.625rem 0.875rem;
             font-weight: 760;
             transition: transform 160ms ease;
         }
@@ -237,7 +267,7 @@
         }
 
         .wrap {
-            width: min(var(--max), calc(100% - 40px));
+            width: min(var(--max), calc(100% - 2.5rem));
             margin: 0 auto;
         }
 
@@ -245,31 +275,31 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            border-bottom: 1px solid var(--line);
+            border-bottom: 0.0625rem solid var(--line);
             background: var(--header-bg);
-            backdrop-filter: blur(14px);
+            backdrop-filter: blur(0.875rem);
         }
 
         .nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 76px;
-            gap: 24px;
+            min-height: 4.75rem;
+            gap: 1.5rem;
         }
 
         .brand {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 0.75rem;
             min-width: 0;
             font-weight: 760;
             letter-spacing: 0;
         }
 
         .brand img {
-            width: 34px;
-            height: 34px;
+            width: 2.125rem;
+            height: 2.125rem;
         }
 
         .brand span {
@@ -283,7 +313,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 1.125rem;
             color: var(--muted);
             font-size: 0.9rem;
         }
@@ -291,29 +321,29 @@
         .nav-links a:hover {
             color: var(--text);
             text-decoration: underline;
-            text-underline-offset: 4px;
+            text-underline-offset: 0.25rem;
         }
 
         .nav-links a {
             display: inline-flex;
             align-items: center;
-            min-height: 44px;
-            padding-inline: 4px;
+            min-height: 2.75rem;
+            padding-inline: 0.25rem;
         }
 
         .nav-actions {
             display: none;
             align-items: center;
-            gap: 10px;
+            gap: 0.625rem;
         }
 
         .icon-btn {
             display: inline-grid;
             place-items: center;
-            width: 44px;
-            height: 44px;
-            border: 1px solid var(--control-border);
-            border-radius: 6px;
+            width: 2.75rem;
+            height: 2.75rem;
+            border: 0.0625rem solid var(--control-border);
+            border-radius: 0.375rem;
             background: var(--control-bg);
             color: var(--text);
             cursor: pointer;
@@ -322,13 +352,24 @@
         .theme-toggle {
             display: inline-grid;
             place-items: center;
-            width: 44px;
-            height: 44px;
-            border: 1px solid var(--control-border);
-            border-radius: 999px;
-            background: var(--control-bg);
-            color: var(--text);
+            width: 2.75rem;
+            height: 2.75rem;
+            border: 0;
+            border-radius: 999rem;
+            background: transparent;
+            color: var(--muted);
             cursor: pointer;
+            transition: background 160ms ease, color 160ms ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--control-hover);
+            color: var(--text);
+        }
+
+        .theme-toggle span {
+            font-size: 1.05rem;
+            line-height: 1;
         }
 
         .desktop-theme {
@@ -348,10 +389,10 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 44px;
-            border: 1px solid var(--control-border);
-            border-radius: 6px;
-            padding: 0 16px;
+            min-height: 2.75rem;
+            border: 0.0625rem solid var(--control-border);
+            border-radius: 0.375rem;
+            padding: 0 1rem;
             background: var(--control-bg);
             color: var(--text);
             font-weight: 720;
@@ -360,7 +401,7 @@
         }
 
         .btn:hover {
-            transform: translateY(-1px);
+            transform: translateY(-0.0625rem);
             border-color: var(--accent-border);
             background: var(--control-hover);
         }
@@ -375,22 +416,30 @@
             background: #b69bd5;
         }
 
+        .nav-links > .btn-primary {
+            min-height: 2.125rem;
+            border-radius: 0.3125rem;
+            padding: 0 0.625rem;
+            font-size: 0.9rem;
+            line-height: 1;
+        }
+
         .hero {
             position: relative;
             overflow: hidden;
-            padding: 92px 0 74px;
+            padding: 5.75rem 0 4.625rem;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+            grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.92fr);
             align-items: center;
-            gap: 64px;
+            gap: 4rem;
         }
 
         .eyebrow {
             display: block;
-            margin-bottom: 22px;
+            margin-bottom: 1.375rem;
             color: var(--accent-2);
             font-size: 0.95rem;
             font-weight: 720;
@@ -401,21 +450,27 @@
         h2,
         h3,
         h4,
-        p {
+        p,
+        li,
+        a {
             margin: 0;
+            max-width: 100%;
+            overflow-wrap: anywhere;
         }
 
         h1 {
-            max-width: 880px;
+            max-width: 55rem;
             font-size: clamp(2.55rem, 5.6vw, 4.65rem);
             line-height: 1.05;
-            letter-spacing: -0.025em;
+            letter-spacing: 0;
+            hyphens: auto;
         }
 
         h2 {
             font-size: clamp(2rem, 4vw, 3.55rem);
             line-height: 1.08;
-            letter-spacing: -0.018em;
+            letter-spacing: 0;
+            hyphens: auto;
         }
 
         h3 {
@@ -429,15 +484,15 @@
         }
 
         .lead {
-            max-width: 760px;
-            margin-top: 26px;
+            max-width: 47.5rem;
+            margin-top: 1.625rem;
             color: var(--text);
             font-size: clamp(1.08rem, 2vw, 1.35rem);
         }
 
         .support {
-            max-width: 720px;
-            margin-top: 16px;
+            max-width: 45rem;
+            margin-top: 1rem;
             color: var(--muted);
             font-size: 1rem;
         }
@@ -445,8 +500,8 @@
         .actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 34px;
+            gap: 0.75rem;
+            margin-top: 2.125rem;
         }
 
         .actions-center {
@@ -461,11 +516,11 @@
         .industrial-frame {
             position: relative;
             width: 100%;
-            max-width: 560px;
-            min-height: 430px;
+            max-width: 35rem;
+            min-height: 26.875rem;
             margin: 0 auto;
             aspect-ratio: 1.05;
-            border: 1px solid var(--line);
+            border: 0.0625rem solid var(--line);
             background:
                 var(--frame-bg);
             box-shadow: var(--shadow-panel);
@@ -473,32 +528,32 @@
 
         .visual-content {
             display: flex;
-            min-height: 430px;
+            min-height: 26.875rem;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
-            padding: 34px 42px;
+            padding: 2.125rem 2.625rem;
             text-align: center;
         }
 
         .visual-symbol {
-            width: 110px;
-            height: 110px;
+            width: 6.875rem;
+            height: 6.875rem;
             opacity: 0.94;
         }
 
         .visual-title {
-            margin-top: 28px;
+            margin-top: 1.75rem;
             font-size: clamp(1.25rem, 2.6vw, 1.8rem);
             font-weight: 800;
             line-height: 1.12;
-            letter-spacing: -0.02em;
+            letter-spacing: 0;
         }
 
         .visual-copy {
-            max-width: 360px;
-            margin-top: 14px;
+            max-width: 22.5rem;
+            margin-top: 0.875rem;
             color: var(--muted);
         }
 
@@ -506,8 +561,8 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px;
-            margin-top: 28px;
+            gap: 0.5rem;
+            margin-top: 1.75rem;
             border: 0;
             padding: 0;
             list-style: none;
@@ -516,10 +571,10 @@
         .flow-step {
             display: inline-flex;
             align-items: center;
-            min-height: 36px;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            padding: 0 12px;
+            min-height: 2.25rem;
+            border: 0.0625rem solid var(--line);
+            border-radius: 62.4375rem;
+            padding: 0 0.75rem;
             color: var(--text);
             white-space: nowrap;
         }
@@ -529,20 +584,20 @@
         }
 
         section {
-            padding: 84px 0;
-            border-top: 1px solid var(--line);
+            padding: 5.25rem 0;
+            border-top: 0.0625rem solid var(--line);
         }
 
         [id] {
-            scroll-margin-top: 120px;
+            scroll-margin-top: 7.5rem;
         }
 
         .section-head {
             display: grid;
-            grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
-            gap: 56px;
+            grid-template-columns: minmax(0, 0.9fr) minmax(17.5rem, 1.1fr);
+            gap: 3.5rem;
             align-items: start;
-            margin-bottom: 46px;
+            margin-bottom: 2.875rem;
         }
 
         .section-kicker {
@@ -563,25 +618,25 @@
         }
 
         .problem-statement {
-            max-width: 950px;
-            margin-top: 18px;
+            max-width: 59.375rem;
+            margin-top: 1.125rem;
             font-size: clamp(1.5rem, 3vw, 2.45rem);
             line-height: 1.18;
-            letter-spacing: -0.02em;
+            letter-spacing: 0;
         }
 
         .split-list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            margin-top: 42px;
+            gap: 0.0625rem;
+            margin-top: 2.625rem;
             background: var(--line);
-            border: 1px solid var(--line);
+            border: 0.0625rem solid var(--line);
         }
 
         .split-list article {
-            min-height: 190px;
-            padding: 24px;
+            min-height: 11.875rem;
+            padding: 1.5rem;
             background: var(--surface-strong);
         }
 
@@ -591,17 +646,17 @@
 
         .continuity-grid {
             display: grid;
-            grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
-            gap: 48px;
+            grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 1.1fr);
+            gap: 3rem;
             align-items: start;
         }
 
         .incident-list,
         .response-list {
             display: grid;
-            gap: 1px;
+            gap: 0.0625rem;
             margin: 0;
-            border: 1px solid var(--line);
+            border: 0.0625rem solid var(--line);
             background: var(--line);
             padding: 0;
         }
@@ -610,43 +665,78 @@
         .response-list li {
             list-style: none;
             background: var(--surface);
-            padding: 22px;
+            padding: 1.375rem;
         }
 
         .incident-list p,
         .response-list p {
-            margin-top: 10px;
+            margin-top: 0.625rem;
             color: var(--muted);
         }
 
         .source-note {
-            margin-top: 18px;
+            margin-top: 1.125rem;
             color: var(--muted);
             font-size: 0.92rem;
         }
 
+        .source-details {
+            margin-top: 1.125rem;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .source-details summary {
+            display: inline-flex;
+            align-items: center;
+            min-height: 2.25rem;
+            color: var(--text);
+            cursor: pointer;
+            font-weight: 720;
+        }
+
+        .source-details summary::marker {
+            color: var(--accent-text);
+        }
+
+        .source-details[open] summary {
+            margin-bottom: 0.375rem;
+        }
+
         .source-note a {
             text-decoration: underline;
-            text-underline-offset: 3px;
+            text-underline-offset: 0.1875rem;
+        }
+
+        .source-details a {
+            text-decoration: underline;
+            text-underline-offset: 0.1875rem;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 0.5rem;
+            margin: 0;
+            padding-left: 1.2rem;
         }
 
         .response-title {
-            margin-top: 28px;
+            margin-top: 1.75rem;
         }
 
         .target-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1px;
+            gap: 0.0625rem;
             background: var(--line);
-            border: 1px solid var(--line);
+            border: 0.0625rem solid var(--line);
         }
 
         .target-grid article,
         .cards article,
         .compare article {
             background: var(--surface);
-            padding: 26px;
+            padding: 1.625rem;
         }
 
         .target-grid p,
@@ -654,16 +744,16 @@
         .compare p,
         .steps p,
         .contact-card p {
-            margin-top: 12px;
+            margin-top: 0.75rem;
             color: var(--muted);
         }
 
         .cards {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
+            gap: 0.0625rem;
             background: var(--line);
-            border: 1px solid var(--line);
+            border: 0.0625rem solid var(--line);
         }
 
         .cards article {
@@ -676,19 +766,19 @@
 
         .hub-grid {
             display: grid;
-            grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
-            gap: 54px;
+            grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 1.05fr);
+            gap: 3.375rem;
             align-items: start;
         }
 
         .hub-panel {
-            border: 1px solid var(--accent-border);
+            border: 0.0625rem solid var(--accent-border);
             background: var(--hub-panel-bg);
-            padding: 34px;
+            padding: 2.125rem;
         }
 
         .hub-panel p {
-            margin-top: 22px;
+            margin-top: 1.375rem;
             color: var(--text);
             font-size: 1.08rem;
         }
@@ -696,35 +786,35 @@
         .hub-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 0.75rem;
             margin-top: 0;
         }
 
         .hub-list li {
             list-style: none;
-            border: 1px solid var(--line);
+            border: 0.0625rem solid var(--line);
             background: var(--hub-list-bg);
-            padding: 16px;
+            padding: 1rem;
             color: var(--text);
         }
 
         .hub-list li::before {
             content: "";
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            margin-right: 10px;
-            border: 1px solid var(--accent-border);
-            border-radius: 999px;
+            width: 0.5rem;
+            height: 0.5rem;
+            margin-right: 0.625rem;
+            border: 0.0625rem solid var(--accent-border);
+            border-radius: 62.4375rem;
             vertical-align: 0.08em;
         }
 
         .steps {
             counter-reset: step;
             display: grid;
-            gap: 1px;
+            gap: 0.0625rem;
             background: var(--line);
-            border: 1px solid var(--line);
+            border: 0.0625rem solid var(--line);
             margin: 0;
             padding: 0;
         }
@@ -732,11 +822,11 @@
         .steps li {
             counter-increment: step;
             display: grid;
-            grid-template-columns: 110px 1fr;
-            gap: 28px;
+            grid-template-columns: 6.875rem 1fr;
+            gap: 1.75rem;
             align-items: start;
             background: var(--surface-strong);
-            padding: 28px;
+            padding: 1.75rem;
             list-style: none;
         }
 
@@ -749,9 +839,9 @@
         }
 
         .result-line {
-            margin-top: 32px;
-            border-left: 2px solid var(--accent-2);
-            padding-left: 18px;
+            margin-top: 2rem;
+            border-left: 0.125rem solid var(--accent-2);
+            padding-left: 1.125rem;
             color: var(--text);
             font-size: 1.12rem;
         }
@@ -759,9 +849,9 @@
         .compare {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
+            gap: 0.0625rem;
             background: var(--line);
-            border: 1px solid var(--line);
+            border: 0.0625rem solid var(--line);
         }
 
         .compare article:last-child {
@@ -774,35 +864,35 @@
 
         .start-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
-            gap: 48px;
+            grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.85fr);
+            gap: 3rem;
             align-items: start;
         }
 
         .start-steps {
             display: grid;
-            margin-top: 28px;
-            border: 1px solid var(--line);
+            margin-top: 1.75rem;
+            border: 0.0625rem solid var(--line);
             background: var(--surface);
-            padding: 18px;
+            padding: 1.125rem;
         }
 
         .start-steps li {
             display: grid;
-            grid-template-columns: 48px 1fr;
-            gap: 14px;
+            grid-template-columns: 3rem 1fr;
+            gap: 0.875rem;
             align-items: center;
             list-style: none;
             color: var(--text);
-            min-height: 48px;
+            min-height: 3rem;
         }
 
         .start-steps span {
             display: grid;
             place-items: center;
-            width: 38px;
-            height: 38px;
-            border: 1px solid var(--line);
+            width: 2.375rem;
+            height: 2.375rem;
+            border: 0.0625rem solid var(--line);
             color: var(--accent-text);
             font-weight: 820;
         }
@@ -810,9 +900,9 @@
         .deliverables {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1px;
-            margin-top: 36px;
-            border: 1px solid var(--line);
+            gap: 0.0625rem;
+            margin-top: 2.25rem;
+            border: 0.0625rem solid var(--line);
             background: var(--line);
             padding: 0;
         }
@@ -820,15 +910,15 @@
         .deliverables li {
             list-style: none;
             background: var(--surface);
-            padding: 22px;
+            padding: 1.375rem;
             color: var(--text);
             font-weight: 720;
         }
 
         .limits-box {
-            border: 1px solid var(--line);
+            border: 0.0625rem solid var(--line);
             background: var(--surface);
-            padding: 30px;
+            padding: 1.875rem;
         }
 
         .limits-box p {
@@ -837,52 +927,61 @@
         }
 
         .scope-note {
-            border: 1px solid var(--warning-border);
+            border: 0.0625rem solid var(--warning-border);
             background: var(--warning-soft);
-            padding: 26px;
+            padding: 1.625rem;
             color: var(--text);
         }
 
         .closing {
             text-align: center;
-            padding: 96px 0;
+            padding: 6rem 0;
             background: var(--closing-bg);
         }
 
         .closing h2 {
-            max-width: 880px;
+            max-width: 55rem;
             margin: 0 auto;
         }
 
         .closing p {
-            margin-top: 18px;
+            margin-top: 1.125rem;
             color: var(--muted);
             font-size: 1.15rem;
         }
 
         footer {
-            border-top: 1px solid var(--line);
+            border-top: 0.0625rem solid var(--line);
             background: var(--bg);
-            padding: 54px 0;
+            padding: 3.375rem 0;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
-            gap: 36px;
+            gap: 2.25rem;
             align-items: start;
         }
 
+        .hero-grid > *,
+        .section-head > *,
+        .hub-grid > *,
+        .continuity-grid > *,
+        .start-grid > *,
+        .footer-grid > * {
+            min-width: 0;
+        }
+
         .contact-card {
-            border: 1px solid var(--line);
+            border: 0.0625rem solid var(--line);
             background: var(--surface-soft);
-            padding: 24px;
+            padding: 1.5rem;
         }
 
         .contact-list {
             display: grid;
-            gap: 8px;
-            margin-top: 18px;
+            gap: 0.5rem;
+            margin-top: 1.125rem;
             color: var(--muted);
         }
 
@@ -890,27 +989,42 @@
             color: var(--text);
             text-decoration: underline;
             text-decoration-color: var(--accent-border);
-            text-underline-offset: 3px;
+            text-underline-offset: 0.1875rem;
         }
 
         .legal {
-            margin-top: 34px;
+            margin-top: 2.125rem;
             color: var(--soft);
             font-size: 0.86rem;
         }
 
-        @media (max-width: 980px) {
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            color: var(--soft);
+            font-size: 0.86rem;
+        }
+
+        .footer-links a {
+            text-decoration: underline;
+            text-decoration-color: var(--accent-border);
+            text-underline-offset: 0.1875rem;
+        }
+
+        @media (max-width: 61.25rem) {
             .nav {
                 align-items: flex-start;
                 flex-direction: column;
-                padding: 16px 0;
+                padding: 1rem 0;
             }
 
             .nav-links {
                 width: 100%;
                 justify-content: space-between;
                 flex-wrap: wrap;
-                gap: 12px;
+                gap: 0.75rem;
             }
 
             .hero-grid,
@@ -929,7 +1043,7 @@
             }
         }
 
-        @media (max-width: 1120px) {
+        @media (max-width: 70rem) {
             .nav {
                 align-items: center;
                 flex-direction: row;
@@ -944,17 +1058,32 @@
                 flex-direction: column;
                 align-items: stretch;
                 gap: 0;
-                border-bottom: 1px solid var(--line);
+                border-bottom: 0.0625rem solid var(--line);
                 background: var(--panel);
-                padding: 10px 20px 16px;
+                padding: 0.625rem 1.25rem 1rem;
+                box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.16);
             }
 
             .js .nav-links {
-                display: none;
+                display: flex;
+                max-height: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                border-bottom-width: 0;
+                opacity: 0;
+                transform: translateY(-0.25rem);
+                transition: max-height 220ms ease, opacity 160ms ease, transform 160ms ease, padding 160ms ease, border-color 160ms ease;
             }
 
             .nav-links.is-open {
                 display: flex;
+                max-height: 32rem;
+                padding-top: 0.625rem;
+                padding-bottom: 1rem;
+                border-bottom-width: 0.0625rem;
+                opacity: 1;
+                transform: translateY(0);
             }
 
             :root:not(.js) .menu-toggle,
@@ -963,15 +1092,24 @@
             }
 
             .nav-links a {
-                min-height: 44px;
+                min-height: 2.75rem;
                 display: flex;
                 align-items: center;
-                border-bottom: 1px solid var(--line);
+                border-bottom: 0.0625rem solid var(--line);
             }
 
             .nav-links .btn {
-                margin-top: 12px;
-                border-bottom: 1px solid var(--accent-border);
+                margin-top: 0.75rem;
+                border-bottom: 0.0625rem solid var(--accent-border);
+                justify-content: center;
+                min-height: 2.75rem;
+                line-height: 1.2;
+                width: 100%;
+            }
+
+            .menu-toggle[aria-expanded="true"] {
+                border-color: var(--accent-border);
+                background: var(--control-hover);
             }
 
             .desktop-theme {
@@ -983,7 +1121,7 @@
             }
         }
 
-        @media (max-width: 860px) {
+        @media (max-width: 53.75rem) {
             .brand span {
                 max-width: 17rem;
                 white-space: normal;
@@ -991,9 +1129,9 @@
             }
         }
 
-        @media (max-width: 680px) {
+        @media (max-width: 42.5rem) {
             .wrap {
-                width: min(100% - 28px, var(--max));
+                width: min(var(--max), calc(100% - 1.75rem));
             }
 
             .brand span {
@@ -1001,11 +1139,15 @@
             }
 
             .hero {
-                padding: 58px 0 54px;
+                padding: 3.625rem 0 3.375rem;
+            }
+
+            h1 {
+                font-size: clamp(2.25rem, 10.5vw, 3.2rem);
             }
 
             section {
-                padding: 62px 0;
+                padding: 3.875rem 0;
             }
 
             .industrial-frame {
@@ -1014,8 +1156,8 @@
             }
 
             .visual-content {
-                min-height: 360px;
-                padding: 28px;
+                min-height: 22.5rem;
+                padding: 1.75rem;
             }
 
             .split-list,
@@ -1029,11 +1171,11 @@
 
             .steps li {
                 grid-template-columns: 1fr;
-                gap: 14px;
+                gap: 0.875rem;
             }
         }
 
-        @media (max-width: 380px) {
+        @media (max-width: 23.75rem) {
             .brand-full {
                 display: none;
             }
@@ -1045,7 +1187,7 @@
             .btn {
                 white-space: normal;
                 text-align: center;
-                padding-block: 10px;
+                padding-block: 0.625rem;
             }
         }
     </style>
@@ -1065,7 +1207,7 @@
                     <span class="sun" aria-hidden="true">☼</span>
                 </button>
                 <button class="icon-btn menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
-                    <span aria-hidden="true">☰</span>
+                    <span class="menu-icon" aria-hidden="true">☰</span>
                 </button>
             </div>
             <div id="site-menu" class="nav-links">
@@ -1159,7 +1301,16 @@
                     <span class="section-kicker">Continuidad operativa</span>
                     <h2 id="continuity-title">La amenaza ya forma parte de la realidad industrial vasca</h2>
                     <p class="section-copy">No hace falta mirar a multinacionales extranjeras para entender el problema. Informes y programas públicos en Euskadi ya hablan de ransomware, accesos, continuidad, cadena de suministro y necesidad de planes proporcionados para empresas industriales.</p>
-                    <p class="source-note">Referencias públicas: <a href="https://ciberseguridad.euskadi.eus/contenidos/enlace/cyb_infografia_130/es_def/adjuntos/Actividades-de-ransomware-2025.pdf">Centro Vasco de Ciberseguridad, actividad de ransomware en 2025</a>; <a href="https://www.spri.eus/es/ayudas/ciberseguridad-industrial/">SPRI, programa de ciberseguridad industrial para empresas vascas</a>; <a href="https://www.eitb.eus/es/noticias/tecnologia/detalle/9638455/mas-de-93000-equipos-informaticos-de-euskadi-estan-expuestos-a-sufrir-ciberataque/">Ziur/EITB, exposición de equipos en Euskadi</a>.</p>
+                    <details class="source-details">
+                        <summary>Fuentes y nota de alcance</summary>
+                        <ul class="source-list" aria-label="Referencias públicas citadas">
+                            <li><a href="https://cadenaser.com/euskadi/2026/02/03/ziur-detecta-cerca-de-2000-ataques-de-ransomware-en-solo-tres-meses-y-alerta-de-un-crecimiento-sostenido-radio-san-sebastian/">ZIUR, repunte de ransomware en 2026</a></li>
+                            <li><a href="https://www.ziur.eus/es/-/informe-de-ciberinteligencia-industrial-de-ziur-del-segundo-trimestre-2025">ZIUR, informe de ciberinteligencia industrial T2 2025</a></li>
+                            <li><a href="https://www.ziur.eus/es/-/ziur-ayuda-a-80-empresas-de-gipuzkoa-a-evitar-ciberataques-usando-una-tecnologia-predictiva-de-ciberinteligencia-de-amenazas">ZIUR, 80 empresas de Gipuzkoa monitorizadas</a></li>
+                            <li><a href="https://www.spri.eus/es/ayudas/ciberseguridad-industrial/">SPRI, programa de ciberseguridad industrial</a></li>
+                        </ul>
+                        <p class="source-note">En Euskadi los incidentes en pymes industriales rara vez se publican con nombre, detalle técnico o causa exacta. Por prudencia se citan fuentes agregadas y programas públicos del entorno ZIUR/Cyberzaintza/SPRI, no casos anónimos no verificables.</p>
+                    </details>
                 </div>
                 <div>
                     <ul class="incident-list" aria-label="Lecciones operativas para la industria vasca">
@@ -1415,6 +1566,12 @@
                 </a>
                 <p class="legal">Ciberseguridad industrial práctica, trazabilidad y acompañamiento para pymes industriales y micro-pymes del Bajo Deba / Euskadi.</p>
                 <p class="legal">Actualmente, MKDL no emite certificaciones ni promete cumplimiento normativo completo. El valor está en mejorar orden, visibilidad y capacidad de respuesta con un alcance claro y proporcionado.</p>
+                <nav class="footer-links" aria-label="Información legal">
+                    <a href="aviso-legal.html">Aviso legal</a>
+                    <a href="privacidad.html">Privacidad</a>
+                    <a href="cookies.html">Cookies</a>
+                    <a href="accesibilidad.html">Accesibilidad</a>
+                </nav>
             </div>
             <div id="contacto" class="contact-card">
                 <h2>Contacto inicial</h2>
@@ -1422,9 +1579,10 @@
                 <div class="contact-list">
                     <span>Mysthrala Kurogane Defense Labs</span>
                     <span>Bajo Deba / Euskadi</span>
+                    <a href="mailto:info@mkdl.jp">info@mkdl.jp</a>
                     <a href="https://hub.mkdl.jp/contact">Abrir formulario de contacto</a>
                     <a href="https://hub.mkdl.jp/">Ver Kurogane Hub</a>
-                    <a href="accesibilidad.html">Accesibilidad</a>
+                    <a href="privacidad.html">Privacidad</a>
                 </div>
             </div>
         </div>
@@ -1433,6 +1591,7 @@
         const root = document.documentElement;
         const themeToggles = document.querySelectorAll(".theme-toggle");
         const menuToggle = document.querySelector(".menu-toggle");
+        const menuIcon = menuToggle?.querySelector(".menu-icon");
         const siteMenu = document.getElementById("site-menu");
 
         const storage = {
@@ -1471,6 +1630,7 @@
             siteMenu?.classList.remove("is-open");
             menuToggle?.setAttribute("aria-expanded", "false");
             menuToggle?.setAttribute("aria-label", "Abrir menú");
+            if (menuIcon) menuIcon.textContent = "☰";
         };
 
         setTheme(storedTheme || getSystemTheme(), Boolean(storedTheme));
@@ -1486,6 +1646,7 @@
             const isOpen = siteMenu?.classList.toggle("is-open");
             menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
             menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+            if (menuIcon) menuIcon.textContent = isOpen ? "×" : "☰";
         });
 
         document.addEventListener("keydown", (event) => {
