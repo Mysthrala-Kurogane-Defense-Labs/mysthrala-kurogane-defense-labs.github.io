@@ -1,3 +1,12 @@
 *~
 .DS_Store
 Thumbs.db
+desktop.ini
+.env
+.env.local
+.env.*.local
+.vscode/
+.idea/
+node_modules/
+dist/
+*.log
