@@ -1,0 +1,6 @@
+Contact: mailto:security@mkdl.jp
+Contact: https://mkdl.jp/contacto
+Expires: 2027-05-18T00:00:00.000Z
+Preferred-Languages: es, eu, en
+Canonical: https://mkdl.jp/.well-known/security.txt
+Policy: https://mkdl.jp/security-policy
