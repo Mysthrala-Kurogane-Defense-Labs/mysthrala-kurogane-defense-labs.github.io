@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de seguridad | MKDL</title>
+    <meta name="description" content="Canal de reporte de vulnerabilidades y límites de seguridad de Mysthrala Kurogane Defense Labs.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://mkdl.jp/security-policy.html">
+    <style>
+        :root { color-scheme: dark; --bg:#080b10; --panel:#101820; --text:#f1f5f8; --muted:#aab8c2; --line:#29333d; --accent:#c3aadf; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: "Segoe UI", "Noto Sans", system-ui, sans-serif; line-height: 1.6; }
+        main, header, footer { max-width: 58rem; margin: 0 auto; padding: 2rem 1.25rem; }
+        header, footer { border-bottom: 1px solid var(--line); }
+        footer { border-top: 1px solid var(--line); border-bottom: 0; color: var(--muted); }
+        a { color: var(--accent); }
+        .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 0.75rem; padding: 1.25rem; margin: 1rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid var(--line); padding: 0.75rem; text-align: left; vertical-align: top; }
+        th { background: #141d26; }
+        code { background: #141d26; padding: 0.1rem 0.3rem; border-radius: 0.25rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/">← Volver a MKDL</a>
+        <h1>Política de seguridad</h1>
+        <p>Mysthrala Kurogane Defense Labs mantiene un canal público para reportes de seguridad y vulnerabilidades.</p>
+    </header>
+    <main>
+        <section class="panel">
+            <h2>Reporte de vulnerabilidades</h2>
+            <p>Envía reportes a <a href="mailto:security@mkdl.jp">security@mkdl.jp</a>.</p>
+            <p>Incluye, si es posible: producto o repositorio afectado, versión o commit, impacto estimado, pasos de reproducción seguros y evidencia sin secretos.</p>
+        </section>
+
+        <section class="panel">
+            <h2>Objetivos de respuesta</h2>
+            <table>
+                <thead><tr><th>Paso</th><th>Objetivo operativo</th></tr></thead>
+                <tbody>
+                    <tr><td>Acuse de recibo</td><td>Hasta 3 días hábiles.</td></tr>
+                    <tr><td>Triage inicial</td><td>Hasta 10 días hábiles.</td></tr>
+                    <tr><td>Vulnerabilidades críticas</td><td>Gestión prioritaria inmediata con mitigación, workaround o parche en cuanto sea técnicamente viable.</td></tr>
+                    <tr><td>Divulgación coordinada</td><td>Después de mitigación/parche, salvo explotación activa o riesgo grave para clientes.</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="panel">
+            <h2>Repositorios públicos</h2>
+            <p>Los repositorios públicos de Kurogane contienen documentación, SDKs, ejemplos sintéticos y modelos de seguridad. No contienen el core privado de producción de Kurogane Hub, credenciales, despliegues de clientes ni datos reales de planta.</p>
+            <p>Para vulnerabilidades específicas de un repositorio público, puede usarse GitHub Security Advisory cuando esté disponible. Para información sensible, usa siempre <a href="mailto:security@mkdl.jp">security@mkdl.jp</a>.</p>
+        </section>
+
+        <section class="panel">
+            <h2>Límites de claim</h2>
+            <p>MKDL trabaja con controles de readiness, evidencia y seguridad operacional. Esta página no declara certificación, conformidad CRA, cumplimiento NIS2/GDPR garantizado ni marcado CE.</p>
+        </section>
+    </main>
+    <footer>
+        <p>Última revisión: 2026-06-11. Contacto general: <a href="mailto:info@mkdl.jp">info@mkdl.jp</a>.</p>
+    </footer>
+</body>
+</html>
