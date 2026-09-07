@@ -1,0 +1,109 @@
+:root:root {
+  color-scheme: light;
+  --bg: #ecebea;
+  --body-bg: #ecebea;
+  --header-bg: #ecebea;
+  --surface: #f6f5f3;
+  --panel: #f6f5f3;
+  --line: #c9c7c4;
+  --text: #202227;
+  --muted: #60636a;
+  --soft: #60636a;
+  --accent: #705886;
+  --accent-text: #3d3049;
+  --accent-2: #a15538;
+  --focus-ring: #a15538;
+}
+body {
+  background: #ecebea;
+  color: #202227;
+  font-family: "Aptos", "Segoe UI Variable", "Segoe UI", sans-serif;
+  background-image: none;
+}
+body::before {
+  background: none;
+  mask-image: none;
+  z-index: -1;
+}
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -5rem;
+  z-index: 20;
+  padding: 0.75rem 1rem;
+  background: #202227;
+  color: #fff;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+header {
+  background: rgba(236, 235, 234, 0.96);
+  border-color: #c9c7c4;
+}
+header .wrap {
+  min-height: 7rem;
+}
+.brand {
+  color: #202227;
+}
+.brand-mark {
+  color: #705886;
+}
+main.wrap {
+  max-width: 62rem;
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(5rem, 9vw, 8rem);
+}
+.section-kicker {
+  color: #3d3049;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+h1 {
+  color: #202227;
+  font-size: clamp(3.3rem, 8vw, 6.5rem);
+  font-weight: 520;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+h2 {
+  color: #202227;
+  letter-spacing: -0.025em;
+}
+.lead {
+  color: #60636a;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.55;
+}
+section {
+  border-color: #c9c7c4;
+}
+main a {
+  color: #3d3049;
+  text-underline-offset: 0.22em;
+}
+main p,
+main li {
+  color: #60636a;
+}
+.lead {
+  color: #60636a;
+}
+footer {
+  background: #242329;
+  color: #d7d4d8;
+  border-color: #242329;
+}
+footer .footer-links a {
+  color: #d7d4d8;
+}
+@media (max-width: 640px) {
+  header .wrap {
+    min-height: 5.5rem;
+  }
+  main.wrap {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}

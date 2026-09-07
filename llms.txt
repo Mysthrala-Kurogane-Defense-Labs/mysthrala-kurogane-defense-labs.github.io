@@ -1,0 +1,19 @@
+# Mysthrala Kurogane Defense Labs
+
+> MKDL ayuda a pequeñas empresas industriales del Bajo Deba a estructurar su preparación de ciberseguridad OT mediante evidencia, documentación revisable y revisión técnica proporcionada.
+
+## Sitio
+
+- [Inicio](https://mkdl.jp/): Presentación pública de MKDL, ámbito de trabajo y forma de contacto.
+- [Qué hacemos](https://mkdl.jp/#trabajo): Diagnóstico delimitado, orden técnico y documental, preparación de proveedor y seguimiento operativo.
+- [Cómo trabajamos](https://mkdl.jp/#metodo): Método de delimitación, comprobación, priorización y evidencia.
+- [Kurogane Hub](https://mkdl.jp/#hub): Tecnología de apoyo para inventario, alertas, tickets, informes y flujos de revisión humana.
+
+## Información y contacto
+
+- [Aviso legal](https://mkdl.jp/aviso-legal.html)
+- [Privacidad](https://mkdl.jp/privacidad.html)
+- [Cookies](https://mkdl.jp/cookies.html)
+- [Accesibilidad](https://mkdl.jp/accesibilidad.html)
+- Contacto general: info@mkdl.jp
+- Contacto de seguridad: security@mkdl.jp
