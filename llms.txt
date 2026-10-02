@@ -7,7 +7,7 @@
 - [Inicio](https://mkdl.jp/): Presentación pública de MKDL, ámbito de trabajo y forma de contacto.
 - [Qué hacemos](https://mkdl.jp/#trabajo): Diagnóstico delimitado, orden técnico y documental, preparación de proveedor y seguimiento operativo.
 - [Cómo trabajamos](https://mkdl.jp/#metodo): Método de delimitación, comprobación, priorización y evidencia.
-- [Kurogane Hub](https://mkdl.jp/#hub): Tecnología de apoyo para inventario, alertas, tickets, informes y flujos de revisión humana.
+- [Kurogane Hub](https://mkdl.jp/#hub): Proyecto tecnológico privado orientado a inventario, alertas y revisión humana. Disponibilidad y alcance por acordar; los ejemplos públicos no prueban una instalación en producción.
 
 ## Información y contacto
 
@@ -17,3 +17,9 @@
 - [Accesibilidad](https://mkdl.jp/accesibilidad.html)
 - Contacto general: info@mkdl.jp
 - Contacto de seguridad: security@mkdl.jp
+
+## Recursos públicos
+
+- [Guías para empresas y equipos técnicos](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-docs)
+- [Laboratorios sintéticos locales](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-labs)
+- [Contrato y validación de eventos; sin transporte HTTP](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-satellite-sdk)

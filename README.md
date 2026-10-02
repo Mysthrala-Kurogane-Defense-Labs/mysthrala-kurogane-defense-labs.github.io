@@ -1,32 +1,62 @@
-# MKDL · Public website
+# MKDL corporate website
 
-Static corporate website for **Mysthrala Kurogane Defense Labs**, published at **[mkdl.jp](https://mkdl.jp/)** through GitHub Pages.
+Static Spanish service and contact pages for **Mysthrala Kurogane Defense
+Labs**, published at [mkdl.jp](https://mkdl.jp/) through GitHub Pages. This
+repository contains the corporate site, not the private Kurogane Hub
+application.
 
-MKDL focuses on practical industrial cybersecurity for small industrial companies and micro-SMEs in Bajo Deba / Euskadi: scoped diagnosis, technical and documentary organization, evidence preparation, and agreed follow-up. Kurogane Hub supports this work.
+## Readers
 
-## Where to start
+- Companies: [services and scope](https://mkdl.jp/#trabajo),
+  [info@mkdl.jp](mailto:info@mkdl.jp).
+- Technical teams: [public repository
+  map](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane), [practical
+  guides](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-docs),
+  [synthetic
+  labs](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-labs).
+- Sensitive reports: [security.txt](.well-known/security.txt), [private
+  disclosure
+  route](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-security-model/blob/main/disclosure-policy.md).
 
-- **Services and scope:** [mkdl.jp/#trabajo](https://mkdl.jp/#trabajo).
-- **Consulting enquiries:** [info@mkdl.jp](mailto:info@mkdl.jp).
-- **Public technical ecosystem:** [Kurogane](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane).
-- **Organization and repository map:** [MKDL on GitHub](https://github.com/Mysthrala-Kurogane-Defense-Labs).
+MKDL's public focus is bounded industrial cybersecurity work for small
+businesses in Bajo Deba / Euskadi. Hub availability, deployment capabilities and
+commercial conditions need separate evidence and agreement; public examples do
+not establish production readiness.
 
-## Repository contents
+## Edit and preview
 
-- `index.html`: corporate landing page.
-- `assets/`: logo, stylesheet and website assets.
-- Legal, privacy, cookie and accessibility pages.
-- `security.txt` and `.well-known/`: security contact information.
-- `CNAME`: GitHub Pages custom domain configuration.
-
-## Local preview
-
-This is a static site with no application build step. From the repository directory, serve it locally with Python 3:
+Requires Python >= 3.11 for the local static server:
 
 ```sh
-python -m http.server 4173 --bind 127.0.0.1
+python -m http.server 8080 --bind 127.0.0.1
 ```
 
-Open <http://127.0.0.1:4173/>. Stop the server with `Ctrl+C`.
+Open `http://127.0.0.1:8080`. Check desktop and narrow layouts, navigation,
+contact links and each legal page. Stop the server with Ctrl+C. There is no
+application build or package install. Keep `CNAME`, canonical URLs,
+`sitemap.xml`, `robots.txt`, social metadata and `llms.txt` consistent with the
+intended public domain.
 
-For public website defects, use this repository's issues. For confidential enquiries or security reports, use the contact channel published on the website.
+## Structure and publication
+
+- `index.html`, `assets/`: public landing and local visual assets.
+- Legal, privacy, cookies and accessibility HTML pages: public notices requiring
+  owner review.
+- `.well-known/security.txt` and `security.txt`: keep the security contact and
+  expiry synchronized.
+- `CNAME` / `_config.yml`: current GitHub Pages configuration.
+
+A local HTML edit, reviewed commit, successful Pages build and live publication
+are separate gates. The existing managed Pages workflow is unchanged by this
+content update.
+
+## Evidence boundaries
+
+The source has no custom forms, analytics code or browser-storage functions.
+That does not establish the configuration of hosting, CDN, protection services
+or mail providers. Legal identity, lawful basis, retention, processors and
+transfer details must be validated by the owner against actual operations; do
+not fill them from guessed values or marketing copy.
+
+Use synthetic material in issues. Documentation and visual content retain the
+terms in [LICENSE](LICENSE).
