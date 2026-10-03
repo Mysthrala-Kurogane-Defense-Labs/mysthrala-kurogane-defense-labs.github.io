@@ -47,8 +47,13 @@ intended public domain.
 - `CNAME` / `_config.yml`: current GitHub Pages configuration.
 
 A local HTML edit, reviewed commit, successful Pages build and live publication
-are separate gates. The existing managed Pages workflow is unchanged by this
-content update.
+are separate gates. The GitHub Pages workflow packages the site with
+`python3 scripts/package-site.py --target github` and publishes `_site`.
+It also validates the separate Cloudflare export on pushes and pull requests.
+
+The [Cloudflare preparation guide](cloudflare/README.md) describes local preview,
+first deployment and a later hosting cutover. GitHub Pages remains the production
+host until a Cloudflare deployment is verified and the custom domains are moved.
 
 ## Evidence boundaries
 

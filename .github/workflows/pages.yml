@@ -29,60 +29,10 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Package public files
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir _site
-          cp index.html 404.html aviso-legal.html privacidad.html cookies.html accesibilidad.html \
-            CNAME robots.txt sitemap.xml llms.txt index.md security.txt .nojekyll _site/
-          cp -R assets .well-known _site/
-          test "$(cat _site/CNAME)" = "mkdl.jp"
-          cmp _site/security.txt _site/.well-known/security.txt
-          test -z "$(find _site -type l -print -quit)"
-          test ! -e _site/.git
-          test ! -e _site/.github
-      - name: Check local links and fragments
-        shell: python
-        run: |
-          from html.parser import HTMLParser
-          from pathlib import Path
-          from urllib.parse import unquote, urlsplit
-
-          root = Path('_site').resolve()
-
-          class Page(HTMLParser):
-              def __init__(self):
-                  super().__init__()
-                  self.ids = set()
-                  self.links = []
-
-              def handle_starttag(self, tag, attrs):
-                  attrs = dict(attrs)
-                  if 'id' in attrs:
-                      assert attrs['id'] not in self.ids, attrs['id']
-                      self.ids.add(attrs['id'])
-                  self.links.extend(attrs[key] for key in ('href', 'src') if key in attrs)
-
-          pages = {}
-          for path in root.glob('*.html'):
-              page = Page()
-              page.feed(path.read_text(encoding='utf-8'))
-              pages[path] = page
-          for source, page in pages.items():
-              for link in page.links:
-                  target = urlsplit(link)
-                  if target.scheme or target.netloc:
-                      continue
-                  path = unquote(target.path)
-                  dest = (root / path.lstrip('/') if path.startswith('/') else source.parent / path if path else source).resolve()
-                  assert dest.is_relative_to(root), (source.name, link)
-                  if dest.is_dir():
-                      dest /= 'index.html'
-                  assert dest.is_file(), (source.name, link)
-                  if target.fragment and dest in pages:
-                      assert unquote(target.fragment) in pages[dest].ids, (source.name, link)
-          print(f'Checked local links and fragments in {len(pages)} HTML pages')
+      - name: Package and validate GitHub Pages website
+        run: python3 scripts/package-site.py --target github
+      - name: Validate Cloudflare static assets package
+        run: python3 scripts/package-site.py --target cloudflare
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
