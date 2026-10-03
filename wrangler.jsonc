@@ -1,0 +1,10 @@
+{
+  "name": "mkdl-web",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./_site-cloudflare",
+    "html_handling": "none",
+    "not_found_handling": "404-page"
+  }
+}

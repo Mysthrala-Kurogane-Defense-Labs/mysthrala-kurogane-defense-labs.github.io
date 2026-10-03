@@ -1,0 +1,8 @@
+# Keep the existing .html canonical URLs and serve the home page at /.
+# A 200 proxy serves its target directly; it does not follow another rule.
+/ /index.html 200
+/index.html / 301
+/aviso-legal /aviso-legal.html 301
+/privacidad /privacidad.html 301
+/cookies /cookies.html 301
+/accesibilidad /accesibilidad.html 301
