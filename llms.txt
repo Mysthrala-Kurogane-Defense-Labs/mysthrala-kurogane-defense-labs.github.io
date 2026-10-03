@@ -2,8 +2,14 @@
 
 > MKDL ayuda a pequeñas empresas industriales del Bajo Deba a estructurar su preparación de ciberseguridad OT mediante evidencia, documentación revisable y revisión técnica proporcionada.
 
+## Identidad y alcance
+
+MKDL es el nombre comercial de una actividad profesional ejercida como autónoma. Acepta solicitudes de servicios. Esta landing es informativa; no ofrece APIs públicas, herramientas de agentes ni acceso automatizado a Kurogane Hub. La información pública no concede acceso a datos de clientes ni sustituye una propuesta contractual.
+
 ## Sitio
 
+- [Presentación en Markdown](https://mkdl.jp/index.md): Identidad, servicios, método, límites y contacto en texto.
+- [Mapa del sitio](https://mkdl.jp/sitemap.xml): Páginas públicas canónicas.
 - [Inicio](https://mkdl.jp/): Presentación pública de MKDL, ámbito de trabajo y forma de contacto.
 - [Qué hacemos](https://mkdl.jp/#trabajo): Diagnóstico delimitado, orden técnico y documental, preparación de proveedor y seguimiento operativo.
 - [Cómo trabajamos](https://mkdl.jp/#metodo): Método de delimitación, comprobación, priorización y evidencia.
@@ -23,3 +29,8 @@
 - [Guías para empresas y equipos técnicos](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-docs)
 - [Laboratorios sintéticos locales](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-labs)
 - [Contrato y validación de eventos; sin transporte HTTP](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-satellite-sdk)
+
+
+## Uso del contenido público
+
+La titular permite indexación, uso para respuestas y entrenamiento del contenido público de mkdl.jp, según robots.txt. Esta preferencia no concede acceso a otros hosts, al producto, a cuentas o a datos de clientes. Las condiciones técnicas de acceso de Cloudflare se gestionan por separado.

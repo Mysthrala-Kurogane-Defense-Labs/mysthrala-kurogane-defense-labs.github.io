@@ -1,3 +1,9 @@
+# Preferences for the public information at https://mkdl.jp only.
+# search: indexing and search results.
+# ai-input: using public content to answer questions and ground responses.
+# ai-train: training or fine-tuning models using public content.
+# These preferences do not authorize access to other hosts or private data.
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Sitemap: https://mkdl.jp/sitemap.xml

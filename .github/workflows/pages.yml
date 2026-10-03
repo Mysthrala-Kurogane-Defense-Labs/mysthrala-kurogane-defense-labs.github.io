@@ -35,7 +35,7 @@ jobs:
           set -euo pipefail
           mkdir _site
           cp index.html 404.html aviso-legal.html privacidad.html cookies.html accesibilidad.html \
-            CNAME robots.txt sitemap.xml llms.txt security.txt .nojekyll _site/
+            CNAME robots.txt sitemap.xml llms.txt index.md security.txt .nojekyll _site/
           cp -R assets .well-known _site/
           test "$(cat _site/CNAME)" = "mkdl.jp"
           cmp _site/security.txt _site/.well-known/security.txt
