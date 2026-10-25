@@ -1,6 +1,6 @@
 # Mysthrala Kurogane Defense Labs (MKDL)
 
-Fuente: https://mkdl.jp/ · Revisión local: 2026-10-25 · Idioma: español.
+Información pública de MKDL · Actualización: 25 de octubre de 2026 · Idioma: español.
 
 MKDL presenta OT Check: revisión de un proceso industrial delimitado y su centro de decisión para entregar prioridades justificadas, responsables propuestos y comprobaciones con las que encargar mejoras. Base operativa en Euskadi. Puede dirigirse a empresas industriales pequeñas, medianas y grandes o unidades de grupos.
 
@@ -14,15 +14,15 @@ Formato propuesto sujeto a presupuesto: preparación con el cliente de hasta una
 
 Consultoría, documentación y formación expresamente acordadas. Sin implementación, operación, respuesta a incidentes, soporte permanente o integración por defecto. Sin escaneos activos, cambios de configuración, pentest o restauraciones. No certifica cumplimiento ni garantiza continuidad, recuperación o aceptación de un comprador. Kurogane Hub no se distribuye ni se ofrece desde esta web.
 
-La actividad está en preparación. La identidad fiscal, el alta, las condiciones profesionales y los proveedores efectivos deben verificarse antes de abrir contratación. El trabajo lo realiza Kalista, una profesional con el título de especialista en ciberseguridad de Uni Eibar-Ermua, confirmado por ella el 25 de octubre de 2026. La clasificación oficial de MKDLNULL acredita el resultado del equipo; no constituye una certificación individual. No hay clientes ni pilotos comerciales demostrables.
+La actividad está en preparación. El inicio de la prestación requiere formalizar la actividad, el contrato y las condiciones profesionales acordadas. El trabajo lo realiza Kalista, especialista en ciberseguridad por Uni Eibar-Ermua. Su equipo, MKDLNULL, obtuvo el segundo puesto en CyberLehia 2026.
 
 ## Simulaciones y evidencias
 
-Las tres situaciones conservan las del prototipo recuperado: accesos de proveedores, copias con recuperación sin demostrar y petición de seguridad de un comprador. Son simulaciones, no clientes, pilotos, casos de éxito ni ahorros acreditados.
+Las tres situaciones ilustran accesos de proveedores, copias con recuperación pendiente de comprobar y petición de seguridad de un comprador. Son simulaciones, no clientes, pilotos, casos de éxito ni ahorros acreditados.
 
 - [Muestra HTML y fuentes sintéticas](https://mkdl.jp/muestra-ot-check.html)
 - [Muestra PDF](https://mkdl.jp/assets/MKDL_Ejemplo_Informe_Gerencia.pdf)
-- [Once evidencias del caso ficticio completo](https://mkdl.jp/muestra-ot-check.html#evidencias)
+- [Evidencias legibles del caso ficticio](https://mkdl.jp/muestra-ot-check.html#evidencias)
 
 ## Información y contacto
 

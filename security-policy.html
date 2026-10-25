@@ -1,43 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Seguridad de esta web | MKDL
-  </title>
-  <meta content="Canal para comunicar problemas de seguridad en la web pública MKDL." name="description"/>
-  <meta content="#254f85" name="theme-color"/>
-  <link href="https://mkdl.jp/security-policy.html" rel="canonical"/>
-  <link href="assets/mkdl-icon.svg" rel="icon" type="image/svg+xml"/>
-  <link href="assets/commercial.css" rel="stylesheet"/>
-  <meta content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'self'" http-equiv="Content-Security-Policy"/>
- </head>
- <body>
-  <a class="skip" href="#contenido">
-   Ir al contenido
-  </a>
-  <header>
-   <div class="wrap nav">
-    <a aria-label="MKDL, inicio" class="brand brand-full" href="index.html"><img alt="Mysthrala Kurogane Defense Labs" height="214" src="assets/mkdl-logo.svg" width="970"/></a>
-    <nav aria-label="Navegación principal">
-     <a href="index.html#servicio">
-      OT Check
-     </a>
-     <a href="index.html#ejemplo">
-      La entrega
-     </a>
-     <a href="index.html#kalista">
-      Sobre MKDL
-     </a>
-     <a class="contact-link" href="index.html#contacto">
-      Contacto
-     </a>
-    </nav>
-   </div>
-  </header>
-  <main class="wrap legal-page" id="contenido" tabindex="-1">
-   <h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';" />
+    <title>Seguridad de esta web | MKDL</title>
+    <meta name="description" content="Canal para comunicar problemas de seguridad en la web pública MKDL." />
+    <meta name="theme-color" content="#ecebea" />
+    <link rel="canonical" href="https://mkdl.jp/security-policy.html" />
+    <link rel="icon" href="/assets/mkdl-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="stylesheet" href="/assets/commercial.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="MKDL, inicio"><img src="/assets/mkdl-logo.svg" alt="Mysthrala Kurogane Defense Labs" width="970" height="214" /></a>
+      <nav aria-label="Navegación principal"><a href="/#servicio">OT Check</a><a href="/#ejemplo">Ejemplo de entrega</a><a class="nav-contact" href="/#contacto">Contacto</a></nav>
+    </header>
+    <main class="legal-main" id="contenido" tabindex="-1">
+<h1>
     Seguridad de esta web
    </h1>
    <p>
@@ -67,55 +49,17 @@
     </p>
     <p>
      Archivo de contacto:
-     <a href=".well-known/security.txt">
+     <a href="/.well-known/security.txt">
       security.txt
      </a>
      .
     </p>
    </section>
-  </main>
-  <footer>
-   <div class="wrap">
-    <div class="footer-top">
-     <strong>
-      MKDL
-     </strong>
-     <span>
-      Mysthrala Kurogane Defense Labs · Euskadi
-     </span>
-     <a href="index.html">
-      Inicio
-     </a>
-    </div>
-    <nav aria-label="Información legal" class="footer-links">
-     <a href="aviso-legal.html">
-      Aviso legal
-     </a>
-     <a href="privacidad.html">
-      Privacidad
-     </a>
-     <a href="cookies.html">
-      Cookies
-     </a>
-     <a href="accesibilidad.html">
-      Accesibilidad
-     </a>
-     <a href="security-policy.html">
-      Seguridad
-     </a>
-     <a href="mailto:mysthrala@mkdl.jp">
-      mysthrala@mkdl.jp
-     </a>
-    </nav>
-    <div class="legal">
-     <p>
-      Actividad en preparación. El inicio de la prestación queda sujeto al alta y a las condiciones acordadas para cada encargo.
-     </p>
-     <p>
-      © 2026 Mysthrala Kurogane Defense Labs. Las simulaciones y la muestra pública no representan trabajos para clientes.
-     </p>
-    </div>
-   </div>
-  </footer>
- </body>
+    </main>
+    <footer>
+      <div class="footer-brand"><img src="/assets/mkdl-logo.svg" alt="" width="970" height="214" /><p>Consultoría, documentación y formación desde Euskadi.</p></div>
+      <nav class="footer-links" aria-label="Información legal"><a href="/aviso-legal.html">Aviso legal</a><a href="/privacidad.html">Privacidad</a><a href="/cookies.html">Cookies</a><a href="/accesibilidad.html">Accesibilidad</a><a href="/security-policy.html">Seguridad</a></nav>
+      <p class="copyright">© 2026 Mysthrala Kurogane Defense Labs</p>
+    </footer>
+  </body>
 </html>

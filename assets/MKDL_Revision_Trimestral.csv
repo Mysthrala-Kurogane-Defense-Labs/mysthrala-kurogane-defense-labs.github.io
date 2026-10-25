@@ -1,0 +1,5 @@
+﻿Acción;Cambio del escenario;Evidencia recibida;Siguiente decisión
+A03;"Respuesta aprobada internamente en el escenario trimestral; aceptación del comprador aún pendiente.";"S01: registro de aprobación de calidad y gerencia; no es envío real.";"Mantener seguimiento de la contestación; no cerrar homologación."
+A01;"Catálogo validado; proyecto e instaladores localizados. Export de CNC pendiente de ventana autorizada.";"S02: relación de objetos y paquetes; falta acta del mantenedor.";"Mantener abierto el paquete de CNC; aprobar o reprogramar ventana, no marcar recuperación."
+A02;"Procedimiento actualizado; falta primer registro que enlace ticket y sesión.";"S03: procedimiento revisado; no hay log de intervención.";Revisar la primera intervención autorizada antes de declarar implantado el procedimiento.
+A04;Sigue en borrador: entorno de ensayo y presupuesto sin aprobar.;S04: minuta de producción, sin acta de prueba.;Decidir si se contrata la preparación del ensayo o se acepta aplazar, registrando responsable.

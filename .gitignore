@@ -13,3 +13,4 @@ dist/
 _site/
 _site-cloudflare/
 .wrangler/
+.playwright-cli/

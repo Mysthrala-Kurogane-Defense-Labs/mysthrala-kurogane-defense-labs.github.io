@@ -1,83 +1,56 @@
-# MKDL corporate website
+# Web corporativa de MKDL
 
-Static Spanish service and contact pages for **Mysthrala Kurogane Defense
-Labs**, published at [mkdl.jp](https://mkdl.jp/) through GitHub Pages. This
-repository contains the corporate site, not the private Kurogane Hub
-application.
+Sitio estático de servicio y contacto para Mysthrala Kurogane Defense Labs. Esta rama prepara la oferta OT Check; editarla o comprobarla en local no cambia lo publicado en mkdl.jp. Kurogane Hub tiene otro repositorio y una superficie pública propia; no forma parte de OT Check.
 
-## Readers
+OT Check revisa un proceso industrial delimitado para entregar decisiones, prioridades, responsables propuestos y comprobaciones con las que encargar mejoras. Euskadi es la base operativa; el público incluye industria de distintos tamaños y unidades de grupos. Alcance, profundidad, calendario, desplazamiento y precio se acuerdan por encargo. No se publica una tarifa firme ni se insinúan clientes o pilotos.
 
-- Companies: [services and scope](https://mkdl.jp/#servicio),
-  [mysthrala@mkdl.jp](mailto:mysthrala@mkdl.jp).
-- Technical teams: [public repository
-  map](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane), [practical
-  guides](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-docs),
-  [synthetic
-  labs](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-labs).
-- Sensitive reports: [security.txt](.well-known/security.txt), [private
-  disclosure
-  route](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-security-model/blob/main/disclosure-policy.md).
+Kalista realiza personalmente el servicio. Consultoría, documentación y formación son la actividad ordinaria. No se incluyen por defecto implementación, integración, operación, incidentes ni disponibilidad permanente. La actividad sigue en preparación y no se declara alta, seguro o certificaciones Cisco efectivos.
 
-OT Check reviews one bounded industrial process and its decision centre to prepare priorities, proposed owners and checks for commissioning improvements. It serves small, medium and large industrial organisations or group units, from an operational base in Euskadi. Scope, depth, evidence, calendar and price are agreed in a proposal. No firm tariff is published.
+## Editar y comprobar
 
-MKDL presents consultancy, documentation and training by one professional. It does not offer Hub distribution, implementation, operations, incident response, permanent support or integration by default. The activity is presented as being prepared; no registration, insurance or Cisco certification is asserted as effective. The owner confirms her obtained specialist qualification in cybersecurity at Uni Eibar-Ermua.
+La web no requiere JavaScript, instalación de paquetes ni servicios externos. Usa la marca y el logotipo originales. Antes de preparar publicación deben pasar ambos empaquetados:
 
-The three situations preserve the recovered public prototype. The complete fictional case v4 includes a process and six assets, eleven evidence sheets, six scoped checks, four actions and five editable CSV tables. It demonstrates a delivery model, not client work, recovery performance or external acceptance. Positive results are limited to the examined samples; preparing a test contract does not establish technical recovery. HTML and PDF contain the readable evidence. The offline ZIP includes the report, tables and local assets without external dependencies.
-
-Regenerate the sample with `python3 scripts/build-sample.py` using the authoring dependency `reportlab`. The fixture `scripts/ot_check_case.py` explicitly extends the earlier five sheets; `scripts/render_complete_sample.py` renders all formats from that same content model. The original sheets remain in `assets/muestra-ot-check-evidencias/`, without becoming the buyer's reading interface. `assets/mkdl-logo-print.png` is a render of the unchanged original SVG for the PDF header. This authoring tool adds no dependency to the website runtime or publishing workflow.
-
-## Edit and preview
-
-Requires Python >= 3.11 for the local static server:
-
-```sh
-py -3 -m http.server 8080 --bind 127.0.0.1
+```powershell
+py -3 scripts/package-site.py --target github
+py -3 scripts/package-site.py --target cloudflare
 ```
 
-Open `http://127.0.0.1:8080`. On Linux use `python3` in place of `py -3`. Check desktop and narrow layouts, navigation,
-contact links and each legal page. Stop the server with Ctrl+C. There is no
-application build or package install. Keep `CNAME`, canonical URLs,
-`sitemap.xml`, `robots.txt`, social metadata and `llms.txt` consistent with the
-intended public domain.
+Se exportan únicamente archivos públicos a `_site` y `_site-cloudflare`. Cada operación recrea sólo su directorio fijo, validando enlaces y fragmentos locales. No publicar la raíz completa del repositorio.
 
-## Structure and publication
+Vista local del exportado:
 
-- `index.html`, `assets/`: public landing and local visual assets.
-- Legal, privacy, cookies and accessibility HTML pages: public notices requiring
-  owner review.
-- `.well-known/security.txt` and `security.txt`: keep the security contact and
-  expiry synchronized.
-- `CNAME` / `_config.yml`: current GitHub Pages configuration.
-
-A local HTML edit, reviewed commit, successful Pages build and live publication
-are separate gates. The GitHub Pages workflow packages the site with
-`python3 scripts/package-site.py --target github` and publishes `_site`.
-It also validates the separate Cloudflare export on pushes and pull requests.
-
-The [Cloudflare preparation guide](cloudflare/README.md) describes local preview,
-first deployment and a later hosting cutover. GitHub Pages remains the production
-host until a Cloudflare deployment is verified and the custom domains are moved.
-
-## Evidence boundaries
-
-The source has no custom forms, analytics code or browser-storage functions.
-That does not establish the configuration of hosting, CDN, protection services
-or mail providers. Legal identity, lawful basis, retention, processors and
-transfer details must be validated by the owner against actual operations; do
-not fill them from guessed values or marketing copy.
-
-Use synthetic material in issues. Documentation and visual content retain the
-terms in [LICENSE](LICENSE).
-
-## Local review and publication boundary
-
-Both required packaging targets must pass from the final revision:
-
-```sh
-python3 scripts/package-site.py --target github
-python3 scripts/package-site.py --target cloudflare
+```powershell
+py -3 -m http.server 4174 --bind 127.0.0.1 --directory _site
 ```
 
-The allowlist includes the HTML sample, security policy and favicon; `assets/` contains the PDF, editable synthetic matrix, JSON evidence manifest and offline bundle. The landing uses the original brand stylesheet `assets/site.css`, with content additions in `assets/ot-check.css`. The report uses `assets/commercial.css` with the original brand palette. Legal pages use `assets/legal.css`.
+Abrir `http://127.0.0.1:4174/` y cerrar el servidor con Ctrl+C. Comprobar escritorio, móvil, teclado, enlaces, descargas, legibilidad y avisos legales. En Linux, sustituir `py -3` por `python3`.
 
-No publication is authorised by this branch. Before any push, PR, deployment or domain change, obtain the separate authority, confirm professional/legal details and provider operations, review the synthetic sample, and run the required remote checks. The existing GitHub workflow remains restricted to main for publication; this change adds no deployment mechanism.
+## Modelo de entrega sintético
+
+`scripts/ot_check_case.py` contiene los datos de un ejercicio enteramente ficticio: seis activos, catálogo de recuperación por activo, quince fichas, cinco comprobaciones y cuatro acciones ordenadas. No acredita visita, cliente, seguimiento ni recuperación real. No es un procedimiento de intervención en un control CNC.
+
+`scripts/render_complete_sample.py`, invocado mediante `scripts/build-sample.py`, genera HTML legible, informe PDF, resumen de dos páginas para gerencia, tres pliegos separados, siete CSV editables y ZIP sin conexión. A01 incluye su catálogo para que el proveedor no necesite recibir el informe interno. Los archivos de texto de las muestras son no ejecutables. Las cinco fuentes antiguas se conservan como antecedente sintético, no como interfaz para el comprador.
+
+La generación requiere Python3.11 o superior y las dependencias de autoría `reportlab`, `pypdf` y `pypdfium2`. No son dependencias de ejecución del sitio ni del empaquetado para publicar. Usar un entorno de autoría que ya las tenga o uno aislado aprobado:
+
+```powershell
+py -3 scripts/build-sample.py
+```
+
+El generador conserva salida determinista. No editar los derivados como una segunda fuente. El PNG de vista previa se obtiene automáticamente de la primera página del PDF vigente. Los CSV usan UTF-8 con BOM y punto y coma. `assets/mkdl-logo-print.png` deriva del SVG original.
+
+## Archivos y límites
+
+- `index.html`, `index.md` y `llms.txt`: explicación y descubrimiento de la oferta.
+- `muestra-ot-check.html` y `assets/MKDL_*`: ejercicio, documentos y tablas.
+- `assets/site.css` y `assets/mkdl-logo.svg`: identidad original conservada.
+- `assets/ot-check.css`, `assets/sample.css`, `assets/commercial.css`: ajustes de portada, informe y lectura de avisos.
+- Avisos legales, privacidad, cookies y accesibilidad: textos que requieren revisión contra actividad y proveedores reales antes de publicar.
+- `.well-known/security.txt` y `security.txt`: contacto y vigencia idénticos.
+- `CNAME`, metadatos, `sitemap.xml` y `robots.txt`: dominio previsto mkdl.jp.
+
+La ausencia de formularios, analítica o almacenamiento programado en las fuentes no acredita la configuración del alojamiento, CDN o correo. La identidad jurídica necesaria no se sustituye por el nombre profesional ni se rellena por inferencia. No introducir expedientes, radar, datos económicos personales, secretos ni documentos de cliente en este repositorio público.
+
+Revisión local, ensayo humano, revisión contractual, CI, publicación y comprobación pública son puertas distintas. Esta rama no autoriza push, PR, merge, despliegue o cambio de dominio. El workflow existente mantiene sus condiciones de publicación. La preparación de Cloudflare se describe en [su guía](cloudflare/README.md); no acredita un cambio de alojamiento ya ejecutado.
+
+Usar exclusivamente información sintética en incidencias. Documentación y contenido visual conservan los términos de [LICENSE](LICENSE).

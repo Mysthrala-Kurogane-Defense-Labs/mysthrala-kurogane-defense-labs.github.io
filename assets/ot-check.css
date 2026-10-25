@@ -19,3 +19,5 @@ summary:focus-visible { outline: 3px solid var(--copper); outline-offset: 4px; }
 .contact > p { max-width: 48rem; font-size: 1rem; }
 @media (max-width: 980px) { .site-header nav a:not(.nav-contact) { display: inline-flex; } .site-header { flex-wrap: wrap; padding: 1.5rem 0; gap: 1rem; } .site-header nav { flex-wrap: wrap; } }
 @media print { details::details-content { content-visibility: visible; } .situations details p { display: block; } }
+.delivery-preview { display: block; width: min(100%, 38rem); margin: 1.75rem 0; }
+.delivery-preview img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }

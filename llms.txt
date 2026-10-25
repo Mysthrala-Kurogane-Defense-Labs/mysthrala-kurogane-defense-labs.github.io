@@ -11,7 +11,7 @@ Proyecto profesional en preparación, con base operativa en Euskadi. Una profesi
 - [Presentación en Markdown](https://mkdl.jp/index.md)
 - [Inicio](https://mkdl.jp/)
 - [Servicio, entregas y método](https://mkdl.jp/#servicio)
-- [Tres situaciones simuladas](https://mkdl.jp/#casos)
+- [Tres situaciones simuladas](https://mkdl.jp/#ejemplo)
 - [Muestra sintética y fuentes](https://mkdl.jp/muestra-ot-check.html)
 - [Aviso legal](https://mkdl.jp/aviso-legal.html)
 - [Privacidad](https://mkdl.jp/privacidad.html)

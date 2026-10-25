@@ -1,104 +1,650 @@
-"""Entirely fictional OT Check case, version 4, 25 October 2026.
-
-No organisation, device, network, person, observation or test in this fixture is real.
-The first five source sheets are preserved from the earlier illustrative extract.
-Additional sheets deliberately supply a fuller, internally testable demonstration.
-"""
+"""Fictional OT Check delivery model. No real customer or system data."""
 from pathlib import Path
 import hashlib
-import json
+ROOT=Path(__file__).resolve().parents[1]
+def sha(text): return hashlib.sha256(text.encode('utf-8')).hexdigest()
+VERSION = 'Ejemplo de entrega | 25 de octubre de 2026'
 
-ROOT = Path(__file__).resolve().parents[1]
-LEGACY = ROOT / 'assets/muestra-ot-check-evidencias'
-legacy = {d['id']:d for p in LEGACY.glob('E*.json') if (d:=json.loads(p.read_text(encoding='utf-8')))}
-VERSION = 'Caso sintético v4 | 25 de octubre de 2026'
-NOTICE = 'Caso ficticio completo. Todos los activos, participantes, documentos y registros son simulados. No describe a ninguna empresa real ni acredita una visita, una prueba o una entrega a cliente.'
-TITLE = 'Qué encargar para conservar los programas, recuperar la célula y controlar el soporte'
-PURPOSE = 'Decidir las mejoras documentales y los encargos técnicos necesarios para preparar nuevos trabajos y una recuperación de la célula M-01, y responder con respaldo a un comprador.'
-SUMMARY = 'Conservar el control de revisiones de programas que ya está respaldado en la muestra. Encargar la actualización de la cobertura de copias de parámetros y proyectos; reconciliar el acceso de soporte con el procedimiento aprobado; responder al comprador con evidencias y pendientes. La recuperación del proceso aún requiere una prueba separada y un objetivo acordado por producción.'
-SCOPE = 'Una célula de mecanizado M-01 y seis activos. Se revisan preparación y aprobación del programa, transferencia al puesto de operación, ejecución en CNC, copias asociadas y soporte del mantenedor. No se evalúa el resto de la planta, el ERP, la red corporativa ni otros proveedores.'
-METHOD = 'Revisión documental de once fichas, comparación de revisiones y contenido de ficheros ficticios y contraste de un procedimiento con una exportación simulada de cuentas. Las declaraciones no se elevan a pruebas. El resultado de comparar dos ficheros sólo respalda ese par de muestras, no la ejecución histórica del servicio de copias.'
-EXCLUSIONS = 'Sin escaneos, explotación, modificación de cuentas, exportaciones de equipos reales, restauraciones ni puesta en marcha. No se ha comprobado conectividad, segmentación efectiva, MFA, exposición a Internet o seguridad funcional. No se certifica cumplimiento ni se determina la aplicación legal a una empresa real.'
-BUSINESS = 'Una pérdida del proyecto de ingeniería puede impedir preparar o corregir el próximo trabajo sin detener necesariamente el CNC que ya está ejecutando. Una copia de parámetros anterior al último cambio no basta para reconstruir la configuración actual. La utilización de una cuenta genérica dificulta atribuir y revisar el soporte conforme al procedimiento. No hay datos para convertir estas consecuencias en horas de parada o euros.'
-OBJECTIVES = 'Producción y mantenimiento deben acordar qué servicio necesitan recuperar, qué pérdida de información toleran y en cuánto tiempo. No se fija un objetivo de recuperación sin esa decisión ni se confunde un objetivo con un tiempo demostrado.'
-DELIVERY = 'Informe para gerencia, mapa y tablas de dependencias, registro de evidencias y comprobaciones, plan editable y pliegos breves para proveedores. La devolución permite validar prioridades y asignar responsables. Las acciones técnicas y la prueba posterior no están ejecutadas por este diagnóstico.'
+NOTICE = ('Caso enteramente ficticio para mostrar el método y la entrega. No corresponde a un cliente ni acredita una '
+ 'visita, intervención o recuperación real.')
 
-assets = [
- ('AS01','CNC M-01','Ejecuta el programa liberado; necesita programa y parámetros vigentes.','Parámetros, programa, mantenimiento del fabricante.','Mantenimiento','No se ha probado su reconstrucción ni su seguridad funcional.'),
- ('AS02','Puesto de operación','Selecciona y transfiere el programa autorizado para el trabajo.','Referencia y revisión aprobadas; comunicación con CNC.','Producción y calidad','Dos registros del escenario no prueban todas las transferencias.'),
- ('AS03','Estación de ingeniería','Prepara y modifica programas y proyectos.','Proyecto editable, versiones y herramientas de ingeniería.','Ingeniería','No hay exportación de proyecto en la muestra recibida; no se afirma que no exista en otra ubicación.'),
- ('AS04','Almacenamiento de copias','Conserva los ficheros presentados como copia del proceso.','Cobertura, revisión y disponibilidad para recuperación.','Informática','La coincidencia de un fichero no demuestra restauración del proceso.'),
- ('AS05','Acceso de soporte','Permite al mantenedor intervenir cuando la organización lo autoriza.','Identidad, aprobación, alcance, habilitación y registro.','Mantenimiento e informática','Una cuenta habilitada en una exportación no demuestra una sesión activa ni exposición externa.'),
- ('AS06','Conmutador de la célula','Interconecta los componentes descritos en el mapa funcional.','Configuración y conexiones mantenidas por el proveedor.','Informática y mantenedor','Topología física, reglas y segmentación no evaluadas.'),
-]
-flow = [
- ('Aprobar el trabajo','Calidad libera P-204 revisión C para el trabajo T-204.','AS02, AS03','Una revisión distinta exige detener la liberación del trabajo y resolverla con calidad.'),
- ('Preparar y transferir','Ingeniería prepara el paquete y operación selecciona la revisión autorizada.','AS03, AS02, AS06','Perder el proyecto editable compromete la preparación o modificación posterior.'),
- ('Ejecutar y registrar','El CNC ejecuta el programa seleccionado con sus parámetros.','AS01, AS02','Recuperar el fichero de programa no reconstruye por sí solo parámetros ni validación de máquina.'),
- ('Mantener y recuperar','El mantenedor presta soporte autorizado; informática conserva las copias del alcance.','AS05, AS04, AS06','Soporte y recuperación necesitan coordinación, permisos y criterios de aceptación propios.'),
-]
+TITLE = 'M-01: decidir qué conservar, qué encargar y qué responder al comprador'
+
+PURPOSE = ('Se pide a gerencia aprobar los cuatro encargos siguientes y designar las personas que responden de su '
+ 'cierre. La prioridad inmediata es preparar una respuesta respaldada al comprador y conservar la '
+ 'configuración necesaria antes del siguiente cambio.')
+
+SUMMARY = ('Hay control documental del programa liberado. La copia de configuración presentada queda por detrás del '
+ 'cambio de mantenimiento y el alcance recuperable de varios componentes sigue incompleto. El procedimiento '
+ 'de soporte y el registro de cuentas no coinciden. Conviene completar cobertura y atribución antes de '
+ 'presupuestar una prueba de recuperación.')
+
+SCOPE = ('Una célula M-01, seis activos y una decisión: preparar su recuperación y responder a la petición del '
+ 'comprador. Incluye documentos de preparación, transferencia, soporte y copias. Los sistemas corporativos '
+ 'quedan fuera; se registra la dependencia declarada del acceso remoto sin validarlo técnicamente.')
+
+METHOD = ('Comparación documental, contenido de muestras no ejecutables, entrevistas representadas en fichas y cruce '
+ 'de versiones, fechas y responsabilidades. El catálogo de objetos recuperables es una propuesta de '
+ 'cobertura de MKDL que se valida con quien conoce la máquina. No se presupone que todo objeto sea aplicable '
+ 'a todos los controles CNC.')
+
+EXCLUSIONS = ('Sin escaneos, explotación, modificación de cuentas, exportaciones de equipos reales, restauraciones ni '
+ 'puesta en marcha. No se ha comprobado conectividad, segmentación efectiva, MFA, exposición a Internet o '
+ 'seguridad funcional. No se certifica cumplimiento ni se determina la aplicación legal a una empresa real.')
+
+BUSINESS = ('El programa de producción puede seguir disponible mientras falta capacidad para modificar el próximo '
+ 'trabajo. Reconstruir sólo el programa no recupera necesariamente el puesto, la configuración del CNC ni '
+ 'las licencias. Por eso el encargo cubre dependencias de producción, calidad, mantenimiento e informática, '
+ 'no una compra genérica de herramientas.')
+
+OBJECTIVES = ('Producción declara en E15 que puede terminar el lote actual sin ingeniería, pero necesita preparar el '
+ 'siguiente turno; propone recuperar ese servicio en ocho horas y tolerar la pérdida de un cambio de turno. '
+ 'Son objetivos declarados, pendientes de aprobación conjunta con mantenimiento y calidad, no tiempos de '
+ 'recuperación comprobados.')
+
+DELIVERY = ('Decisión y plan para gerencia, catálogo de recuperación por activo, mapa funcional, comprobaciones y '
+ 'fuentes legibles, matriz editable, pliegos separados y devolución. El diagnóstico permite solicitar y '
+ 'comparar presupuestos; la ejecución y la prueba técnica requieren sus propias autorizaciones.')
+
+assets = [('AS01',
+  'CNC M-01',
+  'Ejecuta el programa liberado; necesita programa y parámetros vigentes.',
+  'Parámetros, programa, mantenimiento del fabricante.',
+  'Mantenimiento',
+  'No se ha probado su reconstrucción ni su seguridad funcional.'),
+ ('AS02',
+  'Puesto de operación',
+  'Selecciona y transfiere el programa autorizado para el trabajo.',
+  'Referencia y revisión aprobadas; comunicación con CNC.',
+  'Producción y calidad',
+  'Dos registros del escenario no prueban todas las transferencias.'),
+ ('AS03',
+  'Estación de ingeniería',
+  'Prepara y modifica programas y proyectos.',
+  'Proyecto editable, versiones y herramientas de ingeniería.',
+  'Ingeniería',
+  'No hay exportación de proyecto en la muestra recibida; no se afirma que no exista en otra ubicación.'),
+ ('AS04',
+  'Almacenamiento de copias',
+  'Conserva los ficheros presentados como copia del proceso.',
+  'Cobertura, revisión y disponibilidad para recuperación.',
+  'Informática',
+  'La coincidencia de un fichero no demuestra restauración del proceso.'),
+ ('AS05',
+  'Acceso de soporte',
+  'Permite al mantenedor intervenir cuando la organización lo autoriza.',
+  'Identidad, aprobación, alcance, habilitación y registro.',
+  'Mantenimiento e informática',
+  'Una cuenta habilitada en una exportación no demuestra una sesión activa ni exposición externa.'),
+ ('AS06',
+  'Conmutador de la célula',
+  'Interconecta los componentes descritos en el mapa funcional.',
+  'Configuración y conexiones mantenidas por el proveedor.',
+  'Informática y mantenedor',
+  'Topología física, reglas y segmentación no evaluadas.')]
+
+flow = [('Aprobar el trabajo',
+  'Calidad libera P-204 revisión C para el trabajo T-204.',
+  'AS02, AS03',
+  'Una revisión distinta exige detener la liberación del trabajo y resolverla con calidad.'),
+ ('Preparar y transferir',
+  'Ingeniería prepara el paquete y operación selecciona la revisión autorizada.',
+  'AS03, AS02, AS06',
+  'Perder el proyecto editable compromete la preparación o modificación posterior.'),
+ ('Ejecutar y registrar',
+  'El CNC ejecuta el programa seleccionado con sus parámetros.',
+  'AS01, AS02',
+  'Recuperar el fichero de programa no reconstruye por sí solo parámetros ni validación de máquina.'),
+ ('Mantener y recuperar',
+  'El mantenedor presta soporte autorizado; informática conserva las copias del alcance.',
+  'AS05, AS04, AS06',
+  'Soporte y recuperación necesitan coordinación, permisos y criterios de aceptación propios.')]
+
 program = 'SIMULACION NO EJECUTABLE | Programa P-204 | Revision C | Celula M-01\n'
-program_copy = program
+
+program_copy = 'SIMULACION NO EJECUTABLE | Programa P-204 | Revision C | Celula M-01\n'
+
 parameters_current = 'SIMULACION NO EJECUTABLE | Parametros CNC M-01 | Revision 2 | Cambio 2026-10-21\n'
+
 parameters_copy = 'SIMULACION NO EJECUTABLE | Parametros CNC M-01 | Revision 1 | Copia 2026-09-15\n'
-file_pairs = [
- ('Programa P-204','C','C',program,program_copy,'Coinciden revisión y contenido del par ficticio.'),
- ('Parámetros CNC M-01','2','1',parameters_current,parameters_copy,'No coinciden: la copia presentada es anterior al cambio.'),
-]
-def sha(text):return hashlib.sha256(text.encode('utf-8')).hexdigest()
-assert program==program_copy
-assert parameters_current!=parameters_copy
 
-evidence = [
- dict(id='E01',title='Descripción inicial del proceso',source='Ficha sintética del proceso, revisión inicial.',date='25/10/2026',author='Responsable ficticia del proceso',kind='Documento simulado',fields=[('Proceso',legacy['E01']['contenido']['proceso']),('Componentes',', '.join(legacy['E01']['contenido']['activos']))],supports='Delimita el punto de partida de seis componentes.',limit='La ficha inicial no detalla dependencias. Se completa con E06; no es un inventario de toda la planta.'),
- dict(id='E02',title='Calendario de copias',source='Calendario sintético aportado por informática.',date='25/10/2026',author='Informática ficticia',kind='Documento simulado',fields=[('Objeto',legacy['E02']['contenido']['objeto']),('Frecuencia prevista',legacy['E02']['contenido']['frecuencia']),('Registro de restauración','No aportado')],supports='Existe una previsión semanal para programas CNC.',limit='El calendario no demuestra ejecución. E07 sólo permite comprobar las muestras de ficheros allí descritas.'),
- dict(id='E03',title='Declaración sobre una prueba anterior',source='Declaración sintética de mantenimiento.',date='25/10/2026',author='Mantenimiento ficticio',kind='Declaración simulada',fields=[('Declaración',legacy['E03']['contenido']['declaracion']),('Fecha, resultado y entorno','No aportados')],supports='Indica un registro que se debe localizar antes de afirmar recuperación comprobada.',limit='No confirma resultado, vigencia ni duración. No se realizó una entrevista real.'),
- dict(id='E04',title='Ficha inicial de acceso del mantenedor',source='Relación sintética de soporte recibida al inicio.',date='25/10/2026',author='Mantenimiento ficticio',kind='Documento simulado',fields=[('Proveedor',legacy['E04']['contenido']['proveedor']),('Finalidad',legacy['E04']['contenido']['finalidad']),('Autorizador en esta ficha','No identificado')],supports='Detecta un dato ausente en la ficha inicial.',limit='E10 identifica el rol aprobador en un procedimiento; no se mantiene como desconocido lo que esa fuente aclara.'),
- dict(id='E05',title='Petición del comprador',source='Cuestionario contractual ficticio.',date='25/10/2026',author='Comprador ficticio',kind='Solicitud simulada',fields=[('Petición',legacy['E05']['contenido']['solicitud']),('Plazo','Diez días laborables del escenario')],supports='Da motivo y plazo a una respuesta sobre el proceso delimitado.',limit='No acredita una obligación legal ni un requisito real de una empresa.'),
- dict(id='E06',title='Mapa funcional y participantes',source='Ampliación explícita del caso sintético v4.',date='25/10/2026',author='Responsables ficticias de producción, ingeniería y calidad',kind='Descripción funcional simulada',fields=[('Flujo','Aprobación del trabajo, preparación y transferencia, ejecución y registro, soporte y recuperación.'),('Perímetro','AS01 a AS06, sólo célula M-01.'),('Roles','Producción, calidad, ingeniería, mantenimiento, informática y mantenedor.'),('Dependencias','Las tablas de proceso y activos reproducen esta ficha.')],supports='Permite relacionar activos con preparación, ejecución y recuperación.',limit='Es un mapa funcional ficticio, no un diagrama físico contrastado ni una afirmación sobre conexiones reales.'),
- dict(id='E07',title='Relación de copias y comparación de muestras',source='Ampliación del ejercicio: cuatro ficheros de texto ficticios no ejecutables.',date='25/10/2026',author='Informática e ingeniería ficticias',kind='Ficheros y relación simulados',fields=[('Programa P-204','Origen revisión C y copia revisión C, mismo contenido; copia fechada en el escenario el 24/10/2026.'),('Parámetros CNC','Origen revisión 2 y copia revisión 1; copia del escenario fechada el 15/09/2026.'),('Proyecto editable de ingeniería','No aportado entre las muestras de copia.'),('Contenido de los ficheros','Las cuatro muestras no ejecutables se transcriben en esta ficha, tanto en el informe como en el registro editable.'),('Programa: origen',program.strip()),('Programa: copia',program_copy.strip()),('Parámetros: origen',parameters_current.strip()),('Parámetros: copia',parameters_copy.strip())],supports='La muestra de programa coincide. La de parámetros no representa la revisión actual del escenario.',limit='No prueba el servicio de copias histórico, almacenamiento aislado, integridad de todos los ficheros ni restauración.'),
- dict(id='E08',title='Registro de cambio de parámetros',source='Registro ficticio de mantenimiento CAM-021.',date='21/10/2026',author='Mantenimiento ficticio',kind='Registro simulado',fields=[('Activo','AS01, CNC M-01.'),('Cambio','De revisión 1 a revisión 2 de parámetros.'),('Aprobación del cambio','Mantenimiento ficticio; el registro no contiene una prueba de recuperación.'),('Comparación con copia','El cambio es posterior a la copia de revisión 1 presentada en E07.')],supports='Justifica revisar la cobertura actual de parámetros, sin suponer que el calendario semanal cubra ese objeto.',limit='No evalúa los valores técnicos del parámetro, calidad de mecanizado o seguridad funcional.'),
- dict(id='E09',title='Liberación de programa y dos registros de trabajo',source='Fichas ficticias LIB-204, T-204 y T-205.',date='24/10/2026',author='Calidad y producción ficticias',kind='Registros simulados',fields=[('Programa liberado','P-204, revisión C.'),('Trabajo T-204','Selección registrada: P-204, revisión C.'),('Trabajo T-205','Selección registrada: P-204, revisión C.')],supports='En los dos registros examinados la revisión seleccionada coincide con la liberada y con la copia de programa de E07.',limit='No demuestra qué se ejecutó físicamente ni el control de todos los trabajos del taller.'),
- dict(id='E10',title='Procedimiento de soporte autorizado',source='Procedimiento ficticio PR-SOP-02, revisión 2.',date='20/10/2026',author='Mantenimiento e informática ficticias',kind='Procedimiento simulado',fields=[('Quién aprueba','Responsable de mantenimiento.'),('Identidad prevista','Cuenta nominativa del técnico del mantenedor.'),('Cuándo se habilita','Tras aprobación y durante la ventana acordada.'),('Cierre previsto','Registro de la intervención y revisión de la habilitación al finalizar.')],supports='Identifica el rol aprobador y las condiciones de soporte previstas.',limit='Describe el procedimiento, no demuestra que se aplique siempre. Debe contrastarse con E11.'),
- dict(id='E11',title='Exportación de cuenta de soporte',source='Tabla ficticia de configuración; sin credenciales, IP o datos reales.',date='25/10/2026',author='Informática ficticia',kind='Exportación simulada',fields=[('Identificador','soporte_mantenedor, cuenta genérica.'),('Estado en la exportación','Habilitada.'),('Fecha de expiración','Sin valor en la exportación.'),('MFA, conexiones y sesiones','No aportados ni comprobados.')],supports='La identidad genérica no coincide con la cuenta nominativa prevista en E10; la exportación no documenta caducidad.',limit='No demuestra acceso activo, exposición a Internet, ausencia de MFA o una intrusión. No permite cortar el soporte sin validación.'),
-]
+file_pairs = [('Programa P-204',
+  'C',
+  'C',
+  'SIMULACION NO EJECUTABLE | Programa P-204 | Revision C | Celula M-01\n',
+  'SIMULACION NO EJECUTABLE | Programa P-204 | Revision C | Celula M-01\n',
+  'Coinciden revisión y contenido del par ficticio.'),
+ ('Parámetros CNC M-01',
+  '2',
+  '1',
+  'SIMULACION NO EJECUTABLE | Parametros CNC M-01 | Revision 2 | Cambio 2026-10-21\n',
+  'SIMULACION NO EJECUTABLE | Parametros CNC M-01 | Revision 1 | Copia 2026-09-15\n',
+  'No coinciden: la copia presentada es anterior al cambio.')]
+
+evidence = [{'id': 'E01',
+  'title': 'Descripción inicial del proceso',
+  'source': 'Ficha sintética del proceso, revisión inicial.',
+  'date': '19/10/2026',
+  'author': 'Responsable del proceso',
+  'kind': 'Documento',
+  'fields': [('Proceso', 'preparación y ejecución en célula de mecanizado'),
+             ('Componentes',
+              'CNC, puesto operación, estación ingeniería, almacenamiento copias, acceso remoto, '
+              'conmutador')],
+  'supports': 'Delimita el punto de partida de seis componentes.',
+  'limit': 'La ficha inicial no detalla dependencias. Se completa con E06; no es un inventario de toda la '
+           'planta.'},
+ {'id': 'E02',
+  'title': 'Calendario de copias',
+  'source': 'Calendario sintético aportado por informática.',
+  'date': '01/10/2026',
+  'author': 'Informática',
+  'kind': 'Documento',
+  'fields': [('Objeto', 'programas CNC'),
+             ('Frecuencia prevista', 'semanal'),
+             ('Registro de restauración', 'No aportado')],
+  'supports': 'Existe una previsión semanal para programas CNC.',
+  'limit': 'El calendario no demuestra ejecución. E07 sólo permite comprobar las muestras de ficheros allí '
+           'descritas.'},
+ {'id': 'E03',
+  'title': 'Declaración sobre una prueba anterior',
+  'source': 'Declaración sintética de mantenimiento.',
+  'date': '22/10/2026',
+  'author': 'Mantenimiento',
+  'kind': 'Declaración',
+  'fields': [('Declaración', 'Mantenimiento recuerda una prueba anterior sin fecha ni registro aportado'),
+             ('Fecha, resultado y entorno', 'No aportados')],
+  'supports': 'Indica un registro que se debe localizar antes de afirmar recuperación comprobada.',
+  'limit': 'No confirma resultado, vigencia ni duración. No se realizó una entrevista real.'},
+ {'id': 'E04',
+  'title': 'Ficha inicial de acceso del mantenedor',
+  'source': 'Relación sintética de soporte recibida al inicio.',
+  'date': '19/10/2026',
+  'author': 'Mantenimiento',
+  'kind': 'Documento',
+  'fields': [('Proveedor', 'Mantenedor ficticio A'),
+             ('Finalidad', 'soporte'),
+             ('Autorizador en esta ficha', 'No identificado')],
+  'supports': 'Detecta un dato ausente en la ficha inicial.',
+  'limit': 'E10 identifica el rol aprobador en un procedimiento; no se mantiene como desconocido lo que esa '
+           'fuente aclara.'},
+ {'id': 'E05',
+  'title': 'Petición del comprador',
+  'source': 'Cuestionario contractual ficticio.',
+  'date': '23/10/2026',
+  'author': 'Comprador',
+  'kind': 'Solicitud',
+  'fields': [('Petición', 'responder sobre copias, recuperación y autorizadores de acceso'),
+             ('Plazo', 'Diez días laborables del escenario')],
+  'supports': 'Da motivo y plazo a una respuesta sobre el proceso delimitado.',
+  'limit': 'No acredita una obligación legal ni un requisito real de una empresa.'},
+ {'id': 'E06',
+  'title': 'Mapa funcional y participantes',
+  'source': 'Ficha del escenario.',
+  'date': '22/10/2026',
+  'author': 'Responsables de producción, ingeniería y calidad',
+  'kind': 'Descripción funcional',
+  'fields': [('Flujo',
+              'Aprobación del trabajo, preparación y transferencia, ejecución y registro, soporte y '
+              'recuperación.'),
+             ('Perímetro', 'AS01 a AS06, sólo célula M-01.'),
+             ('Roles', 'Producción, calidad, ingeniería, mantenimiento, informática y mantenedor.'),
+             ('Dependencias', 'Las tablas de proceso y activos reproducen esta ficha.')],
+  'supports': 'Permite relacionar activos con preparación, ejecución y recuperación.',
+  'limit': 'Es un mapa funcional ficticio, no un diagrama físico contrastado ni una afirmación sobre '
+           'conexiones reales.'},
+ {'id': 'E07',
+  'title': 'Relación de copias y comparación de muestras',
+  'source': 'Muestras del escenario: cuatro ficheros de texto ficticios no ejecutables.',
+  'date': '24/10/2026',
+  'author': 'Informática e ingeniería',
+  'kind': 'Ficheros y relación',
+  'fields': [('Programa P-204',
+              'Origen revisión C y copia revisión C, mismo contenido; copia fechada en el escenario el '
+              '24/10/2026.'),
+             ('Parámetros CNC',
+              'Origen revisión 2 y copia revisión 1; copia del escenario fechada el 15/09/2026.'),
+             ('Proyecto editable de ingeniería', 'No aportado entre las muestras de copia.'),
+             ('Contenido de los ficheros',
+              'Las cuatro muestras no ejecutables se transcriben en esta ficha, tanto en el informe como en '
+              'el registro editable.'),
+             ('Programa: origen', 'SIMULACION NO EJECUTABLE | Programa P-204 | Revision C | Celula M-01'),
+             ('Programa: copia', 'SIMULACION NO EJECUTABLE | Programa P-204 | Revision C | Celula M-01'),
+             ('Parámetros: origen',
+              'SIMULACION NO EJECUTABLE | Parametros CNC M-01 | Revision 2 | Cambio 2026-10-21'),
+             ('Parámetros: copia',
+              'SIMULACION NO EJECUTABLE | Parametros CNC M-01 | Revision 1 | Copia 2026-09-15')],
+  'supports': 'La muestra de programa coincide. La de parámetros no representa la revisión actual del '
+              'escenario.',
+  'limit': 'No prueba el servicio de copias histórico, almacenamiento aislado, integridad de todos los '
+           'ficheros ni restauración.'},
+ {'id': 'E08',
+  'title': 'Registro de cambio de parámetros',
+  'source': 'Registro ficticio de mantenimiento CAM-021.',
+  'date': '21/10/2026',
+  'author': 'Mantenimiento',
+  'kind': 'Registro',
+  'fields': [('Activo', 'AS01, CNC M-01.'),
+             ('Cambio', 'De revisión 1 a revisión 2 de parámetros.'),
+             ('Aprobación del cambio',
+              'Mantenimiento ficticio; el registro no contiene una prueba de recuperación.'),
+             ('Comparación con copia', 'El cambio es posterior a la copia de revisión 1 presentada en E07.')],
+  'supports': 'Justifica revisar la cobertura actual de parámetros, sin suponer que el calendario semanal '
+              'cubra ese objeto.',
+  'limit': 'No evalúa los valores técnicos del parámetro, calidad de mecanizado o seguridad funcional.'},
+ {'id': 'E09',
+  'title': 'Liberación de programa y dos registros de trabajo',
+  'source': 'Fichas ficticias LIB-204, T-204 y T-205.',
+  'date': '24/10/2026',
+  'author': 'Calidad y producción',
+  'kind': 'Registros',
+  'fields': [('Programa liberado', 'P-204, revisión C.'),
+             ('Trabajo T-204', 'Selección registrada: P-204, revisión C.'),
+             ('Trabajo T-205', 'Selección registrada: P-204, revisión C.')],
+  'supports': 'En los dos registros examinados la revisión seleccionada coincide con la liberada y con la '
+              'copia de programa de E07.',
+  'limit': 'No demuestra qué se ejecutó físicamente ni el control de todos los trabajos del taller.'},
+ {'id': 'E10',
+  'title': 'Procedimiento de soporte autorizado',
+  'source': 'Procedimiento ficticio PR-SOP-02, revisión 2.',
+  'date': '20/10/2026',
+  'author': 'Mantenimiento e informática',
+  'kind': 'Procedimiento',
+  'fields': [('Quién aprueba', 'Responsable de mantenimiento.'),
+             ('Identidad prevista', 'Cuenta nominativa del técnico del mantenedor.'),
+             ('Cuándo se habilita', 'Tras aprobación y durante la ventana acordada.'),
+             ('Cierre previsto', 'Registro de la intervención y revisión de la habilitación al finalizar.')],
+  'supports': 'Identifica el rol aprobador y las condiciones de soporte previstas.',
+  'limit': 'Describe el procedimiento, no demuestra que se aplique siempre. Debe contrastarse con E11.'},
+ {'id': 'E11',
+  'title': 'Exportación de cuenta de soporte',
+  'source': 'Tabla ficticia de configuración; sin credenciales, IP o datos reales.',
+  'date': '24/10/2026',
+  'author': 'Informática',
+  'kind': 'Exportación',
+  'fields': [('Identificador', 'soporte_mantenedor, cuenta genérica.'),
+             ('Estado en la exportación', 'Habilitada.'),
+             ('Fecha de expiración', 'Sin valor en la exportación.'),
+             ('MFA, conexiones y sesiones', 'No aportados ni comprobados.')],
+  'supports': 'La identidad genérica no coincide con la cuenta nominativa prevista en E10; la exportación no '
+              'documenta caducidad.',
+  'limit': 'No demuestra acceso activo, exposición a Internet, ausencia de MFA o una intrusión. No permite '
+           'cortar el soporte sin validación.'},
+ {'id': 'E12',
+  'title': 'Cobertura de reconstrucción por activo',
+  'date': '22/10/2026',
+  'source': 'Hoja de trabajo del ejercicio elaborada por MKDL y contrastada por roles de mantenimiento e '
+            'ingeniería.',
+  'author': 'Roles de mantenimiento, ingeniería e informática',
+  'kind': 'Catálogo propuesto',
+  'fields': [('CNC',
+              'El export presentado contiene ajustes de un subsistema; no identifica programa de PLC de '
+              'máquina, orígenes/correctores, variables persistentes, compensaciones ni versión HMI. Hay que '
+              'determinar con el mantenedor qué aplica y qué incluye el paquete del fabricante.'),
+             ('Puestos',
+              'No se presentan imagen del puesto, instaladores/versiones, proyecto CAM editable, '
+              'postprocesador, biblioteca de herramientas ni condiciones para reactivar licencias.'),
+             ('Infraestructura',
+              'El almacén contiene programas y un export antiguo; faltan política de acceso y ruta de '
+              'recuperación. No se aporta copia legible de configuración del conmutador ni del acceso de '
+              'soporte.'),
+             ('Criterio',
+              'No se pide al cliente que invente la lista: MKDL propone el catálogo; el fabricante confirma '
+              'aplicabilidad y procedimiento seguro.')],
+  'supports': 'Identifica el contenido a presupuestar y evita confundir programa con célula recuperable.',
+  'limit': 'Es una hipótesis de cobertura del escenario; no sustituye el manual específico ni una extracción '
+           'autorizada.'},
+ {'id': 'E13',
+  'title': 'Recorrido declarado del soporte y transferencia',
+  'date': '22/10/2026',
+  'source': 'Entrevista representada con informática y mantenimiento; no hay inspección de red.',
+  'author': 'Roles de informática y mantenimiento',
+  'kind': 'Declaración',
+  'fields': [('Vía declarada',
+              'El técnico del mantenedor inicia VPN corporativa; desde un puesto de salto abre escritorio '
+              'remoto a ingeniería. La autorización se comunica por ticket a mantenimiento.'),
+             ('Final del recorrido',
+              'Ingeniería transfiere programas al puesto de operación mediante una carpeta del proceso; '
+              'operación transfiere al CNC por la red de célula. La declaración no acredita reglas ni '
+              'aislamiento.'),
+             ('Habilitación',
+              'Informática declara una ventana por ticket; no aporta registros que enlacen la identidad VPN '
+              'con la cuenta local genérica de E11.'),
+             ('Soporte extraíble',
+              'Mantenimiento declara que el fabricante puede aportar paquetes por USB en visita; el '
+              'procedimiento de validación de ese soporte no se ha aportado.')],
+  'supports': 'Permite especificar qué identidades, autorizaciones y puntos de transferencia se deben '
+              'conciliar.',
+  'limit': 'VPN y puesto de salto son elementos declarados, no controles de eficacia verificada. No se '
+           'conocen exposición, MFA ni rutas efectivas.'},
+ {'id': 'E14',
+  'title': 'Una etiqueta de copia que no resuelve la versión',
+  'date': '24/10/2026',
+  'source': 'Dos extractos no ejecutables suministrados dentro del ejercicio.',
+  'author': 'Rol de ingeniería',
+  'kind': 'Comparación documental',
+  'fields': [('Etiqueta compartida',
+              'Ambos ficheros se llaman ajustes_actuales.txt y llevan etiqueta revisión 2.'),
+             ('Extracto del puesto',
+              'SIMULACION NO EJECUTABLE: referencia_fixture=12.50; nota_cambio=CAM-021.'),
+             ('Extracto del almacén',
+              'SIMULACION NO EJECUTABLE: referencia_fixture=12.20; nota_cambio=sin cumplimentar.'),
+             ('Resolución',
+              'La etiqueta coincide pero el contenido difiere. CAM-021 identifica un cambio, no qué export '
+              'es válido. Ingeniería debe relacionar la exportación con el paquete autorizado antes de '
+              'seleccionar una copia.')],
+  'supports': 'Conserva el desacuerdo en vez de declarar vigente un archivo por su nombre o fecha de copia.',
+  'limit': 'Los números no son parámetros de un control real ni justifican cargarlos. La versión correcta '
+           'sigue pendiente de validación competente.'},
+ {'id': 'E15',
+  'title': 'Tolerancia de producción y liberación',
+  'date': '22/10/2026',
+  'source': 'Entrevista representada con producción y calidad.',
+  'author': 'Roles de producción y calidad',
+  'kind': 'Declaración',
+  'fields': [('Dependencia',
+              'El lote actual puede terminar con el programa liberado; el próximo requiere ingeniería '
+              'disponible al siguiente turno.'),
+             ('Objetivo propuesto',
+              'Ocho horas para disponer del servicio de preparación; pérdida tolerable propuesta de un '
+              'cambio de turno. Pendiente de validación con mantenimiento y dirección.'),
+             ('Liberación',
+              'Calidad pide verificar revisión aprobada y primera pieza según su plan antes de liberar '
+              'producción tras una recuperación.'),
+             ('Riesgo de aplazar',
+              'El siguiente trabajo puede retrasarse aunque el CNC siga encendido. No se cuantifica una '
+              'parada ni un coste.')],
+  'supports': 'Distingue disponibilidad de máquina, capacidad de preparar trabajo y aceptación de calidad.',
+  'limit': 'Es tolerancia declarada, no RTO aprobado, medido ni compromiso de MKDL.'}]
+
+checks = [{'id': 'C01',
+  'title': 'La muestra de programa tiene una copia concordante',
+  'state': 'Respaldado para la muestra',
+  'method': 'Comparar revisión y contenido del programa ficticio y su copia.',
+  'sources': ['E07', 'E09'],
+  'result': 'P-204 revisión C coincide en el par comparado y en las dos selecciones registradas.',
+  'limit': 'No se extrapola a otros programas ni se afirma restauración.'},
+ {'id': 'C03',
+  'title': 'La copia de parámetros no cubre la revisión actual del escenario',
+  'state': 'Desajuste de cobertura',
+  'method': 'Cruzar la revisión de copia con el registro de cambio y comparar los textos ficticios.',
+  'sources': ['E07', 'E08', 'E12', 'E14'],
+  'result': 'Copia revisión 1 del 15/09 anterior al cambio a revisión 2 del 21/10. Otra pareja de ficheros '
+            'comparte etiqueta de revisión pero tiene contenido diferente; no se selecciona una copia válida '
+            'por el nombre.',
+  'limit': 'Se identifica el desajuste de esta muestra; no se afirma que no exista otra copia.'},
+ {'id': 'C04',
+  'title': 'La cuenta exportada no coincide con la identidad prevista',
+  'state': 'Desajuste con procedimiento',
+  'method': 'Contrastar campos de exportación con procedimiento aprobado del escenario.',
+  'sources': ['E10', 'E11'],
+  'result': 'Procedimiento: identidad nominativa y ventana. Exportación: cuenta genérica habilitada, sin '
+            'caducidad documentada.',
+  'limit': 'Sin comprobar sesiones, exposición externa ni MFA. El procedimiento no garantiza su aplicación.'},
+ {'id': 'C05',
+  'title': 'La recuperación del proceso sigue sin demostrarse',
+  'state': 'No comprobado',
+  'method': 'Revisar el registro disponible y la declaración, sin ejecutar restauraciones.',
+  'sources': ['E02', 'E03', 'E07', 'E12', 'E15'],
+  'result': 'La existencia de un fichero y el recuerdo de una prueba no permiten acreditar recuperación del '
+            'proceso. El catálogo identifica las dependencias necesarias para presupuestar una prueba del '
+            'servicio, no sólo cargar un programa.',
+  'limit': 'El objetivo de ocho horas es declarado y aún no aprobado ni medido.'},
+ {'id': 'C06',
+  'title': 'Recorrido de soporte y transferencia declarado',
+  'state': 'Documentado por declaración; eficacia pendiente',
+  'method': 'Cruzar entrevista y procedimiento para describir VPN, puesto de salto, ingeniería y '
+            'transferencia.',
+  'sources': ['E06', 'E10', 'E11', 'E13'],
+  'result': 'Se recoge el camino declarado y la falta de vínculo acreditado entre identidad de VPN y cuenta '
+            'local. Se desconoce el aislamiento efectivo.',
+  'limit': 'No se inspeccionan tráfico, reglas, MFA, exposición ni conexiones físicas. No equivale a una '
+           'validación de arquitectura.'}]
+
+actions = [{'id': 'A03',
+  'title': 'Aprobar una respuesta que distinga lo respaldado de lo pendiente',
+  'priority': 'Primero: respuesta con plazo, sin esperar a la prueba técnica',
+  'reason': 'El comprador necesita una respuesta delimitada y honesta. Puede aprobarse en paralelo al '
+            'trabajo de cobertura, sin afirmar cierres que aún no existen.',
+  'sources': ['E05', 'E07', 'E08', 'E09', 'E10', 'E11'],
+  'checks': ['C01', 'C03', 'C04', 'C05'],
+  'owner': 'Responsable de calidad, propuesta para asignación',
+  'task': 'Utilizar el borrador del informe, asociar cada afirmación con documentos concretos y asignar los '
+          'pendientes A01, A02 y A04. Comunicar fechas sólo después de acordarlas con quienes ejecutarán las '
+          'actuaciones.',
+  'inputs': 'Pregunta original del comprador y resultados de esta revisión.',
+  'acceptance': 'Respuesta aprobada internamente, con respaldo y pendientes identificados. La aceptación del '
+                'comprador se registra sólo cuando éste la comunique.',
+  'dependency': 'Si A01 o A02 no se resuelven a tiempo, se comunica su estado con precisión; no se inventa '
+                'un cierre.',
+  'change_safety': 'Revisar confidencialidad y destinatarios antes de remitir documentación. No enviar '
+                   'configuraciones, credenciales o inventario completo por defecto.',
+  'proof': 'Versión de respuesta aprobada y registro del envío y de la contestación cuando ocurran.',
+  'status': 'Borrador disponible; no enviado ni aceptado.',
+  'participants': 'Gerencia aprueba; mantenimiento, ingeniería e informática validan sólo las afirmaciones '
+                  'de su competencia.',
+  'rank': '1',
+  'due': '06/11/2026, plazo propuesto a confirmar con el comprador',
+  'resources': 'Estimación del escenario: 1 h de preparación y 30 min de aprobación; sin adjuntar detalle '
+               'técnico por defecto.',
+  'target_date': '',
+  'assigned_person': '',
+  'close_date': '',
+  'received_evidence': '',
+  'next_review': 'Pendiente de asignar tras aprobación'},
+ {'id': 'A01',
+  'title': 'Completar el catálogo y conservar un paquete recuperable',
+  'priority': 'Antes del siguiente cambio y como base de la prueba',
+  'reason': 'La revisión de parámetros presentada es anterior al cambio. La preparación de nuevos trabajos '
+            'depende también del proyecto editable.',
+  'sources': ['E06', 'E07', 'E08', 'E09', 'E12', 'E13', 'E14'],
+  'checks': ['C01', 'C03', 'C05'],
+  'owner': 'Responsable de mantenimiento, propuesta para asignación',
+  'task': 'A01.1 Validar el catálogo por activo y localizar los objetos ya disponibles. A01.2 Resolver el '
+          'desacuerdo entre etiqueta y contenido con el mantenedor. A01.3 Solicitar exportación o '
+          'reconstrucción sólo de lo que falte, con ventana y presupuesto propios. Registrar paquete, '
+          'versión, responsable y copia tras cambios; conservar los registros de programa que ya coinciden.',
+  'inputs': 'Catálogo por activo de este informe, E07/E08/E12/E14 y manuales del fabricante por aportar.',
+  'acceptance': 'Catálogo de AS01 a AS06 validado: aplicabilidad, fuente, paquete/revisión, custodia y '
+                'pendientes identificados. Cada objeto que se declare conservado tiene evidencia; el que '
+                'falte queda abierto. La restauración sólo se acepta tras una prueba separada.',
+  'dependency': 'El fabricante o mantenedor debe indicar el método compatible. La extracción o modificación '
+                'en equipos no está incluida en OT Check.',
+  'change_safety': 'Acordar permisos y ventana antes de acceder. No alterar el CNC ni sobrescribir una copia '
+                   'hasta conservar la anterior y confirmar el procedimiento.',
+  'proof': 'Matriz fechada, ficheros identificados por revisión y registro de comprobación, sin presentar '
+           'ese registro como restauración.',
+  'status': 'Encargo propuesto; paquetes completos y presupuesto técnico pendientes.',
+  'participants': 'Ingeniería e informática aportan fuentes; el mantenedor confirma aplicabilidad y genera '
+                  'exportaciones autorizadas; calidad fija liberación.',
+  'rank': '2',
+  'due': 'Antes del siguiente cambio y antes de diseñar la prueba',
+  'resources': 'Estimación del escenario: 2 a 4 h internas para localizar y revisar; pedir presupuesto '
+               'separado del proveedor para exportar o rehacer copias. No es una medición.',
+  'target_date': '',
+  'assigned_person': '',
+  'close_date': '',
+  'received_evidence': '',
+  'next_review': 'Pendiente de asignar tras aprobación'},
+ {'id': 'A02',
+  'title': 'Alinear el soporte con la identidad y ventana aprobadas',
+  'priority': 'Antes de la próxima sesión de soporte',
+  'reason': 'Existe un procedimiento útil, pero su identidad prevista no coincide con la cuenta genérica '
+            'exportada. Hay una diferencia concreta que resolver con el mantenedor.',
+  'sources': ['E04', 'E10', 'E11', 'E13'],
+  'checks': ['C04', 'C06'],
+  'owner': 'Responsable de mantenimiento, propuesta para asignación',
+  'task': 'Recorrer documentalmente VPN, puesto de salto, ingeniería y cuenta local. Relacionar técnico, '
+          'ticket, autorización, ventana y evidencia de cierre. Confirmar si el USB de visita requiere un '
+          'procedimiento específico. Si hay limitación del fabricante, documentar excepción y control '
+          'compensatorio para aprobación, sin cortar el soporte unilateralmente.',
+  'inputs': 'PR-SOP-02, exportación de cuentas, condiciones y necesidades de soporte del mantenedor.',
+  'acceptance': 'Conformidad entre procedimiento y configuración prevista, o excepción motivada aprobada, '
+                'con responsable y revisión. La ejecución posterior deja evidencia de habilitación, '
+                'aprobación y cierre.',
+  'dependency': 'Validación del mantenedor y del servicio que necesita mantener; no se presume que el acceso '
+                'sea prescindible.',
+  'change_safety': 'No deshabilitar el acceso unilateralmente ni probar cambios sobre producción sin ventana '
+                   'y alternativa de soporte acordadas.',
+  'proof': 'Procedimiento actualizado, acuerdo del proveedor y registro de la intervención autorizada. Las '
+           'sesiones sólo se consideran revisadas si se aportan y examinan sus registros.',
+  'status': 'Propuesto; no ejecutado.',
+  'participants': 'Informática y mantenedor concilian identidades, ventanas y registro.',
+  'rank': '3',
+  'due': 'Antes de la siguiente sesión remota',
+  'resources': 'Estimación del escenario: 1 a 2 h internas; proveedor confirma coste de los cambios y '
+               'condicionantes de fabricante.',
+  'target_date': '',
+  'assigned_person': '',
+  'close_date': '',
+  'received_evidence': '',
+  'next_review': 'Pendiente de asignar tras aprobación'},
+ {'id': 'A04',
+  'title': 'Preparar el encargo de una prueba de recuperación separada y segura',
+  'priority': 'Después de aclarar A01 y acordar objetivo y entorno',
+  'reason': 'Una copia concordante no acredita que pueda recuperarse el servicio de producción. La prueba '
+            'debe tener un objetivo y condiciones de seguridad propios.',
+  'sources': ['E03', 'E06', 'E07', 'E08', 'E12', 'E13', 'E14', 'E15'],
+  'checks': ['C03', 'C05'],
+  'owner': 'Responsable de producción, propuesta para asignación',
+  'task': 'Pedir presupuesto de un ensayo aislado o en entorno aprobado por fabricante. Definir qué se '
+          'recupera, revisión de partida, recursos, licencias, criterios de éxito y parada, conservación de '
+          'evidencias y vuelta al estado anterior.',
+  'inputs': 'Catálogo por activo, paquete válido, objetivo declarado de E15 por aprobar, fabricante, entorno '
+            'seguro y responsables designados.',
+  'acceptance': 'Se acepta la preparación del encargo cuando su especificación identifica objetivo, entorno, '
+                'responsables, autorizaciones, criterios de éxito y parada y presupuesto por aprobar. Esa '
+                'aceptación documental no autoriza ni acredita ejecutar la prueba.',
+  'dependency': 'Encargo y autorización distintos de OT Check, capacidad de ejecución, entorno seguro y '
+                'participación del fabricante cuando proceda.',
+  'change_safety': 'No restaurar sobre el CNC de producción para demostrar una copia. Definir aislamiento, '
+                   'respaldo previo y criterio de parada antes de cualquier ejecución.',
+  'proof': 'Especificación revisada y aprobada para solicitar o valorar presupuesto. Recuperación y tiempos '
+           'continúan sin comprobar hasta ejecutar el ensayo autorizado.',
+  'technical_success': 'Para cerrar la comprobación técnica C05 se necesita un acta con entorno, pasos, '
+                       'resultados, incidencias y tiempos medidos, que cumpla los criterios de éxito '
+                       'aprobados y tenga validación técnica y de producción. Un ensayo fallido no acredita '
+                       'recuperación ni se cierra como satisfactorio.',
+  'status': 'Borrador de especificación; objetivo, entorno, autorizaciones y presupuesto pendientes.',
+  'participants': 'Mantenedor diseña y presupuesta; informática cubre puestos/red; calidad define '
+                  'verificación y liberación.',
+  'rank': '4',
+  'due': 'Después de A01 y de aprobar objetivo, entorno y presupuesto',
+  'resources': 'Solicitar presupuesto de preparación y ensayo; no hay cifra técnica acreditada. '
+               'Participación interna a acordar con producción y calidad.',
+  'target_date': '',
+  'assigned_person': '',
+  'close_date': '',
+  'received_evidence': '',
+  'next_review': 'Pendiente de asignar tras aprobación'}]
+
+responses = [('Controles y alcance',
+  'Hemos revisado la documentación del proceso delimitado y conservamos el control documental de revisión de '
+  'programas. Hemos identificado mejoras de cobertura y trazabilidad, asignadas para validación y '
+  'planificación interna. Los documentos técnicos se facilitarán por canal acordado y con el detalle '
+  'necesario para vuestra petición.',
+  ['E05', 'E07', 'E09', 'E12']),
+ ('Recuperación y siguientes pasos',
+  'La revisión documental no acredita todavía una recuperación probada ni un tiempo de reposición. '
+  'Proponemos acordar con mantenimiento y producción el objetivo y la prueba necesaria. Comunicaremos hitos '
+  'sólo después de que sus responsables los confirmen; no damos las mejoras ni vuestra aceptación por '
+  'obtenidas.',
+  ['E03', 'E12', 'E15'])]
+
+uncertainties = [('U01',
+  'Paquete válido y objetos aplicables por activo',
+  'Responsable de mantenimiento',
+  'A01',
+  'Validar catálogo con fabricante y resolver etiqueta/contenido. Registrar lo localizado y lo que falta.'),
+ ('U02',
+  'Vínculo entre identidad remota, cuenta local y autorización',
+  'Responsable de mantenimiento',
+  'A02',
+  'Solicitar registros de una intervención autorizada; no inferir sesiones ni MFA.'),
+ ('U03',
+  'Objetivo aprobado y entorno de ensayo',
+  'Responsable de producción',
+  'A04',
+  'Contrastar las ocho horas declaradas con mantenimiento/calidad y aprobar entorno antes de completar la '
+  'especificación.'),
+ ('U04',
+  'Plazo y aceptación de la respuesta por comprador',
+  'Responsable de calidad',
+  'A03',
+  'Confirmar fecha de respuesta y registrar su comunicación, sin interpretar silencio como aceptación.')]
+
+acceptance = ['Perímetro y participantes confirmados; cada discrepancia queda corregida o registrada.',
+ 'Conclusiones relacionadas con fuente, método y límite material; las declaraciones conservan ese carácter.',
+ 'Orden y responsables de cierre propuestos para asignación expresa; no se confunden con trabajos '
+ 'ejecutados.',
+ 'Informe, tablas y pliegos recibidos; devolución celebrada o alternativa acordada expresamente.',
+ 'Reparos sobre cobertura y coherencia atendidos. La aceptación del diagnóstico no acredita recuperación ni '
+ 'aceptación del comprador.']
+
+recovery = [('AS01',
+  'Paquete del fabricante: CNC/PLC/HMI y ajustes aplicables; programas, correctores/orígenes, variables y '
+  'compensaciones que procedan.',
+  'Export de ajustes parcial y programa P-204; no hay paquete integral identificado.',
+  'Mantenimiento',
+  'Validar aplicabilidad con fabricante; conservar revisiones y compatibilidad; A01.',
+  'E07 E08 E12 E14'),
+ ('AS02',
+  'Imagen o reinstalación del puesto, aplicaciones y licencias, configuración de transferencia y selección '
+  'de trabajo.',
+  'Dos selecciones documentadas; reconstrucción del puesto no aportada.',
+  'Producción',
+  'Informática identifica imagen/instaladores; calidad define liberación; A01.',
+  'E09 E12 E13'),
+ ('AS03',
+  'Proyecto CAM editable, versión del entorno, postprocesador, biblioteca de herramientas y reactivación de '
+  'licencia.',
+  'No aportados; la ausencia en esta muestra no afirma inexistencia.',
+  'Ingeniería',
+  'Localizar fuentes y confirmar derechos/licencias con proveedor; A01.',
+  'E06 E12 E15'),
+ ('AS04',
+  'Datos de copia, configuración del almacén, permisos y procedimiento para acceder a la copia si falla la '
+  'red habitual.',
+  'Hay calendario y ficheros; aislamiento, permisos y recuperación pendientes.',
+  'Informática',
+  'Identificar ubicación, acceso de emergencia y segunda copia sin publicar detalles; A01.',
+  'E02 E07 E12'),
+ ('AS05',
+  'Configuración de VPN/puesto de salto aplicable, identidad atribuible, tickets y forma de reponer soporte.',
+  'Recorrido declarado; falta vínculo entre identidad externa y cuenta local.',
+  'Mantenimiento',
+  'Validar con informática y mantenedor la trazabilidad de extremo a extremo; A02.',
+  'E10 E11 E13'),
+ ('AS06',
+  'Copia legible de configuración compatible con modelo/firmware y relación de conexiones autorizadas.',
+  'No aportada; topología y eficacia de reglas sin verificar.',
+  'Informática',
+  'Proveedor confirma si es gestionable y qué necesita para reponerlo; A01.',
+  'E06 E12 E13')]
+
+followup = [('A03',
+  'Respuesta aprobada internamente en el escenario trimestral; aceptación del comprador aún pendiente.',
+  'S01: registro de aprobación de calidad y gerencia; no es envío real.',
+  'Mantener seguimiento de la contestación; no cerrar homologación.'),
+ ('A01',
+  'Catálogo validado; proyecto e instaladores localizados. Export de CNC pendiente de ventana autorizada.',
+  'S02: relación de objetos y paquetes; falta acta del mantenedor.',
+  'Mantener abierto el paquete de CNC; aprobar o reprogramar ventana, no marcar recuperación.'),
+ ('A02',
+  'Procedimiento actualizado; falta primer registro que enlace ticket y sesión.',
+  'S03: procedimiento revisado; no hay log de intervención.',
+  'Revisar la primera intervención autorizada antes de declarar implantado el procedimiento.'),
+ ('A04',
+  'Sigue en borrador: entorno de ensayo y presupuesto sin aprobar.',
+  'S04: minuta de producción, sin acta de prueba.',
+  'Decidir si se contrata la preparación del ensayo o se acepta aplazar, registrando responsable.')]
+
 evidence_by_id={e['id']:e for e in evidence}
-
-checks = [
- dict(id='C01',title='La muestra de programa tiene una copia concordante',state='Respaldado para la muestra',method='Comparar revisión y contenido del programa ficticio y su copia.',sources=['E07','E09'],result='P-204 revisión C coincide en el par comparado y en las dos selecciones registradas.',limit='No se extrapola a otros programas ni se afirma restauración.'),
- dict(id='C02',title='Los dos registros conservan la revisión liberada',state='Respaldado para dos registros',method='Cruzar liberación LIB-204 con T-204 y T-205.',sources=['E09'],result='Los dos registros seleccionan P-204 revisión C, como la ficha de liberación.',limit='No se ha observado ejecución física ni se ha muestreado toda la producción.'),
- dict(id='C03',title='La copia de parámetros no cubre la revisión actual del escenario',state='Desajuste de cobertura',method='Cruzar la revisión de copia con el registro de cambio y comparar los textos ficticios.',sources=['E07','E08'],result='Copia revisión 1 del 15/09 anterior al cambio a revisión 2 del 21/10.',limit='Se identifica el desajuste de esta muestra; no se afirma que no exista otra copia.'),
- dict(id='C04',title='La cuenta exportada no coincide con la identidad prevista',state='Desajuste con procedimiento',method='Contrastar campos de exportación con procedimiento aprobado del escenario.',sources=['E10','E11'],result='Procedimiento: identidad nominativa y ventana. Exportación: cuenta genérica habilitada, sin caducidad documentada.',limit='Sin comprobar sesiones, exposición externa ni MFA. El procedimiento no garantiza su aplicación.'),
- dict(id='C05',title='La recuperación del proceso sigue sin demostrarse',state='No comprobado',method='Revisar el registro disponible y la declaración, sin ejecutar restauraciones.',sources=['E02','E03','E07'],result='La existencia de un fichero y el recuerdo de una prueba no permiten acreditar recuperación del proceso.',limit='No hay tiempo de recuperación medido ni objetivo de producción aprobado.'),
- dict(id='C06',title='Conectividad y segmentación efectiva',state='No evaluado',method='Delimitar el alcance y registrar lo que no se inspeccionó.',sources=['E06'],result='El mapa es funcional. No se han revisado reglas, conexiones, rutas o aislamiento reales.',limit='No se presenta como vulnerabilidad ni como control validado.'),
-]
-
-actions = [
- dict(id='A01',title='Encargar una cobertura de copias coherente con el estado actual',priority='Antes del siguiente cambio y como base de la prueba',reason='La revisión de parámetros presentada es anterior al cambio. La preparación de nuevos trabajos depende también del proyecto editable.',sources=['E06','E07','E08','E09'],checks=['C01','C03','C05'],owner='Ingeniería y mantenimiento definen el contenido; informática y el mantenedor preparan la solución; la responsable del proceso valida.',task='Identificar la copia vigente de parámetros o encargar su obtención autorizada al mantenedor. Localizar el proyecto editable y determinar dónde se conservará. Registrar objetos, revisiones, ubicación, responsable y cuándo repetir la copia tras un cambio. Mantener el control de revisión de programas cuyos registros son coherentes en la muestra.',inputs='Lista de objetos del proceso, registro CAM-021, relación de copias y requisitos del fabricante.',acceptance='Matriz aprobada para programa, parámetros y proyecto, con revisiones coherentes, propietario y procedimiento de copia tras cambios. Registrar la comprobación documental y lo que sólo podrá validarse en una prueba.',dependency='El fabricante o mantenedor debe indicar el método compatible. La extracción o modificación en equipos no está incluida en OT Check.',change_safety='Acordar permisos y ventana antes de acceder. No alterar el CNC ni sobrescribir una copia hasta conservar la anterior y confirmar el procedimiento.',proof='Matriz fechada, ficheros identificados por revisión y registro de comprobación, sin presentar ese registro como restauración.',status='Propuesto; no ejecutado.'),
- dict(id='A02',title='Alinear el soporte con la identidad y ventana aprobadas',priority='Antes de la próxima sesión de soporte',reason='Existe un procedimiento útil, pero su identidad prevista no coincide con la cuenta genérica exportada. Hay una diferencia concreta que resolver con el mantenedor.',sources=['E04','E10','E11'],checks=['C04'],owner='Responsable de mantenimiento aprueba; informática y mantenedor acuerdan y ejecutan el ajuste.',task='Confirmar el uso y necesidad de la cuenta. Acordar una identidad atribuible, alcance, aprobación, inicio y fin de habilitación y registro de intervención. Si una limitación del fabricante impide la identidad nominativa, documentar la excepción, su responsable y las medidas acordadas.',inputs='PR-SOP-02, exportación de cuentas, condiciones y necesidades de soporte del mantenedor.',acceptance='Conformidad entre procedimiento y configuración prevista, o excepción motivada aprobada, con responsable y revisión. La ejecución posterior deja evidencia de habilitación, aprobación y cierre.',dependency='Validación del mantenedor y del servicio que necesita mantener; no se presume que el acceso sea prescindible.',change_safety='No deshabilitar el acceso unilateralmente ni probar cambios sobre producción sin ventana y alternativa de soporte acordadas.',proof='Procedimiento actualizado, acuerdo del proveedor y registro de la intervención autorizada. Las sesiones sólo se consideran revisadas si se aportan y examinan sus registros.',status='Propuesto; no ejecutado.'),
- dict(id='A03',title='Aprobar una respuesta que distinga lo respaldado de lo pendiente',priority='Dentro de diez días laborables del escenario',reason='Hay un plazo contractual supuesto. La respuesta puede incorporar controles respaldados sin esperar a una prueba todavía no contratada.',sources=['E05','E07','E08','E09','E10','E11'],checks=['C01','C02','C03','C04','C05'],owner='Calidad o comercial prepara; gerencia aprueba; las áreas técnicas validan las afirmaciones de su competencia.',task='Utilizar el borrador del informe, asociar cada afirmación con documentos concretos y asignar los pendientes A01, A02 y A04. Comunicar fechas sólo después de acordarlas con quienes ejecutarán las actuaciones.',inputs='Pregunta original del comprador y resultados de esta revisión.',acceptance='Respuesta aprobada internamente, con respaldo y pendientes identificados. La aceptación del comprador se registra sólo cuando éste la comunique.',dependency='Si A01 o A02 no se resuelven a tiempo, se comunica su estado con precisión; no se inventa un cierre.',change_safety='Revisar confidencialidad y destinatarios antes de remitir documentación. No enviar configuraciones, credenciales o inventario completo por defecto.',proof='Versión de respuesta aprobada y registro del envío y de la contestación cuando ocurran.',status='Borrador disponible; no enviado ni aceptado.'),
- dict(id='A04',title='Preparar el encargo de una prueba de recuperación separada y segura',priority='Después de aclarar A01 y acordar objetivo y entorno',reason='Una copia concordante no acredita que pueda recuperarse el servicio de producción. La prueba debe tener un objetivo y condiciones de seguridad propios.',sources=['E03','E06','E07','E08'],checks=['C03','C05'],owner='Producción define el servicio y objetivo; mantenedor o especialista competente diseña y ejecuta; calidad valida la liberación.',task='Pedir presupuesto de un ensayo aislado o en entorno aprobado por fabricante. Definir qué se recupera, revisión de partida, recursos, licencias, criterios de éxito y parada, conservación de evidencias y vuelta al estado anterior.',inputs='Cobertura de A01, requisitos del fabricante, objetivos de recuperación, personal competente y ventana autorizada.',acceptance='Se acepta la preparación del encargo cuando su especificación identifica objetivo, entorno, responsables, autorizaciones, criterios de éxito y parada y presupuesto por aprobar. Esa aceptación documental no autoriza ni acredita ejecutar la prueba.',dependency='Encargo y autorización distintos de OT Check, capacidad de ejecución, entorno seguro y participación del fabricante cuando proceda.',change_safety='No restaurar sobre el CNC de producción para demostrar una copia. Definir aislamiento, respaldo previo y criterio de parada antes de cualquier ejecución.',proof='Especificación revisada y aprobada para solicitar o valorar presupuesto. Recuperación y tiempos continúan sin comprobar hasta ejecutar el ensayo autorizado.',technical_success='Para cerrar la comprobación técnica C05 se necesita un acta con entorno, pasos, resultados, incidencias y tiempos medidos, que cumpla los criterios de éxito aprobados y tenga validación técnica y de producción. Un ensayo fallido no acredita recuperación ni se cierra como satisfactorio.',status='Especificación preparada; prueba no realizada.'),
-]
-responses = [
- ('Copias y revisión de programas','En la muestra examinada, el programa P-204 revisión C coincide con su copia y con dos registros de selección. La copia de parámetros presentada es anterior al último cambio y el proyecto editable no está aportado. Se propone completar la cobertura mediante A01.',['E07','E08','E09']),
- ('Recuperación','No se ha aportado registro de la prueba recordada ni se ha ejecutado una restauración. No se acredita recuperación del proceso ni un tiempo concreto. A04 define las condiciones para contratar una prueba separada.',['E03','E07']),
- ('Soporte y autorizaciones','El procedimiento asigna aprobación a mantenimiento y prevé identidad nominativa y ventana. La cuenta exportada es genérica y no documenta caducidad. A02 propone reconciliar ambas fuentes con el mantenedor, sin cortar soporte unilateralmente.',['E10','E11']),
-]
-uncertainties = [
- ('U01','Existencia de otra copia vigente de parámetros o del proyecto','Ingeniería, informática y mantenedor','A01','Localizarla, identificar revisión y contrastar cobertura; si no aparece, registrar la carencia sin afirmar inexistencia universal.'),
- ('U02','Uso real, atribución y protección del soporte','Mantenimiento, informática y mantenedor','A02','Revisar el uso y evidencias autorizadas. MFA, sesiones y exposición externa no quedan acreditados por esta exportación.'),
- ('U03','Objetivo y resultado de recuperación del servicio','Producción, calidad y mantenedor','A04','Acordar objetivo y ejecutar sólo una prueba autorizada con registro. Hasta entonces, tiempo y eficacia pendientes.'),
- ('U04','Aceptación del comprador','Calidad o comercial y gerencia','A03','Registrar su comunicación real; la aprobación interna no equivale a homologación.'),
-]
-acceptance = [
- 'La responsable del proceso confirma perímetro y dependencias; las discrepancias se corrigen o quedan registradas.',
- 'Cada conclusión tiene fuente, método y límite. Los documentos no se presentan como pruebas de funcionamiento.',
- 'Las prioridades se validan con producción y las responsables propuestas se asignan expresamente.',
- 'Los encargos técnicos concretan entradas, autorizaciones, resultado esperado y evidencia de cierre.',
- 'Se entrega informe y matrices editables y se celebra la devolución. Aceptar el informe no cierra actuaciones técnicas pendientes.',
-]
-for c in checks:
-    assert all(e in evidence_by_id for e in c['sources'])
+assert len({a['rank'] for a in actions})==len(actions)
 for a in actions:
-    assert all(e in evidence_by_id for e in a['sources'])
-    assert all(c in {c['id'] for c in checks} for c in a['checks'])
+    assert a['owner'] and a['due'] and a['resources']
+    assert all(x in evidence_by_id for x in a['sources'])
+    assert all(x in {c['id'] for c in checks} for x in a['checks'])
+    if a['id']=='A04':
+        assert a['status'].startswith('Borrador')
+        assert 'pendientes' in a['status']
