@@ -98,6 +98,10 @@ footer {
 footer .footer-links a {
   color: #d7d4d8;
 }
+footer p,
+footer a {
+  color: #d7d4d8;
+}
 @media (max-width: 640px) {
   header .wrap {
     min-height: 5.5rem;

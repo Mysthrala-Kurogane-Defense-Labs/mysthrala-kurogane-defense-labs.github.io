@@ -20,6 +20,13 @@ additional `_headers` and `_redirects` configuration. Keep those files out of
 the GitHub Pages artifact. Never store hand-authored files in the two generated
 directories.
 
+The current allowlist also exports `muestra-ot-check.html`,
+`security-policy.html` and `favicon.ico`. The assets directory includes the
+synthetic PDF, editable CSV, evidence JSON files and their manifest, and an
+offline ZIP. Check these resources in both exports before any publication.
+Keep the evidence directory next to the PDF when using relative PDF links.
+Neither export should contain private working files, Git metadata or tooling.
+
 For a local Workers preview, use Node.js 22+ and the tested Wrangler version:
 
 ```sh
@@ -38,6 +45,14 @@ check its contact, canonical URL and expiry separately. Check that
 `/index.html?x=1` redirects once to `/?x=1`, that `/privacidad` redirects to
 `/privacidad.html`, and that an unknown path returns the custom `404.html` with
 HTTP status 404. Confirm the security headers on served files.
+
+Also check `/muestra-ot-check.html`, `/security-policy.html`, the PDF and its
+relative E01-E05 links, the editable CSV, ZIP and public evidence hashes. Match
+the final PDF to the reviewed public source; packaging success does not prove
+that a report has been accepted by a client or that a technical action worked.
+Professional/legal details, retention operations and provider configuration
+require owner verification before opening the activity. This local branch does
+not authorise deployment, a Git push or a domain cutover.
 
 `html_handling: "none"` preserves the existing `.html` canonical URLs. The
 `/ /index.html 200` rule serves the root page without changing the browser URL;
