@@ -7,8 +7,8 @@ application.
 
 ## Readers
 
-- Companies: [services and scope](https://mkdl.jp/#trabajo),
-  [info@mkdl.jp](mailto:info@mkdl.jp).
+- Companies: [services and scope](https://mkdl.jp/#servicio),
+  [mysthrala@mkdl.jp](mailto:mysthrala@mkdl.jp).
 - Technical teams: [public repository
   map](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane), [practical
   guides](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-docs),
@@ -18,20 +18,21 @@ application.
   disclosure
   route](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-security-model/blob/main/disclosure-policy.md).
 
-MKDL's public focus is bounded industrial cybersecurity work for small
-businesses in Bajo Deba / Euskadi. Hub availability, deployment capabilities and
-commercial conditions need separate evidence and agreement; public examples do
-not establish production readiness.
+OT Check reviews one bounded industrial process and its decision centre to prepare priorities, proposed owners and checks for commissioning improvements. It serves small, medium and large industrial organisations or group units, from an operational base in Euskadi. Scope, depth, evidence, calendar and price are agreed in a proposal. No firm tariff is published.
+
+MKDL presents consultancy, documentation and training by one professional. It does not offer Hub distribution, implementation, operations, incident response, permanent support or integration by default. The activity is presented as being prepared; no registration, insurance or professional certification is asserted as verified.
+
+The three situations preserve the recovered public prototype. The linked HTML/PDF, editable CSV and evidence bundle are wholly synthetic. They demonstrate the structure of a deliverable, not client work, recovery performance or external acceptance.
 
 ## Edit and preview
 
 Requires Python >= 3.11 for the local static server:
 
 ```sh
-python -m http.server 8080 --bind 127.0.0.1
+py -3 -m http.server 8080 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8080`. Check desktop and narrow layouts, navigation,
+Open `http://127.0.0.1:8080`. On Linux use `python3` in place of `py -3`. Check desktop and narrow layouts, navigation,
 contact links and each legal page. Stop the server with Ctrl+C. There is no
 application build or package install. Keep `CNAME`, canonical URLs,
 `sitemap.xml`, `robots.txt`, social metadata and `llms.txt` consistent with the
@@ -65,3 +66,16 @@ not fill them from guessed values or marketing copy.
 
 Use synthetic material in issues. Documentation and visual content retain the
 terms in [LICENSE](LICENSE).
+
+## Local review and publication boundary
+
+Both required packaging targets must pass from the final revision:
+
+```sh
+python3 scripts/package-site.py --target github
+python3 scripts/package-site.py --target cloudflare
+```
+
+The allowlist includes the HTML sample, security policy and favicon; `assets/` contains the PDF, editable synthetic matrix, JSON evidence manifest and offline bundle. The shared main styles remain in `assets/site.css` and `assets/legal.css`; the recovered commercial prototype uses `assets/commercial.css`.
+
+No publication is authorised by this branch. Before any push, PR, deployment or domain change, obtain the separate authority, confirm professional/legal details and provider operations, review the synthetic sample, and run the required remote checks. The existing GitHub workflow remains restricted to main for publication; this change adds no deployment mechanism.

@@ -1,51 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'none'; connect-src 'self'; base-uri 'self'; form-action 'none';"
-    />
-    <title>Accesibilidad | MKDL</title>
-    <meta
-      name="description"
-      content="Declaración de accesibilidad de MKDL para mkdl.jp y el recorrido de contacto asociado."
-    />
-    <link rel="canonical" href="https://mkdl.jp/accesibilidad.html" />
-    <meta property="og:title" content="Accesibilidad | MKDL" />
-    <meta
-      property="og:description"
-      content="Declaración de accesibilidad de MKDL para la web pública y el recorrido de contacto asociado."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mkdl.jp/accesibilidad.html" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="Mysthrala Kurogane Defense Labs" />
-    <meta
-      property="og:image"
-      content="https://mkdl.jp/assets/mkdl-social-preview.png"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="MKDL, ciberseguridad industrial práctica para pymes"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:image"
-      content="https://mkdl.jp/assets/mkdl-social-preview.png"
-    />
-    <meta
-      name="twitter:image:alt"
-      content="MKDL, ciberseguridad industrial práctica para pymes"
-    />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="theme-color" content="#ecebea" />
-    <link rel="icon" href="/assets/mkdl-icon.svg" type="image/svg+xml" />
-    <style>
-      :root {
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'none'; connect-src 'self'; base-uri 'self'; form-action 'none';" http-equiv="Content-Security-Policy"/>
+  <title>
+   Accesibilidad | MKDL
+  </title>
+  <meta content="Declaración de accesibilidad de MKDL para mkdl.jp y el recorrido de contacto asociado." name="description"/>
+  <link href="https://mkdl.jp/accesibilidad.html" rel="canonical"/>
+  <meta content="Accesibilidad | MKDL" property="og:title"/>
+  <meta content="Declaración de accesibilidad de MKDL para la web pública y el recorrido de contacto asociado." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://mkdl.jp/accesibilidad.html" property="og:url"/>
+  <meta content="es_ES" property="og:locale"/>
+  <meta content="Mysthrala Kurogane Defense Labs" property="og:site_name"/>
+  <meta content="https://mkdl.jp/assets/mkdl-social-preview.png" property="og:image"/>
+  <meta content="1200" property="og:image:width"/>
+  <meta content="630" property="og:image:height"/>
+  <meta content="MKDL, consultoría de ciberseguridad industrial" property="og:image:alt"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://mkdl.jp/assets/mkdl-social-preview.png" name="twitter:image"/>
+  <meta content="MKDL, consultoría de ciberseguridad industrial" name="twitter:image:alt"/>
+  <meta content="index,follow,max-image-preview:large" name="robots"/>
+  <meta content="#ecebea" name="theme-color"/>
+  <link href="/assets/mkdl-icon.svg" rel="icon" type="image/svg+xml"/>
+  <style>
+   :root {
         color-scheme: light;
         --bg: #f7f8fa;
         --panel: #ffffff;
@@ -292,92 +273,122 @@
         margin-top: 1rem;
         color: var(--muted);
       }
-    </style>
-    <link rel="stylesheet" href="/assets/legal.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
-    <header>
-      <div class="wrap">
-        <a class="brand" href="index.html" aria-label="Volver a MKDL">
-          <img src="assets/mkdl-icon.svg" alt="" width="34" height="34" />
-          <span>Mysthrala Kurogane Defense Labs</span>
-        </a>
-      </div>
-    </header>
-
-    <main id="contenido" tabindex="-1" class="wrap">
-      <span class="section-kicker">Transparencia</span>
-      <h1>Declaración de accesibilidad</h1>
-      <p class="lead">
-        Esta web se ha diseñado tomando WCAG 2.2 nivel AA y EN 301 549 como
+  </style>
+  <link href="/assets/legal.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <a class="skip-link" href="#contenido">
+   Saltar al contenido principal
+  </a>
+  <header>
+   <div class="wrap">
+    <a aria-label="Volver a MKDL" class="brand" href="index.html">
+     <img alt="" height="34" src="assets/mkdl-icon.svg" width="34"/>
+     <span>
+      Mysthrala Kurogane Defense Labs
+     </span>
+    </a>
+   </div>
+  </header>
+  <main class="wrap" id="contenido" tabindex="-1">
+   <span class="section-kicker">
+    Transparencia
+   </span>
+   <h1>
+    Declaración de accesibilidad
+   </h1>
+   <p class="lead">
+    Esta web se ha diseñado tomando WCAG 2.2 nivel AA y EN 301 549 como
         referencias técnicas cuando resulte aplicable.
-      </p>
-
-      <section aria-labelledby="scope-title">
-        <h2 id="scope-title">Alcance</h2>
-        <p>
-          La revisión cubre la landing pública de MKDL en mkdl.jp y sus páginas
+   </p>
+   <section aria-labelledby="scope-title">
+    <h2 id="scope-title">
+     Alcance
+    </h2>
+    <p>
+     La revisión cubre la landing pública de MKDL en mkdl.jp y sus páginas
           informativas. El contacto se realiza mediante un enlace de correo, sin
           formularios propios ni zonas de usuario.
-        </p>
-      </section>
-
-      <section aria-labelledby="status-title">
-        <h2 id="status-title">Estado de revisión</h2>
-        <p>
-          Última revisión interna: 7 de septiembre de 2026. Lighthouse obtuvo
-          100 en accesibilidad en sus perfiles móvil y escritorio. También se
-          comprobó el comportamiento responsive y la ausencia de desbordamiento
-          horizontal a 320, 390, 540, 820, 981 y 1440 píxeles.
-        </p>
-        <p>
-          Estas comprobaciones no equivalen a una certificación externa ni
-          garantizan que no existan barreras para todas las personas o contextos
-          de uso.
-        </p>
-      </section>
-
-      <section aria-labelledby="known-title">
-        <h2 id="known-title">Barreras conocidas y seguimiento</h2>
-        <ul>
-          <li>
-            El cliente de correo usado para contactar queda fuera del alcance de
+    </p>
+   </section>
+   <section aria-labelledby="status-title">
+    <h2 id="status-title">
+     Estado de revisión
+    </h2>
+    <p>
+     La revisión local de 25 de octubre de 2026 comprueba las páginas informativas, navegación, teclado, foco visible, contraste automatizado y adaptación a pantalla estrecha y ampliación. Los resultados técnicos se conservan en el registro de ejecución de esta revisión.
+    </p>
+    <p>
+     Estas comprobaciones no equivalen a una certificación externa ni a una evaluación completa con lectores de pantalla. El comportamiento de servicios externos y del dominio publicado requiere comprobación propia.
+    </p>
+   </section>
+   <section aria-labelledby="known-title">
+    <h2 id="known-title">
+     Barreras conocidas y seguimiento
+    </h2>
+    <ul>
+     <li>
+      El cliente de correo usado para contactar queda fuera del alcance de
             esta web.
-          </li>
-          <li>
-            Cualquier cambio relevante de diseño, contenido o formulario debe
+     </li>
+     <li>
+      Cualquier cambio relevante de diseño, contenido o formulario debe
             volver a revisarse.
-          </li>
-          <li>
-            La conformidad se expresa como objetivo técnico de diseño y
+     </li>
+     <li>
+      La conformidad se expresa como objetivo técnico de diseño y
             revisión, no como certificación formal.
-          </li>
-        </ul>
-      </section>
-
-      <section aria-labelledby="contact-title">
-        <h2 id="contact-title">Comunicación de barreras</h2>
-        <p>
-          Si encuentras una barrera de accesibilidad o necesitas la información
+     </li>
+    </ul>
+   </section>
+   <section aria-labelledby="contact-title">
+    <h2 id="contact-title">
+     Comunicación de barreras
+    </h2>
+    <p>
+     Si encuentras una barrera de accesibilidad o necesitas la información
           en otro formato, escribe a
-          <a href="mailto:info@mkdl.jp?subject=Accesibilidad%20de%20mkdl.jp"
-            >info@mkdl.jp</a
-          >.
-        </p>
-      </section>
-    </main>
-
-    <footer>
-      <div class="wrap">
-        <p><a href="index.html">Volver a mkdl.jp</a></p>
-        <nav class="footer-links" aria-label="Información legal">
-          <a href="aviso-legal.html">Aviso legal</a>
-          <a href="privacidad.html">Privacidad</a>
-          <a href="cookies.html">Cookies</a>
-          <a href="accesibilidad.html">Accesibilidad</a>
-        </nav>
-      </div>
-    </footer>
-  </body>
+     <a href="mailto:mysthrala@mkdl.jp?subject=Accesibilidad%20de%20mkdl.jp">
+      mysthrala@mkdl.jp
+     </a>
+     .
+    </p>
+   </section>
+   <section>
+    <h2>
+     Muestra de informe
+    </h2>
+    <p>
+     El PDF sintético se ofrece con una
+     <a href="muestra-ot-check.html">
+      alternativa HTML equivalente y sus evidencias
+     </a>
+     . El PDF no se presenta como documento certificado en accesibilidad.
+    </p>
+   </section>
+  </main>
+  <footer>
+   <div class="wrap">
+    <p>
+     <a href="index.html">
+      Volver a mkdl.jp
+     </a>
+    </p>
+    <nav aria-label="Información legal" class="footer-links">
+     <a href="aviso-legal.html">
+      Aviso legal
+     </a>
+     <a href="privacidad.html">
+      Privacidad
+     </a>
+     <a href="cookies.html">
+      Cookies
+     </a>
+     <a href="accesibilidad.html">
+      Accesibilidad
+     </a>
+    </nav>
+   </div>
+  </footer>
+ </body>
 </html>

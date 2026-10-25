@@ -2,32 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mkdl.jp/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://mkdl.jp/aviso-legal.html</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://mkdl.jp/privacidad.html</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://mkdl.jp/cookies.html</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://mkdl.jp/accesibilidad.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mkdl.jp/muestra-ot-check.html</loc>
+    <lastmod>2026-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://mkdl.jp/security-policy.html</loc>
+    <lastmod>2026-10-25</lastmod>
   </url>
 </urlset>

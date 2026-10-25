@@ -1,0 +1,4 @@
+﻿Escenario;ID;Conclusión limitada;Fuentes sintéticas;Responsable propuesto;Comprobación de cierre
+SINTÉTICO;A01;Recuperación no acreditada;E02 E03;Mantenimiento e informática;"Procedimiento, cobertura y decisión de prueba registrados; no afirmar prueba ejecutada"
+SINTÉTICO;A02;No consta autorizador en la lista;E04;Mantenimiento e informática;"Validación fechada con responsable, alcance y revisión; no cerrar accesos sin coordinación"
+SINTÉTICO;A03;Distinguir evidencias y pendientes en respuesta;E05 E02 E03 E04;Calidad o comercial y gerencia;"Respuesta aprobada y evidencias asociadas; aceptación externa pendiente"

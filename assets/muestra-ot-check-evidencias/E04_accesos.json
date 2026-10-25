@@ -1,0 +1,13 @@
+{
+  "id": "E04",
+  "archivo": "E04_accesos.json",
+  "tipo": "documento sintético",
+  "fecha": "2026-10-25",
+  "contenido": {
+    "proveedor": "Mantenedor ficticio A",
+    "finalidad": "soporte",
+    "autorizador": null,
+    "limite": "no demuestra que el acceso esté activo ni que sea inseguro"
+  },
+  "archivo_origen": "E04_accesos.csv"
+}

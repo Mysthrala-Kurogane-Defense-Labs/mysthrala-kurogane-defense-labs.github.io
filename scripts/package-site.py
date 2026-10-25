@@ -16,7 +16,8 @@ SOURCE = Path(__file__).resolve().parents[1]
 OUTPUT_NAMES = {"github": "_site", "cloudflare": "_site-cloudflare"}
 PUBLIC_FILES = (
     "index.html", "404.html", "aviso-legal.html", "privacidad.html",
-    "cookies.html", "accesibilidad.html", "CNAME", "robots.txt",
+    "cookies.html", "accesibilidad.html", "security-policy.html",
+    "muestra-ot-check.html", "favicon.ico", "CNAME", "robots.txt",
     "sitemap.xml", "llms.txt", "index.md", "security.txt", ".nojekyll",
 )
 PUBLIC_DIRECTORIES = ("assets", ".well-known")

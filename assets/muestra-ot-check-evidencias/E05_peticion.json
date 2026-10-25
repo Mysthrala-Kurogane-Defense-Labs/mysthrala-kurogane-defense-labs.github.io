@@ -1,0 +1,12 @@
+{
+  "id": "E05",
+  "archivo": "E05_peticion.json",
+  "tipo": "petición sintética",
+  "fecha": "2026-10-25",
+  "contenido": {
+    "solicitud": "responder sobre copias, recuperación y autorizadores de acceso",
+    "plazo": "diez días laborables ficticios",
+    "limite": "requisito contractual supuesto, ninguna obligación legal inferida"
+  },
+  "archivo_origen": "E05_peticion.txt"
+}

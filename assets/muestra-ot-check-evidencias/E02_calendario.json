@@ -1,0 +1,13 @@
+{
+  "id": "E02",
+  "archivo": "E02_calendario.json",
+  "tipo": "documento sintético",
+  "fecha": "2026-10-25",
+  "contenido": {
+    "frecuencia": "semanal",
+    "objeto": "programas CNC",
+    "registro_restauracion": null,
+    "limite": "el calendario no demuestra ejecución, integridad, cobertura ni duración de recuperación"
+  },
+  "archivo_origen": "E02_calendario.csv"
+}

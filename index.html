@@ -1,280 +1,600 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; connect-src 'self'; base-uri 'self'; form-action 'none';"
-    />
-    <title>MKDL | Ciberseguridad industrial con evidencia</title>
-    <meta
-      name="description"
-      content="Diagnóstico, orden operativo y evidencia revisable para pequeñas empresas industriales del Bajo Deba. Ciberseguridad OT con un alcance proporcionado."
-    />
-    <meta name="theme-color" content="#ecebea" />
-    <link rel="canonical" href="https://mkdl.jp/" />
-    <link rel="alternate" type="text/markdown" href="/index.md" title="Información pública en Markdown" />
-    <link rel="describedby" type="text/plain" href="/llms.txt" />
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    <link rel="icon" href="/assets/mkdl-icon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/assets/site.css" />
-    <meta
-      property="og:title"
-      content="MKDL | Ciberseguridad industrial con evidencia"
-    />
-    <meta
-      property="og:description"
-      content="Diagnóstico, orden operativo y evidencia revisable para pequeñas empresas industriales del Bajo Deba."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mkdl.jp/" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="Mysthrala Kurogane Defense Labs" />
-    <meta
-      property="og:image"
-      content="https://mkdl.jp/assets/mkdl-social-preview.png"
-    />
-    <meta property="og:image:alt" content="Mysthrala Kurogane Defense Labs" />
-    <meta name="twitter:card" content="summary_large_image" />
-  </head>
-  <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="MKDL, inicio"
-        ><img
-          src="/assets/mkdl-logo.svg"
-          alt="Mysthrala Kurogane Defense Labs"
-          width="970"
-          height="214"
-      /></a>
-      <nav aria-label="Navegación principal">
-        <a href="#trabajo">Qué hacemos</a><a href="#metodo">Cómo trabajamos</a
-        ><a href="#hub">Kurogane Hub</a
-        ><a class="nav-contact" href="mailto:info@mkdl.jp">Contacto</a>
-      </nav>
-    </header>
-    <main id="contenido" tabindex="-1">
-      <section class="hero" id="inicio">
-        <div class="hero-copy">
-          <p class="context">Bajo Deba · Euskadi</p>
-          <h1>Ciberseguridad industrial que deja rastro.</h1>
-          <p class="hero-lead">
-            Ayudamos a pequeñas empresas industriales a ordenar activos,
-            accesos, incidencias y evidencias. Con un alcance comprensible,
-            revisión humana y sin prometer atajos regulatorios.
-          </p>
-          <div class="hero-actions">
-            <a
-              class="button button-primary"
-              href="mailto:info@mkdl.jp?subject=Consulta%20inicial%20MKDL"
-              >Plantear un diagnóstico</a
-            ><a class="text-link" href="#trabajo">Ver el alcance</a>
-          </div>
-        </div>
-        <figure class="control-record" aria-labelledby="record-title">
-          <figcaption class="record-head">
-            <span id="record-title">Expediente de control</span
-            ><span>MKDL / alcance</span>
-          </figcaption>
-          <p class="record-question">¿Qué sabemos y qué falta por demostrar?</p>
-          <dl>
-            <div>
-              <dt>Activo</dt>
-              <dd><span class="status observed">Observado</span></dd>
-            </div>
-            <div>
-              <dt>Acceso</dt>
-              <dd><span class="status documented">Documentado</span></dd>
-            </div>
-            <div>
-              <dt>Incidencia</dt>
-              <dd><span class="status reviewed">Revisado</span></dd>
-            </div>
-            <div>
-              <dt>Evidencia</dt>
-              <dd><span class="status pending">Pendiente</span></dd>
-            </div>
-          </dl>
-          <p class="record-note">
-            Sin ocultar incertidumbre.<br />Sin cerrar lo que sigue abierto.
-          </p>
-        </figure>
-      </section>
-      <section class="statement" aria-label="Posicionamiento">
-        <p>No vendemos una caja negra ni una certificación.</p>
-        <p>
-          Construimos una base operativa que se puede revisar, explicar y
-          mejorar.
-        </p>
-      </section>
-      <section class="work section" id="trabajo">
-        <div class="section-heading">
-          <p class="section-index">Ámbito de trabajo</p>
-          <h2>De la incertidumbre a un sistema manejable</h2>
-        </div>
-        <div class="work-list">
-          <article>
-            <span class="work-marker" aria-hidden="true"></span>
-            <div>
-              <h3>Diagnóstico delimitado</h3>
-              <p>
-                Revisamos una línea de control concreta para identificar
-                activos, dependencias, accesos y brechas operativas sin
-                convertir el análisis en un proyecto infinito.
-              </p>
-            </div>
-            <p class="work-output">Mapa de situación y prioridades</p>
-          </article>
-          <article>
-            <span class="work-marker" aria-hidden="true"></span>
-            <div>
-              <h3>Orden técnico y documental</h3>
-              <p>
-                Estructuramos inventario, procedimientos, incidencias y
-                registros para que la información útil no dependa de memoria
-                informal o archivos aislados.
-              </p>
-            </div>
-            <p class="work-output">Documentación revisable</p>
-          </article>
-          <article>
-            <span class="work-marker" aria-hidden="true"></span>
-            <div>
-              <h3>Preparación de proveedor</h3>
-              <p>
-                Apoyamos la recopilación de evidencias y el mapeo de controles
-                ante exigencias de clientes y cadena de suministro. La decisión
-                legal y la aprobación final siguen siendo humanas.
-              </p>
-            </div>
-            <p class="work-output">Evidencia y trazabilidad</p>
-          </article>
-          <article>
-            <span class="work-marker" aria-hidden="true"></span>
-            <div>
-              <h3>Seguimiento operativo</h3>
-              <p>
-                Revisamos cambios, incidencias y tareas pendientes con una
-                cadencia acordada para que las mejoras no se queden en una
-                entrega estática.
-              </p>
-            </div>
-            <p class="work-output">Continuidad con alcance claro</p>
-          </article>
-        </div>
-      </section>
-      <section class="method section" id="metodo">
-        <div class="method-intro">
-          <p class="section-index">Forma de trabajar</p>
-          <h2>Proporción antes que volumen</h2>
-          <p>
-            El objetivo no es replicar la complejidad de una gran empresa. Es
-            escoger qué necesita control, dejar constancia de lo que se hace y
-            saber qué sigue pendiente.
-          </p>
-        </div>
-        <ol class="method-steps">
-          <li>
-            <span>01</span>
-            <div>
-              <h3>Delimitar</h3>
-              <p>Una línea, sus nodos y las personas que intervienen.</p>
-            </div>
-          </li>
-          <li>
-            <span>02</span>
-            <div>
-              <h3>Comprobar</h3>
-              <p>Observaciones y documentos separados de hipótesis o planes.</p>
-            </div>
-          </li>
-          <li>
-            <span>03</span>
-            <div>
-              <h3>Priorizar</h3>
-              <p>Acciones asumibles según riesgo, capacidad y dependencia.</p>
-            </div>
-          </li>
-          <li>
-            <span>04</span>
-            <div>
-              <h3>Dejar evidencia</h3>
-              <p>Qué cambió, quién lo revisó y qué límite permanece.</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-      <section class="hub section" id="hub">
-        <div class="hub-name" aria-hidden="true">K</div>
-        <div class="hub-copy">
-          <p class="section-index">Tecnología de apoyo</p>
-          <h2>Kurogane Hub: proyecto tecnológico propio</h2>
-          <p>
-            El proyecto privado de MKDL se orienta a inventario, alertas y flujos
-            de revisión. Su disponibilidad y alcance se acuerdan por separado;
-            los ejemplos públicos no acreditan una instalación en producción.
-          </p>
-          <ul>
-            <li><span>01</span> Visibilidad operativa</li>
-            <li><span>02</span> Seguimiento de tareas e incidencias</li>
-            <li><span>03</span> Evidencia preparada para revisión</li>
-          </ul>
-          <p>
-            Para empezar sin instalar el Hub, consulta las
-            <a href="https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-docs">guías para empresas y equipos técnicos</a>
-            o ejecuta los
-            <a href="https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-labs">laboratorios sintéticos</a>.
-          </p>
-        </div>
-      </section>
-      <section class="fit section" aria-labelledby="fit-title">
-        <div>
-          <p class="section-index">Encaje</p>
-          <h2 id="fit-title">Pensado para la pequeña industria</h2>
-        </div>
-        <div class="fit-copy">
-          <p>
-            Talleres y microempresas auxiliares que necesitan responder mejor
-            ante clientes, ordenar su entorno IT/OT o reducir dependencias
-            informales.
-          </p>
-          <p>
-            El primer paso es una conversación breve para saber si existe un
-            alcance concreto y si MKDL es la ayuda adecuada.
-          </p>
-        </div>
-      </section>
-      <section class="contact section">
-        <p>Si puedes señalar el problema, podemos empezar a acotarlo.</p>
-        <h2>
-          Hablemos de la línea, el acceso o la evidencia que hoy no está bajo
-          control.
-        </h2>
-        <div class="contact-actions">
-          <a
-            class="button button-light"
-            href="mailto:info@mkdl.jp?subject=Consulta%20inicial%20MKDL"
-            >Escribir a MKDL</a
-          ><a href="mailto:info@mkdl.jp">info@mkdl.jp</a>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <div class="footer-brand">
-        <img src="/assets/mkdl-logo.svg" alt="" width="970" height="214" />
-        <p>
-          Ciberseguridad industrial y evidencia revisable desde el Bajo Deba.
-        </p>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   MKDL | OT Check para decidir mejoras en un proceso industrial
+  </title>
+  <meta content="OT Check revisa un proceso industrial y entrega un plan para decidir qué mejorar en su ciberseguridad y qué encargar a los proveedores." name="description"/>
+  <meta content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'self'" http-equiv="Content-Security-Policy"/>
+  <meta content="#254f85" name="theme-color"/>
+  <link href="https://mkdl.jp/" rel="canonical"/>
+  <link href="assets/mkdl-icon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="assets/commercial.css" rel="stylesheet"/>
+  <meta content="MKDL | OT Check para un proceso industrial" property="og:title"/>
+  <meta content="Prioridades justificadas, responsables propuestos y comprobaciones para encargar mejoras de ciberseguridad." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://mkdl.jp/" property="og:url"/>
+  <meta content="es_ES" property="og:locale"/>
+ </head>
+ <body>
+  <a class="skip" href="#contenido">
+   Ir al contenido
+  </a>
+  <header>
+   <div class="wrap nav">
+    <a aria-label="MKDL, inicio" class="brand" href="#contenido">
+     <img alt="" height="43" src="assets/mkdl-icon.svg" width="38"/>
+     <span>
+      MKDL
+     </span>
+    </a>
+    <nav aria-label="Navegación principal">
+     <a href="#servicio">
+      OT Check
+     </a>
+     <a href="#ejemplo">
+      La entrega
+     </a>
+     <a href="#kalista">
+      Sobre MKDL
+     </a>
+     <a class="contact-link" href="#contacto">
+      Contacto
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main id="contenido" tabindex="-1">
+   <section aria-labelledby="titulo" class="hero">
+    <div class="wrap hero-grid">
+     <div>
+      <p class="product-name">
+       MKDL OT Check · Base operativa en Euskadi
+      </p>
+      <h1 id="titulo">
+       Decide qué riesgos digitales de tu planta atender primero.
+      </h1>
+      <p class="intro">
+       OT Check revisa
+       <strong>
+        un proceso industrial delimitado
+       </strong>
+       para ayudarte a decidir qué mejorar en su ciberseguridad y qué encargar a tus proveedores. Recibes prioridades justificadas, responsables propuestos y comprobaciones para dar cada mejora por terminada.
+      </p>
+      <div class="actions">
+       <a class="btn" href="#servicio">
+        Conocer OT Check
+       </a>
+       <a class="text-link" href="#ejemplo">
+        Ver un ejemplo de la entrega
+       </a>
       </div>
-      <nav class="footer-links" aria-label="Información legal">
-        <a href="/aviso-legal.html">Aviso legal</a
-        ><a href="/privacidad.html">Privacidad</a
-        ><a href="/cookies.html">Cookies</a
-        ><a href="/accesibilidad.html">Accesibilidad</a
-        ><a href="/security.txt">Seguridad</a>
-      </nav>
-      <p class="copyright">© 2026 Mysthrala Kurogane Defense Labs</p>
-    </footer>
-  </body>
+     </div>
+     <aside aria-label="Vista previa de un informe ficticio" class="document">
+      <div class="document-head">
+       <strong>
+        Informe para gerencia
+       </strong>
+       <span>
+        MKDL / OT Check
+       </span>
+      </div>
+      <p class="fiction">
+       Ejemplo hipotético
+      </p>
+      <h2>
+       Tres decisiones sobre un proceso de mecanizado.
+      </h2>
+      <div class="document-row">
+       <span class="num">
+        01
+       </span>
+       <div>
+        <p>
+         <strong>
+          Copias de programas
+         </strong>
+        </p>
+        <p>
+         Qué recuperación está documentada y qué prueba falta.
+        </p>
+       </div>
+      </div>
+      <div class="document-row">
+       <span class="num">
+        02
+       </span>
+       <div>
+        <p>
+         <strong>
+          Acceso del mantenedor
+         </strong>
+        </p>
+        <p>
+         Quién debe autorizarlo y qué información necesita confirmar.
+        </p>
+       </div>
+      </div>
+      <div class="document-row">
+       <span class="num">
+        03
+       </span>
+       <div>
+        <p>
+         <strong>
+          Petición de un cliente
+         </strong>
+        </p>
+        <p>
+         Qué respuestas tienen respaldo y quién resuelve las pendientes.
+        </p>
+       </div>
+      </div>
+     </aside>
+    </div>
+   </section>
+   <section aria-labelledby="servicio-titulo" class="section" id="servicio">
+    <div class="wrap">
+     <h2 id="servicio-titulo">
+      Qué recibes con OT Check
+     </h2>
+     <p class="section-intro">
+      Acordamos un único proceso dentro de una planta y sus dependencias. Revisamos la información disponible con dirección, informática, mantenimiento y los proveedores que conocen la instalación. La entrega permite decidir y encargar las siguientes actuaciones.
+     </p>
+     <ol class="deliverables">
+      <li>
+       <span aria-hidden="true" class="index">
+        01
+       </span>
+       <h3>
+        Mapa del proceso
+       </h3>
+       <p>
+        Los sistemas, la información, las personas y los proveedores de los que depende.
+       </p>
+      </li>
+      <li>
+       <span aria-hidden="true" class="index">
+        02
+       </span>
+       <h3>
+        Requisitos y respuestas respaldadas
+       </h3>
+       <p>
+        Las peticiones incluidas en el alcance y los documentos que permiten responderlas.
+       </p>
+      </li>
+      <li>
+       <span aria-hidden="true" class="index">
+        03
+       </span>
+       <h3>
+        Comprobaciones pendientes
+       </h3>
+       <p>
+        Qué se ha podido contrastar, qué falta y qué limitación tiene cada conclusión.
+       </p>
+      </li>
+      <li>
+       <span aria-hidden="true" class="index">
+        04
+       </span>
+       <h3>
+        Plan de actuaciones
+       </h3>
+       <p>
+        Prioridades justificadas, responsables propuestos y qué comprobar para completar cada acción.
+       </p>
+      </li>
+      <li>
+       <span aria-hidden="true" class="index">
+        05
+       </span>
+       <h3>
+        Informe y reunión con gerencia
+       </h3>
+       <p>
+        Las decisiones que quedan por tomar, con el detalle técnico separado y matrices editables.
+       </p>
+      </li>
+     </ol>
+     <div class="process-grid">
+      <div>
+       <h3>
+        Qué revisamos y cómo
+       </h3>
+       <ul class="plain-list">
+        <li>
+         Accesos y responsabilidades de los proveedores del proceso acordado.
+        </li>
+        <li>
+         Documentación de los equipos, conexiones y procedimientos existentes.
+        </li>
+        <li>
+         Copias de programas y configuraciones, y registros disponibles de recuperación.
+        </li>
+        <li>
+         Requisitos de seguridad del proceso y respuestas que tienen respaldo.
+        </li>
+       </ul>
+       <p class="boundary">
+        Entrevistas, documentos y observación acompañada. Las capturas o exportaciones se acuerdan previamente. Cada conclusión identifica su fuente, lo pendiente y sus límites.
+       </p>
+      </div>
+      <div>
+       <h3>
+        De la revisión al encargo
+       </h3>
+       <p>
+        Primero delimitamos el proceso, las personas que participan y la información necesaria. Después contrastamos lo disponible, priorizamos y explicamos la entrega a gerencia. La organización valida las prioridades y asigna a las personas responsables propuestas.
+       </p>
+       <p>
+        Vuestro equipo o integrador ejecuta las mejoras que autoricéis. La consultoría, la documentación adicional y la formación se definen expresamente en la propuesta. Calendario, colaboración, entregas y precio se concretan por presupuesto.
+       </p>
+       <p class="boundary">
+        OT Check no incluye implementación, cambios de configuración, escaneos activos, pruebas de intrusión ni restauraciones. Tampoco operación, respuesta a incidentes, soporte permanente o integración por defecto. No certifica cumplimiento ni garantiza continuidad.
+       </p>
+      </div>
+     </div>
+     <div class="audience">
+      <h3>
+       Para quién tiene sentido
+      </h3>
+      <p>
+       Empresas industriales pequeñas, medianas y grandes, y unidades de grupos con una necesidad concreta. El tamaño de la organización no amplía automáticamente el alcance: el encargo sigue centrado en un proceso delimitado.
+      </p>
+     </div>
+     <div class="audience">
+      <h3>
+       Un formato de trabajo que se acuerda antes de empezar
+      </h3>
+      <p>
+       Proponemos hasta una hora de preparación con el cliente, una visita acompañada de hasta siete horas y hasta una hora de devolución. El encargo delimita un proceso y su centro de decisión; la profundidad y las evidencias se pactan antes de la revisión.
+      </p>
+      <p>
+       La entrega incluye informe PDF y matriz editable. La propuesta concreta una ronda de aclaraciones dentro de los diez días laborables posteriores a la entrega. Estos límites se confirman en el presupuesto y no incluyen la ejecución de mejoras.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section aria-labelledby="ejemplo-titulo" class="section alt" id="ejemplo">
+    <div class="wrap example-grid">
+     <div>
+      <span class="label">
+       Ejemplo hipotético
+      </span>
+      <h2 id="ejemplo-titulo">
+       Así se explica una decisión a gerencia.
+      </h2>
+      <p>
+       En este escenario ficticio hay copias de los programas de una célula de mecanizado. Se declara una prueba anterior, pero no se encuentra su registro.
+      </p>
+      <p>
+       La entrega distingue lo que se conoce de lo que queda por comprobar. Esa diferencia permite pedir una actuación concreta al equipo adecuado.
+      </p>
+      <a class="btn download-link" download="MKDL_Ejemplo_Informe_Gerencia.pdf" href="assets/MKDL_Ejemplo_Informe_Gerencia.pdf" id="descargar-ejemplo">
+       Descargar el ejemplo completo · PDF
+      </a>
+      <p class="html-alternative">
+       <a href="muestra-ot-check.html">
+        Leer la muestra en HTML accesible
+       </a>
+      </p>
+      <p class="example-caption">
+       Muestra sintética. No corresponde a un cliente ni acredita un resultado real.
+      </p>
+     </div>
+     <div>
+      <table class="example-table">
+       <caption class="sr-only">
+        Ejemplo de hallazgo y decisión sobre copias
+       </caption>
+       <thead>
+        <tr>
+         <th scope="col">
+          Qué muestra la revisión
+         </th>
+         <th scope="col">
+          Qué permite decidir
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          <strong>
+           Hay un calendario de copias
+          </strong>
+          Su cobertura y el registro de restauración siguen pendientes de confirmar.
+         </td>
+         <td>
+          <strong>
+           Pedir la evidencia que falta
+          </strong>
+          Informática y mantenimiento confirman qué se copia y qué se probó.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <strong>
+           La recuperación no está demostrada
+          </strong>
+          El documento no permite afirmar cuánto tardaría en recuperarse el proceso.
+         </td>
+         <td>
+          <strong>
+           Valorar un ensayo separado
+          </strong>
+          Definir objetivo, participantes, condiciones y autorización antes de probar.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <strong>
+           La decisión queda registrada
+          </strong>
+          El informe identifica responsable, siguiente paso y criterio para cerrar la acción.
+         </td>
+         <td>
+          <strong>
+           Asignar recursos
+          </strong>
+          Gerencia acuerda la prioridad y quién prepara la actuación.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+      <p class="example-caption">
+       La revisión documental y una prueba de recuperación permiten conclusiones diferentes. El ejemplo mantiene esa distinción.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section aria-labelledby="casos-titulo" class="section" id="casos">
+    <div class="wrap">
+     <h2 id="casos-titulo">
+      Cuándo puede tener sentido
+     </h2>
+     <p class="section-intro">
+      Tres simulaciones para entender qué decisión permite preparar OT Check. Solo contienen situaciones genéricas y datos sintéticos: no son casos de éxito, clientes ni pilotos demostrados.
+     </p>
+     <div class="case-list">
+      <details class="case" id="situacion-proveedores" open="">
+       <summary>
+        Varios proveedores acceden a tus equipos.
+       </summary>
+       <div class="case-content">
+        <p>
+         <strong>
+          Contexto simulado:
+         </strong>
+         mantenimiento, informática y varios proveedores conservan partes de la información sobre los accesos de una célula. No hay una relación compartida de quién los autoriza o cuándo revisarlos.
+        </p>
+        <p>
+         <strong>
+          Decisión:
+         </strong>
+         a quién pedir cada validación y qué cambios encargar sin interrumpir el trabajo del mantenedor.
+        </p>
+        <p>
+         <strong>
+          Trabajo de OT Check:
+         </strong>
+         contrastar entrevistas y documentación del proceso, relacionar accesos, finalidad y autorizaciones disponibles, y registrar las confirmaciones pendientes.
+        </p>
+        <p>
+         <strong>
+          Entrega:
+         </strong>
+         relación de accesos del alcance, prioridades, responsables propuestos y comprobaciones para encargar la revisión. La organización valida y asigna las responsabilidades; cualquier retirada o modificación la ejecuta su equipo o proveedor con autorización.
+        </p>
+       </div>
+      </details>
+      <details class="case" id="situacion-copias">
+       <summary>
+        Tienes copias, pero falta demostrar qué permiten recuperar.
+       </summary>
+       <div class="case-content">
+        <p>
+         <strong>
+          Contexto simulado:
+         </strong>
+         existen copias de programas o configuraciones, pero falta una visión compartida de su cobertura y de la última prueba. Una prueba declarada carece de registro disponible.
+        </p>
+        <p>
+         <strong>
+          Decisión:
+         </strong>
+         qué evidencia solicitar y si conviene preparar un ensayo separado, con qué participantes y condiciones.
+        </p>
+        <p>
+         <strong>
+          Trabajo de OT Check:
+         </strong>
+         revisar inventarios de copias y registros existentes, contrastar las dependencias del proceso y distinguir lo documentado de lo declarado o pendiente.
+        </p>
+        <p>
+         <strong>
+          Entrega:
+         </strong>
+         cobertura conocida, lagunas, prioridades, responsables propuestos y criterios de comprobación. OT Check no ejecuta el ensayo ni acredita un tiempo de recuperación; la prueba requiere otro encargo y autorización.
+        </p>
+       </div>
+      </details>
+      <details class="case" id="situacion-comprador">
+       <summary>
+        Un comprador pide información de seguridad.
+       </summary>
+       <div class="case-content">
+        <p>
+         <strong>
+          Contexto simulado:
+         </strong>
+         un comprador solicita información de seguridad sobre un proceso. Las respuestas dependen de distintas áreas y algunas todavía no tienen respaldo documental.
+        </p>
+        <p>
+         <strong>
+          Decisión:
+         </strong>
+         qué puede responderse con evidencia y qué debe resolver o validar otra área antes de contestar.
+        </p>
+        <p>
+         <strong>
+          Trabajo de OT Check:
+         </strong>
+         relacionar las preguntas incluidas en el alcance con documentos disponibles, revisar su vigencia y registrar las carencias y las personas que podrían aclararlas.
+        </p>
+        <p>
+         <strong>
+          Entrega:
+         </strong>
+         matriz de requisitos y evidencias, respuestas pendientes, prioridades y responsables propuestos. Un cuestionario corporativo completo exige valorar otro alcance; la homologación corresponde al comprador y no está garantizada.
+        </p>
+       </div>
+      </details>
+     </div>
+     <p class="boundary">
+      Puede complementar al proveedor habitual cuando falta esta revisión entre áreas. Si esa función ya está cubierta, primero debe existir una necesidad adicional que justifique el encargo.
+     </p>
+    </div>
+   </section>
+   <section aria-labelledby="kalista-titulo" class="section alt" id="kalista">
+    <div class="wrap about-grid">
+     <div>
+      <h2 id="kalista-titulo">
+       Quién realizará el trabajo
+      </h2>
+      <p class="about-name">
+       Kalista Urzainqui
+      </p>
+      <p class="about-role">
+       Una profesional · Base operativa en Euskadi
+      </p>
+     </div>
+     <div>
+      <p>
+       El trabajo lo realiza
+       <strong>
+        Kalista Urzainqui
+       </strong>
+       , una profesional con base operativa en Euskadi. La atención y la explicación de la entrega son directas, coordinadas con las personas que conocen el proceso industrial.
+      </p>
+      <p>
+       MKDL se centra en consultoría, documentación y formación. La disponibilidad, la presencia necesaria y la capacidad para atender el alcance se confirman antes de aceptar el encargo.
+      </p>
+      <ul class="credential-list">
+       <li>
+        Especialización declarada en Ciberseguridad en Entornos de las Tecnologías de la Información, en Uni Eibar-Ermua.
+        <small>
+         <a href="https://www.uni.eus/es/informatica/ciberseguridad-en-entornos-de-las-tecnologias-de-la-informacion/">
+          Consultar la formación del centro
+         </a>
+         . La página describe el programa; no acredita por sí misma una titulación individual.
+        </small>
+       </li>
+       <li>
+        Participación declarada en MKDLNULL, segundo equipo clasificado en CyberLehia 2026.
+        <small>
+         <a href="https://www.euskadi.eus/gobierno-vasco/-/noticia/2026/cyberlehia-2026/">
+          Clasificación oficial del equipo
+         </a>
+         . El resultado del equipo no constituye una certificación profesional.
+        </small>
+       </li>
+       <li>
+        Preparación de CCNA y CyberOps de Cisco.
+        <small>
+         Exámenes pendientes. Estas certificaciones todavía no están obtenidas.
+        </small>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </section>
+   <section aria-labelledby="contacto-titulo" class="contact" id="contacto">
+    <div class="wrap contact-grid">
+     <div>
+      <h2 id="contacto-titulo">
+       Cuéntame qué necesitas decidir.
+      </h2>
+      <p>
+       Puede ser una revisión de accesos, una duda sobre recuperación o una petición de un cliente. Empezamos por el motivo y el proceso que quieres revisar.
+      </p>
+      <a class="btn" href="mailto:mysthrala@mkdl.jp?subject=Consulta%20sobre%20OT%20Check">
+       Consultar por correo
+      </a>
+      <p class="small">
+       En el primer mensaje basta el motivo de la consulta. No adjuntes información sensible de la planta.
+      </p>
+     </div>
+     <div class="contact-notes">
+      <p>
+       <a class="email" href="mailto:mysthrala@mkdl.jp">
+        mysthrala@mkdl.jp
+       </a>
+      </p>
+      <p>
+       Una primera conversación permite valorar el encaje. Después se concreta una propuesta con alcance, colaboración, calendario y precio.
+      </p>
+      <p>
+       Las condiciones de acceso y el tratamiento de la información se acuerdan antes de recibir documentación del cliente o entrar en sus instalaciones.
+      </p>
+      <p>
+       Sin contratación automática ni pago desde esta web. La puesta en marcha de un encargo requiere confirmar las condiciones profesionales y administrativas aplicables.
+      </p>
+      <p>
+       <a href="privacidad.html">
+        Cómo se trata tu consulta
+       </a>
+      </p>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="wrap">
+    <div class="footer-top">
+     <strong>
+      MKDL
+     </strong>
+     <span>
+      Mysthrala Kurogane Defense Labs · Euskadi
+     </span>
+     <a href="index.html">
+      Inicio
+     </a>
+    </div>
+    <nav aria-label="Información legal" class="footer-links">
+     <a href="aviso-legal.html">
+      Aviso legal
+     </a>
+     <a href="privacidad.html">
+      Privacidad
+     </a>
+     <a href="cookies.html">
+      Cookies
+     </a>
+     <a href="accesibilidad.html">
+      Accesibilidad
+     </a>
+     <a href="security-policy.html">
+      Seguridad
+     </a>
+     <a href="mailto:mysthrala@mkdl.jp">
+      mysthrala@mkdl.jp
+     </a>
+    </nav>
+    <div class="legal">
+     <p>
+      Actividad en preparación. El inicio de la prestación queda sujeto al alta y a las condiciones acordadas para cada encargo.
+     </p>
+     <p>
+      © 2026 Mysthrala Kurogane Defense Labs. Las simulaciones y la muestra pública no representan trabajos para clientes.
+     </p>
+    </div>
+   </div>
+  </footer>
+ </body>
 </html>

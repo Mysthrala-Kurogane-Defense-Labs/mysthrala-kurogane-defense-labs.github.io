@@ -1,55 +1,46 @@
 # Mysthrala Kurogane Defense Labs (MKDL)
 
-Fuente: https://mkdl.jp/ · Actualizado: 2026-10-03 · Idioma: español.
+Fuente: https://mkdl.jp/ · Revisión local: 2026-10-25 · Idioma: español.
 
-MKDL es el nombre comercial de la actividad profesional de Unai Kalista Urzainqui Perez, autónoma. Acepta solicitudes de servicios de ciberseguridad industrial. Trabaja desde el Bajo Deba, Euskadi, con pequeñas empresas industriales, talleres y microempresas auxiliares.
+MKDL presenta OT Check: revisión de un proceso industrial delimitado y su centro de decisión para entregar prioridades justificadas, responsables propuestos y comprobaciones con las que encargar mejoras. Base operativa en Euskadi. Puede dirigirse a empresas industriales pequeñas, medianas y grandes o unidades de grupos.
 
-## Qué hacemos
+## Entrega y método
 
-Ayudamos a ordenar activos, accesos, incidencias y evidencias, con alcance comprensible y revisión humana.
+Mapa del proceso, requisitos y respuestas respaldadas, comprobaciones pendientes, plan de actuaciones, informe PDF, matriz editable y devolución a gerencia. Entrevistas, documentación y observación acompañada, con profundidad y evidencias pactadas antes de empezar.
 
-- **Diagnóstico delimitado:** revisar una línea de control concreta, sus activos, dependencias, accesos y brechas operativas. Resultado: mapa de situación y prioridades.
-- **Orden técnico y documental:** estructurar inventario, procedimientos, incidencias y registros. Resultado: documentación revisable.
-- **Preparación de proveedor:** apoyar la recopilación de evidencias y el mapeo de controles ante exigencias de clientes y cadena de suministro. La decisión legal y aprobación final siguen siendo humanas.
-- **Seguimiento operativo:** revisar cambios, incidencias y tareas pendientes con una cadencia y alcance acordados.
+Formato propuesto sujeto a presupuesto: preparación con el cliente de hasta una hora, visita acompañada de hasta siete horas, devolución de hasta una hora y una ronda de aclaraciones dentro de diez días laborables tras la entrega. No hay precio firme publicado.
 
-No ofrecemos una certificación ni garantizamos cumplimiento normativo. Antes de contratar se concretan servicio, precio y alcance en la propuesta y el contrato.
+## Límites
 
-## Cómo trabajamos
+Consultoría, documentación y formación expresamente acordadas. Sin implementación, operación, respuesta a incidentes, soporte permanente o integración por defecto. Sin escaneos activos, cambios de configuración, pentest o restauraciones. No certifica cumplimiento ni garantiza continuidad, recuperación o aceptación de un comprador. Kurogane Hub no se distribuye ni se ofrece desde esta web.
 
-1. Delimitar una línea, sus nodos y las personas que intervienen.
-2. Comprobar observaciones y documentos, distinguiéndolos de hipótesis y planes.
-3. Priorizar acciones según riesgo, capacidad y dependencias.
-4. Dejar evidencia de qué cambió, quién lo revisó y qué límites permanecen.
+La actividad está en preparación. La identidad fiscal, el alta, las condiciones profesionales y los proveedores efectivos deben verificarse antes de abrir contratación. El trabajo lo realiza Kalista Urzainqui, una profesional con especialización y participación individual declaradas. La clasificación oficial de MKDLNULL acredita el resultado del equipo; no constituye una certificación individual. CCNA y CyberOps tienen exámenes pendientes.
 
-## Kurogane Hub
+## Simulaciones y evidencias
 
-Kurogane Hub es el proyecto tecnológico privado de MKDL, orientado a inventario, alertas, tareas, incidencias y revisión humana. Su disponibilidad y alcance se acuerdan por separado. Los ejemplos públicos no acreditan una instalación en producción.
+Las tres situaciones conservan las del prototipo recuperado: accesos de proveedores, copias con recuperación sin demostrar y petición de seguridad de un comprador. Son simulaciones, no clientes, pilotos, casos de éxito ni ahorros acreditados.
 
-Esta landing publica información comercial y recursos de lectura. No ofrece acceso a datos de clientes, un catálogo de APIs públicas, herramientas para agentes, inicio de sesión automatizado ni pagos automáticos. La información de esta página no concede acceso a Kurogane Hub.
+- [Muestra HTML y fuentes sintéticas](https://mkdl.jp/muestra-ot-check.html)
+- [Muestra PDF](https://mkdl.jp/assets/MKDL_Ejemplo_Informe_Gerencia.pdf)
+- [Manifest de procedencia y hashes](https://mkdl.jp/assets/muestra-ot-check-evidencias/manifest.json)
+
+## Información y contacto
+
+- [OT Check](https://mkdl.jp/#servicio)
+- [Contacto](mailto:mysthrala@mkdl.jp)
+- [Aviso legal](https://mkdl.jp/aviso-legal.html)
+- [Privacidad](https://mkdl.jp/privacidad.html)
+- [Cookies](https://mkdl.jp/cookies.html)
+- [Accesibilidad](https://mkdl.jp/accesibilidad.html)
+- [Seguridad](https://mkdl.jp/security-policy.html)
+- [Mapa del sitio](https://mkdl.jp/sitemap.xml)
+- [Índice para agentes](https://mkdl.jp/llms.txt)
+- [Preferencias de rastreo](https://mkdl.jp/robots.txt)
 
 ## Recursos públicos
 
-- [Guías para empresas y equipos técnicos](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-docs).
-- [Laboratorios sintéticos locales](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-labs).
+- [Guías para empresas y equipos técnicos](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-docs)
+- [Laboratorios sintéticos](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-labs)
 - [Contrato y validación de eventos del SDK](https://github.com/Mysthrala-Kurogane-Defense-Labs/kurogane-satellite-sdk): sin transporte HTTP.
-- [Organización en GitHub](https://github.com/Mysthrala-Kurogane-Defense-Labs).
 
-## Contacto
-
-El primer paso es una conversación breve para concretar el problema y valorar el encaje del servicio.
-
-- Consultas de servicios: [info@mkdl.jp](mailto:info@mkdl.jp).
-- Seguridad: [security@mkdl.jp](mailto:security@mkdl.jp).
-- Privacidad y cuestiones legales: [legal@mkdl.jp](mailto:legal@mkdl.jp).
-
-## Información legal y descubrimiento
-
-- [Aviso legal e identificación de la titular](https://mkdl.jp/aviso-legal.html).
-- [Privacidad](https://mkdl.jp/privacidad.html).
-- [Cookies](https://mkdl.jp/cookies.html).
-- [Accesibilidad](https://mkdl.jp/accesibilidad.html).
-- [Contacto de seguridad](https://mkdl.jp/.well-known/security.txt).
-- [Índice de lectura para agentes](https://mkdl.jp/llms.txt).
-- [Mapa del sitio](https://mkdl.jp/sitemap.xml).
-- [Preferencias de rastreo](https://mkdl.jp/robots.txt).
+Estos recursos no acreditan una instalación de Hub o resultados comerciales. No se ofrece acceso a datos privados, herramientas para agentes, cuentas o pagos automáticos.
