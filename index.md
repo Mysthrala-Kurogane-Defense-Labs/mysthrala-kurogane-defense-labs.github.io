@@ -8,13 +8,13 @@ MKDL presenta OT Check: revisión de un proceso industrial delimitado y su centr
 
 Mapa del proceso, requisitos y respuestas respaldadas, comprobaciones pendientes, plan de actuaciones, informe PDF, matriz editable y devolución a gerencia. Entrevistas, documentación y observación acompañada, con profundidad y evidencias pactadas antes de empezar.
 
-Formato propuesto sujeto a presupuesto: preparación con el cliente de hasta una hora, visita acompañada de hasta siete horas, devolución de hasta una hora y una ronda de aclaraciones dentro de diez días laborables tras la entrega. No hay precio firme publicado.
+Formato propuesto sujeto a presupuesto: preparación con el cliente de hasta una hora, visita acompañada de hasta siete horas, devolución de hasta una hora y una ronda de aclaraciones incluida. Se proponen diez días laborables para aceptación expresa o reparos sobre la entrega, sin aceptación automática por silencio. Los defectos respecto al alcance se corrigen sin otro cobro. No hay precio firme publicado.
 
 ## Límites
 
 Consultoría, documentación y formación expresamente acordadas. Sin implementación, operación, respuesta a incidentes, soporte permanente o integración por defecto. Sin escaneos activos, cambios de configuración, pentest o restauraciones. No certifica cumplimiento ni garantiza continuidad, recuperación o aceptación de un comprador. Kurogane Hub no se distribuye ni se ofrece desde esta web.
 
-La actividad está en preparación. La identidad fiscal, el alta, las condiciones profesionales y los proveedores efectivos deben verificarse antes de abrir contratación. El trabajo lo realiza Kalista Urzainqui, una profesional con especialización y participación individual declaradas. La clasificación oficial de MKDLNULL acredita el resultado del equipo; no constituye una certificación individual. CCNA y CyberOps tienen exámenes pendientes.
+La actividad está en preparación. La identidad fiscal, el alta, las condiciones profesionales y los proveedores efectivos deben verificarse antes de abrir contratación. El trabajo lo realiza Kalista Urzainqui, una profesional con especialización y participación individual declaradas. La clasificación oficial de MKDLNULL acredita el resultado del equipo; no constituye una certificación individual. No hay clientes ni pilotos comerciales demostrables.
 
 ## Simulaciones y evidencias
 
