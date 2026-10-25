@@ -1,0 +1,21 @@
+/* Content additions use the existing brand variables from site.css. */
+.hero h1 { max-width: 16ch; }
+.delivery-note ul { margin: 0; padding: 0 1.5rem 1.5rem 2.5rem; }
+.delivery-note li + li { margin-top: 1rem; }
+.delivery-note li, .contact h2 { overflow-wrap: anywhere; }
+.delivery-note .record-question { max-width: none; margin-bottom: 1.5rem; }
+.fit-copy { align-self: start; }
+.fit > * { min-width: 0; overflow-wrap: anywhere; }
+.examples { background: var(--raised); }
+.examples > h2 { max-width: 18ch; font-size: clamp(2.6rem, 5.5vw, 5.3rem); }
+.examples > p { max-width: 48rem; }
+.sample-links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+.situations { margin-top: 2.5rem; max-width: 58rem; }
+.situations details { border-top: 1px solid var(--line); padding: 1.25rem 0; }
+.situations details:last-child { border-bottom: 1px solid var(--line); }
+.situations summary { cursor: pointer; font-weight: 600; }
+.situations details p { max-width: 48rem; margin: 1rem 0 0; }
+summary:focus-visible { outline: 3px solid var(--copper); outline-offset: 4px; }
+.contact > p { max-width: 48rem; font-size: 1rem; }
+@media (max-width: 980px) { .site-header nav a:not(.nav-contact) { display: inline-flex; } .site-header { flex-wrap: wrap; padding: 1.5rem 0; gap: 1rem; } .site-header nav { flex-wrap: wrap; } }
+@media print { details::details-content { content-visibility: visible; } .situations details p { display: block; } }

@@ -14,7 +14,7 @@ Formato propuesto sujeto a presupuesto: preparación con el cliente de hasta una
 
 Consultoría, documentación y formación expresamente acordadas. Sin implementación, operación, respuesta a incidentes, soporte permanente o integración por defecto. Sin escaneos activos, cambios de configuración, pentest o restauraciones. No certifica cumplimiento ni garantiza continuidad, recuperación o aceptación de un comprador. Kurogane Hub no se distribuye ni se ofrece desde esta web.
 
-La actividad está en preparación. La identidad fiscal, el alta, las condiciones profesionales y los proveedores efectivos deben verificarse antes de abrir contratación. El trabajo lo realiza Kalista Urzainqui, una profesional con especialización y participación individual declaradas. La clasificación oficial de MKDLNULL acredita el resultado del equipo; no constituye una certificación individual. No hay clientes ni pilotos comerciales demostrables.
+La actividad está en preparación. La identidad fiscal, el alta, las condiciones profesionales y los proveedores efectivos deben verificarse antes de abrir contratación. El trabajo lo realiza Kalista, una profesional con el título de especialista en ciberseguridad de Uni Eibar-Ermua, confirmado por ella el 25 de octubre de 2026. La clasificación oficial de MKDLNULL acredita el resultado del equipo; no constituye una certificación individual. No hay clientes ni pilotos comerciales demostrables.
 
 ## Simulaciones y evidencias
 

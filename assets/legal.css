@@ -111,3 +111,6 @@ footer a {
     padding-right: 1.25rem;
   }
 }
+
+.brand.brand-full { width: clamp(9.5rem, 19vw, 15rem); display: block; }
+.brand.brand-full img { width: 100%; height: auto; }

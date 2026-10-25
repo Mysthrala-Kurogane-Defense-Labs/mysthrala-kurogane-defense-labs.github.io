@@ -76,6 +76,6 @@ python3 scripts/package-site.py --target github
 python3 scripts/package-site.py --target cloudflare
 ```
 
-The allowlist includes the HTML sample, security policy and favicon; `assets/` contains the PDF, editable synthetic matrix, JSON evidence manifest and offline bundle. The shared main styles remain in `assets/site.css` and `assets/legal.css`; the recovered commercial prototype uses `assets/commercial.css`.
+The allowlist includes the HTML sample, security policy and favicon; `assets/` contains the PDF, editable synthetic matrix, JSON evidence manifest and offline bundle. The landing uses the original brand stylesheet `assets/site.css`, with content additions in `assets/ot-check.css`. The report uses `assets/commercial.css` with the original brand palette. Legal pages use `assets/legal.css`.
 
 No publication is authorised by this branch. Before any push, PR, deployment or domain change, obtain the separate authority, confirm professional/legal details and provider operations, review the synthetic sample, and run the required remote checks. The existing GitHub workflow remains restricted to main for publication; this change adds no deployment mechanism.
