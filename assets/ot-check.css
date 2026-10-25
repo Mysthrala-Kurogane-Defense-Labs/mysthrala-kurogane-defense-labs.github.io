@@ -1,9 +1,9 @@
 /* Content additions use the existing brand variables from site.css. */
 .hero h1 { max-width: 16ch; }
-.delivery-note ul { margin: 0; padding: 0 1.5rem 1.5rem 2.5rem; }
-.delivery-note li + li { margin-top: 1rem; }
-.delivery-note li, .contact h2 { overflow-wrap: anywhere; }
-.delivery-note .record-question { max-width: none; margin-bottom: 1.5rem; }
+.hero.hero-direct { grid-template-columns: minmax(0, 1fr); min-height: auto; }
+.hero-direct .hero-copy { max-width: 58rem; }
+.hero-direct h1 { max-width: 18ch; }
+.contact h2 { overflow-wrap: anywhere; }
 .fit-copy { align-self: start; }
 .fit > * { min-width: 0; overflow-wrap: anywhere; }
 .examples { background: var(--raised); }

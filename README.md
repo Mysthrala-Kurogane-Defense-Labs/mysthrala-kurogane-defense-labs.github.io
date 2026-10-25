@@ -22,7 +22,9 @@ OT Check reviews one bounded industrial process and its decision centre to prepa
 
 MKDL presents consultancy, documentation and training by one professional. It does not offer Hub distribution, implementation, operations, incident response, permanent support or integration by default. The activity is presented as being prepared; no registration, insurance or professional certification is asserted as verified.
 
-The three situations preserve the recovered public prototype. The linked HTML/PDF, editable CSV and evidence bundle are wholly synthetic. They demonstrate the structure of a deliverable, not client work, recovery performance or external acceptance.
+The three situations preserve the recovered public prototype. The linked HTML/PDF, editable CSV and evidence bundle are wholly synthetic. They demonstrate the structure of a deliverable, not client work, recovery performance or external acceptance. Both the report and its five evidence sheets are readable without opening raw JSON. The offline ZIP contains the report, PDF, CSV and local assets, with no external dependencies.
+
+Regenerate the sample with `python3 scripts/build-sample.py` using the authoring dependency `reportlab`. Its content model produces the HTML, PDF, editable plan and offline package together. The original synthetic source files remain in `assets/muestra-ot-check-evidencias/`; they are source material, not the buyer's reading interface. `assets/mkdl-logo-print.png` is a render of the unchanged original SVG for the PDF header. This authoring tool adds no dependency to the website runtime or publishing workflow.
 
 ## Edit and preview
 

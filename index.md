@@ -22,7 +22,7 @@ Las tres situaciones conservan las del prototipo recuperado: accesos de proveedo
 
 - [Muestra HTML y fuentes sintéticas](https://mkdl.jp/muestra-ot-check.html)
 - [Muestra PDF](https://mkdl.jp/assets/MKDL_Ejemplo_Informe_Gerencia.pdf)
-- [Manifest de procedencia y hashes](https://mkdl.jp/assets/muestra-ot-check-evidencias/manifest.json)
+- [Cinco evidencias explicadas dentro del informe](https://mkdl.jp/muestra-ot-check.html#evidencias)
 
 ## Información y contacto
 
