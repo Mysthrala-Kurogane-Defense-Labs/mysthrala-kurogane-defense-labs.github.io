@@ -27,9 +27,9 @@ Abrir `http://127.0.0.1:4174/` y cerrar el servidor con Ctrl+C. Comprobar escrit
 
 ## Modelo de entrega sintético
 
-`scripts/ot_check_case.py` contiene los datos de un ejercicio enteramente ficticio: seis activos, catálogo de recuperación por activo, quince fichas, cinco comprobaciones y cuatro acciones ordenadas. No acredita visita, cliente, seguimiento ni recuperación real. No es un procedimiento de intervención en un control CNC.
+`scripts/ot_check_case.py` contiene los datos de un ejercicio enteramente ficticio: seis activos, catálogo de recuperación por activo y 26 objetos trazables, quince fichas, cinco comprobaciones y cuatro acciones ordenadas. No acredita visita, cliente, seguimiento ni recuperación real. No es un procedimiento de intervención en un control CNC.
 
-`scripts/render_complete_sample.py`, invocado mediante `scripts/build-sample.py`, genera HTML legible, informe PDF, resumen de dos páginas para gerencia, tres pliegos separados, siete CSV editables y ZIP sin conexión. A01 incluye su catálogo para que el proveedor no necesite recibir el informe interno. Los archivos de texto de las muestras son no ejecutables. Las cinco fuentes antiguas se conservan como antecedente sintético, no como interfaz para el comprador.
+`scripts/render_complete_sample.py`, invocado mediante `scripts/build-sample.py`, genera HTML legible, informe PDF, resumen de dos páginas para gerencia, tres pliegos separados, siete CSV editables y ZIP sin conexión. A01 incluye su catálogo para que el proveedor no necesite recibir el informe interno. Los archivos de texto de las muestras son no ejecutables. Las cinco fuentes antiguas se conservan en Git como antecedente sintético, excluidas de los dos exports públicos. El CSV de catálogo tiene una fila por objeto, estado de cobertura, proveedor competente y campos de cierre; no se marca cerrado por incluirlo en la lista. Los pliegos son solicitudes autónomas para los proveedores de cada parte del proceso. A01 debe acompañarse del catálogo CSV, como indica su segunda página.
 
 La generación requiere Python3.11 o superior y las dependencias de autoría `reportlab`, `pypdf` y `pypdfium2`. No son dependencias de ejecución del sitio ni del empaquetado para publicar. Usar un entorno de autoría que ya las tenga o uno aislado aprobado:
 

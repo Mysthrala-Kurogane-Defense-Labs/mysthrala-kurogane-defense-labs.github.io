@@ -101,7 +101,7 @@ def package(target):
     for name in PUBLIC_FILES:
         shutil.copy2(SOURCE / name, output / name)
     for name in PUBLIC_DIRECTORIES:
-        shutil.copytree(SOURCE / name, output / name)
+        shutil.copytree(SOURCE / name, output / name, ignore=shutil.ignore_patterns('muestra-ot-check-evidencias') if name == 'assets' else None)
     if target == "cloudflare":
         for name in CLOUDFLARE_FILES:
             shutil.copy2(SOURCE / "cloudflare" / name, output / name)

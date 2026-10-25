@@ -20,7 +20,7 @@ section('decision','Decisión para gerencia',[
  p(case.PURPOSE),p(case.SUMMARY),
  tbl(['Orden y encargo','Responsable de cierre y plazo'],[[a['rank']+'. '+a['id']+' '+a['title'],a['owner']+'. '+a['due']+'.'] for a in case.actions],[.50,.50]),
  p('Compromiso solicitado: A03, unas 1,5 h internas; A01, 2 a 4 h para localizar y revisar; A02, 1 a 2 h de coordinación. Son estimaciones del escenario. Para A01, A02 y A04 se pide presupuesto técnico separado antes de autorizar cambios o ensayos.'),
- p('La asignación es propuesta: gerencia debe designar una persona por rol. A03 puede avanzar en paralelo con A01 y A02. Si sólo se dispone de una franja de trabajo, se prepara la respuesta con plazo sin prometer que las mejoras estén terminadas.')])
+ p('A02.0 no espera al resto del orden: esta semana se confirma si existe habilitación fuera de ventana y, si procede, se aplica el procedimiento vigente con soporte alternativo acordado. El resto de A02 puede seguir después de conservar el paquete. La asignación es propuesta: gerencia debe designar una persona por rol. A03 puede avanzar en paralelo con A01 y A02. Si sólo se dispone de una franja de trabajo, se prepara la respuesta con plazo sin prometer que las mejoras estén terminadas.')])
 section('compromiso','Recursos y condiciones de la decisión',[
  p(case.BUSINESS),p(case.OBJECTIVES),
  tbl(['Encargo','Recursos que se pide autorizar'],[[a['id'],a['resources']] for a in case.actions],[.14,.86]),
@@ -30,7 +30,7 @@ section('perimetro','Proceso, dependencias y alcance',[
  tbl(['Paso','Trabajo y dependencias','Consecuencia a considerar'],[[f[0],f[1]+' Activos: '+f[2]+'.',f[3]] for f in case.flow],[.18,.42,.40]),p(case.METHOD),p(case.EXCLUSIONS),
  p('La vía de soporte y transferencia se recoge como declaración en E13. Debe contrastarse con registros antes de aprobar una arquitectura o una sesión. El alcance documental y el alcance de una prueba técnica son distintos.')])
 section('recuperacion','Catálogo de recuperación propuesto por MKDL',[
- p('Por cada activo se concreta qué conservar y qué falta confirmar. El catálogo es la entrada de A01, no una lista que deba inventar el cliente. El mantenedor confirma qué objetos existen y qué procedimiento admite el fabricante.'),
+ p('El CSV Catálogo de recuperación contiene una fila por objeto con aplicabilidad, ubicación, custodia, evidencia y cierre pendiente. La tabla siguiente resume los seis activos. Por cada activo se concreta qué conservar y qué falta confirmar. El catálogo es la entrada de A01, no una lista que deba inventar el cliente. El mantenedor confirma qué objetos existen y qué procedimiento admite el fabricante.'),
  tbl(['Activo y contenido','Estado, responsable y siguiente comprobación'],[[r[0]+': '+r[1],r[2]+' Responsable: '+r[3]+'. '+r[4]+' Fuentes: '+r[5]+'.'] for r in case.recovery],[.45,.55])])
 section('inventario','Funciones y dependencias del inventario',[
  tbl(['Activo y función','Dependencia y responsable'],[[a[0]+'. '+a[1]+': '+a[2],a[3]+' Responsable: '+a[4]+'.'] for a in case.assets],[.52,.48])])
@@ -38,6 +38,7 @@ b=[]
 for c in case.checks:
  target=next(s['blocks'] for s in sections if s['id']=='perimetro') if c['id']=='C06' else b
  target.extend([h(c['id']+'. '+c['title'],c['id'].lower()),dl([('Estado',c['state']),('Método',c['method']),('Resultado del escenario',c['result']),('Límite',c['limit'])]),refs(c['sources'])])
+b.insert(0,p('C01 integra la comparación del programa y la selección registrada que antes se separaba como C02. Se conserva la numeración restante para mantener la trazabilidad.'))
 section('comprobaciones','Comprobaciones y resultados',b)
 b=[p('El orden combina un compromiso de respuesta, conservación antes de cambios y dependencias de ejecución. Cada encargo tiene un único rol que responde del cierre y participantes distintos para realizar el trabajo. Se asignan personas antes de aprobarlo.')]
 for a in case.actions:b.extend([h(a['id']+'. '+a['title'],'accion-'+a['id'].lower()),dl([
@@ -49,7 +50,7 @@ b.extend([h('Pendientes y responsables'),tbl(['Pendiente','Quién lo resuelve y 
 section('respuesta','Respuesta externa para aprobación e incertidumbres internas',b)
 section('seguimiento','Ejemplo de una revisión trimestral',[
  p('Continuación enteramente ficticia, tres meses después del diagnóstico. S01 a S04 son entradas inventadas para esta demostración, no hechos posteriores observados. No acreditan que el servicio se haya prestado.'),
- tbl(['Acción y cambio','Evidencia recibida y decisión'],[[r[0]+': '+r[1],r[2]+' '+r[3]] for r in case.followup],[.48,.52]),
+ tbl(['Acción y cambio','Evidencia recibida y decisión'],[[r[0]+': '+r[1],r[2]+' '+r[3]+' Rol responsable: '+next(a['owner'].split(',')[0] for a in case.actions if a['id']==r[0])+'. Fecha objetivo ficticia: 05/02/2027. Estado: abierto; pendiente de evidencia de cierre.'] for r in case.followup],[.48,.52]),
  p('La entrega trimestral distingue cambios, evidencias suficientes, pendientes y la siguiente decisión. Incluye preparar y analizar estos documentos, actualizar la matriz y la reunión de hasta 45 minutos. No equivale a soporte entre revisiones ni a una prueba técnica. La fecha de cierre sólo se cumplimenta al aceptar su evidencia.')])
 b=[p('Fuentes del ejercicio en orden de identificación. Las fechas distinguen el documento, el cambio y la revisión: una copia reciente de un archivo antiguo no cambia su contenido.')]
 for e in case.evidence:
@@ -84,7 +85,7 @@ def block_html(b):
 
 head='''<!doctype html><html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Informe completo de ejemplo OT Check | MKDL</title><meta name="description" content="Caso ficticio completo: decisión para gerencia, proceso, activos, comprobaciones, encargos a proveedores y evidencias legibles."/><meta name="theme-color" content="#ecebea"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; connect-src 'self'; base-uri 'self'; form-action 'none';"/><link rel="canonical" href="https://mkdl.jp/muestra-ot-check.html"/><link rel="icon" href="assets/mkdl-icon.svg" type="image/svg+xml"/><link rel="stylesheet" href="assets/site.css"/><link rel="stylesheet" href="assets/sample.css"/></head><body><a class="skip-link" href="#contenido">Saltar al contenido</a>'''
 header='''<header class="site-header"><a class="brand" href="index.html" aria-label="MKDL, inicio"><img src="assets/mkdl-logo.svg" alt="Mysthrala Kurogane Defense Labs" width="970" height="214"/></a><nav aria-label="Navegación principal"><a href="index.html#servicio">OT Check</a><a class="nav-contact" href="index.html#contacto">Contacto</a></nav></header>'''
-footer='''<footer><div class="footer-brand"><img src="assets/mkdl-logo.svg" alt="" width="970" height="214"/></div><nav class="footer-links" aria-label="Información legal"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a><a href="accesibilidad.html">Accesibilidad</a></nav><p class="copyright">© 2026 Mysthrala Kurogane Defense Labs</p></footer></body></html>'''
+footer='''<footer><div class="footer-brand"><img src="assets/mkdl-logo.svg" alt="" width="970" height="214"/></div><nav class="footer-links" aria-label="Información legal"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a><a href="accesibilidad.html">Accesibilidad</a><a href="security-policy.html">Seguridad</a></nav><p class="copyright">© 2026 Mysthrala Kurogane Defense Labs</p></footer></body></html>'''
 main='<main id="contenido" tabindex="-1" class="sample-report"><h1>'+esc(case.TITLE)+'</h1><p>'+esc(case.VERSION)+'</p><p class="sample-notice">'+esc(case.NOTICE)+'</p><p class="sample-downloads"><a href="assets/MKDL_Ejemplo_Informe_Gerencia.pdf" download>Descargar el informe completo en PDF</a><a href="assets/MKDL_Muestra_Sintetica.zip" download>Descargar la entrega para leer sin conexión</a></p>'
 for s in sections:main+='<section aria-labelledby="'+s['id']+'"><h2 id="'+s['id']+'">'+esc(s['title'])+'</h2>'+''.join(block_html(b) for b in s['blocks'])+'</section>'
 csv_labels={'MKDL_Matriz_Sintetica.csv':'Plan de actuaciones','MKDL_Inventario_Sintetico.csv':'Inventario y dependencias','MKDL_Comprobaciones_Sinteticas.csv':'Comprobaciones y límites','MKDL_Evidencias_Sinteticas.csv':'Registro de evidencias','MKDL_Encargos_Proveedor.csv':'Encargos a proveedores','MKDL_Catalogo_Recuperacion.csv':'Catálogo de recuperación','MKDL_Revision_Trimestral.csv':'Ejemplo de revisión trimestral'}
@@ -103,18 +104,21 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.utils import ImageReader
 from reportlab.platypus import SimpleDocTemplate,Paragraph,PageBreak,KeepTogether,LongTable,TableStyle,Spacer
 rl_config.invariant=True
+# Fixed authoring timestamp for reproducibility, distinct from fictional evidence dates.
+import os
+os.environ['SOURCE_DATE_EPOCH']='1792969200'
 styles={
  'title':ParagraphStyle('title',fontName='Helvetica-Bold',fontSize=23,leading=27,spaceAfter=14),
  'h2':ParagraphStyle('h2',fontName='Helvetica-Bold',fontSize=17,leading=21,spaceBefore=8,spaceAfter=12,keepWithNext=True,textColor=colors.HexColor('#3d3049')),
  'h3':ParagraphStyle('h3',fontName='Helvetica-Bold',fontSize=11.7,leading=15,spaceBefore=9,spaceAfter=5,keepWithNext=True),
  'body':ParagraphStyle('body',fontName='Helvetica',fontSize=10,leading=13.3,spaceAfter=7),
- 'field':ParagraphStyle('field',fontName='Helvetica',fontSize=9.6,leading=12.6,spaceAfter=4),
+ 'field':ParagraphStyle('field',fontName='Helvetica',fontSize=9.6,leading=12.3,spaceAfter=4),
  'small':ParagraphStyle('small',fontName='Helvetica',fontSize=9,leading=12.4,spaceAfter=8,textColor=colors.HexColor('#60636a')),
  'cell':ParagraphStyle('cell',fontName='Helvetica',fontSize=9.1,leading=12)}
 def para(text,style='body'):return Paragraph(text,styles[style])
 story=[para(esc(case.VERSION),'small'),para(esc(case.TITLE),'title'),para(esc(case.NOTICE),'small')]
 for i,s in enumerate(sections):
- if s['id'] in ['compromiso','perimetro','evidencias']:story.append(PageBreak())
+ if s['id'] in ['compromiso','perimetro','seguimiento','evidencias']:story.append(PageBreak())
  story.append(para('<a name="'+s['id']+'"/>'+esc(s['title']),'h2'))
  last_record_parts=None
  for b in s['blocks']:
@@ -147,21 +151,40 @@ for i,s in enumerate(sections):
 def frame(canvas,doc):
  canvas.saveState();canvas.drawImage(ImageReader(str(ASSETS/'mkdl-logo-print.png')),44,A4[1]-54,width=140,height=140*214/970,mask='auto')
  canvas.setStrokeColor(colors.HexColor('#c9c7c4'));canvas.line(44,A4[1]-65,A4[0]-44,A4[1]-65)
- canvas.setFont('Helvetica',8);canvas.setFillColor(colors.HexColor('#60636a'));canvas.drawString(44,27,'MKDL | Ejemplo ficticio | 25/10/2026');canvas.drawRightString(A4[0]-44,27,'Página '+str(doc.page));canvas.restoreState()
+ canvas.setFont('Helvetica',8);canvas.setFillColor(colors.HexColor('#60636a'));canvas.drawString(44,27,'MKDL | Ejemplo ficticio | 26/10/2026');canvas.drawRightString(A4[0]-44,27,'Página '+str(doc.page));canvas.restoreState()
 SimpleDocTemplate(str(ASSETS/'MKDL_Ejemplo_Informe_Gerencia.pdf'),pagesize=A4,leftMargin=44,rightMargin=44,topMargin=82,bottomMargin=48,title='OT Check: caso ficticio completo, proceso y encargos',author='MKDL').build(story,onFirstPage=frame,onLaterPages=frame)
 
-# Separate supplier briefs contain only their work request, never the full findings.
+# Supplier-facing requests stand alone; internal action tasks stay in the client matrix.
+supplier_fields={
+ 'A01': [
+  ('Destinatarios y reparto','Solicitud coordinada a varios especialistas, no a un único proveedor: fabricante o mantenedor CNC para AS01; proveedor CAM para los objetos CAM de AS03; proveedor informático para AS02, almacenamiento AS04, soporte AS05 y autenticación de AS03; proveedor de red para AS06. Cada uno cotiza sólo los objetos de su competencia y declara interfaces o subcontratación. Mantenimiento del cliente coordina el conjunto.'),
+  ('Trabajo solicitado','Validar aplicabilidad del catálogo adjunto por objeto. Identificar lo ya conservado, resolver con mantenimiento e ingeniería la revisión válida de los parámetros CNC y presupuestar por separado la exportación o reconstrucción de lo que falte. Para cada objeto indicar paquete, versión, compatibilidad, procedimiento, custodia y evidencia de conservación; mantener abierto lo no resuelto.'),
+  ('Punto de partida disponible','Se dispone de transcripciones ficticias de un programa P-204 revisión C y su copia coincidente. La copia de parámetros CNC es revisión 1, anterior al cambio CAM-021 a revisión 2; otros dos extractos del mismo objeto llevan etiqueta revisión 2 pero distinto contenido. No seleccionar por nombre ni fecha. No se han aportado paquete CNC completo, imagen de puestos, proyecto CAM, licencias, configuración de red o procedimiento de reposición. El cliente facilitará las fuentes autorizadas por canal acordado, no credenciales.'),
+  ('Resultado solicitado','Presupuesto desglosado por proveedor y objeto, separando validación, localización y generación de material. Adjuntar tabla de cobertura con estado, evidencia, pendientes y responsable de cada interfaz. Una copia documental no acredita restauración.'),
+ ],
+ 'A02': [
+  ('Destinatario','Proveedor informático y mantenedor del proceso M-01, con coordinación de mantenimiento del cliente.'),
+  ('Trabajo solicitado','Confirmar esta semana con informática si la habilitación recibida corresponde a una ventana autorizada. Si no, proponer aplicación inmediata del procedimiento vigente por ticket y ventana, con mantenedor y alternativa de soporte acordados. Conciliar técnico, identidad VPN, puesto de salto, acceso a ingeniería y cuenta local; documentar autorización, ventana y registro de cierre. Separar este paso inmediato del resto de cambios presupuestados.'),
+  ('Punto de partida disponible','El procedimiento PR-SOP-02 exige aprobación de mantenimiento, identidad nominativa, ventana y registro de cierre. Una exportación ficticia muestra identidad genérica habilitada sin caducidad; no se aportan registros que vinculen esa identidad con VPN ni demuestren exposición, sesiones o MFA. El cliente facilitará procedimiento y extractos autorizados sin credenciales. Se requiere aclarar la discrepancia, no presumir una intrusión.'),
+  ('Resultado solicitado','Propuesta de configuración y procedimiento compatibles con el fabricante, o excepción motivada para aprobación. Identificar permisos, ventana, alternativa de soporte y evidencias de habilitación y cierre. La eficacia sólo podrá revisarse con registros posteriores autorizados.'),
+ ],
+ 'A04': [
+  ('Destinatario','Mantenedor o fabricante para diseño de prueba de CNC, con proveedor informático para puestos, copias y red; producción coordina y calidad fija liberación.'),
+  ('Trabajo solicitado','Presupuestar primero la definición de una prueba de recuperación aislada o en entorno aprobado por fabricante. Identificar servicio a recuperar, paquete de partida, licencias, recursos, entorno, pasos, autorizaciones, criterios de éxito y parada, conservación de evidencias y vuelta al estado anterior. Cotizar ejecución como fase separada, sin autorización implícita.'),
+  ('Punto de partida y pendientes','Célula de seis activos: CNC, operación, ingeniería CAM, almacén de copias, acceso de soporte y conmutador. Producción propone recuperar preparación del siguiente trabajo en ocho horas y tolerar un cambio de turno; son objetivos por aprobar, no tiempos probados. Catálogo y paquetes aún deben validarse con sus proveedores. Calidad exige revisión aprobada y primera pieza antes de liberar producción.'),
+  ('Resultado solicitado','Especificación y presupuesto por fases con alcance, dependencias y exclusiones. Un acta posterior deberá registrar entorno, pasos, resultados, incidencias y tiempos medidos frente a criterios aprobados y validación técnica y de producción. Un ensayo fallido no acredita recuperación; aceptar la especificación no acredita haber ejecutado la prueba.'),
+ ]
+}
 for a in case.actions:
  if a['id'] not in brief_names:continue
- supplied={'A01':'Catálogo adjunto en este pliego. El cliente facilitará por canal acordado las copias, el registro de cambios y los manuales disponibles; el proveedor identificará lo adicional que necesite antes de cerrar su presupuesto.', 'A02':'El cliente facilitará procedimiento, exportación autorizada y requisitos de soporte. Se solicita conciliar recorrido VPN, puesto de salto, ingeniería y cuenta local sin difundir credenciales ni realizar pruebas de conexión.', 'A04':'El cliente facilitará el catálogo por activo y los paquetes validados. Producción propone ocho horas para recuperar preparación del siguiente trabajo, pendiente de aprobación. Cotizar primero la definición de objetivo, entorno seguro y criterios; ejecución del ensayo por encargo separado.'}
- fields=[('Responsable de coordinar la petición',a['owner']),('Trabajo solicitado',a['task']),('Información que se facilita y falta confirmar',supplied[a['id']]),('Condiciones antes de intervenir',a['change_safety']),('Resultado y aceptación',a['acceptance']),('Evidencia que se pide entregar',a['proof']),('Estado y siguiente paso',a['status']+' El proveedor debe proponer alcance, coste, plazo y exclusiones. Este documento solicita presupuesto y no autoriza una intervención.')]
- if a.get('technical_success'):fields.append(('Separación del ensayo',a['technical_success']))
+ fields=[('Contacto del cliente','[Persona de contacto designada por el cliente]'),*supplier_fields[a['id']],('Condiciones antes de intervenir',a['change_safety']),('Siguiente paso','Proponer alcance, coste, plazo, interfaces, autorizaciones y exclusiones. Este documento solicita presupuesto y no autoriza una intervención. La persona de contacto debe confirmar alcance y destinatarios antes de utilizarlo.')]
  parts=[para('Petición de presupuesto | '+a['id'],'small'),para(esc(a['title']),'h2'),para('Ejercicio ficticio: proceso M-01. Sin cliente, instalación ni autorización reales.','small')]
  parts.extend(para('<b>'+esc(k)+'.</b> '+esc(v),'field') for k,v in fields)
  if a['id']=='A01':
-  parts.extend([PageBreak(),para('Catálogo que se pide validar y presupuestar','h2'),para('Cada fila es una propuesta de cobertura del ejercicio. Confirmar aplicabilidad, compatibilidad, revisiones, custodia y qué debe conservarse después de cambios. No se presupone que todos los controles CNC tengan los mismos objetos.','small')])
-  for r in case.recovery:parts.extend([para('<b>'+r[0]+'.</b> '+esc(r[1]),'field'),para('Área que coordina: '+esc(r[3])+'.','small')])
-  parts.append(para('Separar en el presupuesto validación del catálogo, localización de material existente y extracción o generación de lo que falte. Identificar autorizaciones, ventana y coste de cada fase; una copia documental no acredita restauración.'))
+  parts.extend([PageBreak(),para('Cobertura y reparto por proveedor','h2'),para('Resumen de seis activos. El catálogo editable adjunto tiene una fila por objeto y permite cerrar cada uno con evidencia. Se adjunta MKDL_Catalogo_Recuperacion.csv. Ninguna fila autoriza extraer, cargar o modificar equipos.','small')])
+  for r in case.recovery:
+   providers=', '.join(dict.fromkeys(x['supplier'] for x in case.recovery_objects if x['asset']==r[0]))
+   parts.extend([para('<b>'+r[0]+'.</b> '+esc(r[1]),'field'),para('Disponible y pendiente: '+esc(r[2])+' Proveedor a consultar: '+esc(providers)+'. Área del cliente: '+esc(r[3])+'.','small')])
  SimpleDocTemplate(str(ASSETS/brief_names[a['id']]),pagesize=A4,leftMargin=44,rightMargin=44,topMargin=82,bottomMargin=48,title='OT Check: pliego '+a['id'],author='MKDL').build(parts,onFirstPage=frame,onLaterPages=frame)
 
 from pypdf import PdfReader,PdfWriter
@@ -170,7 +193,7 @@ assert 'Recursos y condiciones de la decisión' in reader.pages[1].extract_text(
 assert 'Proceso, dependencias y alcance' in reader.pages[2].extract_text()
 summary=PdfWriter()
 for page in reader.pages[:2]:summary.add_page(page)
-summary.add_metadata({'/Title':'OT Check: decisión y recursos, ejemplo ficticio','/Author':'MKDL'})
+summary.add_metadata({'/Title':'OT Check: decisión y recursos, ejemplo ficticio','/Author':'MKDL','/CreationDate':'D:20261025230000Z','/ModDate':'D:20261025230000Z'})
 with (ASSETS/'MKDL_Decisiones_y_Plan.pdf').open('wb') as f:summary.write(f)
 import pypdfium2
 preview=pypdfium2.PdfDocument(str(ASSETS/'MKDL_Decisiones_y_Plan.pdf'))
@@ -180,16 +203,16 @@ def write_csv(name,headers,rows):
  b=StringIO(newline='');w=csv.writer(b,delimiter=';',lineterminator='\n');w.writerow(headers);w.writerows(rows);(ASSETS/name).write_text(b.getvalue(),encoding='utf-8-sig',newline='')
 write_csv('MKDL_Matriz_Sintetica.csv',['Escenario','Orden','ID','Actuación','Prioridad','Motivo','Responsable de cierre propuesto','Participantes','Plazo o condición','Recursos estimados','Trabajo','Entradas','Dependencias','Condiciones previas','Aceptación','Evidencia de cierre','Cierre posterior de recuperación','Estado','Fuentes','Comprobaciones','Persona asignada','Fecha objetivo acordada','Fecha de cierre','Evidencia recibida','Próxima revisión'],[['FICTICIO',a['rank'],a['id'],a['title'],a['priority'],a['reason'],a['owner'],a['participants'],a['due'],a['resources'],a['task'],a['inputs'],a['dependency'],a['change_safety'],a['acceptance'],a['proof'],a.get('technical_success',''),a['status'],' '.join(a['sources']),' '.join(a['checks']),a['assigned_person'],a['target_date'],a['close_date'],a['received_evidence'],a['next_review']] for a in case.actions])
 write_csv('MKDL_Inventario_Sintetico.csv',['ID','Activo','Función','Dependencias','Responsable del escenario','Límite'],case.assets)
-write_csv('MKDL_Catalogo_Recuperacion.csv',['Activo','Objetos a conservar y validar','Estado de cobertura','Responsable propuesto','Siguiente comprobación','Fuentes'],case.recovery)
-write_csv('MKDL_Revision_Trimestral.csv',['Acción','Cambio del escenario','Evidencia recibida','Siguiente decisión'],case.followup)
+write_csv('MKDL_Catalogo_Recuperacion.csv',['Escenario','ID objeto','Activo','Objeto','Aplicabilidad','Ubicación','Custodia propuesta','Estado de cobertura','Fuentes','Siguiente comprobación','Proveedor a consultar','Estado de cierre','Evidencia de cierre','Fecha de cierre'],[['FICTICIO']+[r[k] for k in ['id','asset','object','applicability','location','custodian','state','evidence','next','supplier','close_state','close_evidence','close_date']] for r in case.recovery_objects])
+write_csv('MKDL_Revision_Trimestral.csv',['Escenario','Acción','Cambio del escenario','Evidencia recibida','Siguiente decisión','Rol responsable propuesto','Persona asignada','Fecha objetivo ficticia','Estado','Fecha de cierre'],[['FICTICIO',*r,next(a['owner'].split(',')[0] for a in case.actions if a['id']==r[0]),'Pendiente de designación','05/02/2027','Abierto: pendiente de evidencia de cierre',''] for r in case.followup])
 write_csv('MKDL_Comprobaciones_Sinteticas.csv',['ID','Comprobación','Estado','Método','Resultado','Límite','Fuentes'],[[c[k] for k in ['id','title','state','method','result','limit']]+[' '.join(c['sources'])] for c in case.checks])
 write_csv('MKDL_Evidencias_Sinteticas.csv',['ID','Título','Procedencia','Fecha','Participante ficticio','Tipo','Contenido','Qué respalda','Límite'],[[e[k] for k in ['id','title','source','date','author','kind']]+[' | '.join(k+': '+v for k,v in e['fields']),e['supports'],e['limit']] for e in case.evidence])
-write_csv('MKDL_Encargos_Proveedor.csv',['ID','Encargo','Entradas','Trabajo solicitado','Autorizaciones y seguridad','Dependencias','Criterio de aceptación','Evidencia de cierre','Cierre posterior de recuperación','Estado'],[[a['id'],a['title'],a['inputs'],a['task'],a['change_safety'],a['dependency'],a['acceptance'],a['proof'],a.get('technical_success',''),a['status']] for a in case.actions if a['id'] in ['A01','A02','A04']])
+write_csv('MKDL_Encargos_Proveedor.csv',['Escenario','ID','Encargo','Destinatario o reparto','Trabajo solicitado','Punto de partida','Resultado solicitado','Autorizaciones y seguridad','Estado'],[['FICTICIO',a['id'],a['title'],supplier_fields[a['id']][0][1],supplier_fields[a['id']][1][1],supplier_fields[a['id']][2][1],supplier_fields[a['id']][3][1],a['change_safety'],'Solicitud de presupuesto; no autoriza intervención'] for a in case.actions if a['id'] in ['A01','A02','A04']])
 offline_header=re.sub(r'<nav.*?</nav>','',header.replace('href="index.html"','href="#contenido"'),flags=re.S)
 offline=head+offline_header+re.sub(r'<p class="sample-downloads">.*?</p>','',main,flags=re.S)+'<footer><p>MKDL | Ejemplo ficticio. Informe y evidencias incluidos.</p></footer></body></html>'
 with zipfile.ZipFile(ASSETS/'MKDL_Muestra_Sintetica.zip','w') as z:
  def add_file(name,data):
-  info=zipfile.ZipInfo(name,date_time=(2026,10,25,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16;z.writestr(info,data)
+  info=zipfile.ZipInfo(name,date_time=(2026,10,26,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16;z.writestr(info,data)
  add_file('muestra-ot-check.html',offline)
  add_file('LEEME.txt','MKDL OT Check: ejemplo ficticio\n\nAbre muestra-ot-check.html o assets/MKDL_Ejemplo_Informe_Gerencia.pdf. Incluyen decisiones, proceso, catálogo por activo, plan, seguimiento y quince fichas legibles. Las dos primeras páginas del PDF resumen la decisión y los recursos. No necesitan Internet.\n\nConserva assets junto al HTML. Las tablas CSV se importan con punto y coma y UTF-8. Los pliegos técnicos separados permiten pedir presupuesto sin remitir el informe interno.\n\nCaso inventado. No se ha realizado una visita, cambio, seguimiento o restauración real.\n')
  for name in ['site.css','sample.css','mkdl-logo.svg','mkdl-icon.svg','MKDL_Ejemplo_Informe_Gerencia.pdf','MKDL_Decisiones_y_Plan.pdf',*brief_names.values(),*csv_labels]:add_file('assets/'+name,(ASSETS/name).read_bytes())
