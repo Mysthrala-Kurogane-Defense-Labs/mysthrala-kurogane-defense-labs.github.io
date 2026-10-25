@@ -13,8 +13,20 @@
 .sample-report dt { font-weight: 600; }
 .sample-report dd { margin: 0; min-width: 0; }
 .sample-source { font-size: .92rem; }
+.sample-table { overflow-x: auto; margin: 1.5rem 0; }
+.sample-table:focus-visible { outline: 3px solid var(--copper); outline-offset: 4px; }
+.sample-table table { width: 100%; min-width: 38rem; border-collapse: collapse; }
+.sample-table th, .sample-table td { text-align: left; vertical-align: top; padding: .8rem; border-bottom: 1px solid var(--line); }
+.sample-table th { background: var(--raised); }
+.sample-table .cell-label { display: none; }
 :target { scroll-margin-top: 1.5rem; }
 @media (max-width: 650px) {
+  .sample-table table { min-width: 0; }
+  .sample-table table, .sample-table tbody, .sample-table tr, .sample-table td { display: block; }
+  .sample-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .sample-table tbody tr { border-top: 1px solid var(--line); padding: .75rem 0; }
+  .sample-table td { border: 0; padding: .45rem 0; }
+  .sample-table .cell-label { display: block; font-weight: 600; margin-bottom: .25rem; }
   .sample-report dl { display: block; }
   .sample-report dd { margin: .3rem 0 1rem; }
   .site-header { flex-wrap: wrap; padding: 1.5rem 0; gap: 1rem; }
@@ -25,6 +37,8 @@
   .sample-report h1 { font-size: 23pt; }
   .sample-report h2 { font-size: 17pt; }
   .sample-report h3 { font-size: 12pt; }
+  .sample-table { overflow: visible; }
+  .sample-table table { min-width: 0; }
   .sample-report dl { display: block; }
   .sample-report dd { margin: .2rem 0 .8rem; }
   .sample-evidence { break-inside: avoid; }
