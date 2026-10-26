@@ -119,7 +119,7 @@ nav a:not(.nav-contact):hover {
 }
 .hero-lead {
   max-width: 43rem;
-  color: var(--muted);
+  color: var(--ink);
   font-size: clamp(1.08rem, 1.6vw, 1.35rem);
 }
 .hero-actions {
@@ -389,11 +389,8 @@ nav a:not(.nav-contact):hover {
 .fit-copy {
   align-self: end;
   max-width: 37rem;
-  color: var(--muted);
-  font-size: 1.12rem;
-}
-.fit-copy p:last-child {
   color: var(--ink);
+  font-size: 1.12rem;
 }
 .contact {
   background: var(--copper);

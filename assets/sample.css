@@ -5,7 +5,7 @@
 .sample-report h3 { font-size: 1.25rem; line-height: 1.3; margin-bottom: 1rem; }
 .sample-report p { max-width: 74ch; }
 .sample-report > section { margin-top: 3.5rem; }
-.sample-notice { padding-left: 1rem; border-left: 3px solid var(--violet); color: var(--muted); }
+.sample-notice { padding-left: 1rem; border-left: 3px solid var(--violet); color: var(--ink); }
 .sample-downloads { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 2rem 0; }
 .sample-report a { text-underline-offset: .2em; }
 .sample-action, .sample-evidence { border-top: 1px solid var(--line); padding: 1.5rem 0; }

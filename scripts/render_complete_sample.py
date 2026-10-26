@@ -83,7 +83,7 @@ def block_html(b):
  if t=='table':return '<div class="sample-table" role="region" tabindex="0" aria-label="Tabla: '+esc(b['headers'][0],quote=True)+'"><table role="table"><thead role="rowgroup"><tr role="row">'+''.join('<th scope="col" role="columnheader">'+esc(v)+'</th>' for v in b['headers'])+'</tr></thead><tbody role="rowgroup">'+''.join('<tr role="row">'+''.join('<td role="cell"><span class="cell-label" aria-hidden="true">'+esc(label)+'</span>'+esc(v)+'</td>' for label,v in zip(b['headers'],row))+'</tr>' for row in b['rows'])+'</tbody></table></div>'
  raise ValueError(t)
 
-head='''<!doctype html><html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Informe completo de ejemplo OT Check | MKDL</title><meta name="description" content="Caso ficticio completo: decisión para gerencia, proceso, activos, comprobaciones, encargos a proveedores y evidencias legibles."/><meta name="theme-color" content="#ecebea"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; connect-src 'self'; base-uri 'self'; form-action 'none';"/><link rel="canonical" href="https://mkdl.jp/muestra-ot-check.html"/><link rel="icon" href="assets/mkdl-icon.svg" type="image/svg+xml"/><link rel="stylesheet" href="assets/site.css"/><link rel="stylesheet" href="assets/sample.css"/></head><body><a class="skip-link" href="#contenido">Saltar al contenido</a>'''
+head='''<!doctype html><html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Informe completo de ejemplo OT Check | MKDL</title><meta name="description" content="Caso ficticio completo: decisión para gerencia, proceso, activos, comprobaciones, encargos a proveedores y evidencias legibles."/><meta name="theme-color" content="#ecebea"/><meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; connect-src 'self'; base-uri 'self'; form-action 'none';"/><link rel="canonical" href="https://mkdl.jp/muestra-ot-check.html"/><link rel="icon" href="assets/mkdl-icon.svg" type="image/svg+xml"/><link rel="stylesheet" href="assets/site.css?v=20261026-lectura"/><link rel="stylesheet" href="assets/sample.css?v=20261026-lectura"/></head><body><a class="skip-link" href="#contenido">Saltar al contenido</a>'''
 header='''<header class="site-header"><a class="brand" href="index.html" aria-label="MKDL, inicio"><img src="assets/mkdl-logo.svg" alt="Mysthrala Kurogane Defense Labs" width="970" height="214"/></a><nav aria-label="Navegación principal"><a href="index.html#servicio">OT Check</a><a class="nav-contact" href="index.html#contacto">Contacto</a></nav></header>'''
 footer='''<footer><div class="footer-brand"><img src="assets/mkdl-logo.svg" alt="" width="970" height="214"/></div><nav class="footer-links" aria-label="Información legal"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a><a href="accesibilidad.html">Accesibilidad</a><a href="security-policy.html">Seguridad</a></nav><p class="copyright">© 2026 Mysthrala Kurogane Defense Labs</p></footer></body></html>'''
 main='<main id="contenido" tabindex="-1" class="sample-report"><h1>'+esc(case.TITLE)+'</h1><p>'+esc(case.VERSION)+'</p><p class="sample-notice">'+esc(case.NOTICE)+'</p><p class="sample-downloads"><a href="assets/MKDL_Ejemplo_Informe_Gerencia.pdf" download>Descargar el informe completo en PDF</a><a href="assets/MKDL_Muestra_Sintetica.zip" download>Descargar la entrega para leer sin conexión</a></p>'
@@ -199,8 +199,15 @@ for page in reader.pages[:2]:summary.add_page(page)
 summary.add_metadata({'/Title':'OT Check: decisión y recursos, ejemplo ficticio','/Author':'MKDL','/CreationDate':'D:20261025230000Z','/ModDate':'D:20261025230000Z'})
 with (ASSETS/'MKDL_Decisiones_y_Plan.pdf').open('wb') as f:summary.write(f)
 import pypdfium2
+from PIL import Image
 preview=pypdfium2.PdfDocument(str(ASSETS/'MKDL_Decisiones_y_Plan.pdf'))
-preview[0].render(scale=1.8).to_pil().save(ASSETS/'muestra-decision.png')
+preview_image=preview[0].render(scale=1.8).to_pil().convert('RGB')
+preview_image.save(ASSETS/'muestra-decision.png')
+for width in [384,preview_image.width]:
+ image=preview_image if width==preview_image.width else preview_image.resize((width,round(preview_image.height*width/preview_image.width)),Image.Resampling.LANCZOS)
+ target=ASSETS/f'muestra-decision-{width}.webp'
+ image.save(target,format='WEBP',lossless=True,method=6)
+ with Image.open(target) as decoded:assert decoded.convert('RGB').tobytes()==image.tobytes()
 
 def write_csv(name,headers,rows):
  b=StringIO(newline='');w=csv.writer(b,delimiter=';',lineterminator='\n');w.writerow(headers);w.writerows(rows);(ASSETS/name).write_text(b.getvalue(),encoding='utf-8-sig',newline='')

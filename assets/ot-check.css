@@ -11,8 +11,7 @@
 #servicio .fit-copy p { break-inside: avoid; }
 @media (max-width: 780px) { #servicio .fit-copy { columns: 1; } }
 .about-band { background: var(--violet-deep); color: #fff; }
-.about-band .fit-copy,
-.about-band .fit-copy p:last-child { color: #fff; }
+.about-band .fit-copy { color: #fff; }
 .about-band a:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
 .fit > * { min-width: 0; overflow-wrap: anywhere; }
 .examples { background: var(--raised); }
