@@ -1,6 +1,14 @@
 /* Content additions use the existing brand variables from site.css. */
 .hero h1 { max-width: 16ch; }
-.hero.hero-direct { grid-template-columns: minmax(0, 1fr); min-height: auto; }
+.hero.hero-direct {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: auto;
+  width: 100%;
+  margin: 0;
+  padding-inline: max(var(--gutter), calc((100% - var(--max)) / 2));
+  background: var(--raised);
+  border-bottom: 1px solid var(--line);
+}
 .hero-direct .hero-copy { max-width: 58rem; }
 .hero-direct h1 { max-width: 18ch; }
 .contact h2 { overflow-wrap: anywhere; }
