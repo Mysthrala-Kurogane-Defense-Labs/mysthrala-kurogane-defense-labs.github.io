@@ -16,7 +16,8 @@ SOURCE = Path(__file__).resolve().parents[1]
 OUTPUT_NAMES = {"github": "_site", "cloudflare": "_site-cloudflare"}
 PUBLIC_FILES = (
     "index.html", "404.html", "aviso-legal.html", "privacidad.html",
-    "cookies.html", "accesibilidad.html", "CNAME", "robots.txt",
+    "cookies.html", "accesibilidad.html", "security-policy.html",
+    "muestra-ot-check.html", "favicon.ico", "CNAME", "robots.txt",
     "sitemap.xml", "llms.txt", "index.md", "security.txt", ".nojekyll",
 )
 PUBLIC_DIRECTORIES = ("assets", ".well-known")
@@ -100,7 +101,7 @@ def package(target):
     for name in PUBLIC_FILES:
         shutil.copy2(SOURCE / name, output / name)
     for name in PUBLIC_DIRECTORIES:
-        shutil.copytree(SOURCE / name, output / name)
+        shutil.copytree(SOURCE / name, output / name, ignore=shutil.ignore_patterns('muestra-ot-check-evidencias') if name == 'assets' else None)
     if target == "cloudflare":
         for name in CLOUDFLARE_FILES:
             shutil.copy2(SOURCE / "cloudflare" / name, output / name)

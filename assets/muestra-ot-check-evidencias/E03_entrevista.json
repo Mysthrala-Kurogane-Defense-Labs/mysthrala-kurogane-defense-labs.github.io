@@ -1,0 +1,11 @@
+{
+  "id": "E03",
+  "archivo": "E03_entrevista.json",
+  "tipo": "declaración sintética",
+  "fecha": "2026-10-25",
+  "contenido": {
+    "declaracion": "Mantenimiento recuerda una prueba anterior sin fecha ni registro aportado",
+    "limite": "no confirma resultado ni vigencia"
+  },
+  "archivo_origen": "E03_entrevista.txt"
+}

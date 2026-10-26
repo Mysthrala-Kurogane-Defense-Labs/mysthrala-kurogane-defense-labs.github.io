@@ -7,8 +7,10 @@ desktop.ini
 .vscode/
 .idea/
 node_modules/
+__pycache__/
 dist/
 *.log
 _site/
 _site-cloudflare/
 .wrangler/
+.playwright-cli/

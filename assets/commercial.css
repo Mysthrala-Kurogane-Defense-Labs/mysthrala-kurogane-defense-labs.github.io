@@ -1,0 +1,20 @@
+/* Reading pages share the original MKDL brand and navigation. */
+.legal-main {
+  width: min(calc(100% - 2 * var(--gutter)), 58rem);
+  margin: auto;
+  padding: clamp(3rem, 7vw, 6rem) 0;
+  overflow-wrap: anywhere;
+}
+.legal-main h1 { font-size: clamp(2.4rem, 6vw, 4.7rem); margin-bottom: 2rem; }
+.legal-main h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1rem; }
+.legal-main section { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.legal-main p, .legal-main li { line-height: 1.65; }
+.legal-main li + li { margin-top: .65rem; }
+.legal-main a { color: var(--violet-deep); text-underline-offset: .2em; }
+.legal-main .lead { color: var(--ink); font-size: 1.15rem; }
+@media (max-width: 980px) {
+  .site-header { flex-wrap: wrap; padding: 1.5rem 0; gap: 1rem; }
+  .site-header nav { flex-wrap: wrap; }
+  .site-header nav a:not(.nav-contact), .footer-links a { display: inline-flex; }
+}
+@media print { .site-header nav, .footer-links { display: none; } }

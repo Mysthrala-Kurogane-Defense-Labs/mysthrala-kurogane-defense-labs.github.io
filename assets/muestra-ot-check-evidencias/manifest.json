@@ -1,0 +1,45 @@
+{
+  "procedencia": "Ejercicio sintético facilitado para la revisión de 25 de octubre de 2026. No describe una empresa, visita o trabajo real.",
+  "evidencias": [
+    {
+      "id": "E01",
+      "archivo": "E01_proceso.json",
+      "sha256": "bc5af2acc0b97a4e1f7fef7d16ddfc3e18c90b668f4a5d8f344d4e402e7ff225",
+      "archivo_origen": "E01_proceso.json",
+      "sha256_origen": "a587ef6cc7dc3066c353b83c9d6d0a899bca45f8f713ccc3d67c78163d3c86bb",
+      "transformacion": "Contenido JSON conservado; extensión pública normalizada y campo archivo_origen añadido."
+    },
+    {
+      "id": "E02",
+      "archivo": "E02_calendario.json",
+      "sha256": "2739a0488b4d0b3509d22d1963bcbacaea30785909c7616d350c3c0b8cd23fbe",
+      "archivo_origen": "E02_calendario.csv",
+      "sha256_origen": "f87fa3d826070ece370bf1b0b229c1789f8c9e4a5b3e4022a7f696da5c40bee5",
+      "transformacion": "Contenido JSON conservado; extensión pública normalizada y campo archivo_origen añadido."
+    },
+    {
+      "id": "E03",
+      "archivo": "E03_entrevista.json",
+      "sha256": "6c9fb34f3d21862b1076645ee09fff7057c619d6332d749035e994bfe371a8f9",
+      "archivo_origen": "E03_entrevista.txt",
+      "sha256_origen": "a6be4a0c56dd501c1ebf34076b84e00e33fa6367afd80ab6a4246ac2db37ab81",
+      "transformacion": "Contenido JSON conservado; extensión pública normalizada y campo archivo_origen añadido."
+    },
+    {
+      "id": "E04",
+      "archivo": "E04_accesos.json",
+      "sha256": "c522a107af771a320424fd4cfb76f4d520ae7330c8798e638b9f7353872722eb",
+      "archivo_origen": "E04_accesos.csv",
+      "sha256_origen": "0598b0522e937a440626bc806a10d39cf27b521a3337b1e38cfbd5b417e4cabc",
+      "transformacion": "Contenido JSON conservado; extensión pública normalizada y campo archivo_origen añadido."
+    },
+    {
+      "id": "E05",
+      "archivo": "E05_peticion.json",
+      "sha256": "c41c41af49ee4922e8c78295546885ab350e6f297aa9f199a01fec1b74d7fa64",
+      "archivo_origen": "E05_peticion.txt",
+      "sha256_origen": "5c5b3e2100668ec48dfb6cb8674e1ee8b5357dd6732ac433297d4174130d5419",
+      "transformacion": "Contenido JSON conservado; extensión pública normalizada y campo archivo_origen añadido."
+    }
+  ]
+}

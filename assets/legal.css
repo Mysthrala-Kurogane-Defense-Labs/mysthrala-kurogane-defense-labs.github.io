@@ -98,6 +98,10 @@ footer {
 footer .footer-links a {
   color: #d7d4d8;
 }
+footer p,
+footer a {
+  color: #d7d4d8;
+}
 @media (max-width: 640px) {
   header .wrap {
     min-height: 5.5rem;
@@ -107,3 +111,6 @@ footer .footer-links a {
     padding-right: 1.25rem;
   }
 }
+
+.brand.brand-full { width: clamp(9.5rem, 19vw, 15rem); display: block; }
+.brand.brand-full img { width: 100%; height: auto; }

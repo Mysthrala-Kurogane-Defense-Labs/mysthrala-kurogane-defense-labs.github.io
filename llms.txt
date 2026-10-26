@@ -1,28 +1,27 @@
 # Mysthrala Kurogane Defense Labs
 
-> MKDL ayuda a pequeñas empresas industriales del Bajo Deba a estructurar su preparación de ciberseguridad OT mediante evidencia, documentación revisable y revisión técnica proporcionada.
+> OT Check revisa un proceso industrial delimitado para preparar prioridades, responsables propuestos y comprobaciones para encargar mejoras.
 
 ## Identidad y alcance
 
-MKDL es el nombre comercial de una actividad profesional ejercida como autónoma. Acepta solicitudes de servicios. Esta landing es informativa; no ofrece APIs públicas, herramientas de agentes ni acceso automatizado a Kurogane Hub. La información pública no concede acceso a datos de clientes ni sustituye una propuesta contractual.
+Proyecto profesional en preparación, con base operativa en Euskadi. Una profesional: Kalista. Consultoría, documentación y formación según propuesta, para organizaciones industriales de distintos tamaños y unidades de grupos. Sin precio firme, oferta de Hub, implementación, operación, incidentes, soporte permanente o integración por defecto.
 
 ## Sitio
 
-- [Presentación en Markdown](https://mkdl.jp/index.md): Identidad, servicios, método, límites y contacto en texto.
-- [Mapa del sitio](https://mkdl.jp/sitemap.xml): Páginas públicas canónicas.
-- [Inicio](https://mkdl.jp/): Presentación pública de MKDL, ámbito de trabajo y forma de contacto.
-- [Qué hacemos](https://mkdl.jp/#trabajo): Diagnóstico delimitado, orden técnico y documental, preparación de proveedor y seguimiento operativo.
-- [Cómo trabajamos](https://mkdl.jp/#metodo): Método de delimitación, comprobación, priorización y evidencia.
-- [Kurogane Hub](https://mkdl.jp/#hub): Proyecto tecnológico privado orientado a inventario, alertas y revisión humana. Disponibilidad y alcance por acordar; los ejemplos públicos no prueban una instalación en producción.
-
-## Información y contacto
-
+- [Presentación en Markdown](https://mkdl.jp/index.md)
+- [Inicio](https://mkdl.jp/)
+- [Servicio, entregas y método](https://mkdl.jp/#servicio)
+- [Tres situaciones simuladas](https://mkdl.jp/#ejemplo)
+- [Muestra sintética y fuentes](https://mkdl.jp/muestra-ot-check.html)
 - [Aviso legal](https://mkdl.jp/aviso-legal.html)
 - [Privacidad](https://mkdl.jp/privacidad.html)
 - [Cookies](https://mkdl.jp/cookies.html)
 - [Accesibilidad](https://mkdl.jp/accesibilidad.html)
-- Contacto general: info@mkdl.jp
-- Contacto de seguridad: security@mkdl.jp
+- [Seguridad](https://mkdl.jp/security-policy.html)
+- [Mapa del sitio](https://mkdl.jp/sitemap.xml)
+- Contacto: mysthrala@mkdl.jp
+
+Los ejemplos son sintéticos y no acreditan clientes, pilotos ni resultados. Las credenciales individuales se distinguen de las fuentes públicas sobre un programa formativo o el resultado de un equipo.
 
 ## Recursos públicos
 

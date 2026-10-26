@@ -1,0 +1,7 @@
+﻿ID;Activo;Función;Dependencias;Responsable del escenario;Límite
+AS01;CNC M-01;"Ejecuta el programa liberado; necesita programa y parámetros vigentes.";Parámetros, programa, mantenimiento del fabricante.;Mantenimiento;No se ha probado su reconstrucción ni su seguridad funcional.
+AS02;Puesto de operación;Selecciona y transfiere el programa autorizado para el trabajo.;"Referencia y revisión aprobadas; comunicación con CNC.";Producción y calidad;Dos registros del escenario no prueban todas las transferencias.
+AS03;Estación de ingeniería;Prepara y modifica programas y proyectos.;Proyecto editable, versiones y herramientas de ingeniería.;Ingeniería;"No hay exportación de proyecto en la muestra recibida; no se afirma que no exista en otra ubicación."
+AS04;Almacenamiento de copias;Conserva los ficheros presentados como copia del proceso.;Cobertura, revisión y disponibilidad para recuperación.;Informática;La coincidencia de un fichero no demuestra restauración del proceso.
+AS05;Acceso de soporte;Permite al mantenedor intervenir cuando la organización lo autoriza.;Identidad, aprobación, alcance, habilitación y registro.;Mantenimiento e informática;Una cuenta habilitada en una exportación no demuestra una sesión activa ni exposición externa.
+AS06;Conmutador de la célula;Interconecta los componentes descritos en el mapa funcional.;Configuración y conexiones mantenidas por el proveedor.;Informática y mantenedor;Topología física, reglas y segmentación no evaluadas.

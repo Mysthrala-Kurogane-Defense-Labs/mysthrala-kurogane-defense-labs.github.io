@@ -1,0 +1,19 @@
+{
+  "id": "E01",
+  "archivo": "E01_proceso.json",
+  "tipo": "documento sintético",
+  "fecha": "2026-10-25",
+  "contenido": {
+    "proceso": "preparación y ejecución en célula de mecanizado",
+    "activos": [
+      "CNC",
+      "puesto operación",
+      "estación ingeniería",
+      "almacenamiento copias",
+      "acceso remoto",
+      "conmutador"
+    ],
+    "limite": "un proceso y seis activos ficticios"
+  },
+  "archivo_origen": "E01_proceso.json"
+}
