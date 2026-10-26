@@ -1,6 +1,7 @@
 """Fictional OT Check delivery model. No real customer or system data."""
 from pathlib import Path
 import hashlib
+import re
 ROOT=Path(__file__).resolve().parents[1]
 def sha(text): return hashlib.sha256(text.encode('utf-8')).hexdigest()
 VERSION = 'Ejemplo de entrega | 26 de octubre de 2026'
@@ -14,7 +15,7 @@ PURPOSE = ('Se pide a gerencia aprobar los cuatro encargos siguientes y designar
  'cierre. La prioridad inmediata es preparar una respuesta respaldada al comprador y conservar la '
  'configuración necesaria antes del siguiente cambio.')
 
-SUMMARY = ('Hay control documental del programa liberado. La copia de configuración presentada queda por detrás del '
+SUMMARY = ('Hay control documental del programa liberado. La copia de Parámetros CNC M-01 presentada queda por detrás del '
  'cambio de mantenimiento y el alcance recuperable de varios componentes sigue incompleto. El procedimiento '
  'de soporte y el registro de cuentas no coinciden. Conviene completar cobertura y atribución antes de '
  'presupuestar una prueba de recuperación.')
@@ -220,7 +221,7 @@ evidence = [{'id': 'E01',
            'ficheros ni restauración.'},
  {'id': 'E08',
   'title': 'Registro de cambio de parámetros',
-  'source': 'Registro ficticio de mantenimiento CAM-021.',
+  'source': 'Registro ficticio de mantenimiento MNT-021.',
   'date': '21/10/2026',
   'author': 'Mantenimiento',
   'kind': 'Registro',
@@ -278,14 +279,14 @@ evidence = [{'id': 'E01',
   'author': 'Roles de mantenimiento, ingeniería e informática',
   'kind': 'Catálogo propuesto',
   'fields': [('CNC',
-              'El export presentado contiene ajustes de un subsistema; no identifica programa de PLC de '
+              'El extracto presentado contiene sólo parte de los Parámetros CNC M-01 de un subsistema; no identifica programa de PLC de '
               'máquina, orígenes/correctores, variables persistentes, compensaciones ni versión HMI. Hay que '
               'determinar con el mantenedor qué aplica y qué incluye el paquete del fabricante.'),
              ('Puestos',
               'No se presentan imagen del puesto, instaladores/versiones, proyecto CAM editable, '
               'postprocesador, biblioteca de herramientas ni condiciones para reactivar licencias.'),
              ('Infraestructura',
-              'El almacén contiene programas y un export antiguo; faltan política de acceso y ruta de '
+              'El almacén contiene programas y un extracto antiguo; faltan política de acceso y ruta de '
               'recuperación. No se aporta copia legible de configuración del conmutador ni del acceso de '
               'soporte.'),
              ('Criterio',
@@ -326,11 +327,11 @@ evidence = [{'id': 'E01',
   'fields': [('Etiqueta compartida',
               'Ambos ficheros se llaman ajustes_actuales.txt y llevan etiqueta revisión 2. Son extractos parciales del mismo objeto Parámetros CNC M-01 de E07; no son el paquete completo del CNC.'),
              ('Extracto del puesto',
-              'SIMULACION NO EJECUTABLE: referencia_fixture=12.50; nota_cambio=CAM-021.'),
+              'SIMULACION NO EJECUTABLE: dato_simulado_sin_unidad=12.50; nota_cambio=MNT-021.'),
              ('Extracto del almacén',
-              'SIMULACION NO EJECUTABLE: referencia_fixture=12.20; nota_cambio=sin cumplimentar.'),
+              'SIMULACION NO EJECUTABLE: dato_simulado_sin_unidad=12.20; nota_cambio=sin cumplimentar.'),
              ('Resolución',
-              'La etiqueta coincide pero el contenido difiere. CAM-021 identifica un cambio, no qué export '
+              'La etiqueta coincide pero el contenido difiere. MNT-021 identifica un cambio, no qué extracto '
               'es válido. Mantenimiento debe coordinar con ingeniería y el fabricante la relación entre exportación y paquete autorizado antes de '
               'seleccionar una copia.')],
   'supports': 'Conserva el desacuerdo en vez de declarar vigente un archivo por su nombre o fecha de copia.',
@@ -475,7 +476,7 @@ actions = [{'id': 'A03',
   'sources': ['E04', 'E10', 'E11', 'E13'],
   'checks': ['C04', 'C06'],
   'owner': 'Responsable de mantenimiento, propuesta para asignación',
-  'task': 'A02.0 Esta semana (26 a 30/10), confirmar con informática si la cuenta está habilitada fuera de una ventana autorizada. Si lo está, aplicar el procedimiento vigente: habilitar por ticket y ventana, de acuerdo con el mantenedor y con una alternativa de soporte acordada. No esperar a la próxima sesión. Después, recorrer documentalmente VPN, puesto de salto, ingeniería y cuenta local. Relacionar técnico, '
+  'task': 'A02.0 Esta semana (26 a 30/10), confirmar con informática si la cuenta está habilitada fuera de una ventana autorizada. Si lo está, aplicar el procedimiento vigente: habilitar por ticket y ventana, de acuerdo con el mantenedor y con una alternativa de soporte acordada. Pedir a informática los registros disponibles desde la última ventana autorizada: VPN, puesto de salto y cuenta local, para comprobar si hubo uso fuera de ventana sin presumir intrusión. Si aparece uso no autorizado, aplicar el procedimiento de incidentes de la empresa, fuera de OT Check. Es un paso propuesto al cliente, no iniciado, que no espera al presupuesto técnico ni a la próxima sesión. Después, recorrer documentalmente VPN, puesto de salto, ingeniería y cuenta local. Relacionar técnico, '
           'ticket, autorización, ventana y evidencia de cierre. Confirmar si el USB de visita requiere un '
           'procedimiento específico. Si hay limitación del fabricante, documentar excepción y control '
           'compensatorio para aprobación, sin cortar el soporte unilateralmente.',
@@ -527,7 +528,7 @@ actions = [{'id': 'A03',
                        'aprobados y tenga validación técnica y de producción. Un ensayo fallido no acredita '
                        'recuperación ni se cierra como satisfactorio.',
   'status': 'Borrador de especificación; objetivo, entorno, autorizaciones y presupuesto pendientes.',
-  'participants': 'Mantenedor diseña y presupuesta; informática cubre puestos/red; calidad define '
+  'participants': 'Fabricante o mantenedor CNC, proveedor CAM, proveedor informático y proveedor de red diseñan y presupuestan sólo su parte; producción coordina y calidad define '
                   'verificación y liberación.',
   'rank': '4',
   'due': 'Después de A01 y de aprobar objetivo, entorno y presupuesto',
@@ -553,7 +554,7 @@ responses = [('Copias y alcance',
  ('Acceso de proveedores',
   'Nuestro procedimiento establece la aprobación del responsable de mantenimiento, una ventana de '
   'intervención y un registro de cierre. La correspondencia entre ese procedimiento y la configuración '
-  'recibida está pendiente de conciliación. Estamos preparando su revisión con informática y el '
+  'actual de las cuentas de soporte está pendiente de conciliación. Estamos preparando su revisión con informática y el '
   'mantenedor; comunicaremos el hito cuando esté acordado. No presentamos esta revisión documental como '
   'prueba de aplicación efectiva.',
   ['E10', 'E11', 'E13'])]
@@ -566,7 +567,7 @@ uncertainties = [('U01',
   'Vínculo entre identidad remota, cuenta local y autorización',
   'Responsable de mantenimiento',
   'A02',
-  'Solicitar registros de una intervención autorizada; no inferir sesiones ni MFA.'),
+  'Pedir registros disponibles desde la última ventana autorizada de VPN, puesto de salto y cuenta local. Contrastar uso y ventanas sin inferir intrusión ni MFA; ante uso no autorizado, aplicar el procedimiento de incidentes de la empresa fuera de OT Check.'),
  ('U03',
   'Objetivo aprobado y entorno de ensayo',
   'Responsable de producción',
@@ -590,7 +591,7 @@ acceptance = ['Perímetro y participantes confirmados; cada discrepancia queda c
 recovery = [('AS01',
   'Paquete del fabricante: CNC/PLC/HMI y ajustes aplicables; programas, correctores/orígenes, variables y '
   'compensaciones que procedan.',
-  'Export de ajustes parcial y programa P-204; no hay paquete integral identificado.',
+  'Extracto parcial de Parámetros CNC M-01 parcial y programa P-204; no hay paquete integral identificado.',
   'Mantenimiento',
   'Validar aplicabilidad con fabricante; conservar revisiones y compatibilidad; A01.',
   'E07 E08 E12 E14'),
@@ -633,12 +634,12 @@ followup = [('A03',
   'S01: registro de aprobación de calidad y gerencia; no es envío real.',
   'Mantener seguimiento de la contestación; no cerrar homologación.'),
  ('A01',
-  'Catálogo validado; proyecto e instaladores localizados. Export de CNC pendiente de ventana autorizada.',
+  'Catálogo validado; proyecto e instaladores localizados. Extracto de CNC pendiente de ventana autorizada.',
   'S02: relación de objetos y paquetes; falta acta del mantenedor.',
   'Mantener abierto el paquete de CNC; aprobar o reprogramar ventana, no marcar recuperación.'),
  ('A02',
-  'Procedimiento actualizado; falta primer registro que enlace ticket y sesión.',
-  'S03: procedimiento revisado; no hay log de intervención.',
+  'A02.0 completada en la continuación ficticia: informática revisó los registros disponibles de VPN, puesto de salto y cuenta local desde la última ventana; no observó uso fuera de las ventanas en lo conservado. Los registros no cubren periodos anteriores. Procedimiento actualizado; falta primera intervención posterior que enlace ticket y sesión.',
+  'S03 ficticia: acta de revisión de habilitación y registros del 26 al 30/10/2026, con cobertura limitada al periodo conservado y acuerdo de soporte por ventana; procedimiento revisado. No es una prueba ni un incidente real. Falta registro de la primera intervención posterior.',
   'Revisar la primera intervención autorizada antes de declarar implantado el procedimiento.'),
  ('A04',
   'Sigue en borrador: entorno de ensayo y presupuesto sin aprobar.',
@@ -714,7 +715,7 @@ recovery_objects = [{'id': 'OR01',
   'applicability': 'Pendiente de confirmar con fabricante',
   'location': 'Ubicación y custodia operativas por confirmar',
   'custodian': 'Mantenimiento',
-  'state': 'No identificados en export parcial',
+  'state': 'No identificados en extracto parcial',
   'evidence': 'E12',
   'next': 'Determinar qué conserva el paquete del fabricante',
   'supplier': 'Fabricante o mantenedor CNC',
@@ -727,7 +728,7 @@ recovery_objects = [{'id': 'OR01',
   'applicability': 'Pendiente de confirmar con fabricante',
   'location': 'Ubicación y custodia operativas por confirmar',
   'custodian': 'Mantenimiento',
-  'state': 'No identificadas en export parcial',
+  'state': 'No identificadas en extracto parcial',
   'evidence': 'E12',
   'next': 'Validar aplicabilidad y exportación segura',
   'supplier': 'Fabricante o mantenedor CNC',
@@ -740,7 +741,7 @@ recovery_objects = [{'id': 'OR01',
   'applicability': 'Pendiente de confirmar con fabricante',
   'location': 'Ubicación y custodia operativas por confirmar',
   'custodian': 'Mantenimiento',
-  'state': 'No identificadas en export parcial',
+  'state': 'No identificadas en extracto parcial',
   'evidence': 'E12',
   'next': 'Validar aplicabilidad y método de conservación',
   'supplier': 'Fabricante o mantenedor CNC',
@@ -997,3 +998,40 @@ recovery_objects = [{'id': 'OR01',
 
 assert len({r["id"] for r in recovery_objects}) == len(recovery_objects)
 assert {r["asset"] for r in recovery_objects} == {r[0] for r in assets}
+
+
+# One assignment governs internal tracking and every supplier brief.
+supplier_roles = {
+ 'CNC': ('Fabricante o mantenedor CNC','CNC, paquete de máquina y método compatible'),
+ 'CAM': ('Proveedor CAM','entorno CAM, postprocesador, bibliotecas y reactivación de licencias'),
+ 'IT': ('Proveedor informático','puestos, copias, autenticación y configuración de VPN y puesto de salto'),
+ 'NET': ('Proveedor de red','configuración y conexiones del conmutador, si son necesarias'),
+}
+for r in recovery_objects:
+ if r['id']=='OR24':
+  r['supplier_keys']=['CNC','IT'];r['brief']='A02'
+  r['supplier']='Mantenedor CNC y proveedor informático (pliego A02)'
+ else:
+  r['supplier_keys']=[{'Fabricante o mantenedor CNC':'CNC','Proveedor CAM':'CAM','Proveedor informático':'IT','Proveedor de red':'NET'}[r['supplier']]]
+  r['brief']='A01'
+ r['package']='';r['revision']='';r['procedure']=''
+
+def supplier_repartition(brief):
+ selected=[r for r in recovery_objects if r['brief']==brief] if brief!='A04' else recovery_objects
+ parts=[]
+ for key,(label,scope) in supplier_roles.items():
+  objects=[r['id'] for r in selected if key in r['supplier_keys']]
+  if objects:
+   if brief=='A02':scope={'CNC':'identidad del técnico y compatibilidad del acceso a la máquina','IT':'identidades remotas, puesto de salto y correlación de registros'}[key]
+   parts.append(label+' para '+scope)
+ coordination='Producción coordina y calidad fija liberación.' if brief=='A04' else 'Mantenimiento del cliente coordina el conjunto.'
+ return '; '.join(parts)+'. Cada proveedor cotiza sólo su parte y declara interfaces y dependencias. '+coordination
+
+supplier_recovery=[]
+for source in recovery_objects:
+ r=source.copy()
+ r.pop('evidence')
+ r['location']='Muestras transcritas aportadas por el cliente; ubicación operativa por confirmar' if r['id'] in ['OR01','OR02'] else 'Ubicación y custodia operativas por confirmar'
+ r['next']=r['next'].replace('A02.0 inmediata','ver pliego A02')
+ supplier_recovery.append(r)
+assert all(not re.search(r'\bE\d\d\b|A0\d\.\d',str(r)) for r in supplier_recovery)
