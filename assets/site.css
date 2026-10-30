@@ -453,7 +453,7 @@ footer {
   .site-header {
     min-height: 6rem;
   }
-  nav a:not(.nav-contact) {
+  .site-header nav a:not(.nav-contact) {
     display: none;
   }
   .hero {
